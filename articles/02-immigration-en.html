@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portugal tech: not a brain drain, a hub that draws in — Miradouro</title>
+<meta name="description" content="1.54 million foreign residents. Record migration balance. The real question: how to work with a talent pool that has become genuinely international.">
+<meta name="author" content="Jonathan Dias">
+<link rel="canonical" href="https://miradouro.pt/articles/02-immigration-en.html">
+<meta property="og:type" content="article">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Portugal tech: not a brain drain, a hub that draws in","author":{"@type":"Person","name":"Jonathan Dias"},"publisher":{"@type":"Organization","name":"Miradouro"},"inLanguage":"en"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --pom:#C97A5E; --pom-deep:#A85C42; --pom-light:#EDB89A; --pom-ghost:#F7EDE4;
+  --verde:#243D2C; --verde-mid:#2E5038; --verde-light:#C8DAC8; --verde-ghost:#EDF3EE;
+  --ouro:#C4973A; --ouro-light:#F0DFA8;
+  --ferro:#18140E; --ferro-mid:#3A3028;
+  --creme:#FBF8F2; --areia:#EDE6DA; --rule:#D8CEBC;
+  --ink2:#6A5C50; --ink3:#9A8C80;
+  --display:'Fraunces',Georgia,serif;
+  --serif:'Cormorant Garant',Georgia,serif;
+  --sans:'Cabinet Grotesk',system-ui,sans-serif;
+}
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--creme); color:var(--ferro); -webkit-font-smoothing:antialiased; overflow-x:hidden; cursor:none; }
+a { color:inherit; text-decoration:none; }
+.cursor { position:fixed; width:10px; height:10px; background:var(--pom); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:multiply; }
+.cursor-ring { position:fixed; width:36px; height:36px; border:1px solid var(--pom); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .35s cubic-bezier(.17,.67,.35,1.2), height .35s, transform .08s linear, opacity .2s; opacity:.5; }
+body:has(a:hover) .cursor-ring { width:56px; height:56px; opacity:.3; }
+body:has(a:hover) .cursor { width:6px; height:6px; }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:500; background:var(--verde); height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(20px,4vw,56px); border-bottom:1px solid rgba(255,255,255,.08); }
+.nav-back { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:8px; transition:color .2s; }
+.nav-back:hover { color:#fff; }
+.nav-back::before { content:'←'; font-size:13px; }
+.nav-wordmark { font-family:var(--display); font-size:16px; font-weight:700; color:#fff; letter-spacing:.04em; text-transform:uppercase; }
+.nav-wordmark em { font-style:italic; font-weight:300; color:var(--pom-light); }
+.nav-meta { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ouro); }
+.lang-btn { font-family:var(--sans); font-size:9px; font-weight:800; letter-spacing:.08em; padding:5px 10px; cursor:pointer; background:transparent; border:none; color:rgba(255,255,255,.32); transition:all .2s; text-transform:uppercase; }
+.lang-btn.active { background:var(--pom); color:#fff; }
+
+/* PROGRESS BAR */
+.progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--pom); z-index:9000; width:0%; transition:width .1s linear; }
+
+/* HERO */
+.art-hero { background:var(--verde); padding:clamp(60px,8vh,100px) clamp(24px,5vw,72px) clamp(40px,5vh,64px); position:relative; overflow:hidden; }
+.art-hero::before { content:''; position:absolute; inset:-50%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); background-size:200px; opacity:.6; pointer-events:none; z-index:0; }
+.art-hero-pattern { position:absolute; inset:0; z-index:0; }
+.art-hero-inner { position:relative; z-index:1; max-width:760px; }
+.art-kicker { font-size:9px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--ouro); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.art-kicker::before { content:''; display:block; width:24px; height:1px; background:var(--ouro); }
+.art-h1 { font-family:var(--display); font-size:clamp(36px,6vw,72px); font-weight:700; color:var(--creme); line-height:1.02; letter-spacing:-.04em; margin-bottom:24px; }
+.art-h1 em { font-style:italic; font-weight:300; color:var(--pom-light); }
+.art-standfirst { font-family:var(--serif); font-size:clamp(17px,2.2vw,22px); font-style:italic; font-weight:300; color:rgba(255,255,255,.62); line-height:1.65; margin-bottom:32px; max-width:640px; }
+.art-byline { display:flex; align-items:center; gap:16px; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); flex-wrap:wrap; }
+.byline-dot { width:3px; height:3px; background:rgba(255,255,255,.2); border-radius:50%; }
+.byline-item { font-size:10px; color:rgba(255,255,255,.38); letter-spacing:.06em; }
+.byline-item.name { font-weight:700; color:rgba(255,255,255,.65); }
+
+/* ARTICLE BODY */
+.art-body { max-width:720px; margin:0 auto; padding:clamp(48px,6vw,80px) clamp(24px,5vw,40px); }
+.art-body h2 { font-family:var(--display); font-size:clamp(22px,3vw,34px); font-weight:700; color:var(--ferro); line-height:1.1; letter-spacing:-.03em; margin:52px 0 20px; padding-top:52px; border-top:1px solid var(--rule); }
+.art-body h2 em { font-style:italic; font-weight:300; color:var(--pom-deep); }
+.art-body p { font-family:var(--serif); font-size:clamp(16px,2vw,19px); font-weight:300; color:var(--ferro-mid); line-height:1.8; margin-bottom:24px; }
+.art-body p strong { font-weight:600; color:var(--ferro); font-style:normal; }
+
+/* KEY STATS ROW */
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin:40px 0; }
+.stat-box { background:var(--creme); padding:28px 24px; }
+.stat-val { font-family:var(--display); font-size:clamp(32px,4.5vw,48px); font-weight:800; color:var(--ferro); line-height:1; letter-spacing:-.04em; margin-bottom:8px; }
+.stat-val sup { font-size:.42em; vertical-align:super; }
+.stat-label { font-size:11px; color:var(--ink2); line-height:1.4; margin-bottom:4px; }
+.stat-source { font-size:9px; color:var(--ink3); font-style:italic; }
+
+/* CHART BLOCKS */
+.chart-block { margin:48px 0; background:var(--creme); border:1px solid var(--rule); }
+.chart-header { padding:20px 24px 0; border-bottom:1px solid var(--rule); margin-bottom:0; }
+.chart-title { font-family:var(--display); font-size:15px; font-weight:700; color:var(--ferro); letter-spacing:-.02em; margin-bottom:4px; }
+.chart-subtitle { font-size:10px; color:var(--ink3); letter-spacing:.04em; padding-bottom:16px; }
+.chart-wrap { padding:24px; position:relative; }
+.chart-wrap canvas { max-height:320px; }
+.chart-note { font-size:9px; color:var(--ink3); font-style:italic; line-height:1.5; padding:12px 24px 16px; border-top:1px solid var(--rule); }
+
+/* PULLQUOTE */
+.pullquote { font-family:var(--display); font-size:clamp(20px,3vw,28px); font-style:italic; font-weight:400; color:var(--ferro); line-height:1.4; padding:32px 28px; border-left:4px solid var(--pom); background:var(--areia); margin:40px 0; letter-spacing:-.02em; }
+.pullquote em { font-style:normal; font-weight:700; color:var(--pom-deep); }
+
+/* SOURCES */
+.sources { background:var(--areia); border-top:1px solid var(--rule); padding:32px clamp(24px,5vw,72px); }
+.sources-title { font-size:9px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--ink3); margin-bottom:12px; }
+.sources-list { font-size:11px; color:var(--ink3); line-height:1.8; font-family:var(--serif); font-style:italic; }
+
+/* ARTICLE FOOTER NAV */
+.art-nav { background:var(--ferro); padding:clamp(32px,4vw,52px) clamp(24px,5vw,72px); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.art-nav-back { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:8px; transition:color .2s; }
+.art-nav-back:hover { color:#fff; }
+.art-nav-back::before { content:'←'; font-size:13px; }
+.art-nav-next { text-align:right; }
+.art-nav-label { font-size:8px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--ouro); margin-bottom:6px; }
+.art-nav-title { font-family:var(--serif); font-size:15px; font-style:italic; color:rgba(255,255,255,.65); transition:color .2s; }
+.art-nav-title:hover { color:#fff; }
+
+/* RESPONSIVE */
+@media(max-width:700px) {
+  .stat-row { grid-template-columns:1fr 1fr; }
+  .art-body { padding:40px 20px; }
+  .art-nav { flex-direction:column; align-items:flex-start; }
+  .art-nav-next { text-align:left; }
+  .chart-wrap canvas { max-height:240px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="ring"></div>
+<div class="progress-bar" id="progressBar"></div>
+<nav>
+  <a href="../index.html" class="nav-back">Miradouro</a>
+  <a href="../index.html" class="nav-wordmark">Mira<em>douro</em></a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <span class="nav-meta" data-fr="N°02 · Immigration & Talent" data-en="N°02 · Immigration & Talent">N°02 · Immigration & Talent</span>
+    <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden">
+      <button onclick="setLang('fr')" id="btnFR" class="lang-btn ">FR</button>
+      <button onclick="setLang('en')" id="btnEN" class="lang-btn active">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="art-hero-pattern">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+      <defs><pattern id="ap" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="60" y1="0" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="0" y1="60" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="60" y1="60" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <rect x="6" y="6" width="48" height="48" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.4"/>
+      </pattern></defs>
+      <rect width="100%" height="100%" fill="url(#ap)"/>
+    </svg>
+  </div>
+  <div class="art-hero-inner">
+    <div class="art-kicker" data-fr="Immigration & Talent" data-en="Immigration & Talent">Immigration & Talent</div>
+    <h1 class="art-h1" data-fr="Portugal tech : pas une fuite des cerveaux, un <em>hub qui aspire</em>" data-en="Portugal tech: not a brain drain, a <em>hub that draws in</em>">Portugal tech: not a brain drain, a <em>hub that draws in</em></h1>
+    <p class="art-standfirst" data-fr="1,54 million de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent, mais comment capter un écosystème devenu plus international." data-en="1.54 million foreign residents. Record migration balance. The real question is no longer how many leave, but how to work with a talent pool that has become genuinely international.">1.54 million foreign residents. Record migration balance. The real question is no longer how many leave, but how to work with a talent pool that has become genuinely international.</p>
+    <div class="art-byline">
+      <span class="byline-item name">Jonathan</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item">Miradouro</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item">2025</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item">AIMA · INE · Observatório da Emigração</span>
+    </div>
+  </div>
+</header>
+
+<article class="art-body">
+
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="stat-val">1,54<sup>M</sup></div>
+    <div class="stat-label" data-fr="Résidents étrangers au Portugal fin 2024" data-en="Foreign residents in Portugal end 2024">Foreign residents in Portugal end 2024</div>
+    <div class="stat-source">AIMA 2024</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-val">143k</div>
+    <div class="stat-label" data-fr="Solde migratoire positif en 2024" data-en="Positive migration balance in 2024">Positive migration balance in 2024</div>
+    <div class="stat-source">INE 2024</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-val">2,7<sup>×</sup></div>
+    <div class="stat-label" data-fr="Plus d'arrivées que de départs en 2023" data-en="More arrivals than departures in 2023">More arrivals than departures in 2023</div>
+    <div class="stat-source">AIMA · Observatório da Emigração</div>
+  </div>
+</div>
+
+<h2 data-fr="01. Les départs existent, mais ils ne dessinent pas une aggravation récente" data-en="01. Emigration exists, but the trend is not accelerating">01. Emigration exists, but the trend is not accelerating</h2>
+
+<p data-fr="Le débat public retient souvent les départs de Portugais vers l'étranger. Pourtant, la série longue raconte une histoire plus nuancée. Les sorties ont monté jusqu'au milieu des années 2010, avec un pic estimé à 120 000 en 2013, dans le sillage de la crise de la dette. Depuis, elles ont reculé puis se sont stabilisées autour de 70 000 en 2022 et 2023. On ne peut donc pas parler d'une accélération récente." data-en="Public debate tends to focus on Portuguese leaving the country. But the long-run data tells a more nuanced story. Outflows rose through the mid-2010s, peaking at an estimated 120,000 in 2013 during the debt crisis. Since then they have fallen and stabilised around 70,000 in 2022 and 2023. This is structural mobility, not an accelerating exodus.">Public debate tends to focus on Portuguese leaving the country. But the long-run data tells a more nuanced story. Outflows rose through the mid-2010s, peaking at an estimated 120,000 in 2013 during the debt crisis. Since then they have fallen and stabilised around 70,000 in 2022 and 2023. This is structural mobility, not an accelerating exodus.</p>
+
+<!-- CHART 1: Departures -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="Évolution des sorties estimées de Portugais 2001–2023" data-en="Estimated Portuguese departures 2001–2023">Estimated Portuguese departures 2001–2023</div>
+    <div class="chart-subtitle">Observatório da Emigração</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart1"></canvas></div>
+  <div class="chart-note" data-fr="Le pic se situe en 2013 dans le sillage de la crise de la dette. Depuis, les sorties ont baissé puis se sont stabilisées. La série longue ne montre pas d'emballement récent." data-en="The peak was in 2013 following the debt crisis. Since then, outflows have fallen and stabilised. The long-run series shows no recent acceleration.">The peak was in 2013 following the debt crisis. Since then, outflows have fallen and stabilised. The long-run series shows no recent acceleration.</div>
+</div>
+
+<h2 data-fr="02. Le vrai changement se situe du côté des arrivées" data-en="02. The real shift is on the arrivals side">02. The real shift is on the arrivals side</h2>
+
+<p data-fr="Les arrivées permanentes au Portugal passent de 97 119 en 2021 à 189 367 en 2023. Dans le même temps, les sorties estimées de Portugais restent autour de 65 000 à 70 000 par an. En 2023, le volume d'arrivées est environ 2,7 fois supérieur à celui des sorties. Le pays n'apparaît plus comme un marché qui se vide, mais comme un marché qui attire à une échelle supérieure à celle de ses départs." data-en="Permanent arrivals in Portugal went from 97,119 in 2021 to 189,367 in 2023. Estimated departures of Portuguese nationals remain around 65,000 to 70,000 per year. In 2023, arrivals were roughly 2.7 times higher than departures. Portugal is no longer a market emptying out. It is a market attracting at a scale that far outpaces its losses.">Permanent arrivals in Portugal went from 97,119 in 2021 to 189,367 in 2023. Estimated departures of Portuguese nationals remain around 65,000 to 70,000 per year. In 2023, arrivals were roughly 2.7 times higher than departures. Portugal is no longer a market emptying out. It is a market attracting at a scale that far outpaces its losses.</p>
+
+<!-- CHART 2: Top nationalities -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="Principales nationalités de résidents étrangers, fin 2024" data-en="Top nationalities of foreign residents, end 2024">Top nationalities of foreign residents, end 2024</div>
+    <div class="chart-subtitle">AIMA 2024</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart2"></canvas></div>
+  <div class="chart-note" data-fr="Données AIMA fin 2024. Total résidents étrangers : 1 540 084." data-en="AIMA data end 2024. Total foreign residents: 1,540,084.">AIMA data end 2024. Total foreign residents: 1,540,084.</div>
+</div>
+
+<blockquote class="pullquote" data-fr="Le Portugal attire désormais bien plus qu'il ne perd. C'est <em>le changement de régime</em> à comprendre pour recruiter correctement." data-en="Portugal now attracts far more than it loses. That's <em>the regime change</em> you need to understand to recruit well.">Portugal now attracts far more than it loses. That's <em>the regime change</em> you need to understand to recruit well.</blockquote>
+
+<!-- CHART 3: Arrivals vs departures -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="Arrivées permanentes vs sorties estimées, 2021–2023" data-en="Permanent arrivals vs estimated departures, 2021–2023">Permanent arrivals vs estimated departures, 2021–2023</div>
+    <div class="chart-subtitle">AIMA · Observatório da Emigração</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart3"></canvas></div>
+  <div class="chart-note" data-fr="En 2023, les arrivées permanentes sont environ 2,7 fois supérieures aux sorties estimées. Le basculement est net sur la période récente." data-en="In 2023, permanent arrivals are roughly 2.7 times higher than estimated departures. The shift is clear over the recent period.">In 2023, permanent arrivals are roughly 2.7 times higher than estimated departures. The shift is clear over the recent period.</div>
+</div>
+
+<h2 data-fr="03. Deux limites à garder en tête" data-en="03. Two limits worth keeping in mind">03. Two limits worth keeping in mind</h2>
+
+<p data-fr="La première est réglementaire. Depuis juin 2024, le décret-loi 37-A/2024 a supprimé les procédures de résidence fondées sur la manifestação de interesse, qui constituaient une porte d'entrée importante pour travailler depuis le Portugal. Le signal est clair : le pays reste attractif, mais l'accès devient plus administratif." data-en="The first is regulatory. Since June 2024, decree-law 37-A/2024 abolished residence procedures based on manifestação de interesse, a key entry route for workers. The signal is clear: Portugal remains attractive, but access is becoming more bureaucratic.">The first is regulatory. Since June 2024, decree-law 37-A/2024 abolished residence procedures based on manifestação de interesse, a key entry route for workers. The signal is clear: Portugal remains attractive, but access is becoming more bureaucratic.</p>
+
+<p data-fr="La seconde est immobilière. Les loyers à Lisbonne ont progressé de 94% depuis 2015 et les prix de vente de 186% selon Reuters (janvier 2025). Une destination peut rester séduisante sur le papier, mais perdre en compétitivité si le différentiel entre salaire net, coût du logement et qualité de vie se dégrade trop fortement." data-en="The second is housing. Lisbon rents have risen 94% since 2015 and purchase prices by 186% per Reuters (January 2025). A destination can remain attractive on paper but lose its edge if the gap between net salary, housing cost, and quality of life erodes too sharply.">The second is housing. Lisbon rents have risen 94% since 2015 and purchase prices by 186% per Reuters (January 2025). A destination can remain attractive on paper but lose its edge if the gap between net salary, housing cost, and quality of life erodes too sharply.</p>
+
+<h2 data-fr="Conclusion" data-en="Conclusion">Conclusion</h2>
+
+<p data-fr="Le Portugal n'est pas en train de perdre la bataille du talent. Il est en train de changer de profil. Les acteurs qui liront cette transformation correctement auront un avantage clair en recrutement, en delivery et en nearshore. Comprendre les flux migratoires n'est pas un sujet académique. C'est déjà un sujet de positionnement et de compétitivité." data-en="Portugal is not losing the talent battle. It is changing its profile. Those who read this transformation correctly will have a clear advantage in recruitment, delivery, and nearshore. Understanding migration flows is not an academic exercise. It is already a matter of competitive positioning.">Portugal is not losing the talent battle. It is changing its profile. Those who read this transformation correctly will have a clear advantage in recruitment, delivery, and nearshore. Understanding migration flows is not an academic exercise. It is already a matter of competitive positioning.</p>
+
+</article>
+
+<div class="sources">
+  <div class="sources-title">Sources</div>
+  <div class="sources-list">Observatório da Emigração, Emigração Portuguesa 2024 · AIMA, Relatório de Migrações e Asilo 2024 · INE, Estatísticas Demográficas 2023 · Decreto-Lei n.º 37-A/2024 de 3 de junho · Reuters, Lisbon housing January 2025 · Meritis Portugal</div>
+</div>
+
+<div class="art-nav">
+  <a href="../index.html" class="art-nav-back" data-fr="Retour aux articles" data-en="Back to articles">Back to articles</a>
+  <div class="art-nav-next">
+    <div class="art-nav-label" data-fr="Article précédent" data-en="Previous article">Previous article</div>
+    <a href="01-scissor-effect-en.html" class="art-nav-title" data-fr="L'effet ciseaux →" data-en="The scissor effect →">The scissor effect →</a>
+  </div>
+</div>
+
+<script>
+
+const cur=document.getElementById('cursor'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}
+  if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px';}
+  requestAnimationFrame(tick);})();
+
+const pb=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  if(pb)pb.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+});
+
+function setLang(l){
+  document.getElementById('btnFR').classList.toggle('active',l==='fr');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const v=el.getAttribute('data-'+l);
+    if(v!==null)el.innerHTML=v;
+  });
+  document.documentElement.lang=l;
+  localStorage.setItem('mira_lang',l);
+  if(window.updateCharts) window.updateCharts(l);
+}
+const savedLang=localStorage.getItem('mira_lang')||'fr';
+if(savedLang==='en') setTimeout(()=>setLang('en'),100);
+
+
+Chart.defaults.font.family = "'Cabinet Grotesk', system-ui, sans-serif";
+Chart.defaults.color = '#9A8C80';
+
+const labels_fr = { departures:'Sorties estimées de Portugais', arrivals:'Arrivées permanentes', outflows:'Sorties de Portugais', inflows:'Arrivées permanentes' };
+const labels_en = { departures:'Estimated Portuguese departures', arrivals:'Permanent arrivals', outflows:'Portuguese departures', inflows:'Permanent arrivals' };
+
+// ── CHART 1: Departures 2001–2023 ──
+const ctx1 = document.getElementById('chart1').getContext('2d');
+const chart1 = new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: [2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023],
+    datasets: [{
+      label: labels_fr.departures,
+      data: [40,42,44,42,41,44,52,58,60,70,85,100,120,110,95,85,80,75,72,45,60,68,70],
+      backgroundColor: years => {
+        const idx = years.dataIndex;
+        if(idx === 12) return 'rgba(201,122,94,0.85)';
+        if(idx === 19) return 'rgba(196,151,58,0.6)';
+        return 'rgba(36,61,44,0.55)';
+      },
+      borderColor: years => {
+        const idx = years.dataIndex;
+        if(idx === 12) return '#C97A5E';
+        return '#243D2C';
+      },
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } },
+      tooltip: { callbacks: { label: ctx => ' ' + ctx.raw + 'k sorties' } }
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 9 }, maxRotation: 0, callback: (v,i,a) => [2001,2005,2010,2013,2015,2020,2023].includes([2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023][i]) ? [2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023][i] : '' } },
+      y: { grid: { color: 'rgba(216,206,188,0.4)' }, ticks: { callback: v => v+'k', font: { size: 10 } }, max: 140 }
+    }
+  }
+});
+
+// Annotation plugin for peak and covid labels
+const annotPlugin = {
+  id: 'annot',
+  afterDraw(chart) {
+    const ctx = chart.ctx;
+    const meta = chart.getDatasetMeta(0);
+    // Peak 2013 (index 12)
+    const bar13 = meta.data[12];
+    if(bar13) {
+      ctx.save();
+      ctx.fillStyle = '#C97A5E';
+      ctx.font = 'bold 9px Cabinet Grotesk, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('pic 120k', bar13.x, bar13.y - 6);
+      ctx.restore();
+    }
+    // Covid 2020 (index 19)
+    const bar20 = meta.data[19];
+    if(bar20) {
+      ctx.save();
+      ctx.fillStyle = '#C4973A';
+      ctx.font = 'bold 9px Cabinet Grotesk, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('covid 45k', bar20.x, bar20.y - 6);
+      ctx.restore();
+    }
+  }
+};
+Chart.register(annotPlugin);
+
+// ── CHART 2: Top nationalities ──
+const ctx2 = document.getElementById('chart2').getContext('2d');
+const chart2 = new Chart(ctx2, {
+  type: 'bar',
+  data: {
+    labels: ['Brésil','Inde','Ukraine','Cap-Vert','Népal'],
+    datasets: [{
+      label: 'Résidents étrangers fin 2024',
+      data: [484596, 98616, 79232, 65507, 58086],
+      backgroundColor: [
+        'rgba(196,151,58,0.75)',
+        'rgba(36,61,44,0.6)',
+        'rgba(201,122,94,0.65)',
+        'rgba(36,61,44,0.4)',
+        'rgba(201,122,94,0.35)',
+      ],
+      borderColor: ['#C4973A','#243D2C','#C97A5E','#243D2C','#C97A5E'],
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { color: 'rgba(216,206,188,0.4)' }, ticks: { callback: v => (v/1000).toFixed(0)+'k', font: { size: 10 } } },
+      y: { grid: { display: false }, ticks: { font: { size: 11, weight: '600' } } }
+    }
+  }
+});
+
+// ── CHART 3: Arrivals vs departures 2021–2023 ──
+const ctx3 = document.getElementById('chart3').getContext('2d');
+const chart3 = new Chart(ctx3, {
+  type: 'bar',
+  data: {
+    labels: ['2021','2022','2023'],
+    datasets: [
+      {
+        label: labels_fr.outflows,
+        data: [65000, 68000, 70000],
+        backgroundColor: 'rgba(36,61,44,0.5)',
+        borderColor: '#243D2C',
+        borderWidth: 1,
+      },
+      {
+        label: labels_fr.inflows,
+        data: [97119, 167000, 189367],
+        backgroundColor: 'rgba(196,151,58,0.7)',
+        borderColor: '#C4973A',
+        borderWidth: 1,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 12, weight: '700' } } },
+      y: { grid: { color: 'rgba(216,206,188,0.4)' }, ticks: { callback: v => (v/1000).toFixed(0)+'k', font: { size: 10 } } }
+    }
+  }
+});
+
+window.updateCharts = function(l) {
+  const lb = l === 'fr' ? labels_fr : labels_en;
+  chart1.data.datasets[0].label = lb.departures;
+  chart1.update();
+  chart2.data.labels = l === 'fr' ? ['Brésil','Inde','Ukraine','Cap-Vert','Népal'] : ['Brazil','India','Ukraine','Cape Verde','Nepal'];
+  chart2.data.datasets[0].label = l === 'fr' ? 'Résidents étrangers fin 2024' : 'Foreign residents end 2024';
+  chart2.update();
+  chart3.data.datasets[0].label = lb.outflows;
+  chart3.data.datasets[1].label = lb.inflows;
+  chart3.update();
+};
+
+</script>
+</body>
+</html>

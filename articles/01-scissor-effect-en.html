@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The scissor effect, Portuguese nearshore at a turning point — Miradouro</title>
+<meta name="description" content="Lisbon costs are rising. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.">
+<meta name="author" content="Jonathan Dias">
+<link rel="canonical" href="https://miradouro.pt/articles/01-scissor-effect-en.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The scissor effect — Miradouro">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The scissor effect, Portuguese nearshore at a turning point","author":{"@type":"Person","name":"Jonathan Dias"},"publisher":{"@type":"Organization","name":"Miradouro","url":"https://miradouro.pt"},"inLanguage":"en"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+:root {
+  --pom:#C97A5E; --pom-deep:#A85C42; --pom-light:#EDB89A; --pom-ghost:#F7EDE4;
+  --verde:#243D2C; --verde-mid:#2E5038; --verde-light:#C8DAC8; --verde-ghost:#EDF3EE;
+  --ouro:#C4973A; --ouro-light:#F0DFA8;
+  --ferro:#18140E; --ferro-mid:#3A3028;
+  --creme:#FBF8F2; --areia:#EDE6DA; --rule:#D8CEBC;
+  --ink2:#6A5C50; --ink3:#9A8C80;
+  --display:'Fraunces',Georgia,serif;
+  --serif:'Cormorant Garant',Georgia,serif;
+  --sans:'Cabinet Grotesk',system-ui,sans-serif;
+}
+html { scroll-behavior:smooth; }
+body { font-family:var(--sans); background:var(--creme); color:var(--ferro); -webkit-font-smoothing:antialiased; overflow-x:hidden; cursor:none; }
+a { color:inherit; text-decoration:none; }
+.cursor { position:fixed; width:10px; height:10px; background:var(--pom); border-radius:50%; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); mix-blend-mode:multiply; }
+.cursor-ring { position:fixed; width:36px; height:36px; border:1px solid var(--pom); border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .35s cubic-bezier(.17,.67,.35,1.2), height .35s, transform .08s linear, opacity .2s; opacity:.5; }
+body:has(a:hover) .cursor-ring { width:56px; height:56px; opacity:.3; }
+body:has(a:hover) .cursor { width:6px; height:6px; }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:500; background:var(--verde); height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 clamp(20px,4vw,56px); border-bottom:1px solid rgba(255,255,255,.08); }
+.nav-back { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.5); display:flex; align-items:center; gap:8px; transition:color .2s; }
+.nav-back:hover { color:#fff; }
+.nav-back::before { content:'←'; font-size:13px; }
+.nav-wordmark { font-family:var(--display); font-size:16px; font-weight:700; color:#fff; letter-spacing:.04em; text-transform:uppercase; }
+.nav-wordmark em { font-style:italic; font-weight:300; color:var(--pom-light); }
+.nav-meta { font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ouro); }
+.lang-btn { font-family:var(--sans); font-size:9px; font-weight:800; letter-spacing:.08em; padding:5px 10px; cursor:pointer; background:transparent; border:none; color:rgba(255,255,255,.32); transition:all .2s; text-transform:uppercase; }
+.lang-btn.active { background:var(--pom); color:#fff; }
+
+/* PROGRESS BAR */
+.progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--pom); z-index:9000; width:0%; transition:width .1s linear; }
+
+/* HERO */
+.art-hero { background:var(--verde); padding:clamp(60px,8vh,100px) clamp(24px,5vw,72px) clamp(40px,5vh,64px); position:relative; overflow:hidden; }
+.art-hero::before { content:''; position:absolute; inset:-50%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); background-size:200px; opacity:.6; pointer-events:none; z-index:0; }
+.art-hero-pattern { position:absolute; inset:0; z-index:0; }
+.art-hero-inner { position:relative; z-index:1; max-width:760px; }
+.art-kicker { font-size:9px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--ouro); margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+.art-kicker::before { content:''; display:block; width:24px; height:1px; background:var(--ouro); }
+.art-h1 { font-family:var(--display); font-size:clamp(36px,6vw,72px); font-weight:700; color:var(--creme); line-height:1.02; letter-spacing:-.04em; margin-bottom:24px; }
+.art-h1 em { font-style:italic; font-weight:300; color:var(--pom-light); }
+.art-standfirst { font-family:var(--serif); font-size:clamp(17px,2.2vw,22px); font-style:italic; font-weight:300; color:rgba(255,255,255,.62); line-height:1.65; margin-bottom:32px; max-width:640px; }
+.art-byline { display:flex; align-items:center; gap:16px; padding-top:24px; border-top:1px solid rgba(255,255,255,.1); flex-wrap:wrap; }
+.byline-dot { width:3px; height:3px; background:rgba(255,255,255,.2); border-radius:50%; }
+.byline-item { font-size:10px; color:rgba(255,255,255,.38); letter-spacing:.06em; }
+.byline-item.name { font-weight:700; color:rgba(255,255,255,.65); }
+
+/* ARTICLE BODY */
+.art-body { max-width:720px; margin:0 auto; padding:clamp(48px,6vw,80px) clamp(24px,5vw,40px); }
+.art-body h2 { font-family:var(--display); font-size:clamp(22px,3vw,34px); font-weight:700; color:var(--ferro); line-height:1.1; letter-spacing:-.03em; margin:52px 0 20px; padding-top:52px; border-top:1px solid var(--rule); }
+.art-body h2 em { font-style:italic; font-weight:300; color:var(--pom-deep); }
+.art-body p { font-family:var(--serif); font-size:clamp(16px,2vw,19px); font-weight:300; color:var(--ferro-mid); line-height:1.8; margin-bottom:24px; }
+.art-body p strong { font-weight:600; color:var(--ferro); font-style:normal; }
+
+/* KEY STATS ROW */
+.stat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin:40px 0; }
+.stat-box { background:var(--creme); padding:28px 24px; }
+.stat-val { font-family:var(--display); font-size:clamp(32px,4.5vw,48px); font-weight:800; color:var(--ferro); line-height:1; letter-spacing:-.04em; margin-bottom:8px; }
+.stat-val sup { font-size:.42em; vertical-align:super; }
+.stat-label { font-size:11px; color:var(--ink2); line-height:1.4; margin-bottom:4px; }
+.stat-source { font-size:9px; color:var(--ink3); font-style:italic; }
+
+/* CHART BLOCKS */
+.chart-block { margin:48px 0; background:var(--creme); border:1px solid var(--rule); }
+.chart-header { padding:20px 24px 0; border-bottom:1px solid var(--rule); margin-bottom:0; }
+.chart-title { font-family:var(--display); font-size:15px; font-weight:700; color:var(--ferro); letter-spacing:-.02em; margin-bottom:4px; }
+.chart-subtitle { font-size:10px; color:var(--ink3); letter-spacing:.04em; padding-bottom:16px; }
+.chart-wrap { padding:24px; position:relative; }
+.chart-wrap canvas { max-height:320px; }
+.chart-note { font-size:9px; color:var(--ink3); font-style:italic; line-height:1.5; padding:12px 24px 16px; border-top:1px solid var(--rule); }
+
+/* PULLQUOTE */
+.pullquote { font-family:var(--display); font-size:clamp(20px,3vw,28px); font-style:italic; font-weight:400; color:var(--ferro); line-height:1.4; padding:32px 28px; border-left:4px solid var(--pom); background:var(--areia); margin:40px 0; letter-spacing:-.02em; }
+.pullquote em { font-style:normal; font-weight:700; color:var(--pom-deep); }
+
+/* SOURCES */
+.sources { background:var(--areia); border-top:1px solid var(--rule); padding:32px clamp(24px,5vw,72px); }
+.sources-title { font-size:9px; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--ink3); margin-bottom:12px; }
+.sources-list { font-size:11px; color:var(--ink3); line-height:1.8; font-family:var(--serif); font-style:italic; }
+
+/* ARTICLE FOOTER NAV */
+.art-nav { background:var(--ferro); padding:clamp(32px,4vw,52px) clamp(24px,5vw,72px); display:flex; align-items:center; justify-content:space-between; gap:20px; }
+.art-nav-back { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.45); display:flex; align-items:center; gap:8px; transition:color .2s; }
+.art-nav-back:hover { color:#fff; }
+.art-nav-back::before { content:'←'; font-size:13px; }
+.art-nav-next { text-align:right; }
+.art-nav-label { font-size:8px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--ouro); margin-bottom:6px; }
+.art-nav-title { font-family:var(--serif); font-size:15px; font-style:italic; color:rgba(255,255,255,.65); transition:color .2s; }
+.art-nav-title:hover { color:#fff; }
+
+/* RESPONSIVE */
+@media(max-width:700px) {
+  .stat-row { grid-template-columns:1fr 1fr; }
+  .art-body { padding:40px 20px; }
+  .art-nav { flex-direction:column; align-items:flex-start; }
+  .art-nav-next { text-align:left; }
+  .chart-wrap canvas { max-height:240px; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div><div class="cursor-ring" id="ring"></div>
+<div class="progress-bar" id="progressBar"></div>
+<nav>
+  <a href="../index.html" class="nav-back">Miradouro</a>
+  <a href="../index.html" class="nav-wordmark">Mira<em>douro</em></a>
+  <div style="display:flex;align-items:center;gap:16px">
+    <span class="nav-meta" data-fr="N°01 · Nearshore & Économie" data-en="N°01 · Nearshore & Economy">N°01 · Nearshore & Économie</span>
+    <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden">
+      <button onclick="setLang('fr')" id="btnFR" class="lang-btn ">FR</button>
+      <button onclick="setLang('en')" id="btnEN" class="lang-btn active">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="art-hero">
+  <div class="art-hero-pattern">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+      <defs><pattern id="ap" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+        <line x1="0" y1="0" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="60" y1="0" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="0" y1="60" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <line x1="60" y1="60" x2="30" y2="30" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+        <rect x="6" y="6" width="48" height="48" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.4"/>
+      </pattern></defs>
+      <rect width="100%" height="100%" fill="url(#ap)"/>
+    </svg>
+  </div>
+  <div class="art-hero-inner">
+    <div class="art-kicker" data-fr="Nearshore & Économie" data-en="Nearshore & Economy">Nearshore & Economy</div>
+    <h1 class="art-h1" data-fr="L'effet <em>ciseaux</em>, le nearshore portugais à un tournant" data-en="The <em>scissor</em> effect, Portuguese nearshore at a turning point">The <em>scissor</em> effect, Portuguese nearshore at a turning point</h1>
+    <p class="art-standfirst" data-fr="Les coûts de vie à Lisbonne s'envolent. Les salaires seniors progressent. Les tarifs nearshore, eux, stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent encore." data-en="Lisbon's cost of living is climbing. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.">Lisbon's cost of living is climbing. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.</p>
+    <div class="art-byline">
+      <span class="byline-item name">Jonathan</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item">Miradouro</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item">2025</span>
+      <span class="byline-dot"></span>
+      <span class="byline-item" data-fr="INE · Teamlyzer · PWC · Meritis" data-en="INE · Teamlyzer · PWC · Meritis">INE · Teamlyzer · PWC · Meritis</span>
+    </div>
+  </div>
+</header>
+
+<article class="art-body">
+
+<!-- KEY STATS -->
+<div class="stat-row">
+  <div class="stat-box">
+    <div class="stat-val">−38<sup>%</sup></div>
+    <div class="stat-label" data-fr="Coût employeur réel Lisbonne vs Paris" data-en="Real employer cost Lisbon vs Paris">Real employer cost Lisbon vs Paris</div>
+    <div class="stat-source">INE · Teamlyzer · PWC 2025</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-val">−50<sup>%</sup></div>
+    <div class="stat-label" data-fr="Ce que les RFPs attendent encore" data-en="What RFPs still expect">What RFPs still expect</div>
+    <div class="stat-source">Meritis estimate, internal RFPs</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-val">×3,1</div>
+    <div class="stat-label" data-fr="Hausse immobilier Lisbonne depuis 2015" data-en="Lisbon housing price rise since 2015">Lisbon housing price rise since 2015</div>
+    <div class="stat-source">INE Q1 2025</div>
+  </div>
+</div>
+
+<h2 data-fr="01. Le vrai coût : le brut ne dit pas tout" data-en="01. The real cost: gross salary doesn't tell the story">01. The real cost: gross salary doesn't tell the story</h2>
+
+<p data-fr="Comparer des salaires bruts entre pays, c'est comparer des pommes et des oranges. Ce que paie réellement un acheteur nearshore, c'est le coût employeur total : salaire brut plus les charges sociales patronales. La France est à 42 à 45% de charges sur le salaire brut, le Portugal à 26,5%, la Pologne à 20,5%, et la Roumanie quasiment sans charges côté employeur (2,25%)." data-en="Comparing gross salaries across countries is comparing apples to oranges. What a nearshore buyer actually pays is the total employer cost: gross salary plus social charges. France sits at 42 to 45% employer charges on gross salary, Portugal at 26.5%, Poland at 20.5%, and Romania at near zero (2.25%).">Comparing gross salaries across countries is comparing apples to oranges. What a nearshore buyer actually pays is the total employer cost: gross salary plus social charges. France sits at 42 to 45% employer charges on gross salary, Portugal at 26.5%, Poland at 20.5%, and Romania at near zero (2.25%).</p>
+
+<!-- CHART 1: Employer cost -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="Coût employeur total — SWE senior 2025" data-en="Total employer cost — Senior SWE 2025">Total employer cost — Senior SWE 2025</div>
+    <div class="chart-subtitle">Glassdoor · Teamlyzer · PWC Tax Summaries · Boundless</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart1"></canvas></div>
+  <div class="chart-note" data-fr="Salaires bruts médians 2025. Coût total = brut + charges patronales. La ligne rouge marque le niveau −50% Paris encore inscrit dans de nombreux RFPs en 2025." data-en="Median gross salaries 2025. Total cost = gross + employer charges. The red line marks the −50% Paris level still cited in many 2025 RFPs.">Median gross salaries 2025. Total cost = gross + employer charges. The red line marks the −50% Paris level still cited in many 2025 RFPs.</div>
+</div>
+
+<p data-fr="Ce que je vois sur le terrain : les candidats seniors arrivent avec leurs benchmarks Teamlyzer. Ils savent exactement où ils se situent. Et quand on leur présente le différentiel en coût total, la conversation change. Le Portugal n'est pas moitié prix, mais il reste très bien positionné quand on fait le calcul complet." data-en="What I see on the ground: senior candidates arrive with their Teamlyzer benchmarks. They know exactly where they stand. And when you show them the total cost differential rather than gross salary, the conversation shifts. Portugal isn't half price anymore, but the full picture is still compelling.">What I see on the ground: senior candidates arrive with their Teamlyzer benchmarks. They know exactly where they stand. And when you show them the total cost differential rather than gross salary, the conversation shifts. Portugal isn't half price anymore, but the full picture is still compelling.</p>
+
+<blockquote class="pullquote" data-fr="Le bon chiffre n'est pas −50%. C'est <em>−38%</em> en coût employeur total. C'est documenté. Et c'est suffisant." data-en="The right number isn't −50%. It's <em>−38%</em> in total employer cost. Documented. And sufficient.">The right number isn't −50%. It's <em>−38%</em> in total employer cost. Documented. And sufficient.</blockquote>
+
+<h2 data-fr="02. L'immobilier : un phénomène européen, pas seulement portugais" data-en="02. Housing: a European story, not just a Portuguese one">02. Housing: a European story, not just a Portuguese one</h2>
+
+<p data-fr="Les données INE documentent la trajectoire de Lisbonne : de 1 400€/m² en 2015 à 4 492€/m² au premier trimestre 2025. Ce qui est moins souvent dit : Varsovie a affiché +21,7% en 2024 selon Deloitte et dépasse désormais Rome. La hausse de Lisbonne est réelle, mais elle n'est pas un cas isolé." data-en="INE data documents Lisbon's trajectory: from €1,400/m² in 2015 to €4,492/m² in Q1 2025. What's less often mentioned: Warsaw posted +21.7% in 2024 per Deloitte and now surpasses Rome. Lisbon's rise is real, but it is not an isolated case.">INE data documents Lisbon's trajectory: from €1,400/m² in 2015 to €4,492/m² in Q1 2025. What's less often mentioned: Warsaw posted +21.7% in 2024 per Deloitte and now surpasses Rome. Lisbon's rise is real, but it is not an isolated case.</p>
+
+<!-- CHART 2: Housing prices -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="Prix médian immobilier 2015–2025 (€/m²)" data-en="Median housing prices 2015–2025 (€/m²)">Median housing prices 2015–2025 (€/m²)</div>
+    <div class="chart-subtitle">INE · Notaires-INSEE · Deloitte Property Index · Bank Al-Maghrib</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart2"></canvas></div>
+  <div class="chart-note" data-fr="Paris : données Notaires-INSEE (appartements anciens). Lisbonne : INE Estatísticas de Preços da Habitação. Varsovie : NBP/Deloitte. Casablanca : Bank Al-Maghrib IPAI, converti MAD→EUR." data-en="Paris: Notaires-INSEE data (existing apartments). Lisbon: INE Estatísticas de Preços da Habitação. Warsaw: NBP/Deloitte. Casablanca: Bank Al-Maghrib IPAI, converted MAD→EUR.">Paris: Notaires-INSEE data (existing apartments). Lisbon: INE Estatísticas de Preços da Habitação. Warsaw: NBP/Deloitte. Casablanca: Bank Al-Maghrib IPAI, converted MAD→EUR.</div>
+</div>
+
+<h2 data-fr="03. L'effet ciseau : trois vitesses, un même marché" data-en="03. The scissor effect: three speeds, one market">03. The scissor effect: three speeds, one market</h2>
+
+<p data-fr="L'immobilier monte vite. Les salaires suivent, environ 5 à 7% par an depuis 2019 selon Ravio et Teamlyzer. Les tarifs nearshore bougent beaucoup plus lentement, freinés par les cadres pluriannuels, les benchmarks historiques et l'inertie côté acheteur. Ce décalage, c'est l'effet ciseau." data-en="Housing rises fast. Salaries follow, roughly 5 to 7% annually since 2019 per Ravio and Teamlyzer. Nearshore rates move much more slowly, held back by multi-year frameworks, historical benchmarks, and buyer inertia. That gap is the scissor effect.">Housing rises fast. Salaries follow, roughly 5 to 7% annually since 2019 per Ravio and Teamlyzer. Nearshore rates move much more slowly, held back by multi-year frameworks, historical benchmarks, and buyer inertia. That gap is the scissor effect.</p>
+
+<!-- CHART 3: Scissor index -->
+<div class="chart-block">
+  <div class="chart-header">
+    <div class="chart-title" data-fr="L'effet ciseau — indice base 100 en 2015" data-en="The scissor effect — index base 100 in 2015">The scissor effect — index base 100 in 2015</div>
+    <div class="chart-subtitle">INE · Teamlyzer · Ravio 2025 · estimation Meritis</div>
+  </div>
+  <div class="chart-wrap"><canvas id="chart3"></canvas></div>
+  <div class="chart-note" data-fr="Les tarifs nearshore représentent une estimation qualitative Meritis sur données RFP internes 2019–2025. Indicateur de tendance, non donnée précise." data-en="Nearshore rates are a Meritis qualitative estimate based on internal RFP data 2019–2025. Trend indicator only, not a precise datapoint.">Nearshore rates are a Meritis qualitative estimate based on internal RFP data 2019–2025. Trend indicator only, not a precise datapoint.</div>
+</div>
+
+<p data-fr="Ce qu'il crée en pratique : des prestataires qui compriment leurs marges en silence pour tenir des tarifs qui ne suivent plus le marché, et des clients qui se demandent pourquoi les profils proposés sont moins seniors qu'avant, sans toujours faire le lien." data-en="What it creates in practice: providers silently compressing margins to hold rates that no longer reflect the market, and clients wondering why proposed profiles are less senior than before, without connecting the dots.">What it creates in practice: providers silently compressing margins to hold rates that no longer reflect the market, and clients wondering why proposed profiles are less senior than before, without connecting the dots.</p>
+
+<h2 data-fr="04. Alors, qu'est-ce qui justifie encore le Portugal ?" data-en="04. So what still makes Portugal worth it?">04. So what still makes Portugal worth it?</h2>
+
+<p data-fr="Le différentiel de coût employeur total reste réel et documenté : environ −38% vs Paris tout compris. C'est le bon chiffre à utiliser dans les RFPs. Au-delà du coût, le Portugal tient sur d'autres critères valorisés au quotidien : timezone européenne, proximité culturelle avec les équipes françaises, expertise finance héritée de vingt ans de projets bancaires, et une densité de seniors sur des verticales finance et data qu'on ne retrouve pas à Casablanca ou Bucarest." data-en="The total employer cost differential remains real and documented: roughly −38% vs Paris all-in. That's the right number for RFPs. Beyond cost, Portugal holds on criteria valued every day: European timezone, cultural proximity with French teams, financial expertise from twenty years of banking projects, and a density of seniors in finance and data verticals you won't find in Casablanca or Bucharest.">The total employer cost differential remains real and documented: roughly −38% vs Paris all-in. That's the right number for RFPs. Beyond cost, Portugal holds on criteria valued every day: European timezone, cultural proximity with French teams, financial expertise from twenty years of banking projects, and a density of seniors in finance and data verticals you won't find in Casablanca or Bucharest.</p>
+
+<p data-fr="La question que je pose autant à mes clients qu'à mes pairs : est-ce que vos critères de sélection nearshore ont évolué au même rythme que le marché ? Si la seule grille reste l'écart de coût brut, on passe probablement à côté de ce qui est vraiment intéressant aujourd'hui." data-en="The question I put to clients and peers alike: have your nearshore selection criteria evolved at the same pace as the market? If the only lens is raw cost differential, you're probably missing what's genuinely interesting about Portugal today.">The question I put to clients and peers alike: have your nearshore selection criteria evolved at the same pace as the market? If the only lens is raw cost differential, you're probably missing what's genuinely interesting about Portugal today.</p>
+
+</article>
+
+<div class="sources">
+  <div class="sources-title">Sources</div>
+  <div class="sources-list">INE Portugal, Estatísticas de Preços da Habitação Q1 2025 · Teamlyzer, base salariale IT Portugal 2025 · Glassdoor, SWE Lisbonne et Paris 2025 · PWC Tax Summaries 2025 (France, Portugal, Pologne, Roumanie) · Notaires-INSEE, prix appartements Paris 2015–2025 · Deloitte Property Index 2024 · Bank Al-Maghrib IPAI, Casablanca 2015–2025 · NBP/Deloitte, Varsovie · Ravio Compensation Trends 2025 · Estimation Meritis sur données RFP internes 2019–2025</div>
+</div>
+
+<div class="art-nav">
+  <a href="../index.html" class="art-nav-back" data-fr="Retour aux articles" data-en="Back to articles">Back to articles</a>
+  <div class="art-nav-next">
+    <div class="art-nav-label" data-fr="Article suivant" data-en="Next article">Next article</div>
+    <a href="02-immigration-en.html" class="art-nav-title" data-fr="Portugal tech : pas une fuite des cerveaux →" data-en="Portugal tech: not a brain drain →">Portugal tech: not a brain drain →</a>
+  </div>
+</div>
+
+<script>
+
+const cur=document.getElementById('cursor'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+(function tick(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+  if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}
+  if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px';}
+  requestAnimationFrame(tick);})();
+
+const pb=document.getElementById('progressBar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  if(pb)pb.style.width=(h>0?(window.scrollY/h*100):0)+'%';
+});
+
+function setLang(l){
+  document.getElementById('btnFR').classList.toggle('active',l==='fr');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const v=el.getAttribute('data-'+l);
+    if(v!==null)el.innerHTML=v;
+  });
+  document.documentElement.lang=l;
+  localStorage.setItem('mira_lang',l);
+  if(window.updateCharts) window.updateCharts(l);
+}
+const savedLang=localStorage.getItem('mira_lang')||'fr';
+if(savedLang==='en') setTimeout(()=>setLang('en'),100);
+
+
+Chart.defaults.font.family = "'Cabinet Grotesk', system-ui, sans-serif";
+Chart.defaults.color = '#9A8C80';
+
+const COLORS = {
+  pom: '#C97A5E', pomLight: 'rgba(201,122,94,0.15)',
+  verde: '#243D2C', verdeLight: 'rgba(36,61,44,0.12)',
+  ouro: '#C4973A', ouroLight: 'rgba(196,151,58,0.15)',
+  ferro: '#18140E', rule: '#D8CEBC',
+  creme: '#FBF8F2', ink3: '#9A8C80'
+};
+
+const labels_fr = { lisbon:'Lisbonne', paris:'Paris', warsaw:'Varsovie', bucharest:'Bucarest', casablanca:'Casablanca', gross:'Salaire brut médian', total:'Coût total employeur', rfp:'Niveau RFP −50%', housing:'Immobilier Lisboa', salaries:'Salaires SWE Lisbonne', rates:'Tarifs nearshore (est. Meritis)' };
+const labels_en = { lisbon:'Lisbon', paris:'Paris', warsaw:'Warsaw', bucharest:'Bucharest', casablanca:'Casablanca', gross:'Median gross salary', total:'Total employer cost', rfp:'RFP −50% level', housing:'Lisbon housing', salaries:'Lisbon SWE salaries', rates:'Nearshore rates (Meritis est.)' };
+
+let currentLang = 'fr';
+
+// ── CHART 1: Employer cost by city ──
+const ctx1 = document.getElementById('chart1').getContext('2d');
+const chart1 = new Chart(ctx1, {
+  type: 'bar',
+  data: {
+    labels: ['Paris','Lisbonne','Varsovie','Bucarest','Casablanca'],
+    datasets: [
+      {
+        label: labels_fr.gross,
+        data: [60, 43, 46, 28, 14],
+        backgroundColor: 'rgba(36,61,44,0.55)',
+        borderColor: '#243D2C',
+        borderWidth: 1,
+      },
+      {
+        label: labels_fr.total,
+        data: [86, 54, 56, 29, 17],
+        backgroundColor: [
+          'rgba(201,122,94,0.18)',
+          'rgba(196,151,58,0.55)',
+          'rgba(201,122,94,0.12)',
+          'rgba(201,122,94,0.12)',
+          'rgba(201,122,94,0.12)'
+        ],
+        borderColor: ['#C97A5E','#C4973A','#C97A5E','#C97A5E','#C97A5E'],
+        borderWidth: 1,
+      }
+    ]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        grid: { color: 'rgba(216,206,188,0.4)', drawBorder: false },
+        ticks: { callback: v => '€'+v+'k', font: { size: 10 } },
+        title: { display: true, text: 'k€ / an', font: { size: 9 }, color: '#9A8C80' }
+      },
+      y: {
+        grid: { display: false },
+        ticks: { font: { size: 11, weight: '600' } }
+      }
+    }
+  }
+});
+
+// RFP line annotation manually via plugin
+const rfpPlugin = {
+  id: 'rfpLine',
+  afterDraw(chart) {
+    const ctx = chart.ctx;
+    const xScale = chart.scales.x;
+    const x = xScale.getPixelForValue(43);
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(x, chart.chartArea.top);
+    ctx.lineTo(x, chart.chartArea.bottom);
+    ctx.strokeStyle = '#C97A5E';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 3]);
+    ctx.stroke();
+    ctx.fillStyle = '#C97A5E';
+    ctx.font = 'bold 9px Cabinet Grotesk, sans-serif';
+    ctx.fillText('−50% RFP', x + 4, chart.chartArea.top + 12);
+    ctx.restore();
+  }
+};
+Chart.register(rfpPlugin);
+
+// ── CHART 2: Housing 2015–2025 ──
+const ctx2 = document.getElementById('chart2').getContext('2d');
+const years = [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+const chart2 = new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      { label: 'Lisbonne', data: [1400,1550,1800,2100,2500,2650,3000,3600,4100,4350,4492], borderColor: '#C4973A', backgroundColor: 'rgba(196,151,58,0.08)', borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#C4973A', tension: 0.3 },
+      { label: 'Paris', data: [6800,7000,7300,7800,8500,8800,9500,10200,9800,9600,9400], borderColor: '#243D2C', backgroundColor: 'rgba(36,61,44,0.06)', borderWidth: 2, pointRadius: 2, tension: 0.3 },
+      { label: 'Varsovie', data: [1100,1150,1250,1400,1650,1700,2000,2400,2700,2900,3100], borderColor: '#C97A5E', backgroundColor: 'rgba(201,122,94,0.06)', borderWidth: 1.5, pointRadius: 2, borderDash: [4,3], tension: 0.3 },
+      { label: 'Casablanca', data: [1200,1210,1220,1215,1205,1180,1190,1195,1200,1195,1190], borderColor: '#9A8C80', backgroundColor: 'transparent', borderWidth: 1.5, pointRadius: 2, borderDash: [2,4], tension: 0.3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } } },
+    scales: {
+      x: { grid: { color: 'rgba(216,206,188,0.4)', drawBorder: false }, ticks: { font: { size: 10 } } },
+      y: { grid: { color: 'rgba(216,206,188,0.4)', drawBorder: false }, ticks: { callback: v => '€'+v.toLocaleString(), font: { size: 10 } }, title: { display: true, text: '€/m²', font: { size: 9 }, color: '#9A8C80' } }
+    }
+  }
+});
+
+// ── CHART 3: Scissor effect index base 100 ──
+const ctx3 = document.getElementById('chart3').getContext('2d');
+const chart3 = new Chart(ctx3, {
+  type: 'line',
+  data: {
+    labels: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025],
+    datasets: [
+      { label: labels_fr.housing, data: [100,111,129,150,179,189,214,257,293,311,321], borderColor: '#C97A5E', backgroundColor: 'rgba(201,122,94,0.08)', borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#C97A5E', tension: 0.3 },
+      { label: labels_fr.salaries, data: [100,103,107,111,116,119,124,132,141,150,158], borderColor: '#C4973A', backgroundColor: 'rgba(196,151,58,0.08)', borderWidth: 2.5, pointRadius: 3, pointBackgroundColor: '#C4973A', tension: 0.3 },
+      { label: labels_fr.rates, data: [100,101,102,104,106,107,108,110,112,113,115], borderColor: '#243D2C', backgroundColor: 'rgba(36,61,44,0.06)', borderWidth: 2, pointRadius: 2, borderDash: [5,3], tension: 0.3 },
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 16, boxWidth: 12 } } },
+    scales: {
+      x: { grid: { color: 'rgba(216,206,188,0.4)', drawBorder: false }, ticks: { font: { size: 10 } } },
+      y: { grid: { color: 'rgba(216,206,188,0.4)', drawBorder: false }, ticks: { callback: v => v, font: { size: 10 } }, title: { display: true, text: 'Indice base 100 (2015)', font: { size: 9 }, color: '#9A8C80' } }
+    }
+  }
+});
+
+window.updateCharts = function(l) {
+  currentLang = l;
+  const lb = l === 'fr' ? labels_fr : labels_en;
+  chart1.data.labels = [lb.paris, lb.lisbon, lb.warsaw, lb.bucharest, lb.casablanca];
+  chart1.data.datasets[0].label = lb.gross;
+  chart1.data.datasets[1].label = lb.total;
+  chart1.update();
+  chart3.data.datasets[0].label = lb.housing;
+  chart3.data.datasets[1].label = lb.salaries;
+  chart3.data.datasets[2].label = lb.rates;
+  chart3.update();
+  const yTitle = l === 'fr' ? 'Indice base 100 (2015)' : 'Index base 100 (2015)';
+  chart3.options.scales.y.title.text = yTitle;
+  chart3.update();
+};
+
+</script>
+</body>
+</html>
