@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -218,34 +219,80 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
 
 /* ── RESPONSIVE ── */
 @media(max-width:900px) {
-  nav { mix-blend-mode:normal; background:rgba(36,61,44,.95); padding:0 24px; }
+  /* NAV */
+  nav { mix-blend-mode:normal; background:rgba(36,61,44,.97); padding:0 20px; }
   .nav-wordmark { color:var(--creme); }
+  .nav-right { gap:16px; }
+  .nav-right a { display:none; }
 
-  /* HERO MOBILE — clé du problème */
-  .hero { min-height:100svh; min-height:100vh; }
+  /* HERO — shorter, content visible immediately */
+  .hero { min-height:auto; }
   .hero-content {
-    padding: 80px 24px 40px;
-    justify-content: flex-end;
-    min-height: calc(100vh - 56px);
+    padding: 88px 24px 48px;
+    justify-content: flex-start;
+    min-height: auto;
   }
+  .hero-masthead { margin-bottom: 16px; }
   .word-mira,
-  .word-douro { font-size: clamp(36px, 13vw, 72px); }
+  .word-douro { font-size: clamp(48px, 14vw, 80px); }
   .hero-rule { margin: 16px 0; }
-  .hero-bottom { grid-template-columns:1fr; gap:20px; }
-  .hero-desc { grid-column:1; border-right:none; padding-right:0; border-bottom:1px solid rgba(255,255,255,.08); padding-bottom:20px; margin-bottom:0; }
-  .hero-desc-text { font-size: 15px; }
-  .hero-featured-teaser { padding-left:0; }
-  .hero-scroll { display:none; }
-  .hero-issue { display:none; }
+  .hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .hero-desc {
+    grid-column: 1;
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding-bottom: 24px;
+    margin-bottom: 0;
+  }
+  .hero-desc-text { font-size: 16px; line-height: 1.6; }
+  .hero-sub { font-size: 11px; margin-bottom: 10px; }
+  .hero-featured-teaser { padding-left: 0; }
+  .hft-title { font-size: 16px; }
+  .hero-scroll { display: none; }
+  .hero-issue { display: none; }
 
-  .article-featured { grid-template-columns:1fr; }
-  .af-visual { min-height:160px; }
-  .articles-secondary { grid-template-columns:1fr; }
-  .about { grid-template-columns:1fr; }
-  .about-light { border-left:none; border-top:1px solid var(--rule); }
-  .stats-grid { grid-template-columns:1fr 1fr; }
-  .footer-top { grid-template-columns:1fr; gap:32px; }
-  .articles { padding: 48px 24px; }
+  /* PROMESSE */
+  .promesse { padding: 40px 24px; }
+  .promesse-text { font-size: clamp(22px, 6vw, 32px); }
+
+  /* ARTICLES */
+  .articles { padding: 48px 20px; }
+  .section-label { margin-bottom: 28px; }
+  .article-featured { grid-template-columns: 1fr; }
+  .af-visual { min-height: 140px; }
+  .af-content { padding: 28px 24px; }
+  .af-title { font-size: clamp(22px, 6vw, 32px); }
+  .articles-secondary { grid-template-columns: 1fr; }
+  .art-card { padding: 22px 20px; }
+
+  /* ABOUT */
+  .about { grid-template-columns: 1fr; }
+  .about-dark { padding: 48px 24px; }
+  .about-title { font-size: clamp(24px, 7vw, 36px); }
+  .about-light { border-left: none; border-top: 1px solid var(--rule); padding: 40px 24px; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  /* NEWSLETTER */
+  .nl-inner { grid-template-columns: 1fr; gap: 28px; }
+  .nl-field { flex-direction: column; }
+  .nl-input { border-right: 1px solid rgba(255,255,255,.15); border-bottom: none; }
+  .nl-btn { padding: 12px; }
+
+  /* FOOTER */
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  footer { padding: 40px 24px 28px; }
+}
+
+@media(max-width:480px) {
+  .word-mira,
+  .word-douro { font-size: 13vw; }
+  .hero-content { padding: 80px 20px 40px; }
+  .af-content { padding: 24px 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
 }
 
 @media(max-width:400px) {
