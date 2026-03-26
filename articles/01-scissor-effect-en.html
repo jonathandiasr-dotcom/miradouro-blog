@@ -315,7 +315,7 @@ const chart1 = new Chart(ctx1, {
         data: [86, 54, 56, 29, 17],
         backgroundColor: [
           'rgba(201,122,94,0.18)',
-          'rgba(196,151,58,0.55)',
+          'rgba(196,151,58,0.65)',
           'rgba(201,122,94,0.12)',
           'rgba(201,122,94,0.12)',
           'rgba(201,122,94,0.12)'
@@ -417,6 +417,20 @@ const chart3 = new Chart(ctx3, {
     }
   }
 });
+
+
+// Mobile: reduce to 3 cities if small screen
+function adaptChartMobile() {
+  if(window.innerWidth < 700) {
+    chart1.data.labels = currentLang==='fr' ? ['Paris','Lisbonne','Casablanca'] : ['Paris','Lisbon','Casablanca'];
+    chart1.data.datasets[0].data = [60, 43, 14];
+    chart1.data.datasets[1].data = [86, 54, 17];
+    chart1.options.plugins.legend.labels.font = {size:9};
+    chart1.update();
+  }
+}
+window.addEventListener('load', adaptChartMobile);
+window.addEventListener('resize', adaptChartMobile);
 
 window.updateCharts = function(l) {
   currentLang = l;
