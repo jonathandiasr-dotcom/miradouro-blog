@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -551,14 +550,12 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
       <p class="nl-sub sr" data-fr="Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes." data-en="No digest, no aggregation. Only long-form analysis, when it's ready.">Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes.</p>
     </div>
     <div class="nl-right sr">
-      <form action="https://formsubmit.co/jonathan.diasr@gmail.com" method="POST" class="nl-form">
-        <!-- Formsubmit config -->
-        <input type="hidden" name="_subject" value="Nouvelle inscription Miradouro">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://miradouro.pt/merci.html">
-        <input type="hidden" name="_template" value="table">
+      <form id="sib-form" method="POST" action="https://7d45d2c6.sibforms.com/serve/MUIFABFfdjVRSKoTiJpHRS1W5SzQYvldzUZ_vnykXBso2FOoWE8ZvXARMgz5Lx-16aEzcaAsY5hkOexdIR94SDJ32dYzm3EZGEWGIbpLj3DzP8ju2wu5WvPaS7jw1o_29SqfGSEhLhEGszlLZssYq_tSBKNpd7ZfrlxesIHqZUowFW0aedDDQrRcZLZbm4W-IwcgZtMRysq9fVX3ng==" class="nl-form">
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <input type="text" name="email_address_check" value="" style="display:none">
         <div class="nl-field">
-          <input type="email" name="email" placeholder="votre@email.com" required class="nl-input">
+          <input type="email" id="EMAIL" name="EMAIL" placeholder="votre@email.com" required class="nl-input" autocomplete="off">
           <button type="submit" class="nl-btn" data-fr="S'abonner" data-en="Subscribe">S'abonner</button>
         </div>
         <p class="nl-promise" data-fr="Pas de spam. Désabonnement en un clic." data-en="No spam. Unsubscribe anytime.">Pas de spam. Désabonnement en un clic.</p>
