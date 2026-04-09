@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IA et musique : 97% ne font pas la différence · Miradouro</title>
+  <meta name="description" content="34% des uploads Deezer sont générés par IA, 97% des auditeurs ne font pas la différence. Spotify, Suno, le live : données sourcées et questions ouvertes.">
+  
+  <meta property="og:title" content="97% ne font pas la différence">
+  <meta property="og:description" content="Entre Suno, Spotify et Hans Zimmer, une enquête sur ce que l'IA change dans la musique. Et sur ce qu'elle ne pourra jamais remplacer.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="grid-final-97-etvous.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "IA et musique : 97% ne font pas la différence",
+    "datePublished": "2026-04-03",
+    "author": { "@type": "Person", "name": "Jonathan" },
+    "description": "34% des uploads Deezer sont générés par IA, 97% des auditeurs ne font pas la différence. Spotify, Suno, le live : données sourcées et questions ouvertes.",
+    "publisher": { "@type": "Organization", "name": "Miradouro" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <style>
+    :root {
+      --pom: #C97A5E; --pom-d: #A85C42; --pom-l: #EDB89A; --pom-t: #FBF3EC; --pom-g: #F7EDE4;
+      --verde: #243D2C; --verde-m: #2E5038; --verde-l: #C8DAC8; --verde-g: #EDF3EE;
+      --ouro: #C4973A; --ouro-l: #F0DFA8;
+      --ferro: #18140E; --ferro-m: #3A3028;
+      --creme: #FBF8F2; --areia: #EDE6DA; --rule: #D8CEBC; --ink2: #6A5C50; --ink3: #9A8C80;
+      --f1: "Fraunces", Georgia, serif;
+      --f2: "Cormorant Garamond", Georgia, serif;
+      --f3: "Cabinet Grotesk", system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--creme); color: var(--ferro);
+      font-family: var(--f2); font-size: clamp(15px, 1.8vw, 17px);
+      line-height: 1.85; -webkit-font-smoothing: antialiased;
+    }
+
+    /* Progress */
+    .progress-bar { position: fixed; top: 0; left: 0; height: 2px; background: var(--pom); width: 0%; z-index: 1000; transition: width 0.1s linear; }
+
+    /* Nav */
+    nav {
+      position: fixed; top: 2px; left: 0; right: 0; height: 56px;
+      background: var(--verde); border-bottom: 2px solid var(--ouro);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(16px, 4vw, 48px); z-index: 900;
+    }
+    .nav-logo { font-family: var(--f1); font-weight: 700; font-size: 16px; color: var(--creme); letter-spacing: 0.06em; text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--pom-l); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ouro); }
+    .lang-switch { font-family: var(--f3); font-size: 10px; font-weight: 800; color: var(--ink3); letter-spacing: 0.1em; }
+    .lang-switch .active { color: var(--creme); }
+
+    /* Hero */
+    .hero {
+      background: var(--verde);
+      padding: clamp(100px, 14vw, 160px) clamp(20px, 6vw, 80px) clamp(48px, 8vw, 80px);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l40 40M40 0L0 40' stroke='%23FBF8F2' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3Crect x='15' y='15' width='10' height='10' stroke='%23FBF8F2' stroke-width='0.5' fill='none' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+    .kicker { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--ouro); margin-bottom: 20px; }
+    .hero h1 { font-family: var(--f1); font-weight: 800; font-size: clamp(32px, 6vw, 72px); line-height: 1.05; color: var(--creme); margin-bottom: 24px; max-width: 14ch; }
+    .deck { font-family: var(--f2); font-weight: 300; font-style: italic; font-size: clamp(16px, 2.2vw, 21px); line-height: 1.7; color: var(--pom-l); max-width: 600px; margin-bottom: 32px; }
+    .byline { display: flex; align-items: center; gap: 12px; }
+    .byline-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--pom); display: flex; align-items: center; justify-content: center; font-family: var(--f1); font-weight: 700; font-size: 14px; color: var(--creme); }
+    .byline-text { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--verde-l); }
+
+    /* KPI Strip */
+    .kpi-strip { background: var(--pom); display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1px; }
+    .kpi-item { padding: 28px 24px; text-align: center; background: var(--pom); }
+    .kpi-number { font-family: var(--f1); font-weight: 800; font-size: clamp(28px, 4vw, 42px); color: var(--creme); line-height: 1.1; }
+    .kpi-label { font-family: var(--f3); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--pom-g); margin-top: 6px; }
+
+    /* Article Body */
+    .article-body { max-width: 860px; margin: 0 auto; padding: clamp(32px, 6vw, 64px) clamp(20px, 4vw, 40px); }
+    .article-body p { max-width: 680px; margin-bottom: 1.5em; color: var(--ink2); }
+    .article-body h2 {
+      font-family: var(--f1); font-weight: 700; font-size: clamp(22px, 3vw, 34px);
+      letter-spacing: -0.03em; color: var(--ferro); margin-top: 2.8em; margin-bottom: 0.8em;
+    }
+    .section-rule { border: none; height: 1px; background: var(--rule); margin: 2.5em 0; }
+
+    /* Aside Quote */
+    .aside-quote { border-left: 3px solid var(--ouro); background: var(--pom-t); padding: 24px 28px; margin: 2em 0; max-width: 680px; }
+    .aside-quote p { font-family: var(--f2); font-style: italic; font-weight: 400; font-size: clamp(16px, 2vw, 19px); line-height: 1.7; color: var(--ferro); margin-bottom: 8px !important; }
+    .aside-quote cite { font-family: var(--f3); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ink3); font-style: normal; }
+
+    /* Infographic Callout */
+    .infographic-callout {
+      background: var(--verde); padding: clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px);
+      margin: 2.5em calc(-1 * clamp(20px, 4vw, 40px)); text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .infographic-callout::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l40 40M40 0L0 40' stroke='%23FBF8F2' stroke-width='0.5' fill='none' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+    }
+    .infographic-callout .big-number { font-family: var(--f1); font-weight: 800; font-size: clamp(48px, 10vw, 100px); color: var(--pom-l); line-height: 1; position: relative; z-index: 1; }
+    .infographic-callout .big-label { font-family: var(--f3); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--verde-l); margin-top: 12px; position: relative; z-index: 1; }
+    .infographic-callout .big-context { font-family: var(--f2); font-style: italic; font-size: 15px; color: var(--pom-l); margin-top: 8px; position: relative; z-index: 1; opacity: 0.8; }
+
+    /* Chart Wrapper */
+    .chart-wrapper { background: var(--areia); border: 1px solid var(--rule); padding: 32px clamp(16px, 3vw, 32px); margin: 2em 0; }
+    .chart-title { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ferro); margin-bottom: 4px; }
+    .chart-subtitle { font-family: var(--f2); font-style: italic; font-size: 14px; color: var(--ink3); margin-bottom: 20px; }
+    .chart-source { font-family: var(--f3); font-size: 9px; font-weight: 700; color: var(--ink3); letter-spacing: 0.08em; margin-top: 16px; text-transform: uppercase; }
+    canvas { max-height: 360px; }
+
+    /* Compare Table */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 0; font-family: var(--f2); font-size: 15px; }
+    .compare-table th { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; padding: 12px 16px; text-align: left; border-bottom: 2px solid var(--ferro); color: var(--ferro); }
+    .compare-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); color: var(--ink2); vertical-align: top; }
+    .compare-table tr:last-child td { border-bottom: 2px solid var(--ferro); }
+    .badge-yes { display: inline-block; background: var(--verde-l); color: var(--verde); font-family: var(--f3); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; }
+    .badge-no { display: inline-block; background: var(--pom-g); color: var(--pom-d); font-family: var(--f3); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; }
+    .badge-partial { display: inline-block; background: var(--ouro-l); color: var(--ferro-m); font-family: var(--f3); font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 2px; }
+
+    /* Conclusion */
+    .conclusion { background: var(--ferro); padding: clamp(40px, 6vw, 64px) clamp(24px, 4vw, 48px); margin: 2.5em calc(-1 * clamp(20px, 4vw, 40px)); }
+    .conclusion p { color: var(--pom-l) !important; max-width: 680px; margin: 0 auto 1.2em; }
+    .conclusion h2 { color: var(--creme) !important; max-width: 680px; margin: 0 auto 0.8em; }
+
+    /* Suno Reveal */
+    .suno-reveal { background: var(--pom-t); border: 2px solid var(--pom); padding: clamp(32px, 5vw, 48px); margin: 2.5em 0; text-align: center; }
+    .suno-reveal .reveal-kicker { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.22em; color: var(--pom-d); margin-bottom: 12px; }
+    .suno-reveal .reveal-title { font-family: var(--f1); font-weight: 700; font-size: clamp(22px, 3vw, 32px); color: var(--ferro); margin-bottom: 16px; }
+    .suno-reveal .reveal-text { font-family: var(--f2); font-style: italic; font-size: 16px; color: var(--ink2); max-width: 520px; margin: 0 auto 24px; line-height: 1.7; }
+    .suno-btn { display: inline-block; background: var(--pom); color: var(--creme); font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; padding: 14px 32px; text-decoration: none; transition: background 0.2s; }
+    .suno-btn:hover { background: var(--pom-d); }
+    .suno-player {
+      background: var(--verde);
+      border-radius: 6px;
+      padding: 28px 32px;
+      max-width: 520px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .suno-player::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l40 40M40 0L0 40' stroke='%23FBF8F2' stroke-width='0.5' fill='none' opacity='0.05'/%3E%3C/svg%3E");
+      background-size: 40px 40px;
+    }
+    .suno-player-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .suno-disc {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, var(--ferro) 18%, var(--pom) 19%, var(--pom) 42%, var(--pom-d) 43%, var(--pom-d) 46%, var(--pom) 47%, var(--pom) 100%);
+      flex-shrink: 0;
+      animation: spin 8s linear infinite paused;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .suno-disc.playing { animation-play-state: running; }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .suno-player-info { flex: 1; min-width: 0; }
+    .suno-track-name {
+      font-family: var(--f1);
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--creme);
+      line-height: 1.2;
+    }
+    .suno-track-artist {
+      font-family: var(--f2);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--pom-l);
+      margin-top: 2px;
+    }
+    .suno-track-meta {
+      font-family: var(--f3);
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--verde-l);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      opacity: 0.7;
+    }
+    .suno-player audio {
+      width: 100%;
+      height: 36px;
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+      border-radius: 4px;
+    }
+
+    /* Inline teaser link */
+    .inline-teaser { color: var(--pom); text-decoration: underline; text-decoration-color: var(--pom); text-underline-offset: 3px; transition: color 0.2s; }
+    .inline-teaser:hover { color: var(--pom-d); }
+
+    /* Sources */
+    .sources { background: var(--areia); padding: clamp(32px, 5vw, 48px) clamp(20px, 4vw, 40px); margin-top: 3em; }
+    .sources h3 { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--ferro); margin-bottom: 16px; }
+    .sources p { font-family: var(--f2); font-size: 14px; color: var(--ink3); line-height: 1.7; margin-bottom: 6px; }
+
+    /* Author Box */
+    .author-box { display: flex; gap: 20px; align-items: flex-start; padding: 32px 0; border-top: 1px solid var(--rule); margin-top: 2em; }
+    .author-box .avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--verde); display: flex; align-items: center; justify-content: center; font-family: var(--f1); font-weight: 700; font-size: 20px; color: var(--creme); flex-shrink: 0; }
+    .author-box .author-name { font-family: var(--f1); font-weight: 700; font-size: 18px; color: var(--ferro); }
+    .author-box .author-bio { font-family: var(--f2); font-size: 14px; color: var(--ink3); line-height: 1.6; margin-top: 4px; }
+
+    /* Footer */
+    footer { background: var(--verde); padding: 32px; text-align: center; }
+    footer p { font-family: var(--f3); font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--verde-l); }
+
+    .fn { font-family: var(--f2); font-size: 13px; font-style: italic; color: var(--ink3); }
+
+    @media (max-width: 640px) {
+      .nav-links { gap: 12px; }
+      .kpi-strip { grid-template-columns: 1fr 1fr; }
+      .compare-table { font-size: 13px; }
+      .compare-table th, .compare-table td { padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
+  <nav>
+    <a href="#" class="nav-logo">MIRADOURO</a>
+    <div class="nav-links">
+      <a href="#">Articles</a>
+      <a href="#">À propos</a>
+      <span class="lang-switch"><span class="active">FR</span> | EN</span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker">AI & Musique · Hors-série</div>
+      <h1>97% ne font pas la différence</h1>
+      <p class="deck">Entre Suno, Spotify et Hans Zimmer, une enquête sur ce que l'IA change dans la musique. Et sur ce qu'elle ne pourra jamais remplacer.</p>
+      <div class="byline">
+        <div class="byline-avatar">J</div>
+        <div class="byline-text">Jonathan · 3 avril 2026 · Lisbonne</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- KPI Strip -->
+  <section class="kpi-strip">
+    <div class="kpi-item"><div class="kpi-number">75M</div><div class="kpi-label">Morceaux spam supprimés par Spotify en 12 mois</div></div>
+    <div class="kpi-item"><div class="kpi-number">34%</div><div class="kpi-label">Des uploads quotidiens sur Deezer sont 100% IA</div></div>
+    <div class="kpi-item"><div class="kpi-number">97%</div><div class="kpi-label">Des auditeurs échouent à distinguer IA / humain</div></div>
+    <div class="kpi-item"><div class="kpi-number">7M</div><div class="kpi-label">Morceaux générés par jour sur Suno</div></div>
+  </section>
+
+  <!-- Article -->
+  <article class="article-body">
+
+    <!-- PERSONAL INTRO -->
+    <p>Je ne suis ni journaliste musical, ni critique, ni professionnel de l'industrie. Je suis quelqu'un qui aime la musique. DJ à mon échelle au sein du collectif Kombava à Lisbonne, passionné depuis toujours. Si je parle d'intelligence artificielle dans la musique aujourd'hui, c'est parce que mercredi soir, quelque chose m'a fait réfléchir.</p>
+
+    <hr class="section-rule">
+
+    <!-- OPENING — QUOTIDIEN -->
+    <p>TMC. Quotidien. Yann Barthès reçoit Antoine Monin, PDG de Spotify France et Bénélux, pour les 20 ans de la plateforme. Le sujet dérive vite vers l'IA. Et Monin prononce une phrase qui reste en tête bien après le générique de fin&nbsp;: <em>«&nbsp;Qui sommes-nous pour juger&nbsp;?&nbsp;»</em></p>
+
+    <p>Sa position est limpide. L'IA dans la musique, c'est une révolution technologique comme la musique en a connu des dizaines. Le synthétiseur, le sampleur, le vocodeur, la MAO. Chaque fois, les mêmes cris d'orfraie. Chaque fois, la musique a continué. Il avance un chiffre&nbsp;: 26&nbsp;% des morceaux indexés sur Spotify seraient liés à l'IA. Et il ajoute&nbsp;: <em>«&nbsp;Si vous n'avez pas de talent, vous pouvez utiliser tous les outils que vous voulez, vous n'aurez pas de talent.&nbsp;»</em></p>
+
+    <p>Ça mérite qu'on regarde les données de plus près.</p>
+
+    <hr class="section-rule">
+
+    <!-- THE RIPTIDE -->
+    <h2>Uploads IA : ce que les chiffres disent, et ce qu'ils ne disent pas</h2>
+
+    <p>Spotify ne publie pas de données précises sur la proportion de morceaux IA dans ses uploads. Mais Deezer le fait, et c'est la seule plateforme de streaming au monde à le faire publiquement depuis janvier 2025. Ce qu'ils montrent est vertigineux.</p>
+
+    <div class="chart-wrapper">
+      <div class="chart-title">Le raz-de-marée silencieux</div>
+      <div class="chart-subtitle">Part des uploads 100% IA sur Deezer vs part des écoutes réelles, 2025</div>
+      <canvas id="chart1" aria-label="Bar chart: AI uploads on Deezer grew from 10% to 34% of daily uploads between January and November 2025, while actual streams stayed at 0.5%"></canvas>
+      <div class="chart-source">Sources&nbsp;: Deezer Newsroom (jan., avr., sep., nov. 2025) · Étude Deezer/Ipsos (nov. 2025, n=9&nbsp;000, 8 pays)</div>
+    </div>
+
+    <p>En dix mois, la part des morceaux 100&nbsp;% IA dans les uploads quotidiens est passée de 10&nbsp;% à 34&nbsp;%. En volume brut&nbsp;: de 10&nbsp;000 à 50&nbsp;000 morceaux par jour. Une augmentation de 400&nbsp;%. Et Spotify reconnaît que toutes les plateformes reçoivent «&nbsp;essentiellement le même catalogue&nbsp;».</p>
+
+    <p>Mais voici le paradoxe, et c'est peut-être le chiffre le plus important de cet article&nbsp;: ces 34&nbsp;% d'uploads ne représentent que 0,5&nbsp;% des écoutes réelles. La musique IA est un tsunami de production, pas de consommation. Pas encore.</p>
+
+    <p class="fn">(Regardez le graphique au-dessus. La petite barre verte&nbsp;? C'est ça, 0,5&nbsp;%. On a failli ne pas la mettre tellement elle est invisible. On l'a mise quand même. C'est tout le sujet.)</p>
+
+    <p>En parallèle, Spotify a supprimé 75 millions de morceaux spam en douze mois. Pour mettre ce chiffre en perspective&nbsp;: le catalogue actif de Spotify compte environ 100 millions de titres. Ils ont nettoyé l'équivalent des trois quarts de leur bibliothèque.</p>
+
+    <div class="infographic-callout">
+      <div class="big-number">0,5%</div>
+      <div class="big-label">Part des écoutes réelles pour les morceaux 100% IA</div>
+      <div class="big-context">34% de la production. 0,5% de la consommation. Pour l'instant.</div>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- SUNO -->
+    <h2>Suno : 7 millions de morceaux IA par jour</h2>
+
+    <p>Pour comprendre pourquoi la courbe monte aussi vite, il faut regarder la machine qui la nourrit. Suno, c'est quatre anciens de Kensho AI à Cambridge, un modèle open-source publié sur GitHub en 2023, et 18 mois plus tard&nbsp;: 100 millions d'utilisateurs, 2 millions d'abonnés payants, 300 millions de dollars de revenus annuels récurrents. Sept millions de morceaux générés chaque jour. Sept millions.</p>
+
+    <div class="chart-wrapper">
+      <div class="chart-title">La trajectoire Suno</div>
+      <div class="chart-subtitle">Abonnés payants et revenus annuels récurrents, 2024–2026</div>
+      <canvas id="chart2" aria-label="Bar chart: Suno grew from 100K paid subscribers and $46M revenue in late 2024 to 2M subscribers and $300M ARR by February 2026"></canvas>
+      <div class="chart-source">Sources&nbsp;: Suno (annonces officielles, fév. 2026) · Business of Apps (jan. 2026) · Billboard (déc. 2025)</div>
+    </div>
+
+    <p>Le CEO du Recording Academy, ceux qui organisent les Grammy, a récemment confié que «&nbsp;tous&nbsp;» les songwriters et producteurs qu'il connaît utilisent maintenant Suno. Pour débloquer des idées, tester des mélodies, générer des points de départ. Le mot clé&nbsp;: <em>tous</em>.</p>
+
+    <p>Et il faut reconnaître une chose&nbsp;: l'IA permet des croisements musicaux inédits. Du country mélangé à du bim-bap hip hop. Des combinaisons qu'aucun producteur n'aurait tentées, et qui parfois donnent quelque chose d'intéressant. Ce n'est pas que du spam. Il y a une vraie valeur créative possible.</p>
+
+    <p>En novembre 2025, Suno a réglé un litige de 500 millions de dollars avec Warner Music Group. L'accord autorise l'entraînement de ses modèles sur le catalogue WMG et inclut l'acquisition de Songkick. Universal et Sony poursuivent encore leurs procédures. Le marché sous-jacent de l'IA générative musicale est estimé à environ 570 millions de dollars en 2024, avec une projection à 2,8 milliards d'ici 2030.</p>
+
+    <p>J'utilise Suno depuis quelques semaines. Pas pour cet article, pour le plaisir. Je tape un prompt le soir, j'écoute ce qui sort, je retouche, je relance. Et je prends un plaisir que je n'avais pas anticipé à produire des morceaux sans savoir jouer d'un seul instrument. <a href="#suno-reveal" class="inline-teaser">J'en ai fait un, «&nbsp;Miradouro&nbsp;», on y revient à la fin</a>.</p>
+
+    <hr class="section-rule">
+
+    <!-- ALEXIS -->
+    <p>Mais il y a un angle que ni Monin ni Quotidien n'ont abordé, et qu'Alexis, ami de Kombava et seul producteur musical du collectif, m'a fait remarquer dans une discussion récente. La question n'est pas seulement philosophique, elle est économique. Un morceau IA ne négocie pas ses royalties. Un artiste IA ne demande pas d'avance, ne réclame pas de promotion, ne fait pas de tournée à synchroniser. Pour une plateforme comme Spotify, l'IA est le fournisseur de contenu idéal&nbsp;: corvéable, infini, et pas cher.</p>
+
+    <p>Et Alexis va plus loin. 95&nbsp;% des gens ne sont pas des passionnés de musique. Ils veulent juste mettre quelque chose dans leurs oreilles. La première playlist Spotify qui vient, basta. Un peu de lofi hip hop pour bosser. Un fond sonore pour le trajet. Pour ces 95&nbsp;%, l'IA ne change rien à l'expérience. C'est nous, les 5&nbsp;% de vrais passionnés, qui voyons le problème. Et peut-être que c'est aussi pour ça que Spotify n'est pas pressé de le résoudre.</p>
+
+    <aside class="aside-quote">
+      <p>«&nbsp;La définition de 100&nbsp;% IA n'est pas très claire. Aujourd'hui, on a du mal à dire si c'est 100&nbsp;%, 90&nbsp;% ou 80&nbsp;%. Qui va mettre la règle, où et comment&nbsp;?&nbsp;»</p>
+      <cite>Antoine Monin, PDG Spotify France · Quotidien, 2 avril 2026</cite>
+    </aside>
+
+    <hr class="section-rule">
+
+    <!-- BOOBA -->
+    <h2>Booba, l'IA, et la question qu'on n'a pas posée</h2>
+
+    <p>Parlons de Booba. Fan de la première heure, moins de la dernière heure. Mais son passage récent dans «&nbsp;Carré d'As&nbsp;» avec Oxmo Puccino, Pit Baccardi et Lino était un moment de rap français rare. Quatre légendes réunies pour parler du futur de leur art.</p>
+
+    <p>Et c'est au milieu de cette conversation que le Duc révèle avoir utilisé l'IA pour créer «&nbsp;DD&nbsp;», son hommage à Désiré Doué entré au top 10, et «&nbsp;Seychelles&nbsp;». Puis il ajoute, sourire en coin&nbsp;: <em>«&nbsp;J'ai des feats avec Shakira sans Shakira.&nbsp;»</em></p>
+
+    <p>Le Duc le dit ouvertement. Combien d'artistes font pareil sans le dire&nbsp;?</p>
+
+    <p>C'est exactement le point aveugle du débat. On parle de «&nbsp;musique IA&nbsp;» comme d'un bloc monolithique. Mais la réalité est un spectre. Booba écrit ses textes et génère l'instru, c'est 50&nbsp;% humain&nbsp;? 70&nbsp;%&nbsp;? Les Beatles ont utilisé l'IA pour restaurer la voix de Lennon. David Guetta a fait un faux feat avec Eminem. The Velvet Sundown, un groupe fictif entièrement IA, a accumulé des millions de streams avant que quelqu'un remarque. Et iHeartRadio a lancé le programme «&nbsp;Guaranteed Human&nbsp;», promettant de ne diffuser que des voix humaines.</p>
+
+    <p>Qui trace la ligne&nbsp;? Et surtout, est-ce vraiment le public qui décide ce qu'il écoute&nbsp;?</p>
+
+    <hr class="section-rule">
+
+    <!-- LA BOUCLE FERMÉE -->
+    <h2>Algorithme Spotify : est-ce que tu choisis vraiment ta musique&nbsp;?</h2>
+
+    <p>Repensez à votre dernière semaine d'écoute. Combien de morceaux avez-vous cherchés vous-même, par artiste, par titre, par envie précise&nbsp;? Et combien sont arrivés dans vos oreilles via Discover Weekly, Release Radar, Daily Mix, ou la lecture automatique qui enchaîne après le dernier morceau choisi&nbsp;?</p>
+
+    <p>J'écoute beaucoup de playlists, comme tout le monde. Mais le fait d'être DJ m'oblige à sortir de la boucle, à chercher, à creuser, à écouter des choses que l'algo ne me proposerait jamais. Laurent Garnier dit que le pouvoir du DJing, c'est de partager de l'inattendu. Il a raison. Mais l'inattendu, il faut d'abord aller le trouver. Et l'algorithme, par définition, ne vous emmènera jamais vers l'inattendu. Il vous emmène vers le prévisible.</p>
+
+    <p>L'algorithme de recommandation ne fait pas que distribuer la musique. Il la sélectionne. Il compose votre menu. Et si demain la machine compose aussi la musique elle-même, le public ne choisit plus rien. Il consomme ce que l'algo produit <em>et</em> recommande. Une boucle fermée.</p>
+
+    <p>Poussons la logique. Spotify a déjà lancé les «&nbsp;Prompted Playlists&nbsp;», des playlists générées par IA à partir d'un texte. La prochaine étape est prévisible&nbsp;: une musique générée à la volée, calibrée sur votre humeur, votre historique, vos habitudes. Plus de catalogue partagé. Plus d'artiste. Juste un flux continu, taillé pour vous. Comme le feed Instagram, comme la pub ciblée, mais en bande-son.</p>
+
+    <p>Ce n'est pas de la science-fiction. C'est l'extrapolation logique de ce qui existe déjà.</p>
+
+    <p>Et si on pousse encore un cran&nbsp;: imaginez un matin où Spotify connaît vos données de sommeil, votre agenda, vos prompts de la veille. Il génère un morceau, pas depuis un catalogue mais depuis zéro, calibré sur votre humeur exacte à 7h43 un jeudi de pluie. Une musique qui n'existe que pour vous, à cet instant. Ultra-personnalisée. Ultra-jetable. Le contraire absolu d'un album qu'on réécoute dix ans plus tard.</p>
+
+    <p>C'est techniquement possible. C'est probablement rentable. Et c'est peut-être exactement le futur que personne n'a envie de vivre.</p>
+
+    <!-- VINYL COUNTER-MOVEMENT -->
+    <p>D'ailleurs, il y a un signal inverse qui dit beaucoup. Le vinyle n'a jamais autant vendu qu'aujourd'hui. Moi-même, j'achète mes albums préférés à un rythme effréné depuis deux ans. Pas par nostalgie. Parce qu'un vinyle, c'est une oeuvre. Tu le choisis, tu le poses sur la platine, tu écoutes les deux faces. C'est l'exact opposé du flux. Avant, il fallait aller acheter un disque. Tu consommais la musique différemment. Et visiblement, de plus en plus de gens ont envie de retrouver ça.</p>
+
+    <hr class="section-rule">
+
+    <!-- LE LIVE -->
+    <h2>Le retour du live : ce que l'IA ne pourra jamais remplacer</h2>
+
+    <p>Je reviens de Hans Zimmer à la MEO Arena de Lisbonne. Et ce qui m'a marqué, c'est de voir de vrais musiciens, les meilleurs dans leur domaine, jouer ensemble devant des milliers de personnes. Aucun algorithme ne produit ça. Aucun prompt ne le remplace.</p>
+
+    <p>Et les gens en veulent. Regardez les records de Céline Dion. Regardez les files d'attente. Il y a une envie massive de musique vécue ensemble, de performances partagées en chair et en os.</p>
+
+    <p>L'IA rend la production musicale infinie. Les coûts tendent vers zéro. Le volume tend vers l'infini. Dans un monde où n'importe qui peut produire un morceau en 25 secondes, la valeur migre mécaniquement vers ce qui ne peut pas être répliqué&nbsp;: la présence, le moment, le corps.</p>
+
+    <p>Le mouvement est déjà en marche, et il a commencé avant l'IA. Les revenus du streaming par artiste stagnent ou baissent. L'argent, pour les musiciens, se fait de plus en plus sur le live. L'IA ne crée pas cette tendance. Elle l'accélère.</p>
+
+    <p>Mais le public attend maintenant autre chose du live. Pas juste un concert. Une expérience. Regardez la Sphere à Las Vegas, qui réinvente ce que veut dire «&nbsp;voir un spectacle&nbsp;». Regardez ce que Kendrick Lamar construit sur scène. Regardez Tomorrowland, où l'immersion visuelle est devenue aussi essentielle que la musique elle-même. Le live de demain n'est plus celui d'hier. Il est plus grand, plus immersif, plus multisensoriel.</p>
+
+    <p>Et puis il y a des moments qui donnent de l'espoir, tout simplement. <a href="https://www.youtube.com/results?search_query=thomas+bangalter+fred+again+live" class="inline-teaser" target="_blank">Thomas Bangalter avec Fred Again</a>. Un ancien Daft Punk et un producteur de la nouvelle génération, ensemble, sur scène, en live. Pas d'IA. Pas de filtre. Juste deux artistes et le public entre eux. La preuve que les gens qui comptent dans la musique reviennent vers le vivant.</p>
+
+    <p>C'est peut-être la meilleure nouvelle de cet article&nbsp;: l'IA ne tue pas la musique. Elle remet le corps humain au centre. La performance, l'émotion directe, le risque du moment. Tout ce que la boucle fermée ne pourra jamais répliquer.</p>
+
+    <hr class="section-rule">
+
+    <!-- CONCLUSION -->
+    <div class="conclusion">
+      <h2 style="font-family: var(--f1); font-weight: 700; font-size: clamp(22px, 3vw, 32px); letter-spacing: -0.03em;">Ce que je ne sais pas</h2>
+
+      <p>Voici ce que les données montrent&nbsp;: la musique IA explose en volume de production, pas encore en consommation. Les outils se démocratisent à une vitesse stupéfiante. Et les plateformes ne sont pas d'accord entre elles sur quoi faire.</p>
+
+      <p>Antoine Monin pose une bonne question&nbsp;: qui sommes-nous pour juger les outils&nbsp;? Mais il y a deux questions qu'il n'a pas posées sur le plateau de Quotidien.</p>
+
+      <p>La première&nbsp;: est-ce que le public a le droit de savoir&nbsp;? Si 97&nbsp;% n'entendent pas la différence, l'étiquetage est-il un acte de transparence ou de pédagogie&nbsp;?</p>
+
+      <p>La seconde, plus profonde&nbsp;: est-ce que le public a réellement <em>envie</em> de savoir&nbsp;? Et si la réponse est non, si ce qu'on cherche dans la musique c'est l'émotion et pas l'authenticité du processus, alors peut-être que l'avenir ne se joue ni dans les algorithmes ni dans les prompts. Il se joue dans une salle, un soir, avec un orchestre qui respire.</p>
+    </div>
+
+    <hr class="section-rule">
+
+    <!-- SUNO REVEAL -->
+    <div class="suno-reveal" id="suno-reveal">
+      <div class="reveal-kicker">Full disclosure</div>
+      <div class="reveal-title">J'ai dit qu'on y reviendrait.</div>
+      <p class="reveal-text">J'utilise Suno depuis quelques semaines. Pas pour faire un point dans un article, parce que j'y prends du plaisir. Je tape des prompts le soir, j'itère, j'écoute ce qui sort, je recommence. C'est addictif d'une manière que je n'avais pas vue venir.<br><br>Le morceau ci-dessous s'appelle «&nbsp;Miradouro&nbsp;». 100&nbsp;% Suno. Zéro instrument. Zéro studio. Juste un prompt et de la curiosité. Écoutez-le, et dites-moi ce que vous en pensez. C'est exactement la promesse de ce blog.</p>
+      <div class="suno-player" id="sunoPlayer">
+        <div class="suno-player-inner">
+          <div class="suno-disc" id="sunoDisc"></div>
+          <div class="suno-player-info">
+            <div class="suno-track-name">Miradouro</div>
+            <div class="suno-track-artist">by Jonathan · via Suno</div>
+            <div class="suno-track-meta">100% généré par IA · Un prompt, de la curiosité · Avril 2026</div>
+          </div>
+        </div>
+        <audio controls preload="metadata" id="sunoAudio">
+          <source src="sol-no-rio.mp3" type="audio/mpeg">
+          Votre navigateur ne supporte pas le lecteur audio.
+        </audio>
+      </div>
+    </div>
+
+    <!-- Sources -->
+    <div class="sources">
+      <h3>Sources</h3>
+      <p>Charts in France · «&nbsp;Le PDG de Spotify France défend l'utilisation de l'IA dans la création&nbsp;», 2 avril 2026</p>
+      <p>Spotify Newsroom · «&nbsp;Spotify Strengthens AI Protections for Artists, Songwriters, and Producers&nbsp;», 25 septembre 2025</p>
+      <p>Deezer Newsroom · «&nbsp;28% of all delivered music is now fully AI-generated&nbsp;», 11 septembre 2025</p>
+      <p>Deezer Newsroom · «&nbsp;50,000 AI-generated tracks are now uploaded every day&nbsp;», 12 novembre 2025</p>
+      <p>Deezer/Ipsos · Étude perceptions musique IA, 9&nbsp;000 répondants, 8 pays, novembre 2025</p>
+      <p>Billboard · «&nbsp;The 10 Biggest AI Music Stories of 2025&nbsp;», décembre 2025</p>
+      <p>TechCrunch · «&nbsp;Spotify updates AI policy to label tracks, cut down on spam&nbsp;», 25 septembre 2025</p>
+      <p>Music Ally · «&nbsp;Spotify reveals its latest measures to handle AI music&nbsp;», 25 septembre 2025</p>
+      <p>Business of Apps · «&nbsp;Suno Revenue and Usage Statistics (2026)&nbsp;», janvier 2026</p>
+      <p>Suno · 2M abonnés payants, $300M ARR, annonce officielle février 2026</p>
+      <p>Wikipedia · Suno (platform), settlement WMG $500M, novembre 2025</p>
+      <p>Charts in France · «&nbsp;Booba révèle se servir de l'IA pour créer ses tubes&nbsp;», mars 2026</p>
+      <p>Grand View Research · «&nbsp;Generative AI in Music Market Size & Outlook, 2030&nbsp;»</p>
+
+      <h3 style="margin-top: 24px;">À regarder</h3>
+      <p><a href="https://www.youtube.com/results?search_query=thomas+bangalter+fred+again+live" target="_blank" style="color: var(--pom);">Thomas Bangalter x Fred Again, live</a></p>
+      <p><a href="https://www.youtube.com/results?search_query=kendrick+lamar+super+bowl+2025+full+performance" target="_blank" style="color: var(--pom);">Kendrick Lamar, Super Bowl 2025</a></p>
+      <p><a href="https://www.youtube.com/results?search_query=sphere+las+vegas+concert+experience" target="_blank" style="color: var(--pom);">Sphere, Las Vegas</a></p>
+      <p><a href="https://www.youtube.com/results?search_query=tomorrowland+2025+mainstage" target="_blank" style="color: var(--pom);">Tomorrowland 2025, mainstage</a></p>
+    </div>
+
+    <!-- Author Box -->
+    <div class="author-box">
+      <div class="avatar">J</div>
+      <div>
+        <div class="author-name">Jonathan</div>
+        <div class="author-bio">Écrit depuis Lisbonne. Curieux de la tech européenne, honnête sur les limites de ce qu'il sait. Fan de Booba et de données sourcées, les deux ne sont pas incompatibles.</div>
+      </div>
+    </div>
+
+  </article>
+
+  <footer>
+    <p>Miradouro · 2026 · Written from 🇵🇹 · La tech européenne vue depuis Lisbonne</p>
+  </footer>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      document.getElementById('progressBar').style.width = pct + '%';
+    });
+
+    // Chart defaults
+    Chart.defaults.font.family = "'Cabinet Grotesk', system-ui, sans-serif";
+    Chart.defaults.font.size = 11;
+    Chart.defaults.color = '#6A5C50';
+
+    // CHART 1 — Deezer AI uploads vs streams
+    new Chart(document.getElementById('chart1'), {
+      type: 'bar',
+      data: {
+        labels: ['Janvier 2025', 'Avril 2025', 'Septembre 2025', 'Novembre 2025'],
+        datasets: [
+          {
+            label: 'Part des uploads 100% IA',
+            data: [10, 18, 28, 34],
+            backgroundColor: '#C97A5E',
+            borderColor: '#A85C42',
+            borderWidth: 1,
+            borderRadius: 2,
+            barPercentage: 0.6,
+          },
+          {
+            label: 'Part des écoutes réelles',
+            data: [0.5, 0.5, 0.5, 0.5],
+            backgroundColor: '#243D2C',
+            borderColor: '#2E5038',
+            borderWidth: 1,
+            borderRadius: 2,
+            barPercentage: 0.6,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { font: { size: 10, weight: '700' }, padding: 16, usePointStyle: true, pointStyle: 'rectRounded' }
+          },
+          tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' } }
+        },
+        scales: {
+          y: { beginAtZero: true, max: 40, ticks: { callback: v => v + '%', font: { size: 10, weight: '700' } }, grid: { color: '#D8CEBC', drawBorder: false } },
+          x: { ticks: { font: { size: 10, weight: '700' } }, grid: { display: false } }
+        }
+      }
+    });
+
+    // CHART 2 — Suno growth
+    new Chart(document.getElementById('chart2'), {
+      type: 'bar',
+      data: {
+        labels: ['Fin 2024', 'Fin 2025', 'Février 2026'],
+        datasets: [
+          {
+            label: 'Abonnés payants (millions)',
+            data: [0.1, 1, 2],
+            backgroundColor: '#C4973A',
+            borderColor: '#A67E2A',
+            borderWidth: 1,
+            borderRadius: 2,
+            yAxisID: 'y',
+          },
+          {
+            label: 'Revenus ARR ($M)',
+            data: [46, 150, 300],
+            backgroundColor: '#C97A5E',
+            borderColor: '#A85C42',
+            borderWidth: 1,
+            borderRadius: 2,
+            yAxisID: 'y1',
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        aspectRatio: 2,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: { font: { size: 10, weight: '700' }, padding: 16, usePointStyle: true, pointStyle: 'rectRounded' }
+          }
+        },
+        scales: {
+          y: {
+            type: 'linear', position: 'left', beginAtZero: true, max: 2.5,
+            title: { display: true, text: 'ABONNÉS PAYANTS (M)', font: { size: 9, weight: '800' }, color: '#C4973A' },
+            ticks: { callback: v => v + 'M', font: { size: 10, weight: '700' }, color: '#C4973A' },
+            grid: { color: '#D8CEBC', drawBorder: false },
+          },
+          y1: {
+            type: 'linear', position: 'right', beginAtZero: true, max: 350,
+            title: { display: true, text: 'REVENUS ARR ($M)', font: { size: 9, weight: '800' }, color: '#C97A5E' },
+            ticks: { callback: v => '$' + v + 'M', font: { size: 10, weight: '700' }, color: '#C97A5E' },
+            grid: { display: false },
+          },
+          x: { ticks: { font: { size: 10, weight: '700' } }, grid: { display: false } }
+        }
+      }
+    });
+
+    // Suno player disc animation
+    const audio = document.getElementById('sunoAudio');
+    const disc = document.getElementById('sunoDisc');
+    if (audio && disc) {
+      audio.addEventListener('play', () => disc.classList.add('playing'));
+      audio.addEventListener('pause', () => disc.classList.remove('playing'));
+      audio.addEventListener('ended', () => disc.classList.remove('playing'));
+    }
+  </script>
+
+</body>
+</html>
