@@ -271,7 +271,7 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
 
 <!-- NAV -->
 <nav>
-  <div class="nav-wordmark">Mira<em>douro</em></div>
+  <a href="index.html" class="nav-wordmark">Mira<em>douro</em></a>
   <div class="nav-right">
     <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
     <a href="#about" data-fr="À propos" data-en="About">À propos</a>
@@ -325,7 +325,7 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
       <div class="hero-featured-teaser">
         <div class="hft-kicker" data-fr="Hors-série · En ligne" data-en="Special · Now live">Hors-série · En ligne</div>
         <div class="hft-title" data-fr="IA et musique : 97% ne font pas la différence" data-en="AI and music: 97% can't tell the difference">IA et musique : 97% ne font pas la différence</div>
-        <a href="articles/ai-music-fr.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+        <a id="link-hero" href="articles/ai-music-fr.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
     </div>
   </div>
@@ -353,7 +353,7 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
   </div>
 
   <!-- FEATURED: AI & Musique (Hors-série) -->
-  <div class="article-featured sr" onclick="window.location='articles/ai-music-fr.html'" style="cursor:none">
+  <div id="card-featured" class="article-featured sr" style="cursor:none">
     <div class="af-visual">
       <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -391,7 +391,7 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
 
   <div class="articles-secondary">
     <!-- Card 1: N°01 Scissor Effect (LIVE) -->
-    <div class="art-card sr" onclick="window.location='articles/01-scissor-effect-fr.html'" style="cursor:none">
+    <div id="card-01" class="art-card sr" style="cursor:none">
       <div class="art-card-top">
         <span class="art-tag o" data-fr="Nearshore & Économie" data-en="Nearshore & Economy">Nearshore & Économie</span>
         <span class="art-num">01</span>
@@ -405,7 +405,7 @@ footer { background:var(--ferro); padding:clamp(40px,5vw,64px) clamp(24px,5vw,72
     </div>
 
     <!-- Card 2: N°02 Immigration (LIVE) -->
-    <div class="art-card sr" onclick="window.location='articles/02-immigration-fr.html'" style="cursor:none">
+    <div id="card-02" class="art-card sr" style="cursor:none">
       <div class="art-card-top">
         <span class="art-tag p" data-fr="Immigration & Talent" data-en="Immigration & Talent">Immigration & Talent</span>
         <span class="art-num">02</span>
@@ -567,7 +567,26 @@ function setLang(l) {
   });
   document.documentElement.lang = l;
   localStorage.setItem('mira_lang', l);
+
+  // Update all article links based on language
+  const hero = document.getElementById('link-hero');
+  if(hero) hero.href = 'articles/ai-music-' + l + '.html';
+
+  const featured = document.getElementById('card-featured');
+  if(featured) featured.onclick = () => window.location = 'articles/ai-music-' + l + '.html';
+
+  const c01 = document.getElementById('card-01');
+  if(c01) c01.onclick = () => window.location = 'articles/01-scissor-effect-' + l + '.html';
+
+  const c02 = document.getElementById('card-02');
+  if(c02) c02.onclick = () => window.location = 'articles/02-immigration-' + l + '.html';
 }
+
+// Init — set default onclick for cards (FR by default)
+document.getElementById('card-featured').onclick = () => window.location = 'articles/ai-music-fr.html';
+document.getElementById('card-01').onclick = () => window.location = 'articles/01-scissor-effect-fr.html';
+document.getElementById('card-02').onclick = () => window.location = 'articles/02-immigration-fr.html';
+
 const savedLang = localStorage.getItem('mira_lang') || 'fr';
 if(savedLang === 'en') setLang('en');
 
