@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Europe Doesn't Own Its Infrastructure. And That's a Choice. — Miradouro</title>
+
+<meta name="description" content="Cloud, AI, geopolitics: the documented data behind Europe's digital dependency. From Sines to AWS, from Mistral to the CLOUD Act. An observation from Lisbon.">
+<meta property="og:title" content="Europe Doesn't Own Its Infrastructure. And That's a Choice.">
+<meta property="og:description" content="Cloud, AI, geopolitics: the data behind Europe's digital dependency. Documented from Lisbon.">
+<meta property="og:type" content="article">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cabinet+Grotesk:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pom:     #C97A5E;
+  --pom-d:   #A85C42;
+  --pom-l:   #EDB89A;
+  --pom-t:   #FBF3EC;
+  --verde:   #243D2C;
+  --verde-m: #2E5038;
+  --verde-l: #C8DAC8;
+  --ouro:    #C4973A;
+  --ouro-l:  #F0DFA8;
+  --ferro:   #18140E;
+  --ferro-m: #3A3028;
+  --creme:   #FBF8F2;
+  --areia:   #EDE6DA;
+  --rule:    #D8CEBC;
+  --ink2:    #6A5C50;
+  --ink3:    #9A8C80;
+  --f1: "Fraunces", Georgia, serif;
+  --f2: "Cormorant Garant", Georgia, serif;
+  --f3: "Cabinet Grotesk", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--creme);
+  color: var(--ferro);
+  font-family: var(--f2);
+  font-size: 17px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--pom);
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+nav {
+  position: fixed;
+  top: 2px; left: 0; right: 0;
+  height: 56px;
+  background: var(--verde);
+  border-bottom: 2px solid var(--ouro);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 999;
+}
+
+.nav-logo {
+  font-family: var(--f1);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--creme);
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--f3);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--verde-l);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ouro); }
+
+.hero {
+  min-height: 100vh;
+  background: var(--verde);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+  padding-top: 56px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FBF8F2' fill-rule='evenodd'%3E%3Crect x='0' y='0' width='1' height='40'/%3E%3Crect x='0' y='0' width='40' height='1'/%3E%3Crect x='19' y='0' width='2' height='40'/%3E%3Crect x='0' y='19' width='40' height='2'/%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero::after {
+  content: '05';
+  position: absolute;
+  right: -2rem;
+  bottom: -3rem;
+  font-family: var(--f1);
+  font-size: 30vw;
+  font-weight: 800;
+  color: var(--verde-m);
+  opacity: 0.06;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 860px;
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  font-family: var(--f3);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kicker::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--ouro);
+}
+
+h1 {
+  font-family: var(--f1);
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--creme);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--pom-l);
+}
+
+.hero-deck {
+  font-family: var(--f2);
+  font-size: clamp(16px, 2vw, 21px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--verde-l);
+  max-width: 640px;
+  margin-bottom: 3rem;
+}
+
+.byline {
+  font-family: var(--f3);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.kpi-strip {
+  background: var(--pom);
+  padding: 3rem 2rem;
+}
+
+.kpi-grid {
+  max-width: 860px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.kpi-item { text-align: center; }
+
+.kpi-number {
+  font-family: var(--f1);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 800;
+  color: var(--creme);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.kpi-label {
+  font-family: var(--f3);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pom-l);
+  line-height: 1.4;
+}
+
+.article-body {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 4rem 0 2rem;
+}
+
+.section-number {
+  font-family: var(--f1);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--rule);
+  line-height: 1;
+  opacity: 0.6;
+}
+
+h2 {
+  font-family: var(--f1);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ferro);
+  line-height: 1.2;
+}
+
+.section-rule {
+  height: 1px;
+  background: var(--rule);
+  margin: 0 0 2rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  color: var(--ink2);
+  max-width: 680px;
+}
+
+p strong { color: var(--ferro); font-weight: 600; }
+
+.aside-quote {
+  border-left: 3px solid var(--ouro);
+  background: var(--ouro-l);
+  padding: 1.5rem 2rem;
+  margin: 3rem 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.aside-quote p {
+  font-family: var(--f2);
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ferro-m);
+  margin: 0 0 0.75rem;
+  max-width: 100%;
+}
+
+.aside-quote cite {
+  font-family: var(--f3);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink3);
+  font-style: normal;
+}
+
+.infographic {
+  margin: 4rem -2rem;
+  padding: 3rem 2rem;
+}
+
+.infographic.verde { background: var(--verde); }
+.infographic.areia { background: var(--areia); }
+.infographic.ferro { background: var(--ferro); }
+
+.infographic-title {
+  font-family: var(--f3);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.infographic-headline {
+  font-family: var(--f1);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.infographic-sub {
+  font-family: var(--f2);
+  font-size: 0.9rem;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 3rem;
+  opacity: 0.7;
+}
+
+.infographic-source {
+  font-family: var(--f3);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 2rem;
+  opacity: 0.5;
+}
+
+/* CLOUD DONUT */
+#infographic-cloud { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+.cloud-visual { display: flex; align-items: center; gap: 4rem; flex-wrap: wrap; justify-content: center; }
+.donut-wrapper { position: relative; width: 220px; height: 220px; flex-shrink: 0; }
+.donut-wrapper svg { transform: rotate(-90deg); }
+.donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.donut-center-number { font-family: var(--f1); font-size: 2.8rem; font-weight: 800; color: var(--creme); line-height: 1; }
+.donut-center-label { font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--verde-l); margin-top: 0.25rem; }
+.donut-legend { display: flex; flex-direction: column; gap: 1rem; }
+.legend-item { display: flex; align-items: center; gap: 1rem; }
+.legend-swatch { width: 12px; height: 12px; border-radius: 2px; flex-shrink: 0; }
+.legend-label { font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--verde-l); }
+.legend-pct { font-family: var(--f1); font-size: 1.4rem; font-weight: 800; color: var(--creme); margin-left: auto; padding-left: 2rem; }
+
+/* EROSION */
+.share-erosion { width: 100%; max-width: 600px; }
+.erosion-title { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ouro); margin-bottom: 1.5rem; text-align: center; }
+.erosion-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.erosion-year { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.1em; color: var(--verde-l); width: 36px; text-align: right; padding-right: 1rem; flex-shrink: 0; }
+.erosion-track { flex: 1; height: 28px; background: rgba(255,255,255,0.05); border-radius: 2px; position: relative; overflow: hidden; }
+.erosion-fill { height: 100%; border-radius: 2px; display: flex; align-items: center; padding: 0 0.75rem; }
+.erosion-fill span { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.08em; color: var(--creme); white-space: nowrap; }
+
+/* AI */
+#infographic-ai { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.ai-comparison { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; max-width: 700px; width: 100%; }
+.ai-country { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.ai-bar-track { width: 60px; height: 200px; background: rgba(255,255,255,0.06); border-radius: 4px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.ai-bar-fill { width: 100%; border-radius: 4px 4px 0 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 0.75rem; }
+.ai-bar-fill span { font-family: var(--f1); font-size: 0.9rem; font-weight: 800; color: var(--creme); writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); letter-spacing: 0.05em; opacity: 0; transition: opacity 0.3s ease 1s; }
+.ai-country-label { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--creme); text-align: center; }
+.ai-country-value { font-family: var(--f1); font-size: 1.8rem; font-weight: 800; text-align: center; line-height: 1; }
+.ai-country-note { font-family: var(--f2); font-size: 0.8rem; font-style: italic; text-align: center; color: var(--ink3); }
+.models-row { display: flex; align-items: flex-end; gap: 3rem; justify-content: center; flex-wrap: wrap; }
+.models-item { text-align: center; }
+.model-dot { width: 10px; height: 10px; border-radius: 50%; }
+.models-count { font-family: var(--f1); font-size: 2rem; font-weight: 800; color: var(--creme); line-height: 1; }
+.models-label { font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink3); margin-top: 0.25rem; }
+
+/* SINES */
+.sines-chain { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; gap: 2px; }
+.sines-chain-labels { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; gap: 2px; margin-top: 2px; }
+
+/* PRICING */
+.pricing-timeline { display: flex; flex-direction: column; gap: 0; position: relative; max-width: 700px; width: 100%; }
+.pricing-timeline::before { content: ''; position: absolute; left: 100px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.1); }
+.pricing-row { display: flex; align-items: center; gap: 0; position: relative; }
+.pricing-date { font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); width: 90px; text-align: right; padding-right: 1rem; flex-shrink: 0; }
+.pricing-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; z-index: 1; margin: 0 0.75rem; margin-left: calc(0.75rem - 5px); }
+.pricing-content { flex: 1; padding: 1.25rem 1rem 1.25rem 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.pricing-model { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ouro); margin-bottom: 0.25rem; }
+.pricing-cost { font-family: var(--f1); font-size: 1.6rem; font-weight: 800; color: var(--creme); line-height: 1; }
+.pricing-unit { font-family: var(--f2); font-size: 0.8rem; font-style: italic; color: var(--ink3); margin-top: 0.25rem; }
+.pricing-reduction { font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; display: inline-block; margin-top: 0.5rem; }
+
+/* CONCLUSION */
+.conclusion-block {
+  background: var(--ferro);
+  padding: 4rem 2rem;
+  margin: 4rem -2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.conclusion-block::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FBF8F2' fill-rule='evenodd'%3E%3Crect x='0' y='0' width='1' height='40'/%3E%3Crect x='0' y='0' width='40' height='1'/%3E%3Crect x='19' y='0' width='2' height='40'/%3E%3Crect x='0' y='19' width='40' height='2'/%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+.conclusion-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
+.conclusion-inner h2 { color: var(--creme); margin-bottom: 2rem; }
+.conclusion-inner p { color: var(--ink3); max-width: 100%; }
+.open-questions { margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+.open-questions-title { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ouro); margin-bottom: 1.5rem; }
+.question-item { display: flex; gap: 1rem; margin-bottom: 1.25rem; align-items: flex-start; }
+.question-arrow { color: var(--pom); font-family: var(--f1); font-size: 1.2rem; font-style: italic; flex-shrink: 0; margin-top: 0.1rem; }
+.question-text { font-family: var(--f2); font-size: 1rem; font-style: italic; color: var(--ink3); margin: 0; max-width: 100%; }
+
+/* SOURCES */
+.sources-block { padding: 3rem 2rem; max-width: 860px; margin: 0 auto; border-top: 1px solid var(--rule); }
+.sources-title { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink3); margin-bottom: 1.5rem; }
+.source-item { font-family: var(--f3); font-size: 10px; font-weight: 400; color: var(--ink3); margin-bottom: 0.5rem; line-height: 1.6; }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  nav .nav-links { display: none; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .cloud-visual { flex-direction: column; align-items: center; }
+  .donut-legend { width: 100%; max-width: 280px; }
+  .ai-comparison { gap: 0.5rem; }
+  .ai-bar-track { width: 44px; }
+  .ai-country-value { font-size: 1.2rem; }
+  .ai-country-note { display: none; }
+  .sines-chain { grid-template-columns: 1fr 1fr; }
+  .sines-chain > div:last-child { grid-column: 1 / -1; }
+  .section-number { font-size: 2rem; }
+  h2 { font-size: clamp(18px, 5vw, 28px); }
+  .infographic { margin: 3rem -1rem; padding: 2rem 1rem; }
+  .article-body { padding: 3rem 1rem; }
+  .hero { padding: 6rem 1rem 3rem; }
+  h1 { font-size: clamp(32px, 8vw, 56px); }
+}
+</style>
+</head>
+
+<body>
+<script>
+(function(){
+  var l = localStorage.getItem('mira_lang');
+  if(l === 'fr') { window.location.replace('miradouro-sovereignty-fr.html'); }
+})();
+function switchLang(l){
+  localStorage.setItem('mira_lang', l);
+  if(l === 'fr') window.location.href = 'miradouro-sovereignty-fr.html';
+}
+</script>
+<div id="progress-bar"></div>
+
+<nav>
+  <a href="../index.html" class="nav-logo">MIRADOURO</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#articles">Articles</a></li>
+    <li><a href="../index.html#about">About</a></li>
+    <li><a href="../index.html#newsletter">Subscribe</a></li>
+  </ul>
+  <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden;margin-left:16px;">
+    <button onclick="switchLang('fr')" id="btnFR" style="font-family:var(--f3);font-size:9px;font-weight:800;letter-spacing:.08em;padding:6px 11px;cursor:pointer;background:transparent;border:none;color:rgba(255,255,255,.32);text-transform:uppercase;">FR</button>
+    <button onclick="switchLang('en')" id="btnEN" style="font-family:var(--f3);font-size:9px;font-weight:800;letter-spacing:.08em;padding:6px 11px;cursor:pointer;background:var(--pom);border:none;color:#fff;text-transform:uppercase;">EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">N°05 · Cloud &amp; AI · Geopolitics</div>
+    <h1>Europe doesn't own<br>its <em>infrastructure.</em><br>And that's a choice.</h1>
+    <p class="hero-deck">We built this cage ourselves, out of decisions that were each rational, and collectively devastating. This is what it looks like from the inside.</p>
+    <div class="byline">
+      <span>By Jonathan</span>
+      <span>April 2026</span>
+      <span>~2,400 words</span>
+      <span>EN · <a href="miradouro-sovereignty-fr.html" style="color:var(--ink3)" onclick="localStorage.setItem('mira_lang','fr')">FR →</a></span>
+    </div>
+  </div>
+</section>
+
+<div class="kpi-strip">
+  <div class="kpi-grid">
+    <div class="kpi-item">
+      <div class="kpi-number">70%</div>
+      <div class="kpi-label">EU cloud market owned by AWS, Azure and Google</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-number">40 vs 3</div>
+      <div class="kpi-label">Notable AI models produced: US vs Europe in 2024</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-number">$10B</div>
+      <div class="kpi-label">Microsoft at Sines — in a campus built with European capital</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-number">280×</div>
+      <div class="kpi-label">AI inference price drop in 18 months. While companies lose billions.</div>
+    </div>
+  </div>
+</div>
+
+<article class="article-body">
+
+  <div class="reveal">
+    <p style="font-family: var(--f2); font-size: 1.1rem; font-weight: 300; font-style: italic; color: var(--ferro); line-height: 1.7; margin-bottom: 2rem; max-width: 680px;">We built this cage ourselves. Not through negligence, and not through malice. Through rational decisions, made one at a time, over two decades, by people who were right about each individual choice and wrong about the aggregate. This article tries to document what that cage looks like from the inside, and asks honestly whether the door is still open.</p>
+    <p>In the nearshore hubs I move through in Lisbon every day, the French banks, the consulting firms, the delivery centres, I have not encountered a single company working seriously with a European cloud provider. Sometimes SAP, at the margins. And honestly, can you blame them? When you look at what AWS, Azure and Google have built over the past decade, in performance, in services, in global reach and in price, choosing a European provider isn't a rational technical decision. It's a political conviction. Most organisations don't run on political convictions.</p>
+    <p>I know this from experience. My first month at Cisco was an immersive training on how networks actually work: the physical layer, the routing logic, the protocols that sit beneath everything we call the cloud. What struck me then, and has stayed with me since, is something simple. Even the competitors in that space were American. Juniper. Arista. The alternatives to Cisco's switches and routers came from the same country. European data centres run on American hardware by default, not because anyone decided it should be that way, but because when the standards were being set, there was no serious European alternative. The dependency was baked in before it was even recognisable as a dependency.</p>
+    <p>Later, in a sales role at Devoteam, I worked alongside teams officially positioned as "cloud agnostic." The pitch was: we help clients navigate all cloud options. The reality was that the cloud practice ran on three specialist teams, one for AWS, one for Azure, one for Google, and we were premium partners of all three. When I was in client conversations, those were the options on the table. Not because anyone had consciously excluded European providers. Because there were no European providers in the pipeline, in the offer, in the conversation. The market had spoken, and we were operating inside the market's logic.</p>
+    <p>That's the observation this article starts from. Not an accusation. A description of how a dependency becomes invisible, and what it costs when you finally decide to look at it.</p>
+  </div>
+
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2>Europe built the house.<br>Americans moved in.</h2>
+  </div>
+  <div class="section-rule"></div>
+
+  <div class="reveal">
+    <p>The European cloud market reached <strong>€61 billion in 2024</strong>, six times larger than it was in 2017. That growth looks impressive until you ask who captured it. Amazon, Microsoft and Google now hold <strong>70% of the European cloud infrastructure market</strong>, according to Synergy Research Group. The three largest European players, SAP, Deutsche Telekom and OVHcloud, hold 2%, 2%, and less than 1% respectively. The remaining 15% is divided among dozens of regional players who, as Synergy's chief analyst put it, struggle to be European at all, often being only domestically focused.</p>
+    <p>European providers held 29% of their home market in 2017. By 2022 that figure had fallen to 15%, and it has stayed there since. Not recovering. Stable. The US hyperscalers invest approximately <strong>€10 billion per quarter in European infrastructure</strong>. That is, in the words of Synergy's own analysis, "an impossible hill to climb" for any challenger.</p>
+    <p>But the cloud layer is only part of the picture. The physical infrastructure underneath it, the switches, routers and network fabric on which data centres actually run, is itself manufactured overwhelmingly by US companies. Cisco, Juniper, Arista. That wasn't a conspiracy. It was the consequence of who invested, who standardised, and who had the industrial base at the moment those decisions were being made. By the time European operators were buying, the catalogue was already written in American. Sovereignty isn't a single layer you can swap out. It goes all the way down.</p>
+    <p>At the very bottom of that stack, today, are chips. Specifically: the advanced semiconductors that make AI compute possible. <strong>Taiwan Semiconductor Manufacturing Company produces approximately 90% of the world's most advanced chips</strong>, the ones inside Nvidia GPUs and virtually every piece of AI-capable hardware being deployed right now. Taiwan sits 180 kilometres from the Chinese mainland. This single geographic fact may be the most consequential geopolitical variable in the entire dependency question. The CHIPS Act, the Dresden fab, the Arizona facility: these are the right moves. They are also ten to fifteen years from maturity.</p>
+  </div>
+
+  <!-- INFOGRAPHIC 1: CLOUD -->
+  <div class="infographic verde reveal">
+    <div class="infographic-title">Infographic 01 — Cloud Market</div>
+    <div class="infographic-headline" style="color: var(--creme);">Who controls European cloud infrastructure</div>
+    <div class="infographic-sub" style="color: var(--verde-l);">Market share in Europe, 2024 — and seven years of erosion</div>
+
+    <div id="infographic-cloud">
+      <div class="cloud-visual">
+        <div class="donut-wrapper">
+          <svg width="220" height="220" viewBox="0 0 220 220">
+            <circle cx="110" cy="110" r="85" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="32"/>
+            <circle cx="110" cy="110" r="85" fill="none" stroke="#C97A5E" stroke-width="32" stroke-dasharray="160.2 373.8" stroke-dashoffset="0"/>
+            <circle cx="110" cy="110" r="85" fill="none" stroke="#C4973A" stroke-width="32" stroke-dasharray="117.5 416.5" stroke-dashoffset="-160.2"/>
+            <circle cx="110" cy="110" r="85" fill="none" stroke="#EDB89A" stroke-width="32" stroke-dasharray="96.1 437.9" stroke-dashoffset="-277.7"/>
+            <circle cx="110" cy="110" r="85" fill="none" stroke="#C8DAC8" stroke-width="32" stroke-dasharray="80.1 453.9" stroke-dashoffset="-373.8"/>
+            <circle cx="110" cy="110" r="85" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="32" stroke-dasharray="80.1 453.9" stroke-dashoffset="-453.9"/>
+          </svg>
+          <div class="donut-center">
+            <div class="donut-center-number">€61B</div>
+            <div class="donut-center-label">EU market<br>2024</div>
+          </div>
+        </div>
+        <div class="donut-legend">
+          <div class="legend-item">
+            <div class="legend-swatch" style="background: #C97A5E;"></div>
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+              <svg width="44" height="28" viewBox="0 -30 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M122.714 62.703c5.28-.643 16.924-2.027 18.997.643 2.072 2.621-2.319 13.649-4.293 18.544-.592 1.484.691 2.077 2.023.94 8.684-7.319 10.954-22.6 9.178-24.825-1.777-2.175-17.023-4.055-26.3 2.473-1.431 1.038-1.184 2.423.395 2.225z" fill="#F90"/>
+  <path d="M74.852 89.456c20.28 0 43.865-6.38 60.099-18.396 2.664-1.978.345-4.994-2.369-3.758-18.207 7.714-37.993 11.473-56.003 11.473-26.694 0-52.5-7.368-73.42-19.533-1.827-1.088-3.208.791-1.679 2.176 19.343 17.505 44.951 28.038 73.372 28.038z" fill="#F90"/>
+  <path d="M42.632 32.835c0 1.83.197 3.313.542 4.401a26.505 26.505 0 001.58 3.56c.246.396.345.792.345 1.138 0 .495-.296.99-.938 1.484l-3.108 2.077c-.444.296-.889.445-1.283.445-.494 0-.987-.248-1.48-.693a15.29 15.29 0 01-1.777-2.324 38.28 38.28 0 01-1.53-2.918c-3.848 4.55-8.684 6.825-14.506 6.825-4.145 0-7.45-1.187-9.868-3.56-2.418-2.374-3.652-5.54-3.652-9.495 0-4.204 1.48-7.616 4.49-10.187 3.01-2.572 7.007-3.857 12.09-3.857 1.677 0 3.404.148 5.23.395 1.825.248 3.7.643 5.674 1.088v-3.61c0-3.758-.79-6.379-2.32-7.912-1.578-1.533-4.243-2.274-8.042-2.274-1.727 0-3.503.197-5.329.642a39.247 39.247 0 00-5.329 1.682 14.14 14.14 0 01-1.727.643c-.345.098-.592.148-.79.148-.69 0-1.036-.494-1.036-1.533V6.577c0-.791.1-1.385.346-1.73.246-.347.69-.693 1.381-1.04 1.727-.89 3.8-1.631 6.217-2.225C20.23.94 22.797.642 25.51.642c5.872 0 10.164 1.336 12.927 4.006 2.714 2.67 4.096 6.726 4.096 12.165v16.022h.099zm-20.033 7.517c1.628 0 3.306-.297 5.082-.89 1.776-.594 3.355-1.682 4.687-3.165.79-.94 1.382-1.978 1.678-3.165.296-1.187.493-2.621.493-4.302v-2.077a41.135 41.135 0 00-4.539-.84 37.099 37.099 0 00-4.638-.298c-3.306 0-5.724.643-7.352 1.978-1.628 1.336-2.418 3.215-2.418 5.687 0 2.324.592 4.055 1.826 5.242 1.184 1.236 2.911 1.83 5.18 1.83zm39.621 5.34c-.888 0-1.48-.148-1.875-.494-.394-.297-.74-.99-1.036-1.929L47.714 5.044c-.296-.99-.444-1.632-.444-1.978 0-.791.394-1.236 1.184-1.236h4.835c.938 0 1.58.148 1.925.494.395.297.69.99.987 1.929l8.29 32.736 7.697-32.736c.246-.99.542-1.632.937-1.929.395-.297 1.085-.494 1.974-.494h3.947c.938 0 1.579.148 1.974.494.395.297.74.99.937 1.929l7.796 33.132L98.29 4.253c.295-.99.64-1.632.986-1.929.395-.297 1.036-.494 1.925-.494h4.588c.79 0 1.234.395 1.234 1.236 0 .247-.049.494-.099.791a7.041 7.041 0 01-.345 1.236L94.688 43.32c-.297.989-.642 1.631-1.037 1.928-.394.297-1.036.495-1.875.495h-4.243c-.938 0-1.58-.149-1.974-.495-.394-.346-.74-.989-.937-1.978l-7.648-31.895-7.599 31.846c-.247.989-.543 1.632-.938 1.978-.394.346-1.085.494-1.973.494H62.22zm63.405 1.336c-2.566 0-5.132-.297-7.599-.89-2.467-.594-4.391-1.237-5.674-1.979-.79-.445-1.332-.94-1.53-1.384a3.503 3.503 0 01-.296-1.385v-2.522c0-1.038.395-1.533 1.135-1.533.296 0 .592.05.888.148.296.1.74.297 1.234.495a26.791 26.791 0 005.428 1.73c1.973.396 3.898.594 5.871.594 3.109 0 5.527-.544 7.204-1.632 1.678-1.088 2.566-2.67 2.566-4.698 0-1.384-.444-2.521-1.332-3.461-.888-.94-2.566-1.78-4.984-2.571l-7.154-2.226c-3.602-1.137-6.267-2.818-7.895-5.044-1.628-2.176-2.467-4.599-2.467-7.17 0-2.077.444-3.907 1.332-5.489.888-1.582 2.072-2.967 3.553-4.055 1.48-1.137 3.157-1.978 5.131-2.571 1.974-.594 4.046-.841 6.217-.841 1.086 0 2.221.05 3.306.198 1.135.148 2.171.346 3.207.544.987.247 1.925.494 2.813.79.888.298 1.579.594 2.072.891.691.396 1.185.791 1.481 1.236.296.396.444.94.444 1.632V8.16c0 1.039-.395 1.583-1.135 1.583-.395 0-1.036-.198-1.875-.594-2.813-1.285-5.971-1.928-9.474-1.928-2.812 0-5.033.445-6.562 1.384-1.53.94-2.319 2.374-2.319 4.402 0 1.384.493 2.57 1.48 3.51s2.812 1.88 5.427 2.72l7.007 2.226c3.553 1.137 6.118 2.72 7.648 4.747 1.53 2.027 2.27 4.351 2.27 6.923 0 2.126-.444 4.055-1.283 5.736-.888 1.681-2.072 3.165-3.602 4.352-1.53 1.236-3.355 2.126-5.477 2.769-2.22.692-4.54 1.039-7.056 1.039z" fill="#FBF8F2"/>
+</svg>
+              <div class="legend-label">Amazon</div>
+            </div>
+            <div class="legend-pct">30%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background: #C4973A;"></div>
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+              <svg width="28" height="28" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+<g fill="#0089D6">
+<path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"/>
+</g>
+</svg><div class="legend-label" style="color:var(--verde-l)">Azure</div>
+            </div>
+            <div class="legend-pct">22%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background: #EDB89A;"></div>
+            <div style="display:flex;align-items:center;gap:8px;flex:1;"><svg width="28" height="28" viewBox="0 -25 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
+  <g>
+    <path d="M170.2517,56.8186 L192.5047,34.5656 L193.9877,25.1956 C153.4367,-11.6774 88.9757,-7.4964 52.4207,33.9196 C42.2667,45.4226 34.7337,59.7636 30.7167,74.5726 L38.6867,73.4496 L83.1917,66.1106 L86.6277,62.5966 C106.4247,40.8546 139.8977,37.9296 162.7557,56.4286 L170.2517,56.8186 Z" fill="#EA4335"/>
+    <path d="M224.2048,73.9182 C219.0898,55.0822 208.5888,38.1492 193.9878,25.1962 L162.7558,56.4282 C175.9438,67.2042 183.4568,83.4382 183.1348,100.4652 L183.1348,106.0092 C198.4858,106.0092 210.9318,118.4542 210.9318,133.8052 C210.9318,149.1572 198.4858,161.2902 183.1348,161.2902 L127.4638,161.2902 L121.9978,167.2242 L121.9978,200.5642 L127.4638,205.7952 L183.1348,205.7952 C223.0648,206.1062 255.6868,174.3012 255.9978,134.3712 C256.1858,110.1682 244.2528,87.4782 224.2048,73.9182" fill="#4285F4"/>
+    <path d="M71.8704,205.7957 L127.4634,205.7957 L127.4634,161.2897 L71.8704,161.2897 C67.9094,161.2887 64.0734,160.4377 60.4714,158.7917 L52.5844,161.2117 L30.1754,183.4647 L28.2234,191.0387 C40.7904,200.5277 56.1234,205.8637 71.8704,205.7957" fill="#34A853"/>
+    <path d="M71.8704,61.4255 C31.9394,61.6635 -0.2366,94.2275 0.0014,134.1575 C0.1344,156.4555 10.5484,177.4455 28.2234,191.0385 L60.4714,158.7915 C46.4804,152.4705 40.2634,136.0055 46.5844,122.0155 C52.9044,108.0255 69.3704,101.8085 83.3594,108.1285 C89.5244,110.9135 94.4614,115.8515 97.2464,122.0155 L129.4944,89.7685 C115.7734,71.8315 94.4534,61.3445 71.8704,61.4255" fill="#FBBC05"/>
+  </g>
+</svg><div class="legend-label">Google Cloud</div></div>
+            <div class="legend-pct">18%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background: #C8DAC8;"></div>
+            <div style="display: flex; align-items: center; gap: 8px; flex: 1;">
+              <span style="font-size: 14px;">🇪🇺</span>
+              <div class="legend-label">European players</div>
+            </div>
+            <div class="legend-pct">15%</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch" style="background: rgba(255,255,255,0.15);"></div>
+            <div class="legend-label">Other US / Asia</div>
+            <div class="legend-pct">15%</div>
+          </div>
+        </div>
+      </div>
+      <div class="share-erosion">
+        <div class="erosion-title">European players' share of their own market — 2017 to 2024</div>
+        <div class="erosion-row">
+          <div class="erosion-year">2017</div>
+          <div class="erosion-track"><div class="erosion-fill" style="width: 29%; background: var(--verde-l);"><span>29%</span></div></div>
+        </div>
+        <div class="erosion-row">
+          <div class="erosion-year">2020</div>
+          <div class="erosion-track"><div class="erosion-fill" style="width: 18%; background: var(--verde-l); opacity: 0.8;"><span>18%</span></div></div>
+        </div>
+        <div class="erosion-row">
+          <div class="erosion-year">2022</div>
+          <div class="erosion-track"><div class="erosion-fill" style="width: 15%; background: var(--pom);"><span>15%</span></div></div>
+        </div>
+        <div class="erosion-row">
+          <div class="erosion-year">2024</div>
+          <div class="erosion-track"><div class="erosion-fill" style="width: 15%; background: var(--pom);"><span>15% — stable</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="infographic-source">Source: Synergy Research Group, 2024–2025 · Holori Cloud Market Share 2026</div>
+  </div>
+
+  <div class="reveal">
+    <p>This dominance has a legal dimension that goes beyond market share. The US CLOUD Act of 2018 gives American authorities the power to access data held by US-based cloud providers regardless of where that data is physically stored. Microsoft's own legal director, before a French Senate commission, acknowledged that the company cannot guarantee immunity against a request from US authorities. When the ICC's chief prosecutor Karim Khan was temporarily locked out of his Microsoft account following a US executive order, it sent a concrete signal across European institutions: this dependency has consequences that live far outside the balance sheet.</p>
+    <p>The European Commission, the body that writes the rules, was found in 2024 to be in violation of its own data protection standards for using Azure. It is now in advanced negotiations to migrate to OVHcloud. The institution that built the cage was living inside it.</p>
+  </div>
+
+  <div class="aside-quote reveal">
+    <p>"A company subject to the extraterritorial laws of the United States cannot be considered sovereign for Europe. That simply doesn't work."</p>
+    <cite>Cristina Caffarra, competition economist — The Register, December 2025</cite>
+  </div>
+
+  <div class="reveal">
+    <p>And the European alternatives have real limits, which deserve equal honesty. When Airbus launched a tender for sovereign cloud migration at €50 million over ten years, its EVP Digital was direct: European offerings are "not mature." They remain largely infrastructure plays. The platform and software layers, where engineers actually work, are still mostly American. This isn't a story of bad faith. It's a story of a technological gap that widens every quarter.</p>
+    <p><strong>AWS generated $107 billion in revenue in 2024</strong>, at a 37% operating margin, representing over 60% of Amazon's total operating income despite being only 17% of its revenue. The e-commerce business nearly breaks even. Cloud is where the money is. When you pay your Azure bill, you're not just buying compute. You're funding the research, the sales force, and the infrastructure of the company that will be your landlord for the next decade.</p>
+    <p>There are exceptions, and they're worth naming because they illuminate the rule. Over lunch in Lisbon, a C-level at a major French bank told me they had kept their own data centres, not primarily for cost reasons, but because running their balance sheet through infrastructure they don't legally control was never on the table. "Sovereignty for us isn't a concept. It's a risk management line item." What struck me wasn't the decision. It was that it had been made years earlier and barely revisited since. For organisations handling genuinely sensitive financial data, the dependency question gets answered early and firmly. For everyone else, it doesn't get asked at all.</p>
+  </div>
+
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2>Sines: Europe builds<br>the building. America<br>moves in the machines.</h2>
+  </div>
+  <div class="section-rule"></div>
+
+  <div class="reveal">
+    <p>In April 2025, a data centre opened in a small coastal city 150 kilometres south of Lisbon. SIN01 at the Start Campus SINES Data Campus was inaugurated quietly, with 26MW of operational capacity. The scale of what's planned around it is anything but quiet.</p>
+    <p>The full campus will eventually span 1.2 GW across six buildings, making it <strong>the largest colocation site in Europe by IT capacity</strong>. Total private investment: €8.5 billion. Energy: 100% renewable, from a country where 87% of electricity already comes from renewables. PUE target of 1.1. EllaLink subsea cable landing on site. By most measurable standards, a genuine European infrastructure achievement.</p>
+    <p>In November 2025, at the Web Summit in Lisbon, Microsoft's President Brad Smith announced a <strong>$10 billion investment at Sines</strong>. "This is bigger than all the data centre investments Microsoft has ever made in Spain," he said. The plan: 12,600 next-generation Nvidia GB300 GPUs, deployed through a partnership with British AI company Nscale. The campus's first major tenant is not a European cloud provider, a European bank, or a European institution. It's Microsoft.</p>
+    <p>And those 12,600 Nvidia GPUs, manufactured by a US company, on chips fabbed in Taiwan, shipped to a Portuguese coast to run Azure workloads, compress the entire dependency chain into one image. The land is Portuguese. The energy is renewable. The cables are European. The compute is American, built on Taiwanese silicon.</p>
+  </div>
+
+  <!-- INFOGRAPHIC 2: SINES -->
+  <div class="infographic areia reveal">
+    <div class="infographic-title">Infographic 02 — Sines, Portugal · 2025</div>
+    <div class="infographic-headline" style="color: var(--ferro);">One data centre. The full dependency chain.</div>
+    <div class="infographic-sub" style="color: var(--ink2);">Start Campus · €8.5B · Europe's largest campus · First tenant: Microsoft · $10B</div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 0; width: 100%; max-width: 680px; margin: 0 auto;">
+      <div class="sines-chain">
+        <div style="background: var(--verde); padding: 1.25rem 0.75rem; text-align: center; border-radius: 6px 0 0 0;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🇵🇹</div>
+          <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--verde-l); margin-bottom: 0.4rem;">Land</div>
+          <div style="font-family: var(--f1); font-size: 1.1rem; font-weight: 800; color: var(--creme); line-height: 1.2;">Sines<br><span style="font-size: 0.75rem; font-weight: 300; color: var(--verde-l);">Portugal</span></div>
+          <div style="margin-top: 0.6rem; font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-l); background: rgba(255,255,255,0.08); padding: 3px 6px; border-radius: 3px; display: inline-block;">🟢 European</div>
+        </div>
+        <div style="background: var(--verde-m); padding: 1.25rem 0.75rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">☀️</div>
+          <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--verde-l); margin-bottom: 0.4rem;">Energy</div>
+          <div style="font-family: var(--f1); font-size: 1.1rem; font-weight: 800; color: var(--creme); line-height: 1.2;">100%<br><span style="font-size: 0.75rem; font-weight: 300; color: var(--verde-l);">renewable</span></div>
+          <div style="margin-top: 0.6rem; font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde-l); background: rgba(255,255,255,0.08); padding: 3px 6px; border-radius: 3px; display: inline-block;">🟢 European</div>
+        </div>
+        <div style="background: var(--pom); padding: 1.25rem 0.75rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">🖥️</div>
+          <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 0.4rem;">Compute</div>
+          <div style="font-family: var(--f1); font-size: 1.1rem; font-weight: 800; color: var(--creme); line-height: 1.2;">Nvidia<br><span style="font-size: 0.75rem; font-weight: 300; color: var(--pom-l);">🇺🇸 American</span></div>
+          <div style="margin-top: 0.6rem; font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pom-l); background: rgba(0,0,0,0.15); padding: 3px 6px; border-radius: 3px; display: inline-block;">🔴 American</div>
+        </div>
+        <div style="background: var(--pom-d); padding: 1.25rem 0.75rem; text-align: center;">
+          <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">⚡</div>
+          <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 0.4rem;">Chips</div>
+          <div style="font-family: var(--f1); font-size: 1.1rem; font-weight: 800; color: var(--creme); line-height: 1.2;">TSMC<br><span style="font-size: 0.75rem; font-weight: 300; color: var(--pom-l);">🇹🇼 Taiwan</span></div>
+          <div style="margin-top: 0.6rem; font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pom-l); background: rgba(0,0,0,0.15); padding: 3px 6px; border-radius: 3px; display: inline-block;">🔴 Taiwanese</div>
+        </div>
+        <div style="background: var(--ferro-m); padding: 1.25rem 0.75rem; text-align: center; border-radius: 0 6px 0 0;">
+          <div style="display:flex;justify-content:center;margin-bottom:0.5rem;"><svg width="28" height="28" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none">
+<g fill="#0089D6">
+<path d="M7.47 12.412l3.348-.592.031-.007-1.722-2.049a291.474 291.474 0 01-1.723-2.058c0-.01 1.779-4.909 1.789-4.926a788.95 788.95 0 012.934 5.066l2.95 5.115.023.039-10.948-.001 3.317-.587zM.9 11.788c0-.003.811-1.412 1.803-3.131L4.507 5.53l2.102-1.764C7.765 2.797 8.714 2 8.717 2a.37.37 0 01-.033.085L6.4 6.981 4.16 11.789l-1.63.002c-.897.001-1.63 0-1.63-.003z"/>
+</g>
+</svg></div>
+          <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.4rem;">Tenant</div>
+          <div style="font-family: var(--f1); font-size: 1.1rem; font-weight: 800; color: var(--creme); line-height: 1.2;">Azure<br><span style="font-size: 0.75rem; font-weight: 300; color: var(--ink3);">🇺🇸 Microsoft</span></div>
+          <div style="margin-top: 0.6rem; font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); background: rgba(0,0,0,0.2); padding: 3px 6px; border-radius: 3px; display: inline-block;">🔴 American</div>
+        </div>
+      </div>
+      <div style="margin-top: 1.5rem; background: var(--pom-t); border-left: 3px solid var(--pom); padding: 1rem 1.5rem; border-radius: 0 4px 4px 0; width: 100%;">
+        <p style="font-family: var(--f2); font-size: 1rem; font-style: italic; color: var(--ferro-m); margin: 0;">The land is Portuguese. The energy is renewable. The cables are European. The compute is American, built on Taiwanese silicon. This is not a failure. It's a description of where the value actually sits in the chain.</p>
+      </div>
+    </div>
+    <div class="infographic-source" style="color: var(--ink3);">Sources: Start Campus 2025–2026 · Data Center Dynamics · Bloomberg · Euronews</div>
+  </div>
+
+  <div class="reveal">
+    <p>This is not a criticism of Sines, or of Portugal, or of Microsoft. The investment creates jobs, tax revenue, and connectivity infrastructure that benefits the whole peninsula. But it illustrates the structural dynamic precisely: Europe provides the land, the energy, the cables, the permits. The value capture flows elsewhere.</p>
+    <p>What Sines makes visible in infrastructure, the AI gap makes visible in software. The mechanism is the same. Low prices to capture the market, lock-in to monetise it, switching cost too high by the time you notice. Cloud did this between 2010 and 2020. AI is doing it now, but faster, because the models themselves, not just the infrastructure running them, become the dependency.</p>
+  </div>
+
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2>The AI gap is the<br>cloud gap, accelerated.</h2>
+  </div>
+  <div class="section-rule"></div>
+
+  <div class="reveal">
+    <p>In 2024, US-based institutions produced <strong>40 notable AI models</strong>. China produced 15. Europe produced 3. That's from Stanford's 2025 AI Index. The gap isn't new, but in AI it compounds differently. When you're locked into Azure, you can theoretically migrate. When your organisation's workflows, your staff's habits, your institutional memory are embedded in a specific model's outputs, the switching cost isn't technical any more. It's cognitive. That's a harder dependency to unwind.</p>
+    <p>Private AI investment in the US reached <strong>$109 billion in 2024</strong>, nearly 12 times China's $9.3 billion and roughly 24 times the UK's figure. In generative AI specifically, US investment exceeded the combined EU and UK total by $25.4 billion. The cumulative gap from 2013 to 2024: <strong>$470 billion for the US versus approximately $50 billion for the entire EU</strong>.</p>
+    <p>The compute gap is even starker. The US controls an estimated 74% of global AI supercomputer capacity. The EU holds 4.8%. And behind this gap sits the same chokepoint we saw at Sines: TSMC in Taiwan. If the Taiwan Strait is disrupted, by conflict, blockade, or trade escalation, the queue for AI compute doesn't just slow down. It becomes political. Who decides who gets the chips? That answer will not be made in Brussels.</p>
+    <p>The honest reading: the entire stack, from chips to hardware to cloud to AI models, runs through a small number of chokepoints, almost all of them American or American-adjacent. This is not a tech story. It's a geopolitics story that happens to be expressed in technology. And Europe is, for now, a spectator in both.</p>
+  </div>
+
+  <!-- INFOGRAPHIC 3: AI GAP -->
+  <div class="infographic ferro reveal">
+    <div class="infographic-title">Infographic 03 — The AI Gap</div>
+    <div class="infographic-headline" style="color: var(--creme);">Investment, models, compute — documented disparity</div>
+    <div class="infographic-sub" style="color: var(--ink3);">2024 data · Stanford AI Index · Federal Reserve analysis</div>
+    <div id="infographic-ai">
+      <div style="font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ouro); text-align: center; margin-bottom: 1rem;">Private AI investment in 2024</div>
+      <div class="ai-comparison">
+        <div class="ai-country">
+          <div class="ai-bar-track">
+            <div class="ai-bar-fill" id="bar-us" style="height: 95%; background: var(--pom);">
+              <span id="bar-us-text">$109B</span>
+            </div>
+          </div>
+          <div class="ai-country-value" style="color: var(--pom);">$109B</div>
+          <div class="ai-country-label">United States</div>
+          <div class="ai-country-note">12× China<br>24× UK</div>
+        </div>
+        <div class="ai-country">
+          <div class="ai-bar-track">
+            <div class="ai-bar-fill" id="bar-cn" style="height: 8.5%; background: var(--ouro);">
+              <span id="bar-cn-text">$9.3B</span>
+            </div>
+          </div>
+          <div class="ai-country-value" style="color: var(--ouro);">$9.3B</div>
+          <div class="ai-country-label">China</div>
+          <div class="ai-country-note">leads in<br>AI patents</div>
+        </div>
+        <div class="ai-country">
+          <div class="ai-bar-track">
+            <div class="ai-bar-fill" id="bar-eu" style="height: 4%; background: var(--verde-l);">
+              <span id="bar-eu-text">~$4B</span>
+            </div>
+          </div>
+          <div class="ai-country-value" style="color: var(--verde-l);">~$4B</div>
+          <div class="ai-country-label">EU (avg)</div>
+          <div class="ai-country-note">UK leads<br>at $4.5B</div>
+        </div>
+      </div>
+      <div style="width: 100%; max-width: 600px; margin-top: 1rem;">
+        <div style="font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ouro); text-align: center; margin-bottom: 1.5rem;">Notable AI models produced in 2024</div>
+        <div class="models-row">
+          <div class="models-item">
+            <div class="models-dots"><div id="us-dots"></div></div>
+            <div class="models-count" style="color: var(--pom);">40</div>
+            <div class="models-label">United States</div>
+          </div>
+          <div class="models-item">
+            <div class="models-dots"><div id="cn-dots"></div></div>
+            <div class="models-count" style="color: var(--ouro);">15</div>
+            <div class="models-label">China</div>
+          </div>
+          <div class="models-item">
+            <div class="models-dots"><div id="eu-dots"></div></div>
+            <div class="models-count" style="color: var(--verde-l);">3</div>
+            <div class="models-label">Europe</div>
+          </div>
+        </div>
+      </div>
+      <div style="width: 100%; max-width: 600px; margin-top: 1rem;">
+        <div style="font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ouro); text-align: center; margin-bottom: 1.5rem;">Share of global AI supercomputer capacity</div>
+        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-family: var(--f3); font-size: 9px; color: var(--ink3); width: 40px; text-align: right; font-weight: 700;">US</span>
+            <div style="flex: 1; height: 24px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden;"><div style="width: 74%; height: 100%; background: var(--pom); display: flex; align-items: center; padding: 0 0.75rem;"><span style="font-family: var(--f3); font-size: 9px; font-weight: 800; color: var(--creme);">74%</span></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-family: var(--f3); font-size: 9px; color: var(--ink3); width: 40px; text-align: right; font-weight: 700;">CN</span>
+            <div style="flex: 1; height: 24px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden;"><div style="width: 14%; height: 100%; background: var(--ouro); display: flex; align-items: center; padding: 0 0.75rem;"><span style="font-family: var(--f3); font-size: 9px; font-weight: 800; color: var(--creme);">14%</span></div></div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <span style="font-family: var(--f3); font-size: 9px; color: var(--ink3); width: 40px; text-align: right; font-weight: 700;">EU</span>
+            <div style="flex: 1; height: 24px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden;"><div style="width: 4.8%; height: 100%; background: var(--verde-l); display: flex; align-items: center; padding: 0 0.75rem;"><span style="font-family: var(--f3); font-size: 9px; font-weight: 800; color: var(--ferro);">4.8%</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="infographic-source">Sources: Stanford HAI AI Index 2025 · Federal Reserve FEDS Notes, Oct 2025 · Air Street Capital State of AI 2025</div>
+  </div>
+
+  <div class="reveal">
+    <p>Mistral AI is worth pausing on, not just as a data point but as a case study in what European AI looks like when it works. The French startup, valued at €11.7 billion as of early 2026, published 22 measures for European AI policy in April, calling for procurement preferences, fiscal incentives for local infrastructure, and an "AI blue card" for international talent. CEO Arthur Mensch: <em>"Europe is not a market to dominate."</em></p>
+    <p>One note of transparency: Mistral has obvious commercial interest in European procurement favouring European providers, and they're raising €830 million in debt to build data centres in France and Sweden. Read their policy document with that in mind. But what's more interesting than the lobbying is the actual business model. Mistral's revenue isn't primarily from consumer chat. It comes from enterprise consulting, helping organisations implement, customise and govern AI systems under European legal jurisdiction. That's precisely the business that a genuine European sovereignty push would make structurally larger. They're not just calling for a level playing field. They're building the professional services layer that would run on it.</p>
+  </div>
+
+  <div class="section-header reveal">
+    <span class="section-number">04</span>
+    <h2>The AI pricing trap:<br>free today, whose<br>price tomorrow?</h2>
+  </div>
+  <div class="section-rule"></div>
+
+  <div class="reveal">
+    <p>In November 2022, querying an AI model at the performance level of GPT-3.5 cost approximately <strong>$20 per million tokens</strong>. By October 2024, the same query cost <strong>$0.07 per million tokens</strong>. That's a reduction of more than 280 times in roughly 18 months, documented by Stanford's AI Index. The speed of that collapse is worth sitting with for a moment.</p>
+    <p>This isn't purely innovation giving value back to users. It's also a classic land-grab. OpenAI was reportedly on track to lose approximately <strong>$5 billion in 2024</strong>. Anthropic projected losses of around $2.7 billion. These are not sustainable operating models. They're market acquisition costs, the same logic that built Amazon Prime, Uber, and every other platform that subsidised usage until alternatives became unthinkable.</p>
+    <p>AWS in 2024 operates at a 37% margin. But in its early years, the pricing was deliberately aggressive. Once enterprises had built their architectures on it, once the switching cost was high enough, pricing power followed. There is no reason to believe AI inference will be different.</p>
+  </div>
+
+  <!-- INFOGRAPHIC 4: PRICING WAR — rewritten for clarity -->
+  <div class="infographic ferro reveal">
+    <div class="infographic-title">Infographic 04 — The AI pricing war</div>
+    <div class="infographic-headline" style="color: var(--creme);">Prices collapse. Losses explode. Someone is paying — just not you yet.</div>
+    <div class="infographic-sub" style="color: var(--ink3);">November 2022 → October 2024 · GPT-4 class inference pricing</div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem; width: 100%; max-width: 680px; margin: 0 auto;">
+
+      <div style="width: 100%; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--pom);">
+        <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--pom); margin-bottom: 1rem;">① The price you pay</div>
+        <div style="display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;">
+          <div style="text-align: center;">
+            <div style="font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.5rem;">Nov 2022</div>
+            <div style="font-family: var(--f1); font-size: 2.8rem; font-weight: 800; color: var(--creme); line-height: 1;">$20</div>
+            <div style="font-family: var(--f2); font-size: 0.8rem; font-style: italic; color: var(--ink3);">per million tokens</div>
+          </div>
+          <div style="text-align: center;">
+            <div style="font-family: var(--f1); font-size: 2rem; font-style: italic; color: var(--pom);">→</div>
+            <div style="font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pom); margin-top: 0.25rem;">280×<br>cheaper</div>
+          </div>
+          <div style="text-align: center; background: rgba(201,122,94,0.12); border-radius: 4px; padding: 0.75rem; border: 1px solid rgba(201,122,94,0.3);">
+            <div style="font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 0.5rem;">Oct 2024</div>
+            <div style="font-family: var(--f1); font-size: 2.8rem; font-weight: 800; color: var(--pom); line-height: 1;">$0.07</div>
+            <div style="font-family: var(--f2); font-size: 0.8rem; font-style: italic; color: var(--pom-l);">per million tokens</div>
+          </div>
+        </div>
+        <div style="text-align: center; margin-top: 1rem; font-family: var(--f1); font-size: 1.6rem; font-weight: 800; color: var(--verde-l);">↓ 99.6% in 18 months</div>
+      </div>
+
+      <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink3); display: flex; align-items: center; gap: 0.75rem;">
+        <div style="height: 1px; width: 40px; background: rgba(255,255,255,0.1);"></div>
+        meanwhile
+        <div style="height: 1px; width: 40px; background: rgba(255,255,255,0.1);"></div>
+      </div>
+
+      <div style="width: 100%; background: rgba(255,255,255,0.04); border-radius: 6px; padding: 1.5rem; border-top: 3px solid var(--ouro);">
+        <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ouro); margin-bottom: 1rem;">② Who absorbs the loss</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden;">
+          <div style="background: rgba(255,255,255,0.03); padding: 1rem; text-align: center;">
+            <div style="font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.5rem;">OpenAI losses 2024</div>
+            <div style="font-family: var(--f1); font-size: 2rem; font-weight: 800; color: var(--pom);">~$5B</div>
+            <div style="font-family: var(--f2); font-size: 0.75rem; font-style: italic; color: var(--ink3); margin-top: 0.25rem;">on $3.7B in revenue</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 1rem; text-align: center;">
+            <div style="font-family: var(--f3); font-size: 7px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); margin-bottom: 0.5rem;">Anthropic losses 2024</div>
+            <div style="font-family: var(--f1); font-size: 2rem; font-weight: 800; color: var(--pom);">~$2.7B</div>
+            <div style="font-family: var(--f2); font-size: 0.75rem; font-style: italic; color: var(--ink3); margin-top: 0.25rem;">subsidised by Amazon</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="width: 100%; border-left: 3px solid var(--ouro); background: rgba(196,151,58,0.08); padding: 1rem 1.5rem; border-radius: 0 4px 4px 0;">
+        <div style="font-family: var(--f3); font-size: 8px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ouro); margin-bottom: 0.5rem;">③ What this means</div>
+        <p style="font-family: var(--f2); font-size: 1rem; font-style: italic; color: var(--ouro-l); margin: 0; line-height: 1.6;">Prices are not low because the technology is cheap. They are low because the market has not yet been captured. <strong style="font-style: normal; color: var(--creme);">AWS learned this with cloud between 2008 and 2018.</strong> The question is not whether AI inference follows the same trajectory. It's when.</p>
+      </div>
+
+    </div>
+    <div class="infographic-source">Sources: Stanford HAI AI Index 2025 · getmonetizely.com · IntuitionLabs API Pricing 2026</div>
+  </div>
+
+
+  <div class="reveal">
+    <p>The risk for nearshore operations, including the ones I observe from Lisbon, is the FinOps problem replaying in AI. Unchecked API usage with bills that don't arrive until the architecture is embedded. The companies that learned this lesson the hard way with AWS are, in some cases, relearning it now with AI inference. The smart ones are mapping their exposure before the land-grab pricing ends.</p>
+  </div>
+
+  <div class="section-header reveal">
+    <span class="section-number">05</span>
+    <h2>The words are there.<br>The question is<br>whether the acts follow.</h2>
+  </div>
+  <div class="section-rule"></div>
+
+  <div class="reveal">
+    <p>What concerns me is not that the discourse is missing. At Munich in February, the German Chancellor said something unusually direct: "Nobody forced us into this excessive dependency on the United States. This dependence was self-inflicted." That's not a think-tank paper. That's the head of Europe's largest economy, on the continent's most visible security stage, naming digital dependency as a strategic failure in the same breath as defence and geopolitics. The language has shifted.</p>
+    <p>The European Parliament voted 471 to 68 in January 2026 for a report demanding European preference in public procurement, a €10 billion Sovereign Tech Fund, and legislation to triple European compute capacity within seven years. The Commission published a Cloud Sovereignty Framework in October 2025 with eight measurable objectives and a €180 million tender where any offer falling below the minimum threshold is automatically rejected. The Cloud and AI Development Act, expected in 2026, would establish eligibility requirements that could restrict non-European providers from public contracts. These are not aspirations. They are institutional movements.</p>
+    <p>What concerns me is the space between those movements and the room where the actual procurement decisions get made. That space, in the history of European technology policy, tends to be very large.</p>
+  </div>
+
+  <div class="aside-quote reveal">
+    <p>"Nobody forced us into this excessive dependency. This dependence was self-inflicted, but we now cast off this state as soon as we can."</p>
+    <cite>Friedrich Merz, German Chancellor — Munich Security Conference, February 2026</cite>
+  </div>
+
+  <div class="reveal">
+    <p>Gaia-X was supposed to be our structural answer. The project was serious, the ambition was real. Then Amazon, Microsoft and Google asked to participate in the governance. We let them in. And the project lost its meaning before it produced anything of consequence. That's not a failure of vision. It's a failure of will at the precise moment when will was required. It's also a pattern.</p>
+    <p>The question I keep coming back to, and I genuinely don't have the answer, is this: suppose a major European technology company, say Spotify, decided tomorrow to migrate its entire infrastructure from AWS to OVHcloud or Deutsche Telekom. It would be a powerful political signal, a demonstration that digital sovereignty can exist at industrial scale. It would also, very probably, appear in the next quarterly report under operational risks, and the market would react. Not because OVHcloud is bad, but because investors have integrated hyperscaler dependency as the norm, and any deviation from the norm reads as inefficiency. That's the trap inside the trap.</p>
+    <p>I think of the parallel with energy, because it seems exact. We developed a structural dependency on Russian gas over several decades, knowing, actually knowing, that this dependency created geopolitical vulnerability. We waited for the crisis to discover that the price was unbearable. In the tech domain, the crisis hasn't arrived yet. But the signals are identical. And we are, in several important ways, making the same mistake again with AI, building deep dependencies on infrastructure we don't control and don't fully understand, at prices that are subsidised and temporary.</p>
+    <p>Maybe we're already too far behind to do anything other than manage the dependency. That's possible. But I don't think we've seriously tried the alternative. And the alternative has a name: it's called using the leverage we actually have.</p>
+  </div>
+
+  <div class="reveal">
+    <p>Europe has the largest regulated market in the world. 450 million people. A rule of law that companies across the globe respect precisely because it's the price of access to that market. We are not using this as a lever. We are giving it away.</p>
+    <p>The path I find most convincing, offered as a working hypothesis rather than a prescription, is conditional access. If you want to sell to European institutions, European banks, European healthcare systems, you meet European standards. Your data stays in European jurisdiction. Your infrastructure is auditable under European law. That is not protectionism. It's what the United States does with its own procurement rules, what China does with its digital market, what any serious economic bloc does when it decides its strategic interests are worth protecting. Europe has been the exception, the only major economy that opened its most sensitive infrastructure to foreign providers without reciprocal conditions.</p>
+    <p>This has a real cost, and it deserves naming. Conditional access means higher short-term friction for European buyers. It means some procurement processes get slower. It means some companies build on more constrained infrastructure. These costs were the reason European organisations chose Azure in the first place. The argument isn't that the cost doesn't exist. It's that continuing to deepen a dependency with geopolitical consequences carries a much larger cost, one that arrives later and is paid by everyone.</p>
+    <p>China made a different calculation, deliberately, over two decades, and Alibaba Cloud now dominates at home the way AWS dominates here. Russia didn't choose. Sanctions chose for it. But the result is the same: a domestic infrastructure that exists, imperfect, but sovereign. Neither path is available to Europe, or desirable. But both prove that the outcome wasn't a law of nature. It was the absence of a decision.</p>
+    <p>We have built something equivalent before. Airbus didn't emerge from market forces. It emerged from a deliberate European political decision, a decade-long plan, a preference for the European supplier until it was strong enough to compete without one. Today it challenges Boeing. Nobody calls that protectionism. They call it industrial strategy. The question is why we apply that logic to aircraft and not to digital infrastructure, when the dependency consequences are arguably more severe.</p>
+    <p>There is a structural difficulty in this path, and I want to name it directly because I think it's the most important thing in this article. China plans on twenty-year horizons because there are no meaningful elections to interrupt them. The United States benefits from the long time horizon of private companies: Amazon, Microsoft and Google operate on decade-scale strategies that no four-year government cycle can match. Democratic Europe changes Commission every five years. Majorities shift. Priorities rotate. The risk isn't that the CADA fails loudly. It's that it gets quietly diluted, one lobby meeting at a time, until it produces something that looks like Gaia-X.</p>
+    <p>So no, I'm not optimistic. I think the language has shifted, the institutional movements are more concrete than anything that came before, and the political urgency is real for the first time. I also think the window is narrowing every quarter, and that the dependencies compound while we deliberate. The question isn't whether Europe could build its own cloud giants, its own AI infrastructure, its own sovereign digital stack. It could. The question is whether it will decide to, before the crisis decides for it.</p>
+  </div>
+
+</article>
+
+<div class="conclusion-block">
+  <div class="conclusion-inner">
+    <div class="section-header" style="margin-top: 0;">
+      <span class="section-number" style="color: rgba(255,255,255,0.15);">—</span>
+      <h2>What this makes me wonder</h2>
+    </div>
+    <div style="height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 2rem;"></div>
+
+    <p>We built this cage ourselves, and we're still building it. Not out of naivety, but because the short-term logic is impeccable every single time. Azure is better. AWS is cheaper. The developer tools are excellent. The switching cost is real. None of that is wrong. The problem is that individually rational decisions can produce collectively irrational outcomes. That's the dynamic this article is trying to make visible.</p>
+
+    <p>From Lisbon, from inside the nearshore ecosystem, from the conversations I'm part of: the political language has genuinely shifted. The urgency hasn't reached the procurement table yet. The sovereignty debate lives in conference panels and Commission white papers. The dependency deepens in the ten minutes it takes to spin up a new Azure instance.</p>
+
+    <p>I'll leave you with one small irony worth naming. This article, about European digital sovereignty, about the cost of dependency on American infrastructure, about the importance of building European alternatives, was written with the assistance of Claude. An AI made by Anthropic, an American company, running on American cloud infrastructure, trained on data whose governance no European institution controls. I didn't choose a European alternative. There isn't one that does this yet. And that, in a single sentence, is the whole problem.</p>
+
+    <p style="color: var(--ink3); font-style: italic;">Tell me what you see from where you sit — and whether you made a different choice.</p>
+
+    <div class="open-questions">
+      <div class="open-questions-title">Open questions — for the reader</div>
+      <div class="question-item">
+        <span class="question-arrow">→</span>
+        <p class="question-text">When was the last time you were in a real meeting, not a conference panel, where a European cloud provider was seriously considered? If you can't remember, that's data too.</p>
+      </div>
+      <div class="question-item">
+        <span class="question-arrow">→</span>
+        <p class="question-text">Europe has the largest regulated market in the world. Is it using that as leverage, or giving it away for free? What would conditional access actually look like in your organisation's next procurement decision?</p>
+      </div>
+      <div class="question-item">
+        <span class="question-arrow">→</span>
+        <p class="question-text">The CADA and the Cloud Sovereignty Framework are either going to have teeth or they won't. Gaia-X didn't. What specifically would make this time different?</p>
+      </div>
+      <div class="question-item">
+        <span class="question-arrow">→</span>
+        <p class="question-text">The AI pricing collapse is deliberate. When monetisation begins, and it will, who in your organisation is already thinking about that exposure?</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sources-block">
+  <div class="sources-title">Sources cited in this article</div>
+  <div class="source-item">Synergy Research Group — European Cloud Infrastructure Services Market Share 2017–2024 (srgresearch.com, July 2025)</div>
+  <div class="source-item">Stanford HAI — AI Index Report 2025 (hai.stanford.edu)</div>
+  <div class="source-item">Federal Reserve FEDS Notes — "The State of AI Competition in Advanced Economies" (federalreserve.gov, October 2025)</div>
+  <div class="source-item">TSMC — Annual Report 2024 · SemiAnalysis — Global advanced semiconductor market concentration</div>
+  <div class="source-item">Holori / Canalys — China cloud market share: Alibaba 39%, Huawei 19%, Tencent 15% (Q3 2024)</div>
+  <div class="source-item">Start Campus — Press releases 2025–2026 (startcampus.pt)</div>
+  <div class="source-item">Bloomberg / Reuters / Euronews — Microsoft $10B Sines announcement, November 2025</div>
+  <div class="source-item">Data Center Dynamics — "Microsoft to spend $10bn on AI data centers in Portugal" (February 2026)</div>
+  <div class="source-item">Maddyness / AFP — "Mistral AI pousse 22 mesures" (maddyness.com, 7 April 2026)</div>
+  <div class="source-item">L'Usine Digitale — "Airbus en quête d'un cloud européen souverain" (December 2025)</div>
+  <div class="source-item">The Register — "Europe gets serious about cutting US digital umbilical cord" (December 2025)</div>
+  <div class="source-item">Friedrich Merz — Speech at Munich Security Conference, February 13, 2026</div>
+  <div class="source-item">European Commission — Cloud Sovereignty Framework v1.2.1, October 2025 · Cloud III DPS €180M tender</div>
+  <div class="source-item">European Parliament — Report on Technological Sovereignty, January 2026 (471-68 vote)</div>
+  <div class="source-item">EU Cloud and AI Development Act (CADA) — Commission Work Programme 2026</div>
+  <div class="source-item">European Council on Foreign Relations — "Get over your X" (ecfr.eu, December 2025)</div>
+  <div class="source-item">Amazon SEC 10-K 2024 — AWS revenue and operating margin data</div>
+  <div class="source-item">getmonetizely.com — "The GenAI Price War: Why Lower Costs Could Hurt Customers" (April 2025)</div>
+  <div class="source-item">Atlantic Council — "Digital sovereignty: Europe's declaration of independence?" (February 2026)</div>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Europe doesn't own its infrastructure. And that's a choice.",
+  "description": "Cloud, AI, geopolitics: the documented data behind Europe's digital dependency. From Sines to AWS, from Mistral to the CLOUD Act.",
+  "datePublished": "2026-04-10",
+  "author": { "@type": "Person", "name": "Jonathan" },
+  "publisher": { "@type": "Organization", "name": "Miradouro" }
+}
+</script>
+
+<script>
+window.addEventListener('scroll', () => {
+  const doc = document.documentElement;
+  const scrolled = doc.scrollTop || document.body.scrollTop;
+  const max = doc.scrollHeight - doc.clientHeight;
+  document.getElementById('progress-bar').style.width = (scrolled / max * 100) + '%';
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(r => observer.observe(r));
+
+const aiObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      setTimeout(() => { document.querySelectorAll('.ai-bar-fill span').forEach(s => s.style.opacity = '1'); }, 1000);
+      aiObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const aiSection = document.getElementById('infographic-ai');
+if (aiSection) aiObserver.observe(aiSection);
+
+function buildDots(containerId, count, color) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const wrapper = document.createElement('div');
+  wrapper.style.cssText = 'display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; max-width: 120px; margin: 0 auto 0.75rem;';
+  for (let i = 0; i < count; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'model-dot';
+    dot.style.background = color;
+    wrapper.appendChild(dot);
+  }
+  container.appendChild(wrapper);
+}
+buildDots('us-dots', 40, '#C97A5E');
+buildDots('cn-dots', 15, '#C4973A');
+buildDots('eu-dots', 3, '#C8DAC8');
+</script>
+</body>
+</html>
