@@ -1,1 +1,651 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miradouro — Tech européenne, IA et nearshore depuis Lisbonne</title>
+<meta name="description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
+<meta name="author" content="Jonathan Dias">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://miradouro.pt/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://miradouro.pt/">
+<meta property="og:title" content="Miradouro — Tech européenne vue depuis Lisbonne">
+<meta property="og:description" content="Tech, IA, nearshore, géopolitique numérique. Des analyses depuis Lisbonne. Par Jonathan.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Blog","name":"Miradouro","description":"Analyses sur la tech européenne depuis Lisbonne","url":"https://miradouro.pt","inLanguage":["fr","en"],"author":{"@type":"Person","name":"Jonathan Dias","sameAs":"https://www.linkedin.com/in/jonathandiasreis/"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+/*========================================
+  RESET & ROOT
+========================================*/
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --pom: #C97A5E; --pom-d: #A85C42; --pom-l: #EDB89A;
+  --pom-t: #FBF3EC; --pom-g: #F7EDE4;
+  --verde: #243D2C; --verde-m: #2E5038; --verde-l: #C8DAC8; --verde-g: #EDF3EE;
+  --ouro: #C4973A; --ouro-l: #F0DFA8;
+  --ferro: #18140E; --ferro-m: #3A3028;
+  --creme: #FBF8F2; --areia: #EDE6DA; --rule: #D8CEBC;
+  --ink2: #6A5C50; --ink3: #9A8C80;
+  --f1: 'Fraunces', Georgia, serif;
+  --f2: 'Cormorant Garant', Georgia, serif;
+  --f3: 'Cabinet Grotesk', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--f3); background: var(--creme); color: var(--ferro); -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none; }
+a { color: inherit; text-decoration: none; }
+
+/*========================================
+  CURSOR
+========================================*/
+.cursor { position: fixed; width: 10px; height: 10px; background: var(--pom); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s; mix-blend-mode: multiply; }
+.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--pom); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .35s cubic-bezier(.17,.67,.35,1.2), height .35s cubic-bezier(.17,.67,.35,1.2), transform .08s linear, opacity .2s; opacity: .5; }
+body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 56px; height: 56px; opacity: .3; }
+body:has(a:hover) .cursor { width: 6px; height: 6px; }
+
+/*========================================
+  NAV
+========================================*/
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(20px,4vw,56px); mix-blend-mode: difference; }
+.nav-wordmark { font-family: var(--f1); font-size: 18px; font-weight: 700; letter-spacing: .04em; color: #fff; text-transform: uppercase; }
+.nav-wordmark em { font-style: italic; font-weight: 300; }
+.nav-right { display: flex; align-items: center; gap: 28px; }
+.nav-right a { font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff; opacity: .6; transition: opacity .2s; }
+.nav-right a:hover { opacity: 1; }
+.lang-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .08em; padding: 6px 11px; cursor: pointer; background: transparent; border: none; color: rgba(255,255,255,.32); transition: all .2s; text-transform: uppercase; }
+.lang-btn.active { background: var(--pom); color: #fff; }
+
+/*========================================
+  HERO
+========================================*/
+.hero { min-height: 100vh; background: var(--verde); position: relative; display: flex; flex-direction: column; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: -50%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: .6; pointer-events: none; z-index: 1; }
+.hero-pattern { position: absolute; inset: 0; z-index: 0; }
+.hero-content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 clamp(24px,5vw,72px) clamp(40px,6vh,80px); }
+.hero-title-line { display: flex; align-items: baseline; overflow: hidden; }
+.word-mira { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 800; color: var(--creme); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .1s forwards; }
+.word-douro { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 300; font-style: italic; color: var(--pom-l); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
+.hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin: 24px 0; transform: scaleX(0); transform-origin: left; animation: expandX .8s cubic-bezier(.16,1,.3,1) .7s forwards; }
+.hero-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; }
+.hero-desc { grid-column: 1/3; padding-right: 48px; border-right: 1px solid rgba(255,255,255,.08); }
+.hero-sub { font-family: var(--f2); font-size: 13px; font-style: italic; font-weight: 300; color: rgba(255,255,255,.4); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.hero-sub::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
+.hero-desc-text { font-family: var(--f2); font-size: clamp(16px,2.2vw,22px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.62); line-height: 1.65; max-width: 560px; }
+.hero-desc-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.88); }
+.hero-teaser { padding-left: 40px; display: flex; flex-direction: column; justify-content: center; }
+.hft-kicker { font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.hft-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.hft-title { font-family: var(--f2); font-size: clamp(15px,1.6vw,20px); font-weight: 600; color: rgba(255,255,255,.82); line-height: 1.3; margin-bottom: 14px; }
+.hft-read { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-l); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s; cursor: none; }
+.hft-read::after { content: '→'; font-size: 12px; }
+.hft-read:hover { gap: 12px; }
+.hero-scroll { position: absolute; bottom: 32px; right: clamp(24px,5vw,72px); display: flex; align-items: center; gap: 10px; z-index: 3; opacity: 0; animation: fadeUp .6s ease 1.2s forwards; }
+.hero-scroll span { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+.scroll-track { width: 1px; height: 44px; background: rgba(255,255,255,.1); position: relative; overflow: hidden; }
+.scroll-fill { position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--ouro); animation: scrollAnim 2s ease-in-out 1.4s infinite; }
+.hero-issue { position: absolute; top: 80px; right: clamp(24px,5vw,72px); z-index: 3; opacity: 0; animation: fadeIn .6s ease 1s forwards; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.issue-year { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.22); }
+.issue-num { font-family: var(--f1); font-size: 80px; font-weight: 800; color: rgba(255,255,255,.04); line-height: 1; letter-spacing: -.06em; }
+
+/*========================================
+  PROMESSE
+========================================*/
+.promesse { background: var(--pom); padding: clamp(48px,6vw,88px) clamp(24px,5vw,72px); position: relative; overflow: hidden; }
+.promesse::after { content: ''; position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%); pointer-events: none; }
+.promesse-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.promesse-label::before { content: ''; display: block; width: 24px; height: 1px; background: rgba(255,255,255,.4); }
+.promesse-text { font-family: var(--f1); font-size: clamp(26px,4.5vw,56px); font-weight: 500; font-style: italic; color: #fff; line-height: 1.18; letter-spacing: -.025em; max-width: 800px; }
+.promesse-text em { font-style: normal; font-weight: 800; color: var(--ferro); background: var(--ouro); padding: 0 8px; }
+
+/*========================================
+  ARTICLES SECTION
+========================================*/
+.articles { padding: clamp(64px,8vw,96px) clamp(24px,5vw,72px); background: var(--creme); }
+
+.section-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 0; }
+.sl-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
+.sl-rule { flex: 1; height: 1px; background: var(--rule); }
+.sl-count { font-size: 9px; color: var(--ink3); letter-spacing: .1em; }
+
+.article-featured { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
+.article-featured:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
+.article-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.article-featured:hover::before { transform: scaleX(1); }
+.af-visual { background: var(--verde); min-height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.af-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
+.af-ghost { font-family: var(--f1); font-size: 160px; font-weight: 900; color: rgba(255,255,255,.05); line-height: 1; position: absolute; bottom: -20px; right: 20px; letter-spacing: -.06em; pointer-events: none; }
+.af-tag-visual { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); border: 1px solid var(--ouro); padding: 6px 14px; position: relative; z-index: 1; font-family: var(--f3); }
+.af-content { background: var(--creme); padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; transition: background .2s; }
+.article-featured:hover .af-content { background: var(--pom-g); }
+.af-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.af-new { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; background: var(--pom); color: #fff; padding: 3px 9px; font-family: var(--f3); }
+.af-num { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; font-family: var(--f3); }
+.af-dot { width: 3px; height: 3px; background: var(--rule); border-radius: 50%; }
+.af-date { font-size: 10px; color: var(--ink3); letter-spacing: .06em; font-family: var(--f3); }
+.af-title { font-family: var(--f1); font-size: clamp(26px,3.2vw,42px); font-weight: 700; color: var(--ferro); line-height: 1.06; letter-spacing: -.03em; margin-bottom: 18px; }
+.af-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
+.af-intro { font-family: var(--f2); font-size: 15px; font-style: italic; font-weight: 300; color: var(--ink2); line-height: 1.75; flex: 1; margin-bottom: 24px; }
+.af-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; border-top: 1px solid var(--rule); }
+.af-author { font-size: 10px; font-weight: 500; color: var(--ink2); font-family: var(--f3); }
+.af-cta { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-d); display: flex; align-items: center; gap: 6px; transition: gap .2s; font-family: var(--f3); }
+.af-cta::after { content: '→'; font-size: 13px; }
+.article-featured:hover .af-cta { gap: 10px; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-top: none; }
+.art-card { background: var(--creme); padding: 26px 22px 22px; position: relative; cursor: none; transition: background .2s; }
+.art-card:hover { background: var(--pom-g); }
+.art-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+.art-tag { font-size: 7px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 3px 8px; font-family: var(--f3); }
+.tag-v { color: var(--verde); background: var(--verde-g); }
+.tag-p { color: var(--pom-d); background: rgba(201,122,94,.1); }
+.tag-o { color: #7a5a10; background: var(--ouro-l); }
+.tag-g { color: #1a3a4a; background: #d4eaf5; }
+.art-num { font-size: 10px; font-weight: 700; color: var(--rule); letter-spacing: .06em; font-family: var(--f3); }
+.art-title { font-family: var(--f1); font-size: clamp(16px,1.8vw,21px); font-weight: 600; color: var(--ferro); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 10px; }
+.art-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
+.art-intro { font-family: var(--f2); font-size: 13px; font-style: italic; color: var(--ink2); line-height: 1.65; margin-bottom: 16px; }
+.art-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); }
+.art-time { font-size: 9px; color: var(--ink3); font-family: var(--f3); }
+.art-arrow { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--pom-d); opacity: 0; transition: opacity .2s, transform .2s; transform: translateX(-4px); font-family: var(--f3); }
+.art-card:hover .art-arrow { opacity: 1; transform: none; }
+.art-card.soon { background: var(--areia); opacity: .65; cursor: default; }
+.art-card.soon:hover { background: var(--areia); opacity: .75; }
+.soon-pill { font-size: 7px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ink3); border: 1px dashed var(--rule); padding: 2px 7px; width: fit-content; margin-bottom: 12px; font-family: var(--f3); }
+
+/*========================================
+  ABOUT
+========================================*/
+.about { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+.about-dark { background: var(--ferro); padding: clamp(48px,6vw,80px) clamp(24px,5vw,64px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.about-dark::before { content: 'M'; font-family: var(--f1); font-size: 400px; font-weight: 900; color: rgba(255,255,255,.02); position: absolute; right: -60px; bottom: -80px; line-height: 1; pointer-events: none; }
+.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.about-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
+.about-title { font-family: var(--f1); font-size: clamp(28px,4vw,52px); font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 22px; }
+.about-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
+.about-body { font-family: var(--f2); font-size: 15px; color: rgba(255,255,255,.62); line-height: 1.75; margin-bottom: 14px; }
+.about-body.small { font-size: 13px; color: rgba(255,255,255,.42); margin-bottom: 24px; font-style: italic; }
+.about-photo-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.about-name { font-family: var(--f1); font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -.01em; }
+.about-role { font-size: 10px; color: rgba(255,255,255,.35); letter-spacing: .06em; }
+.about-flags { display: flex; gap: 5px; margin-bottom: 22px; }
+.flag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.1); border-radius: 2px; }
+.flag-code { font-size: .54rem; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.32); text-transform: uppercase; }
+.about-ctas { display: flex; flex-direction: column; }
+.about-cta { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: gap .2s; }
+.about-cta:hover { gap: 15px; }
+.cta-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.32); }
+.cta-arrow { font-size: .8rem; color: rgba(255,255,255,.28); margin-left: auto; transition: opacity .2s; }
+.about-cta:hover .cta-arrow { opacity: .8; }
+.about-light { background: var(--areia); padding: clamp(48px,6vw,80px) clamp(24px,5vw,64px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--rule); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 24px; margin-bottom: 40px; }
+.stat { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+.stat.on { opacity: 1; transform: none; }
+.stat-val { font-family: var(--f1); font-size: clamp(36px,5vw,56px); font-weight: 800; color: var(--ferro); line-height: 1; letter-spacing: -.04em; margin-bottom: 8px; }
+.stat-val sup { font-size: .45em; font-weight: 600; vertical-align: super; }
+.stat-label { font-size: 11px; color: var(--ink2); line-height: 1.4; }
+.about-pull { font-family: var(--f2); font-size: clamp(17px,2.2vw,22px); font-style: italic; font-weight: 300; color: var(--ferro); line-height: 1.55; padding-left: 20px; border-left: 3px solid var(--pom); }
+.about-pull cite { display: block; font-size: 11px; font-style: normal; font-weight: 700; color: var(--ink3); letter-spacing: .1em; text-transform: uppercase; margin-top: 14px; font-family: var(--f3); }
+
+/*========================================
+  NEWSLETTER
+========================================*/
+.newsletter { background: var(--verde); padding: clamp(56px,7vw,88px) clamp(24px,5vw,72px); }
+.nl-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.nl-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.nl-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
+.nl-title { font-family: var(--f1); font-size: clamp(26px,4vw,44px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 16px; }
+.nl-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
+.nl-sub { font-family: var(--f2); font-size: 16px; font-style: italic; color: rgba(255,255,255,.45); line-height: 1.6; }
+.nl-form { display: flex; flex-direction: column; gap: 12px; }
+.nl-field { display: flex; }
+.nl-input { flex: 1; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-right: none; padding: 14px 18px; font-family: var(--f3); font-size: 13px; color: #fff; outline: none; transition: border-color .2s; }
+.nl-input::placeholder { color: rgba(255,255,255,.28); }
+.nl-input:focus { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
+.nl-btn { background: var(--pom); color: #fff; border: none; padding: 14px 24px; font-family: var(--f3); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: background .2s; white-space: nowrap; }
+.nl-btn:hover { background: var(--pom-d); }
+.nl-promise { font-size: 10px; color: rgba(255,255,255,.28); font-style: italic; font-family: var(--f3); }
+
+/*========================================
+  FOOTER
+========================================*/
+footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,72px) clamp(24px,3vw,36px); }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.footer-brand { font-family: var(--f1); font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 6px; }
+.footer-brand em { font-style: italic; font-weight: 300; color: var(--pom-l); }
+.footer-sub { font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
+.footer-tagline { font-family: var(--f2); font-size: 14px; font-style: italic; color: rgba(255,255,255,.38); line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.52); margin-bottom: 10px; transition: color .2s; }
+.footer-col a:hover { color: #fff; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+.footer-copy { font-size: 10px; color: rgba(255,255,255,.2); }
+
+/*========================================
+  ANIMATIONS & SCROLL REVEAL
+========================================*/
+@keyframes slideUp { to { transform: translateY(0); } }
+@keyframes expandX { to { transform: scaleX(1); } }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { to { opacity: 1; } }
+@keyframes scrollAnim { 0% { top: -100%; } 100% { top: 100%; } }
+.sr { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.sr.on { opacity: 1; transform: none; }
+
+/*========================================
+  RESPONSIVE
+========================================*/
+@media(max-width:900px) {
+  nav { mix-blend-mode: normal; background: rgba(36,61,44,.97); padding: 0 20px; }
+  .nav-wordmark { color: var(--creme); }
+  .nav-right a { display: none; }
+  .hero { min-height: auto; }
+  .hero-content { padding: 88px 24px 48px; justify-content: flex-start; }
+  .word-mira, .word-douro { font-size: clamp(48px,14vw,80px); }
+  .hero-rule { margin: 16px 0; }
+  .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
+  .hero-desc { grid-column: 1; border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 24px; }
+  .hero-teaser { padding-left: 0; }
+  .hero-scroll, .hero-issue { display: none; }
+  .articles { padding: 48px 20px; }
+  .article-featured { grid-template-columns: 1fr; }
+  .af-visual { min-height: 140px; }
+  .af-content { padding: 28px 20px; }
+  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .about { grid-template-columns: 1fr; }
+  .about-dark, .about-light { padding: 48px 24px; }
+  .about-light { border-left: none; border-top: 1px solid var(--rule); }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .nl-inner { grid-template-columns: 1fr; gap: 28px; }
+  .nl-field { flex-direction: column; }
+  .nl-input { border-right: 1px solid rgba(255,255,255,.15); border-bottom: none; }
+  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+}
+@media(max-width:480px) {
+  .word-mira, .word-douro { font-size: 13vw; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="ring"></div>
+
+<!-- ======== COOKIE BANNER ======== -->
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:8000;background:var(--ferro);border-top:2px solid var(--pom);padding:14px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);animation:cookieSlide .5s .8s ease forwards">
+  <style>@keyframes cookieSlide{to{transform:translateY(0)}}</style>
+  <p style="font-family:var(--f2);font-size:.88rem;font-style:italic;color:rgba(251,248,242,.62);line-height:1.5">
+    Ici, on ne prend pas de cookies. Par contre on offre des pastéis. <span style="font-style:normal">:)</span>
+    <span style="font-size:.72rem;color:rgba(251,248,242,.35);margin-left:8px">Analytics minimalistes, aucune revente.</span>
+  </p>
+  <button onclick="closeCookie()" style="font-family:var(--f3);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;background:var(--pom);color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0">OK merci</button>
+</div>
+
+<!-- ======== NAV ======== -->
+<nav>
+  <a href="index.html" class="nav-wordmark">Mira<em>douro</em></a>
+  <div class="nav-right">
+    <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
+    <a href="#about" data-fr="À propos" data-en="About">À propos</a>
+    <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden;margin-left:4px">
+      <button onclick="setLang('fr')" id="btnFR" class="lang-btn active">FR</button>
+      <button onclick="setLang('en')" id="btnEN" class="lang-btn">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO ======== -->
+<section class="hero">
+  <div class="hero-pattern">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="azulejo" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="80" y1="0" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="0" y1="80" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <line x1="80" y1="80" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+          <rect x="8" y="8" width="64" height="64" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
+          <circle cx="40" cy="40" r="10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#azulejo)"/>
+    </svg>
+  </div>
+
+  <div class="hero-content">
+    <div style="overflow:hidden;margin-bottom:2px;">
+      <div class="hero-title-line">
+        <span class="word-mira">MIRA</span><span class="word-douro">DOURO</span>
+      </div>
+    </div>
+    <div class="hero-rule"></div>
+    <div class="hero-bottom">
+      <div class="hero-desc">
+        <div class="hero-sub" data-fr="Point de vue" data-en="Outlook">Point de vue</div>
+        <p class="hero-desc-text">
+          <span data-fr="Un miradouro, c'est un point haut. D'ici, on <strong>voit mieux</strong>, pas plus loin. Tech, IA, data, ressources humaines. Des grilles de lecture sur l'Europe, construites depuis Lisbonne." data-en="A miradouro is a high point. From here, you <strong>see more clearly</strong>, not further. Tech, AI, data, people. A closer look at European tech, written from Lisbon.">Un miradouro, c'est un point haut. D'ici, on <strong>voit mieux</strong>, pas plus loin. Tech, IA, data, ressources humaines. Des grilles de lecture sur l'Europe, construites depuis Lisbonne.</span>
+        </p>
+      </div>
+      <div class="hero-teaser">
+        <div class="hft-kicker" data-fr="Dernier article · En ligne" data-en="Latest · Now live">Dernier article · En ligne</div>
+        <div class="hft-title" id="hero-teaser-title" data-fr="Compétences cloud au Portugal — le vide européen" data-en="Cloud skills in Portugal — the European gap">Compétences cloud au Portugal — le vide européen</div>
+        <a id="link-hero" href="articles/miradouro-cloud-FR.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-track"><div class="scroll-fill"></div></div>
+  </div>
+</section>
+
+<!-- ======== PROMESSE ======== -->
+<div class="promesse">
+  <div class="promesse-label sr" data-fr="La ligne éditoriale" data-en="Editorial line">La ligne éditoriale</div>
+  <p class="promesse-text sr">
+    <span data-fr="La tech européenne a beaucoup d'experts. Miradouro a un <em>point de vue</em>." data-en="European tech has plenty of experts. Miradouro has a <em>point of view</em>.">La tech européenne a beaucoup d'experts. Miradouro a un <em>point de vue</em>.</span>
+  </p>
+</div>
+
+<!-- ======== ARTICLES ======== -->
+<section class="articles" id="articles">
+  <div class="section-header-row sr" style="margin-bottom:0;">
+    <span class="sl-text" data-fr="Publications" data-en="Articles">Publications</span>
+    <div class="sl-rule"></div>
+    <span class="sl-count" id="articles-count" data-fr="06 en ligne · parution mensuelle" data-en="06 live · monthly">06 en ligne · parution mensuelle</span>
+  </div>
+
+  <!-- FEATURED CARD — article cloud, le plus récent -->
+  <div id="card-featured" class="article-featured sr" data-theme="geopolitique">
+    <div class="af-visual">
+      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs><pattern id="az2" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
+          <line x1="60" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
+          <line x1="0" y1="60" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
+          <line x1="60" y1="60" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
+          <rect x="6" y="6" width="48" height="48" fill="none" stroke="white" stroke-width="0.4"/>
+        </pattern></defs>
+        <rect width="400" height="320" fill="url(#az2)"/>
+      </svg>
+      <span class="af-ghost">04</span>
+      <div class="af-tag-visual" data-fr="Données terrain" data-en="Field data">Données terrain</div>
+    </div>
+    <div class="af-content">
+      <div>
+        <div class="af-meta">
+          <span class="af-new" data-fr="Nouveau" data-en="New">Nouveau</span>
+          <span class="af-dot"></span>
+          <span class="af-num">N°04</span>
+          <span class="af-dot"></span>
+          <span class="af-date">Avril 2026</span>
+        </div>
+        <h2 class="af-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h2>
+        <p class="af-intro" data-fr="195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées." data-en="195K cloud specialists across Europe. 197 Azure listings in Portugal, 28 AWS, 0 OVHcloud. The skills map, the job listings, and salaries that exceed published benchmarks.">195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées.</p>
+      </div>
+      <div class="af-footer">
+        <span class="af-author">Jonathan · Miradouro</span>
+        <span class="af-cta" data-fr="Lire l'analyse" data-en="Read">Lire l'analyse</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARDS GRID -->
+  <div class="cards-grid" id="cardsGrid">
+
+    <!-- N°03: Sovereignty (ancien featured) -->
+    <div id="card-03" class="art-card sr" data-theme="geopolitique">
+      <div class="art-card-top">
+        <span class="art-tag tag-g" data-fr="Cloud &amp; Géopolitique" data-en="Cloud &amp; Geopolitics">Cloud &amp; Géopolitique</span>
+        <span class="art-num">03</span>
+      </div>
+      <h3 class="art-title" data-fr="L'Europe ne possède pas son <em>infrastructure</em>" data-en="Europe doesn't own its <em>infrastructure</em>">L'Europe ne possède pas son <em>infrastructure</em></h3>
+      <p class="art-intro" data-fr="70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe." data-en="70% of European cloud in three American hands. 40 AI models in the US, 3 in Europe.">70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe.</p>
+      <div class="art-foot">
+        <span class="art-time" data-fr="2026 · 10 min" data-en="2026 · 10 min">2026 · 10 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+      </div>
+    </div>
+
+    <!-- HS: AI & Music -->
+    <div id="card-hs" class="art-card sr" data-theme="ai">
+      <div class="art-card-top">
+        <span class="art-tag tag-p" data-fr="IA &amp; Société" data-en="AI &amp; Society">IA &amp; Société</span>
+        <span class="art-num">HS</span>
+      </div>
+      <h3 class="art-title" data-fr="97% ne font pas la <em>différence</em>" data-en="97% can't tell the <em>difference</em>">97% ne font pas la <em>différence</em></h3>
+      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says — and doesn't.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
+      <div class="art-foot">
+        <span class="art-time">2025 · 12 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+      </div>
+    </div>
+
+    <!-- N°01: Scissor Effect -->
+    <div id="card-01" class="art-card sr" data-theme="nearshore">
+      <div class="art-card-top">
+        <span class="art-tag tag-o" data-fr="Nearshore &amp; Économie" data-en="Nearshore &amp; Economy">Nearshore &amp; Économie</span>
+        <span class="art-num">01</span>
+      </div>
+      <h3 class="art-title" data-fr="L'effet <em>ciseaux</em> — nearshore à un tournant" data-en="The <em>scissor</em> effect — nearshore at a turning point">L'effet <em>ciseaux</em> — nearshore à un tournant</h3>
+      <p class="art-intro" data-fr="Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent." data-en="Lisbon's cost of living is soaring. Senior salaries climbing. Nearshore rates are not.">Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent.</p>
+      <div class="art-foot">
+        <span class="art-time">2025 · 8 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+      </div>
+    </div>
+
+    <!-- N°02: Immigration -->
+    <div id="card-02" class="art-card sr" data-theme="immigration">
+      <div class="art-card-top">
+        <span class="art-tag tag-p" data-fr="Immigration &amp; Talent" data-en="Immigration &amp; Talent">Immigration &amp; Talent</span>
+        <span class="art-num">02</span>
+      </div>
+      <h3 class="art-title" data-fr="Pas une fuite des cerveaux — un <em>hub qui aspire</em>" data-en="Not a brain drain — a <em>hub that draws in</em>">Pas une fuite des cerveaux — un <em>hub qui aspire</em></h3>
+      <p class="art-intro" data-fr="1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent." data-en="1.54M foreign residents. Record migration balance. The real question is no longer how many leave.">1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent.</p>
+      <div class="art-foot">
+        <span class="art-time">2025 · 7 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+      </div>
+    </div>
+
+  </div><!-- /cards-grid -->
+</section>
+
+<!-- ======== ABOUT ======== -->
+<section class="about" id="about">
+  <div class="about-dark">
+    <div class="about-label" data-fr="Qui écrit ici" data-en="About">Qui écrit ici</div>
+    <h2 class="about-title" data-fr="10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em>" data-en="10 years in tech.<br>Lisbon since <em>2016.</em>">10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em></h2>
+    <p class="about-body" data-fr="Je travaille dans la tech à Lisbonne depuis 2016. Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés." data-en="Working in tech in Lisbon since 2016. Agency Lead at Meritis Portugal, IT and finance consulting. Before that: Devoteam, Kwanko, Cisco. Clients: Samsung, Vodafone, BNP, Volkswagen across three markets.">Je travaille dans la tech à Lisbonne depuis 2016. Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés.</p>
+    <p class="about-body small" data-fr="Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris. Avec des données. Sans prétendre avoir les réponses." data-en="I'm not a journalist or analyst. I watch decisions being made from the inside and ask questions. Miradouro is where I write them down. With data. Without pretending to have all the answers.">Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris. Avec des données. Sans prétendre avoir les réponses.</p>
+    <div class="about-photo-wrap">
+      <div style="width:52px;height:65px;background:var(--pom-d);display:flex;align-items:center;justify-content:center;font-family:var(--f1);font-weight:700;font-size:22px;color:var(--creme);flex-shrink:0;border:1px solid rgba(255,255,255,.08);">J</div>
+      <div>
+        <div class="about-name">Jonathan</div>
+        <div class="about-role">Agency Lead · Meritis Portugal</div>
+      </div>
+    </div>
+    <div class="about-flags">
+      <div class="flag-chip"><span style="font-size:.9rem">🇫🇷</span><span class="flag-code">FR</span></div>
+      <div class="flag-chip"><span style="font-size:.9rem">🇵🇹</span><span class="flag-code">PT</span></div>
+      <div class="flag-chip"><span style="font-size:.9rem">🇧🇷</span><span class="flag-code">BR</span></div>
+    </div>
+    <div class="about-ctas">
+      <a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener" class="about-cta">
+        <div>
+          <div class="cta-label" data-fr="Jonathan sur LinkedIn" data-en="Jonathan on LinkedIn">Jonathan sur LinkedIn</div>
+        </div>
+        <span class="cta-arrow">↗</span>
+      </a>
+      <a href="https://we-are-kombava.com/" target="_blank" rel="noopener" class="about-cta">
+        <div>
+          <div class="cta-label" data-fr="En dehors de la tech, je construis Kombava" data-en="Outside of tech, I build Kombava">En dehors de la tech, je construis Kombava</div>
+          <div class="cta-sub" data-fr="Un collectif musical à Lisbonne. Deux mondes, même énergie." data-en="A music collective in Lisbon. Two worlds, same energy.">Un collectif musical à Lisbonne. Deux mondes, même énergie.</div>
+        </div>
+        <span class="cta-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="about-light">
+    <div class="stats-grid">
+      <div class="stat sr">
+        <div class="stat-val">38<sup>%</sup></div>
+        <div class="stat-label" data-fr="Écart coût employeur réel Lisbonne vs Paris" data-en="Real employer cost gap Lisbon vs Paris">Écart coût employeur réel Lisbonne vs Paris</div>
+      </div>
+      <div class="stat sr">
+        <div class="stat-val">1,54<sup>M</sup></div>
+        <div class="stat-label" data-fr="Résidents étrangers au Portugal fin 2024" data-en="Foreign residents in Portugal end 2024">Résidents étrangers au Portugal fin 2024</div>
+      </div>
+      <div class="stat sr">
+        <div class="stat-val">×3,1</div>
+        <div class="stat-label" data-fr="Hausse immobilier Lisbonne depuis 2015" data-en="Lisbon housing price increase since 2015">Hausse immobilier Lisbonne depuis 2015</div>
+      </div>
+      <div class="stat sr">
+        <div class="stat-val">70<sup>%</sup></div>
+        <div class="stat-label" data-fr="Du cloud européen entre trois mains américaines" data-en="Of European cloud in three American hands">Du cloud européen entre trois mains américaines</div>
+      </div>
+    </div>
+    <blockquote class="about-pull sr">
+      <span data-fr="Les données ne donnent pas de réponses. Elles posent de meilleures questions." data-en="Data doesn't give you answers. It helps you ask better questions.">Les données ne donnent pas de réponses. Elles posent de meilleures questions.</span>
+      <cite>Miradouro</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ======== NEWSLETTER ======== -->
+<section class="newsletter" id="newsletter">
+  <div class="nl-inner">
+    <div>
+      <div class="nl-label sr" data-fr="Newsletter" data-en="Newsletter">Newsletter</div>
+      <h3 class="nl-title sr" data-fr="Un article par mois.<br><em>Dès sa parution.</em>" data-en="One article a month.<br><em>As soon as it's out.</em>">Un article par mois.<br><em>Dès sa parution.</em></h3>
+      <p class="nl-sub sr" data-fr="Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes." data-en="No digest, no aggregation. Only long-form analysis, when it's ready.">Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes.</p>
+    </div>
+    <div class="sr">
+      <form method="POST" action="https://7d45d2c6.sibforms.com/serve/MUIFABFfdjVRSKoTiJpHRS1W5SzQYvldzUZ_vnykXBso2FOoWE8ZvXARMgz5Lx-16aEzcaAsY5hkOexdIR94SDJ32dYzm3EZGEWGIbpLj3DzP8ju2wu5WvPaS7jw1o_29SqfGSEhLhEGszlLZssYq_tSBKNpd7ZfrlxesIHqZUowFW0aedDDQrRcZLZbm4W-IwcgZtMRysq9fVX3ng==" class="nl-form">
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <div class="nl-field">
+          <input type="email" name="EMAIL" placeholder="votre@email.com" required class="nl-input" autocomplete="off">
+          <button type="submit" class="nl-btn" data-fr="S'abonner" data-en="Subscribe">S'abonner</button>
+        </div>
+        <p class="nl-promise" data-fr="Pas de spam. Désabonnement en un clic." data-en="No spam. Unsubscribe anytime.">Pas de spam. Désabonnement en un clic.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======== FOOTER ======== -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Mira<em>douro</em></div>
+      <div class="footer-sub">Tech · Lisbonne · 2025–2026</div>
+      <p class="footer-tagline" data-fr="Un article par mois. Des données sourcées. Pas de vérités établies." data-en="One article a month. Sourced data. No established truths.">Un article par mois. Des données sourcées. Pas de vérités établies.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
+      <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
+      <a href="#about" data-fr="À propos" data-en="About">À propos</a>
+      <a href="#newsletter" data-fr="Newsletter" data-en="Newsletter">Newsletter</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-fr="Liens" data-en="Links">Liens</h4>
+      <a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://we-are-kombava.com/" target="_blank" rel="noopener">Kombava ↗</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025–2026 Miradouro · Jonathan Dias</span>
+    <span style="font-size:16px">🇵🇹</span>
+  </div>
+</footer>
+
+<script>
+/*========================================
+  CURSOR
+========================================*/
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+(function tick(){
+  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
+  if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}
+  if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px';}
+  requestAnimationFrame(tick);
+})();
+
+/*========================================
+  SCROLL REVEAL
+========================================*/
+const revealObs = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
+
+/*========================================
+  ARTICLE LINKS
+========================================*/
+const ARTICLE_LINKS = {
+  'card-featured': { fr: 'articles/miradouro-cloud-FR.html',       en: 'articles/miradouro-cloud-EN.html' },
+  'card-03':       { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
+  'card-hs':       { fr: 'articles/ai-music-fr.html',              en: 'articles/ai-music-en.html' },
+  'card-01':       { fr: 'articles/01-scissor-effect-fr.html',     en: 'articles/01-scissor-effect-en.html' },
+  'card-02':       { fr: 'articles/02-immigration-fr.html',        en: 'articles/02-immigration-en.html' },
+};
+
+function applyArticleLinks(lang) {
+  Object.entries(ARTICLE_LINKS).forEach(([id, paths]) => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    const url = paths[lang] || paths.fr;
+    el.onclick = () => window.location.href = url;
+    el.style.cursor = 'none';
+  });
+  const hero = document.getElementById('link-hero');
+  if(hero) hero.href = ARTICLE_LINKS['card-featured'][lang] || ARTICLE_LINKS['card-featured'].fr;
+}
+
+/*========================================
+  LANGUAGE
+========================================*/
+function setLang(l) {
+  document.getElementById('btnFR').classList.toggle('active', l==='fr');
+  document.getElementById('btnEN').classList.toggle('active', l==='en');
+  document.querySelectorAll('[data-fr]').forEach(el => {
+    const v = el.getAttribute('data-'+l);
+    if(v !== null) el.innerHTML = v;
+  });
+  document.documentElement.lang = l;
+  localStorage.setItem('mira_lang', l);
+  applyArticleLinks(l);
+}
+
+/*========================================
+  INIT
+========================================*/
+const savedLang = localStorage.getItem('mira_lang') || 'fr';
+if(savedLang === 'en') setLang('en');
+else applyArticleLinks('fr');
+
+/*========================================
+  COOKIE
+========================================*/
+function closeCookie(){
+  const el = document.getElementById('cookieBanner');
+  if(el){ el.style.transition='opacity .3s'; el.style.opacity='0'; setTimeout(()=>el.remove(),300); }
+  try{ localStorage.setItem('mira_cookie','1'); }catch(e){}
+}
+try{ if(localStorage.getItem('mira_cookie')) document.getElementById('cookieBanner').remove(); }catch(e){}
+</script>
+</body>
+</html>
 
