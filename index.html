@@ -106,15 +106,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 ========================================*/
 .articles { padding: clamp(64px,8vw,96px) clamp(24px,5vw,72px); background: var(--creme); }
 
-/* Section header */
 .section-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 0; }
 .sl-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
 .sl-rule { flex: 1; height: 1px; background: var(--rule); }
 .sl-count { font-size: 9px; color: var(--ink3); letter-spacing: .1em; }
 
-/* Theme nav */
-
-/* Featured card */
 .article-featured { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
 .article-featured:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
 .article-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
@@ -139,8 +135,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .af-cta::after { content: '→'; font-size: 13px; }
 .article-featured:hover .af-cta { gap: 10px; }
 
-/* Cards grid — adaptive */
-.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-top: none; }
+.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-top: none; }
 .art-card { background: var(--creme); padding: 26px 22px 22px; position: relative; cursor: none; transition: background .2s; }
 .art-card:hover { background: var(--pom-g); }
 .art-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
@@ -160,8 +155,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .art-card.soon { background: var(--areia); opacity: .65; cursor: default; }
 .art-card.soon:hover { background: var(--areia); opacity: .75; }
 .soon-pill { font-size: 7px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ink3); border: 1px dashed var(--rule); padding: 2px 7px; width: fit-content; margin-bottom: 12px; font-family: var(--f3); }
-
-/* Empty state when filter yields 0 */
 
 /*========================================
   ABOUT
@@ -262,7 +255,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   .article-featured { grid-template-columns: 1fr; }
   .af-visual { min-height: 140px; }
   .af-content { padding: 28px 20px; }
-  .cards-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr 1fr; }
   .about { grid-template-columns: 1fr; }
   .about-dark, .about-light { padding: 48px 24px; }
   .about-light { border-left: none; border-top: 1px solid var(--rule); }
@@ -275,6 +268,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
 @media(max-width:480px) {
   .word-mira, .word-douro { font-size: 13vw; }
   .stats-grid { grid-template-columns: 1fr; }
+  .cards-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -339,8 +333,8 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
       </div>
       <div class="hero-teaser">
         <div class="hft-kicker" data-fr="Dernier article · En ligne" data-en="Latest · Now live">Dernier article · En ligne</div>
-        <div class="hft-title" id="hero-teaser-title" data-fr="L'Europe ne possède pas son infrastructure. Et c'est un choix." data-en="Europe doesn't own its infrastructure. And that's a choice.">L'Europe ne possède pas son infrastructure. Et c'est un choix.</div>
-        <a id="link-hero" href="articles/miradouro-sovereignty-fr.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+        <div class="hft-title" id="hero-teaser-title" data-fr="Compétences cloud au Portugal — le vide européen" data-en="Cloud skills in Portugal — the European gap">Compétences cloud au Portugal — le vide européen</div>
+        <a id="link-hero" href="articles/miradouro-cloud-FR.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
     </div>
   </div>
@@ -363,12 +357,10 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   <div class="section-header-row sr" style="margin-bottom:0;">
     <span class="sl-text" data-fr="Publications" data-en="Articles">Publications</span>
     <div class="sl-rule"></div>
-    <span class="sl-count" id="articles-count" data-fr="05 en ligne · parution mensuelle" data-en="05 live · monthly">05 en ligne · parution mensuelle</span>
+    <span class="sl-count" id="articles-count" data-fr="06 en ligne · parution mensuelle" data-en="06 live · monthly">06 en ligne · parution mensuelle</span>
   </div>
 
-
-
-  <!-- FEATURED CARD — always the latest article (update data-theme + content when new article) -->
+  <!-- FEATURED CARD — article cloud, le plus récent -->
   <div id="card-featured" class="article-featured sr" data-theme="geopolitique">
     <div class="af-visual">
       <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
@@ -381,20 +373,20 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
         </pattern></defs>
         <rect width="400" height="320" fill="url(#az2)"/>
       </svg>
-      <span class="af-ghost">03</span>
-      <div class="af-tag-visual" data-fr="Cloud &amp; Géopolitique" data-en="Cloud &amp; Geopolitics">Cloud &amp; Géopolitique</div>
+      <span class="af-ghost">04</span>
+      <div class="af-tag-visual" data-fr="Données terrain" data-en="Field data">Données terrain</div>
     </div>
     <div class="af-content">
       <div>
         <div class="af-meta">
           <span class="af-new" data-fr="Nouveau" data-en="New">Nouveau</span>
           <span class="af-dot"></span>
-          <span class="af-num">N°03</span>
+          <span class="af-num">N°04</span>
           <span class="af-dot"></span>
           <span class="af-date">Avril 2026</span>
         </div>
-        <h2 class="af-title" data-fr="L'Europe ne possède pas son <em>infrastructure.</em> Et c'est un choix." data-en="Europe doesn't own its <em>infrastructure.</em> And that's a choice.">L'Europe ne possède pas son <em>infrastructure.</em> Et c'est un choix.</h2>
-        <p class="af-intro" data-fr="70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe. Un data center à Sines, premier locataire Microsoft. Les données, les dépendances, et les questions qu'on ne pose pas." data-en="70% of European cloud in three American hands. 40 AI models in the US, 3 in Europe. A data center in Sines, first tenant Microsoft. The data, the dependencies, and the questions nobody asks.">70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe. Un data center à Sines, premier locataire Microsoft. Les données, les dépendances, et les questions qu'on ne pose pas.</p>
+        <h2 class="af-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h2>
+        <p class="af-intro" data-fr="195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées." data-en="195K cloud specialists across Europe. 197 Azure listings in Portugal, 28 AWS, 0 OVHcloud. The skills map, the job listings, and salaries that exceed published benchmarks.">195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées.</p>
       </div>
       <div class="af-footer">
         <span class="af-author">Jonathan · Miradouro</span>
@@ -403,8 +395,22 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
     </div>
   </div>
 
-  <!-- CARDS GRID — add new cards here when publishing -->
+  <!-- CARDS GRID -->
   <div class="cards-grid" id="cardsGrid">
+
+    <!-- N°03: Sovereignty (ancien featured) -->
+    <div id="card-03" class="art-card sr" data-theme="geopolitique">
+      <div class="art-card-top">
+        <span class="art-tag tag-g" data-fr="Cloud &amp; Géopolitique" data-en="Cloud &amp; Geopolitics">Cloud &amp; Géopolitique</span>
+        <span class="art-num">03</span>
+      </div>
+      <h3 class="art-title" data-fr="L'Europe ne possède pas son <em>infrastructure</em>" data-en="Europe doesn't own its <em>infrastructure</em>">L'Europe ne possède pas son <em>infrastructure</em></h3>
+      <p class="art-intro" data-fr="70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe." data-en="70% of European cloud in three American hands. 40 AI models in the US, 3 in Europe.">70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe.</p>
+      <div class="art-foot">
+        <span class="art-time" data-fr="2026 · 10 min" data-en="2026 · 10 min">2026 · 10 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+      </div>
+    </div>
 
     <!-- HS: AI & Music -->
     <div id="card-hs" class="art-card sr" data-theme="ai">
@@ -413,7 +419,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
         <span class="art-num">HS</span>
       </div>
       <h3 class="art-title" data-fr="97% ne font pas la <em>différence</em>" data-en="97% can't tell the <em>difference</em>">97% ne font pas la <em>différence</em></h3>
-      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says — and doesn't.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas.</p>
+      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says — and doesn't.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
       <div class="art-foot">
         <span class="art-time">2025 · 12 min</span>
         <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
@@ -445,20 +451,6 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
       <div class="art-foot">
         <span class="art-time">2025 · 7 min</span>
         <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
-      </div>
-    </div>
-
-    <!-- HS: LinkedIn data viz — EN COURS DE FINALISATION, lien désactivé temporairement -->
-    <div class="art-card soon sr" data-theme="geopolitique">
-      <div class="soon-pill" data-fr="Bientôt · Données terrain" data-en="Coming soon · Field data">Bientôt · Données terrain</div>
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Données terrain" data-en="Field data">Données terrain</span>
-        <span class="art-num">HS</span>
-      </div>
-      <h3 class="art-title" style="color:var(--ferro-m)" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h3>
-      <p class="art-intro" data-fr="42 000+ compétences hyperscalers déclarées sur LinkedIn. OVHcloud : zéro. Scaleway : zéro." data-en="42,000+ hyperscaler skills on LinkedIn. OVHcloud: zero. Scaleway: zero.">42 000+ compétences hyperscalers déclarées sur LinkedIn. OVHcloud : zéro. Scaleway : zéro.</p>
-      <div class="art-foot">
-        <span class="art-time" data-fr="Avril 2026 · 3 min" data-en="April 2026 · 3 min">Avril 2026 · 3 min</span>
       </div>
     </div>
 
@@ -601,15 +593,13 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
 
 /*========================================
   ARTICLE LINKS
-  — To add a new article: add its card above with data-theme,
-    then add its id + file paths here.
 ========================================*/
 const ARTICLE_LINKS = {
-  'card-featured': { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
+  'card-featured': { fr: 'articles/miradouro-cloud-FR.html',       en: 'articles/miradouro-cloud-EN.html' },
+  'card-03':       { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
   'card-hs':       { fr: 'articles/ai-music-fr.html',              en: 'articles/ai-music-en.html' },
   'card-01':       { fr: 'articles/01-scissor-effect-fr.html',     en: 'articles/01-scissor-effect-en.html' },
   'card-02':       { fr: 'articles/02-immigration-fr.html',        en: 'articles/02-immigration-en.html' },
-  /* card-linkedin: activé quand la data viz est prête */
 };
 
 function applyArticleLinks(lang) {
@@ -638,7 +628,6 @@ function setLang(l) {
   localStorage.setItem('mira_lang', l);
   applyArticleLinks(l);
 }
-
 
 /*========================================
   INIT
