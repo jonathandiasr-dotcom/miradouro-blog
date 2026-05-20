@@ -34,6 +34,9 @@
   --f1: 'Fraunces', Georgia, serif;
   --f2: 'Cormorant Garant', Georgia, serif;
   --f3: 'Cabinet Grotesk', system-ui, sans-serif;
+  /* Accent thématique — change par JS */
+  --accent: var(--pom);
+  --accent-d: var(--pom-d);
 }
 html { scroll-behavior: smooth; }
 body { font-family: var(--f3); background: var(--creme); color: var(--ferro); -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none; }
@@ -60,7 +63,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .lang-btn.active { background: var(--pom); color: #fff; }
 
 /*========================================
-  HERO
+  HERO — nouvelle architecture
 ========================================*/
 .hero { min-height: 100vh; background: var(--verde); position: relative; display: flex; flex-direction: column; overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: -50%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: .6; pointer-events: none; z-index: 1; }
@@ -70,137 +73,190 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .word-mira { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 800; color: var(--creme); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .1s forwards; }
 .word-douro { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 300; font-style: italic; color: var(--pom-l); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
 .hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin: 24px 0; transform: scaleX(0); transform-origin: left; animation: expandX .8s cubic-bezier(.16,1,.3,1) .7s forwards; }
+
+/* Hero bottom: 3 colonnes — stat signal | article mis en avant | thème actif */
 .hero-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; }
-.hero-desc { grid-column: 1/3; padding-right: 48px; border-right: 1px solid rgba(255,255,255,.08); }
-.hero-sub { font-family: var(--f2); font-size: 13px; font-style: italic; font-weight: 300; color: rgba(255,255,255,.4); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.hero-sub::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
-.hero-desc-text { font-family: var(--f2); font-size: clamp(16px,2.2vw,22px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.62); line-height: 1.65; max-width: 560px; }
-.hero-desc-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.88); }
-.hero-teaser { padding-left: 40px; display: flex; flex-direction: column; justify-content: center; }
-.hft-kicker { font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ouro); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-.hft-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
-.hft-title { font-family: var(--f2); font-size: clamp(15px,1.6vw,20px); font-weight: 600; color: rgba(255,255,255,.82); line-height: 1.3; margin-bottom: 14px; }
-.hft-read { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-l); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s; cursor: none; }
-.hft-read::after { content: '→'; font-size: 12px; }
-.hft-read:hover { gap: 12px; }
+
+/* Colonne 1 : signal stat */
+.hero-signal { padding-right: 48px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
+.hero-signal-kicker { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ouro); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
+.hero-signal-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
+.hero-signal-number { font-family: var(--f1); font-size: clamp(52px,7vw,88px); font-weight: 800; color: #fff; line-height: .9; letter-spacing: -.04em; margin-bottom: 12px; transition: opacity .4s; }
+.hero-signal-label { font-family: var(--f2); font-size: clamp(13px,1.4vw,16px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.5; max-width: 260px; }
+
+/* Colonne 2 : article en avant */
+.hero-featured { padding: 0 40px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
+.hero-featured-kicker { font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.hero-featured-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--pom-l); }
+.hero-featured-title { font-family: var(--f2); font-size: clamp(16px,1.8vw,22px); font-weight: 600; color: rgba(255,255,255,.88); line-height: 1.25; margin-bottom: 14px; }
+.hero-featured-intro { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.65; margin-bottom: 20px; }
+.hero-read { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-l); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s; cursor: none; }
+.hero-read::after { content: '→'; font-size: 12px; }
+.hero-read:hover { gap: 12px; }
+
+/* Colonne 3 : navigateur thématique */
+.hero-themes { padding-left: 40px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
+.hero-themes-label { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 12px; }
+.theme-btn { display: flex; align-items: center; gap: 12px; padding: 8px 0; border: none; background: none; color: rgba(255,255,255,.42); font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: none; border-bottom: 1px solid rgba(255,255,255,.06); transition: color .2s; text-align: left; width: 100%; }
+.theme-btn:last-child { border-bottom: none; }
+.theme-btn::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.18); flex-shrink: 0; transition: background .2s, transform .2s; }
+.theme-btn.active { color: rgba(255,255,255,.9); }
+.theme-btn.active::before { background: var(--ouro); transform: scale(1.4); }
+.theme-btn:hover { color: rgba(255,255,255,.7); }
+.theme-count { margin-left: auto; font-size: 8px; color: rgba(255,255,255,.2); font-weight: 500; }
+
 .hero-scroll { position: absolute; bottom: 32px; right: clamp(24px,5vw,72px); display: flex; align-items: center; gap: 10px; z-index: 3; opacity: 0; animation: fadeUp .6s ease 1.2s forwards; }
 .hero-scroll span { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.22); }
 .scroll-track { width: 1px; height: 44px; background: rgba(255,255,255,.1); position: relative; overflow: hidden; }
 .scroll-fill { position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--ouro); animation: scrollAnim 2s ease-in-out 1.4s infinite; }
-.hero-issue { position: absolute; top: 80px; right: clamp(24px,5vw,72px); z-index: 3; opacity: 0; animation: fadeIn .6s ease 1s forwards; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-.issue-year { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.22); }
-.issue-num { font-family: var(--f1); font-size: 80px; font-weight: 800; color: rgba(255,255,255,.04); line-height: 1; letter-spacing: -.06em; }
 
 /*========================================
-  PROMESSE
+  BANDE EDITORIALE — sous le hero
 ========================================*/
-.promesse { background: var(--pom); padding: clamp(48px,6vw,88px) clamp(24px,5vw,72px); position: relative; overflow: hidden; }
+.promesse { background: var(--pom); padding: clamp(36px,4vw,56px) clamp(24px,5vw,72px); position: relative; overflow: hidden; }
 .promesse::after { content: ''; position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%); pointer-events: none; }
-.promesse-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.promesse-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .promesse-label::before { content: ''; display: block; width: 24px; height: 1px; background: rgba(255,255,255,.4); }
-.promesse-text { font-family: var(--f1); font-size: clamp(26px,4.5vw,56px); font-weight: 500; font-style: italic; color: #fff; line-height: 1.18; letter-spacing: -.025em; max-width: 800px; }
+.promesse-text { font-family: var(--f1); font-size: clamp(22px,3.5vw,44px); font-weight: 500; font-style: italic; color: #fff; line-height: 1.18; letter-spacing: -.025em; max-width: 800px; }
 .promesse-text em { font-style: normal; font-weight: 800; color: var(--ferro); background: var(--ouro); padding: 0 8px; }
 
 /*========================================
-  ARTICLES SECTION
+  SECTION ARTICLES — hiérarchie repensée
 ========================================*/
-.articles { padding: clamp(64px,8vw,96px) clamp(24px,5vw,72px); background: var(--creme); }
+.articles { padding: clamp(48px,6vw,80px) clamp(24px,5vw,72px); background: var(--creme); }
 
-.section-header-row { display: flex; align-items: center; gap: 16px; margin-bottom: 0; }
-.sl-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
-.sl-rule { flex: 1; height: 1px; background: var(--rule); }
-.sl-count { font-size: 9px; color: var(--ink3); letter-spacing: .1em; }
+/* Header avec filtre thématique actif */
+.articles-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: clamp(28px,4vw,48px); }
+.articles-title { font-family: var(--f1); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--ferro); letter-spacing: -.03em; }
+.articles-theme-active { font-family: var(--f2); font-size: clamp(22px,2.8vw,34px); font-style: italic; font-weight: 300; color: var(--pom); }
+.articles-count { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; margin-left: auto; }
 
-.article-featured { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
-.article-featured:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
-.article-featured::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
-.article-featured:hover::before { transform: scaleX(1); }
-.af-visual { background: var(--verde); min-height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.af-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
-.af-ghost { font-family: var(--f1); font-size: 160px; font-weight: 900; color: rgba(255,255,255,.05); line-height: 1; position: absolute; bottom: -20px; right: 20px; letter-spacing: -.06em; pointer-events: none; }
-.af-tag-visual { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); border: 1px solid var(--ouro); padding: 6px 14px; position: relative; z-index: 1; font-family: var(--f3); }
-.af-content { background: var(--creme); padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; transition: background .2s; }
-.article-featured:hover .af-content { background: var(--pom-g); }
-.af-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
-.af-new { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; background: var(--pom); color: #fff; padding: 3px 9px; font-family: var(--f3); }
-.af-num { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; font-family: var(--f3); }
-.af-dot { width: 3px; height: 3px; background: var(--rule); border-radius: 50%; }
-.af-date { font-size: 10px; color: var(--ink3); letter-spacing: .06em; font-family: var(--f3); }
-.af-title { font-family: var(--f1); font-size: clamp(26px,3.2vw,42px); font-weight: 700; color: var(--ferro); line-height: 1.06; letter-spacing: -.03em; margin-bottom: 18px; }
-.af-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
-.af-intro { font-family: var(--f2); font-size: 15px; font-style: italic; font-weight: 300; color: var(--ink2); line-height: 1.75; flex: 1; margin-bottom: 24px; }
-.af-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 18px; border-top: 1px solid var(--rule); }
-.af-author { font-size: 10px; font-weight: 500; color: var(--ink2); font-family: var(--f3); }
-.af-cta { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-d); display: flex; align-items: center; gap: 6px; transition: gap .2s; font-family: var(--f3); }
-.af-cta::after { content: '→'; font-size: 13px; }
-.article-featured:hover .af-cta { gap: 10px; }
+/* Filtre thématique en ligne */
+.theme-filters { display: flex; gap: 4px; margin-bottom: clamp(32px,4vw,52px); flex-wrap: wrap; }
+.filter-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 7px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink3); cursor: none; transition: all .2s; }
+.filter-btn.active { background: var(--verde); color: var(--creme); border-color: var(--verde); }
+.filter-btn:hover:not(.active) { border-color: var(--ferro); color: var(--ferro); }
 
-.cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-top: none; }
-.art-card { background: var(--creme); padding: 26px 22px 22px; position: relative; cursor: none; transition: background .2s; }
+/* NIVEAU 1 : article phare — pleine largeur, traitement éditorial fort */
+.article-phare { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
+.article-phare:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
+.article-phare::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
+.article-phare:hover::before { transform: scaleX(1); }
+
+.phare-visual { background: var(--verde); min-height: 360px; display: flex; align-items: flex-end; justify-content: flex-start; position: relative; overflow: hidden; padding: 40px; }
+.phare-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
+.phare-ghost { font-family: var(--f1); font-size: 200px; font-weight: 900; color: rgba(255,255,255,.04); line-height: 1; position: absolute; bottom: -30px; right: 10px; letter-spacing: -.08em; pointer-events: none; }
+.phare-badge { font-size: 8px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); border: 1px solid var(--ouro); padding: 5px 12px; position: relative; z-index: 1; font-family: var(--f3); }
+
+/* Stat visible dans la visual */
+.phare-stat { position: absolute; top: 40px; left: 40px; z-index: 2; }
+.phare-stat-num { font-family: var(--f1); font-size: 48px; font-weight: 800; color: rgba(255,255,255,.9); line-height: .9; letter-spacing: -.04em; }
+.phare-stat-label { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.4; margin-top: 6px; max-width: 160px; }
+
+.phare-content { background: var(--creme); padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; transition: background .2s; }
+.article-phare:hover .phare-content { background: var(--pom-g); }
+
+.phare-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.phare-tag { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; background: var(--pom); color: #fff; padding: 3px 9px; font-family: var(--f3); }
+.phare-num { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; font-family: var(--f3); }
+.phare-dot { width: 3px; height: 3px; background: var(--rule); border-radius: 50%; }
+.phare-date { font-size: 10px; color: var(--ink3); letter-spacing: .06em; font-family: var(--f3); }
+
+.phare-title { font-family: var(--f1); font-size: clamp(28px,3.5vw,48px); font-weight: 700; color: var(--ferro); line-height: 1.02; letter-spacing: -.03em; margin-bottom: 20px; }
+.phare-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
+.phare-intro { font-family: var(--f2); font-size: 15px; font-style: italic; font-weight: 300; color: var(--ink2); line-height: 1.75; flex: 1; margin-bottom: 28px; }
+
+/* Données clés inline dans l'article phare */
+.phare-data-strip { display: flex; gap: 24px; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 24px; }
+.phare-data-item { display: flex; flex-direction: column; gap: 3px; }
+.phare-data-val { font-family: var(--f1); font-size: 20px; font-weight: 800; color: var(--ferro); letter-spacing: -.02em; }
+.phare-data-lab { font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); }
+
+.phare-footer { display: flex; align-items: center; justify-content: space-between; }
+.phare-author { font-size: 10px; font-weight: 500; color: var(--ink2); font-family: var(--f3); }
+.phare-cta { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-d); display: flex; align-items: center; gap: 6px; transition: gap .2s; font-family: var(--f3); }
+.phare-cta::after { content: '→'; font-size: 13px; }
+.article-phare:hover .phare-cta { gap: 10px; }
+
+/* NIVEAU 2 : analyses — grille 3 colonnes, données visibles */
+.analyses-label { display: flex; align-items: center; gap: 16px; margin: clamp(28px,4vw,48px) 0 20px; }
+.analyses-label-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
+.analyses-label-rule { flex: 1; height: 1px; background: var(--rule); }
+
+.analyses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+
+.art-card { background: var(--creme); padding: 28px 24px 22px; position: relative; cursor: none; transition: background .2s; }
 .art-card:hover { background: var(--pom-g); }
-.art-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+
+.art-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
 .art-tag { font-size: 7px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 3px 8px; font-family: var(--f3); }
 .tag-v { color: var(--verde); background: var(--verde-g); }
 .tag-p { color: var(--pom-d); background: rgba(201,122,94,.1); }
 .tag-o { color: #7a5a10; background: var(--ouro-l); }
 .tag-g { color: #1a3a4a; background: #d4eaf5; }
 .art-num { font-size: 10px; font-weight: 700; color: var(--rule); letter-spacing: .06em; font-family: var(--f3); }
-.art-title { font-family: var(--f1); font-size: clamp(16px,1.8vw,21px); font-weight: 600; color: var(--ferro); line-height: 1.15; letter-spacing: -.02em; margin-bottom: 10px; }
+
+.art-title { font-family: var(--f1); font-size: clamp(17px,1.9vw,23px); font-weight: 600; color: var(--ferro); line-height: 1.12; letter-spacing: -.02em; margin-bottom: 10px; }
 .art-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
 .art-intro { font-family: var(--f2); font-size: 13px; font-style: italic; color: var(--ink2); line-height: 1.65; margin-bottom: 16px; }
-.art-foot { display: flex; align-items: center; justify-content: space-between; padding-top: 12px; border-top: 1px solid var(--rule); }
+
+/* Stat inline visible sans cliquer */
+.art-stat-inline { display: flex; align-items: baseline; gap: 8px; padding: 10px 0; border-top: 1px solid var(--rule); margin-bottom: 14px; }
+.art-stat-n { font-family: var(--f1); font-size: 22px; font-weight: 800; color: var(--ferro); letter-spacing: -.02em; }
+.art-stat-l { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink3); line-height: 1.3; }
+
+.art-foot { display: flex; align-items: center; justify-content: space-between; }
 .art-time { font-size: 9px; color: var(--ink3); font-family: var(--f3); }
 .art-arrow { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--pom-d); opacity: 0; transition: opacity .2s, transform .2s; transform: translateX(-4px); font-family: var(--f3); }
 .art-card:hover .art-arrow { opacity: 1; transform: none; }
-.art-card.soon { background: var(--areia); opacity: .65; cursor: default; }
-.art-card.soon:hover { background: var(--areia); opacity: .75; }
+
+/* Card "à venir" */
+.art-card.soon { background: var(--areia); opacity: .6; cursor: default; }
+.art-card.soon:hover { background: var(--areia); opacity: .7; }
 .soon-pill { font-size: 7px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ink3); border: 1px dashed var(--rule); padding: 2px 7px; width: fit-content; margin-bottom: 12px; font-family: var(--f3); }
 
 /*========================================
-  ABOUT
+  ABOUT — condensé
 ========================================*/
-.about { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
-.about-dark { background: var(--ferro); padding: clamp(48px,6vw,80px) clamp(24px,5vw,64px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-.about-dark::before { content: 'M'; font-family: var(--f1); font-size: 400px; font-weight: 900; color: rgba(255,255,255,.02); position: absolute; right: -60px; bottom: -80px; line-height: 1; pointer-events: none; }
-.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.about { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
+.about-dark { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.about-dark::before { content: 'M'; font-family: var(--f1); font-size: 360px; font-weight: 900; color: rgba(255,255,255,.02); position: absolute; right: -60px; bottom: -80px; line-height: 1; pointer-events: none; }
+.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .about-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
-.about-title { font-family: var(--f1); font-size: clamp(28px,4vw,52px); font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 22px; }
+.about-title { font-family: var(--f1); font-size: clamp(24px,3.2vw,42px); font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 18px; }
 .about-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.about-body { font-family: var(--f2); font-size: 15px; color: rgba(255,255,255,.62); line-height: 1.75; margin-bottom: 14px; }
-.about-body.small { font-size: 13px; color: rgba(255,255,255,.42); margin-bottom: 24px; font-style: italic; }
-.about-photo-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-.about-name { font-family: var(--f1); font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -.01em; }
-.about-role { font-size: 10px; color: rgba(255,255,255,.35); letter-spacing: .06em; }
-.about-flags { display: flex; gap: 5px; margin-bottom: 22px; }
-.flag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.1); border-radius: 2px; }
+.about-body { font-family: var(--f2); font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.72; margin-bottom: 10px; }
+.about-body.small { font-size: 12px; color: rgba(255,255,255,.36); font-style: italic; margin-bottom: 22px; }
+.about-flags { display: flex; gap: 5px; margin-bottom: 20px; }
+.flag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.1); }
 .flag-code { font-size: .54rem; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.32); text-transform: uppercase; }
 .about-ctas { display: flex; flex-direction: column; }
-.about-cta { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: gap .2s; }
+.about-cta { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: gap .2s; }
 .about-cta:hover { gap: 15px; }
-.cta-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); }
-.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.32); }
-.cta-arrow { font-size: .8rem; color: rgba(255,255,255,.28); margin-left: auto; transition: opacity .2s; }
-.about-cta:hover .cta-arrow { opacity: .8; }
-.about-light { background: var(--areia); padding: clamp(48px,6vw,80px) clamp(24px,5vw,64px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--rule); }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 24px; margin-bottom: 40px; }
+.cta-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); }
+.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.28); }
+.cta-arrow { font-size: .8rem; color: rgba(255,255,255,.24); margin-left: auto; }
+
+.about-light { background: var(--areia); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--rule); }
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; margin-bottom: 36px; }
 .stat { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
 .stat.on { opacity: 1; transform: none; }
-.stat-val { font-family: var(--f1); font-size: clamp(36px,5vw,56px); font-weight: 800; color: var(--ferro); line-height: 1; letter-spacing: -.04em; margin-bottom: 8px; }
+.stat-val { font-family: var(--f1); font-size: clamp(32px,4.5vw,52px); font-weight: 800; color: var(--ferro); line-height: 1; letter-spacing: -.04em; margin-bottom: 6px; }
 .stat-val sup { font-size: .45em; font-weight: 600; vertical-align: super; }
-.stat-label { font-size: 11px; color: var(--ink2); line-height: 1.4; }
-.about-pull { font-family: var(--f2); font-size: clamp(17px,2.2vw,22px); font-style: italic; font-weight: 300; color: var(--ferro); line-height: 1.55; padding-left: 20px; border-left: 3px solid var(--pom); }
-.about-pull cite { display: block; font-size: 11px; font-style: normal; font-weight: 700; color: var(--ink3); letter-spacing: .1em; text-transform: uppercase; margin-top: 14px; font-family: var(--f3); }
+.stat-label { font-size: 10px; color: var(--ink2); line-height: 1.4; }
+.about-pull { font-family: var(--f2); font-size: clamp(15px,1.8vw,20px); font-style: italic; font-weight: 300; color: var(--ferro); line-height: 1.55; padding-left: 18px; border-left: 3px solid var(--pom); }
+.about-pull cite { display: block; font-size: 10px; font-style: normal; font-weight: 700; color: var(--ink3); letter-spacing: .1em; text-transform: uppercase; margin-top: 12px; font-family: var(--f3); }
 
 /*========================================
   NEWSLETTER
 ========================================*/
-.newsletter { background: var(--verde); padding: clamp(56px,7vw,88px) clamp(24px,5vw,72px); }
+.newsletter { background: var(--verde); padding: clamp(48px,6vw,72px) clamp(24px,5vw,72px); }
 .nl-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.nl-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.nl-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .nl-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
-.nl-title { font-family: var(--f1); font-size: clamp(26px,4vw,44px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 16px; }
+.nl-title { font-family: var(--f1); font-size: clamp(24px,3.5vw,42px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 14px; }
 .nl-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.nl-sub { font-family: var(--f2); font-size: 16px; font-style: italic; color: rgba(255,255,255,.45); line-height: 1.6; }
+.nl-sub { font-family: var(--f2); font-size: 15px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.6; }
 .nl-form { display: flex; flex-direction: column; gap: 12px; }
 .nl-field { display: flex; }
 .nl-input { flex: 1; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-right: none; padding: 14px 18px; font-family: var(--f3); font-size: 13px; color: #fff; outline: none; transition: border-color .2s; }
@@ -208,25 +264,25 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .nl-input:focus { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
 .nl-btn { background: var(--pom); color: #fff; border: none; padding: 14px 24px; font-family: var(--f3); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: background .2s; white-space: nowrap; }
 .nl-btn:hover { background: var(--pom-d); }
-.nl-promise { font-size: 10px; color: rgba(255,255,255,.28); font-style: italic; font-family: var(--f3); }
+.nl-promise { font-size: 10px; color: rgba(255,255,255,.28); font-style: italic; }
 
 /*========================================
   FOOTER
 ========================================*/
-footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,72px) clamp(24px,3vw,36px); }
-.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.footer-brand { font-family: var(--f1); font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 6px; }
+footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,72px) clamp(20px,2.5vw,32px); }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.footer-brand { font-family: var(--f1); font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 6px; }
 .footer-brand em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.footer-sub { font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 12px; }
-.footer-tagline { font-family: var(--f2); font-size: 14px; font-style: italic; color: rgba(255,255,255,.38); line-height: 1.6; max-width: 280px; }
-.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; }
-.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.52); margin-bottom: 10px; transition: color .2s; }
+.footer-sub { font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+.footer-tagline { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; }
+.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.48); margin-bottom: 9px; transition: color .2s; }
 .footer-col a:hover { color: #fff; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
 .footer-copy { font-size: 10px; color: rgba(255,255,255,.2); }
 
 /*========================================
-  ANIMATIONS & SCROLL REVEAL
+  ANIMATIONS
 ========================================*/
 @keyframes slideUp { to { transform: translateY(0); } }
 @keyframes expandX { to { transform: scaleX(1); } }
@@ -239,36 +295,35 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
 /*========================================
   RESPONSIVE
 ========================================*/
+@media(max-width:1100px) {
+  .hero-bottom { grid-template-columns: 1fr 1fr; }
+  .hero-themes { display: none; }
+  .analyses-grid { grid-template-columns: 1fr 1fr; }
+}
 @media(max-width:900px) {
   nav { mix-blend-mode: normal; background: rgba(36,61,44,.97); padding: 0 20px; }
   .nav-wordmark { color: var(--creme); }
-  .nav-right a { display: none; }
-  .hero { min-height: auto; }
-  .hero-content { padding: 88px 24px 48px; justify-content: flex-start; }
-  .word-mira, .word-douro { font-size: clamp(48px,14vw,80px); }
-  .hero-rule { margin: 16px 0; }
+  .nav-right a:not(.lang-btn):not(#btnFR):not(#btnEN) { display: none; }
   .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
-  .hero-desc { grid-column: 1; border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 24px; }
-  .hero-teaser { padding-left: 0; }
-  .hero-scroll, .hero-issue { display: none; }
-  .articles { padding: 48px 20px; }
-  .article-featured { grid-template-columns: 1fr; }
-  .af-visual { min-height: 140px; }
-  .af-content { padding: 28px 20px; }
-  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .hero-signal { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 24px; }
+  .hero-featured { padding: 24px 0 0; border-right: none; }
+  .article-phare { grid-template-columns: 1fr; }
+  .phare-visual { min-height: 180px; }
+  .phare-content { padding: 28px 20px; }
+  .analyses-grid { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; }
-  .about-dark, .about-light { padding: 48px 24px; }
   .about-light { border-left: none; border-top: 1px solid var(--rule); }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .nl-inner { grid-template-columns: 1fr; gap: 28px; }
   .nl-field { flex-direction: column; }
   .nl-input { border-right: 1px solid rgba(255,255,255,.15); border-bottom: none; }
-  .footer-top { grid-template-columns: 1fr; gap: 28px; }
+  .footer-top { grid-template-columns: 1fr; gap: 24px; }
+  .articles-header { flex-wrap: wrap; }
+  .theme-filters { gap: 3px; }
 }
 @media(max-width:480px) {
   .word-mira, .word-douro { font-size: 13vw; }
   .stats-grid { grid-template-columns: 1fr; }
-  .cards-grid { grid-template-columns: 1fr; }
+  .phare-data-strip { gap: 14px; flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -276,7 +331,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="ring"></div>
 
-<!-- ======== COOKIE BANNER ======== -->
+<!-- COOKIE BANNER -->
 <div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:8000;background:var(--ferro);border-top:2px solid var(--pom);padding:14px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);animation:cookieSlide .5s .8s ease forwards">
   <style>@keyframes cookieSlide{to{transform:translateY(0)}}</style>
   <p style="font-family:var(--f2);font-size:.88rem;font-style:italic;color:rgba(251,248,242,.62);line-height:1.5">
@@ -286,11 +341,13 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   <button onclick="closeCookie()" style="font-family:var(--f3);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;background:var(--pom);color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0">OK merci</button>
 </div>
 
-<!-- ======== NAV ======== -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-wordmark">Mira<em>douro</em></a>
   <div class="nav-right">
-    <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
+    <a href="#articles" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</a>
+    <a href="#articles" data-fr="Talent" data-en="Talent">Talent</a>
+    <a href="#articles" data-fr="Finance" data-en="Finance">Finance</a>
     <a href="#about" data-fr="À propos" data-en="About">À propos</a>
     <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden;margin-left:4px">
       <button onclick="setLang('fr')" id="btnFR" class="lang-btn active">FR</button>
@@ -299,7 +356,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </div>
 </nav>
 
-<!-- ======== HERO ======== -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-pattern">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -325,17 +382,43 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
     </div>
     <div class="hero-rule"></div>
     <div class="hero-bottom">
-      <div class="hero-desc">
-        <div class="hero-sub" data-fr="Point de vue" data-en="Outlook">Point de vue</div>
-        <p class="hero-desc-text">
-          <span data-fr="Un miradouro, c'est un point haut. D'ici, on <strong>voit mieux</strong>, pas plus loin. Tech, IA, data, ressources humaines. Des grilles de lecture sur l'Europe, construites depuis Lisbonne." data-en="A miradouro is a high point. From here, you <strong>see more clearly</strong>, not further. Tech, AI, data, people. A closer look at European tech, written from Lisbon.">Un miradouro, c'est un point haut. D'ici, on <strong>voit mieux</strong>, pas plus loin. Tech, IA, data, ressources humaines. Des grilles de lecture sur l'Europe, construites depuis Lisbonne.</span>
-        </p>
+
+      <!-- Colonne 1 : stat signal -->
+      <div class="hero-signal">
+        <div class="hero-signal-kicker" data-fr="Signal du moment" data-en="Current signal">Signal du moment</div>
+        <div class="hero-signal-number" id="hero-stat-num">9 700</div>
+        <div class="hero-signal-label" id="hero-stat-label" data-fr="Employés BNP Paribas au Portugal — 4e employeur privé du pays." data-en="BNP Paribas employees in Portugal — 4th largest private employer.">Employés BNP Paribas au Portugal — 4e employeur privé du pays.</div>
       </div>
-      <div class="hero-teaser">
-        <div class="hft-kicker" data-fr="Dernier article · En ligne" data-en="Latest · Now live">Dernier article · En ligne</div>
-        <div class="hft-title" id="hero-teaser-title" data-fr="Compétences cloud au Portugal — le vide européen" data-en="Cloud skills in Portugal — the European gap">Compétences cloud au Portugal — le vide européen</div>
-        <a id="link-hero" href="articles/miradouro-cloud-FR.html" class="hft-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+
+      <!-- Colonne 2 : article en avant -->
+      <div class="hero-featured">
+        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Article en cours · Finance" data-en="Current article · Finance">Article en cours · Finance</div>
+        <div class="hero-featured-title" id="hero-title" data-fr="Comment la finance française transforme le Portugal" data-en="How French finance is transforming Portugal">Comment la finance française transforme le Portugal</div>
+        <div class="hero-featured-intro" id="hero-intro" data-fr="BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support." data-en="BNP, Natixis, Euronext, AXA. From Lisbon and Porto, French finance no longer just builds support centres.">BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support.</div>
+        <a id="link-hero" href="articles/miradouro_banques_portugal_FR_FINAL_V3.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
+
+      <!-- Colonne 3 : navigateur thématique -->
+      <div class="hero-themes">
+        <div class="hero-themes-label" data-fr="Territoires éditoriaux" data-en="Editorial territories">Territoires éditoriaux</div>
+        <button class="theme-btn" data-theme="finance" onclick="setTheme('finance')">
+          <span data-fr="Finance & Géographie" data-en="Finance & Geography">Finance & Géographie</span>
+          <span class="theme-count">2</span>
+        </button>
+        <button class="theme-btn" data-theme="infrastructure" onclick="setTheme('infrastructure')">
+          <span data-fr="Infrastructure & Cloud" data-en="Infrastructure & Cloud">Infrastructure & Cloud</span>
+          <span class="theme-count">2</span>
+        </button>
+        <button class="theme-btn" data-theme="talent" onclick="setTheme('talent')">
+          <span data-fr="Talent & Immigration" data-en="Talent & Immigration">Talent & Immigration</span>
+          <span class="theme-count">1</span>
+        </button>
+        <button class="theme-btn" data-theme="ai" onclick="setTheme('ai')">
+          <span data-fr="IA & Société" data-en="AI & Society">IA & Société</span>
+          <span class="theme-count">1</span>
+        </button>
+      </div>
+
     </div>
   </div>
   <div class="hero-scroll">
@@ -344,7 +427,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </div>
 </section>
 
-<!-- ======== PROMESSE ======== -->
+<!-- PROMESSE -->
 <div class="promesse">
   <div class="promesse-label sr" data-fr="La ligne éditoriale" data-en="Editorial line">La ligne éditoriale</div>
   <p class="promesse-text sr">
@@ -352,18 +435,29 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </p>
 </div>
 
-<!-- ======== ARTICLES ======== -->
+<!-- ARTICLES -->
 <section class="articles" id="articles">
-  <div class="section-header-row sr" style="margin-bottom:0;">
-    <span class="sl-text" data-fr="Publications" data-en="Articles">Publications</span>
-    <div class="sl-rule"></div>
-    <span class="sl-count" id="articles-count" data-fr="06 en ligne · parution mensuelle" data-en="06 live · monthly">06 en ligne · parution mensuelle</span>
+
+  <!-- En-tête avec thème actif -->
+  <div class="articles-header">
+    <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
+    <span class="articles-theme-active" id="theme-label" data-fr="— Finance & Géographie" data-en="— Finance & Geography">— Finance & Géographie</span>
+    <span class="articles-count" id="articles-count" data-fr="06 en ligne · mensuel" data-en="06 live · monthly">06 en ligne · mensuel</span>
   </div>
 
-  <!-- FEATURED CARD — article cloud, le plus récent -->
-  <div id="card-featured" class="article-featured sr" data-theme="geopolitique">
-    <div class="af-visual">
-      <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <!-- Filtres thématiques -->
+  <div class="theme-filters">
+    <button class="filter-btn" data-filter="all" onclick="filterArticles('all')" data-fr="Tout" data-en="All">Tout</button>
+    <button class="filter-btn" data-filter="finance" onclick="filterArticles('finance')" data-fr="Finance" data-en="Finance">Finance</button>
+    <button class="filter-btn" data-filter="infrastructure" onclick="filterArticles('infrastructure')" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</button>
+    <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
+    <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
+  </div>
+
+  <!-- NIVEAU 1 : Article phare -->
+  <div id="card-phare" class="article-phare sr" data-theme="finance">
+    <div class="phare-visual">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
         <defs><pattern id="az2" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
           <line x1="0" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
           <line x1="60" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
@@ -371,106 +465,170 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
           <line x1="60" y1="60" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
           <rect x="6" y="6" width="48" height="48" fill="none" stroke="white" stroke-width="0.4"/>
         </pattern></defs>
-        <rect width="400" height="320" fill="url(#az2)"/>
+        <rect width="400" height="400" fill="url(#az2)"/>
       </svg>
-      <span class="af-ghost">04</span>
-      <div class="af-tag-visual" data-fr="Données terrain" data-en="Field data">Données terrain</div>
-    </div>
-    <div class="af-content">
-      <div>
-        <div class="af-meta">
-          <span class="af-new" data-fr="Nouveau" data-en="New">Nouveau</span>
-          <span class="af-dot"></span>
-          <span class="af-num">N°04</span>
-          <span class="af-dot"></span>
-          <span class="af-date">Avril 2026</span>
-        </div>
-        <h2 class="af-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h2>
-        <p class="af-intro" data-fr="195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées." data-en="195K cloud specialists across Europe. 197 Azure listings in Portugal, 28 AWS, 0 OVHcloud. The skills map, the job listings, and salaries that exceed published benchmarks.">195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences, les offres d'emploi, et des salaires qui dépassent les grilles publiées.</p>
+      <span class="phare-ghost">N°05</span>
+      <!-- Stat visible dans la visual -->
+      <div class="phare-stat">
+        <div class="phare-stat-num">9 700</div>
+        <div class="phare-stat-label">Employés BNP Paribas Portugal</div>
       </div>
-      <div class="af-footer">
-        <span class="af-author">Jonathan · Miradouro</span>
-        <span class="af-cta" data-fr="Lire l'analyse" data-en="Read">Lire l'analyse</span>
+      <div class="phare-badge" data-fr="Enquête terrain" data-en="Field report">Enquête terrain</div>
+    </div>
+    <div class="phare-content">
+      <div>
+        <div class="phare-meta">
+          <span class="phare-tag" data-fr="Nouveau" data-en="New">Nouveau</span>
+          <span class="phare-dot"></span>
+          <span class="phare-num">N°05</span>
+          <span class="phare-dot"></span>
+          <span class="phare-date">Mai 2026</span>
+        </div>
+        <h2 class="phare-title" data-fr="Comment la finance française <em>transforme le Portugal</em>" data-en="How French finance <em>is transforming Portugal</em>">Comment la finance française <em>transforme le Portugal</em></h2>
+        <p class="phare-intro" data-fr="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support. Elle participe à une nouvelle géographie européenne de la technologie bancaire." data-en="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. From Lisbon and Porto, French finance is no longer just building support centres. It's shaping a new European geography of banking technology.">BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support. Elle participe à une nouvelle géographie européenne de la technologie bancaire.</p>
+        <!-- Données clés inline -->
+        <div class="phare-data-strip">
+          <div class="phare-data-item">
+            <div class="phare-data-val">9 700</div>
+            <div class="phare-data-lab">Employés BNP</div>
+          </div>
+          <div class="phare-data-item">
+            <div class="phare-data-val">3 000</div>
+            <div class="phare-data-lab">Employés Natixis</div>
+          </div>
+          <div class="phare-data-item">
+            <div class="phare-data-val">4e</div>
+            <div class="phare-data-lab">Employeur privé PT</div>
+          </div>
+          <div class="phare-data-item">
+            <div class="phare-data-val">5</div>
+            <div class="phare-data-lab">Hubs majeurs FR</div>
+          </div>
+        </div>
+      </div>
+      <div class="phare-footer">
+        <span class="phare-author">Jonathan · Miradouro</span>
+        <span class="phare-cta" data-fr="Lire l'enquête" data-en="Read the report">Lire l'enquête</span>
       </div>
     </div>
   </div>
 
-  <!-- CARDS GRID -->
-  <div class="cards-grid" id="cardsGrid">
+  <!-- Séparateur niveau 2 -->
+  <div class="analyses-label sr">
+    <span class="analyses-label-text" data-fr="Analyses" data-en="Analysis">Analyses</span>
+    <div class="analyses-label-rule"></div>
+  </div>
 
-    <!-- N°03: Sovereignty (ancien featured) -->
-    <div id="card-03" class="art-card sr" data-theme="geopolitique">
+  <!-- NIVEAU 2 : grille 3 colonnes -->
+  <div class="analyses-grid" id="cardsGrid">
+
+    <!-- N°04 : Cloud -->
+    <div id="card-04" class="art-card sr" data-theme="infrastructure">
       <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Cloud &amp; Géopolitique" data-en="Cloud &amp; Geopolitics">Cloud &amp; Géopolitique</span>
+        <span class="art-tag tag-g" data-fr="Infrastructure · Cloud" data-en="Infrastructure · Cloud">Infrastructure · Cloud</span>
+        <span class="art-num">04</span>
+      </div>
+      <h3 class="art-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h3>
+      <p class="art-intro" data-fr="195K spécialistes en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences." data-en="195K specialists across Europe. 197 Azure listings, 28 AWS, 0 OVHcloud. The skills map.">195K spécialistes en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">7:1</div>
+        <div class="art-stat-l">Ratio Azure/AWS au Portugal<br>vs 2:1 en Europe</div>
+      </div>
+      <div class="art-foot">
+        <span class="art-time">Avril 2026 · 12 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
+      </div>
+    </div>
+
+    <!-- N°03 : Souveraineté -->
+    <div id="card-03" class="art-card sr" data-theme="infrastructure">
+      <div class="art-card-top">
+        <span class="art-tag tag-g" data-fr="Cloud & Géopolitique" data-en="Cloud & Geopolitics">Cloud & Géopolitique</span>
         <span class="art-num">03</span>
       </div>
       <h3 class="art-title" data-fr="L'Europe ne possède pas son <em>infrastructure</em>" data-en="Europe doesn't own its <em>infrastructure</em>">L'Europe ne possède pas son <em>infrastructure</em></h3>
       <p class="art-intro" data-fr="70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe." data-en="70% of European cloud in three American hands. 40 AI models in the US, 3 in Europe.">70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">70%</div>
+        <div class="art-stat-l">Du cloud européen contrôlé<br>par AWS, Azure, GCP</div>
+      </div>
       <div class="art-foot">
-        <span class="art-time" data-fr="2026 · 10 min" data-en="2026 · 10 min">2026 · 10 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+        <span class="art-time">2026 · 10 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
       </div>
     </div>
 
-    <!-- HS: AI & Music -->
+    <!-- HS : IA & Musique -->
     <div id="card-hs" class="art-card sr" data-theme="ai">
       <div class="art-card-top">
-        <span class="art-tag tag-p" data-fr="IA &amp; Société" data-en="AI &amp; Society">IA &amp; Société</span>
+        <span class="art-tag tag-p" data-fr="IA & Société" data-en="AI & Society">IA & Société</span>
         <span class="art-num">HS</span>
       </div>
       <h3 class="art-title" data-fr="97% ne font pas la <em>différence</em>" data-en="97% can't tell the <em>difference</em>">97% ne font pas la <em>différence</em></h3>
-      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says — and doesn't.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
+      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">34%</div>
+        <div class="art-stat-l">Des uploads Deezer<br>générés par IA en 2024</div>
+      </div>
       <div class="art-foot">
         <span class="art-time">2025 · 12 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
       </div>
     </div>
 
-    <!-- N°01: Scissor Effect -->
-    <div id="card-01" class="art-card sr" data-theme="nearshore">
+    <!-- N°01 : Ciseaux -->
+    <div id="card-01" class="art-card sr" data-theme="talent">
       <div class="art-card-top">
-        <span class="art-tag tag-o" data-fr="Nearshore &amp; Économie" data-en="Nearshore &amp; Economy">Nearshore &amp; Économie</span>
+        <span class="art-tag tag-o" data-fr="Nearshore & Économie" data-en="Nearshore & Economy">Nearshore & Économie</span>
         <span class="art-num">01</span>
       </div>
       <h3 class="art-title" data-fr="L'effet <em>ciseaux</em> — nearshore à un tournant" data-en="The <em>scissor</em> effect — nearshore at a turning point">L'effet <em>ciseaux</em> — nearshore à un tournant</h3>
       <p class="art-intro" data-fr="Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent." data-en="Lisbon's cost of living is soaring. Senior salaries climbing. Nearshore rates are not.">Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">38%</div>
+        <div class="art-stat-l">Écart coût employeur réel<br>Lisbonne vs Paris</div>
+      </div>
       <div class="art-foot">
         <span class="art-time">2025 · 8 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
       </div>
     </div>
 
-    <!-- N°02: Immigration -->
-    <div id="card-02" class="art-card sr" data-theme="immigration">
+    <!-- N°02 : Immigration -->
+    <div id="card-02" class="art-card sr" data-theme="talent">
       <div class="art-card-top">
-        <span class="art-tag tag-p" data-fr="Immigration &amp; Talent" data-en="Immigration &amp; Talent">Immigration &amp; Talent</span>
+        <span class="art-tag tag-p" data-fr="Immigration & Talent" data-en="Immigration & Talent">Immigration & Talent</span>
         <span class="art-num">02</span>
       </div>
       <h3 class="art-title" data-fr="Pas une fuite des cerveaux — un <em>hub qui aspire</em>" data-en="Not a brain drain — a <em>hub that draws in</em>">Pas une fuite des cerveaux — un <em>hub qui aspire</em></h3>
       <p class="art-intro" data-fr="1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent." data-en="1.54M foreign residents. Record migration balance. The real question is no longer how many leave.">1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">1,54M</div>
+        <div class="art-stat-l">Résidents étrangers<br>au Portugal fin 2024</div>
+      </div>
       <div class="art-foot">
         <span class="art-time">2025 · 7 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
       </div>
     </div>
 
-  </div><!-- /cards-grid -->
+    <!-- Prochain article — soon -->
+    <div class="art-card soon sr">
+      <div class="soon-pill" data-fr="À paraître" data-en="Coming soon">À paraître</div>
+      <div class="art-tag tag-v" style="margin-bottom:12px;display:inline-block" data-fr="Nearshore & IA" data-en="Nearshore & AI">Nearshore & IA</div>
+      <h3 class="art-title" style="color:var(--ink3)" data-fr="L'IA va-t-elle tuer le nearshore — ou seulement les PowerPoints qui le vendent ?" data-en="Will AI kill nearshore — or just the PowerPoints selling it?">L'IA va-t-elle tuer le nearshore — ou seulement les PowerPoints qui le vendent ?</h3>
+    </div>
+
+  </div>
 </section>
 
-<!-- ======== ABOUT ======== -->
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-dark">
     <div class="about-label" data-fr="Qui écrit ici" data-en="About">Qui écrit ici</div>
     <h2 class="about-title" data-fr="10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em>" data-en="10 years in tech.<br>Lisbon since <em>2016.</em>">10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em></h2>
-    <p class="about-body" data-fr="Je travaille dans la tech à Lisbonne depuis 2016. Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés." data-en="Working in tech in Lisbon since 2016. Agency Lead at Meritis Portugal, IT and finance consulting. Before that: Devoteam, Kwanko, Cisco. Clients: Samsung, Vodafone, BNP, Volkswagen across three markets.">Je travaille dans la tech à Lisbonne depuis 2016. Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés.</p>
-    <p class="about-body small" data-fr="Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris. Avec des données. Sans prétendre avoir les réponses." data-en="I'm not a journalist or analyst. I watch decisions being made from the inside and ask questions. Miradouro is where I write them down. With data. Without pretending to have all the answers.">Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris. Avec des données. Sans prétendre avoir les réponses.</p>
-    <div class="about-photo-wrap">
-      <div style="width:52px;height:65px;background:var(--pom-d);display:flex;align-items:center;justify-content:center;font-family:var(--f1);font-weight:700;font-size:22px;color:var(--creme);flex-shrink:0;border:1px solid rgba(255,255,255,.08);">J</div>
-      <div>
-        <div class="about-name">Jonathan</div>
-        <div class="about-role">Agency Lead · Meritis Portugal</div>
-      </div>
-    </div>
+    <p class="about-body" data-fr="Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés." data-en="Agency Lead at Meritis Portugal, IT and finance consulting. Before that: Devoteam, Kwanko, Cisco. Clients: Samsung, Vodafone, BNP, Volkswagen across three markets.">Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés.</p>
+    <p class="about-body small" data-fr="Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris." data-en="I'm not a journalist or analyst. I watch decisions being made from the inside and ask questions. Miradouro is where I write them down.">Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions.</p>
     <div class="about-flags">
       <div class="flag-chip"><span style="font-size:.9rem">🇫🇷</span><span class="flag-code">FR</span></div>
       <div class="flag-chip"><span style="font-size:.9rem">🇵🇹</span><span class="flag-code">PT</span></div>
@@ -478,15 +636,13 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
     </div>
     <div class="about-ctas">
       <a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener" class="about-cta">
-        <div>
-          <div class="cta-label" data-fr="Jonathan sur LinkedIn" data-en="Jonathan on LinkedIn">Jonathan sur LinkedIn</div>
-        </div>
+        <div><div class="cta-label" data-fr="LinkedIn" data-en="LinkedIn">LinkedIn</div></div>
         <span class="cta-arrow">↗</span>
       </a>
       <a href="https://we-are-kombava.com/" target="_blank" rel="noopener" class="about-cta">
         <div>
-          <div class="cta-label" data-fr="En dehors de la tech, je construis Kombava" data-en="Outside of tech, I build Kombava">En dehors de la tech, je construis Kombava</div>
-          <div class="cta-sub" data-fr="Un collectif musical à Lisbonne. Deux mondes, même énergie." data-en="A music collective in Lisbon. Two worlds, same energy.">Un collectif musical à Lisbonne. Deux mondes, même énergie.</div>
+          <div class="cta-label" data-fr="Kombava — collectif musical, Lisbonne" data-en="Kombava — music collective, Lisbon">Kombava — collectif musical, Lisbonne</div>
+          <div class="cta-sub" data-fr="Deux mondes, même énergie." data-en="Two worlds, same energy.">Deux mondes, même énergie.</div>
         </div>
         <span class="cta-arrow">↗</span>
       </a>
@@ -494,22 +650,10 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </div>
   <div class="about-light">
     <div class="stats-grid">
-      <div class="stat sr">
-        <div class="stat-val">38<sup>%</sup></div>
-        <div class="stat-label" data-fr="Écart coût employeur réel Lisbonne vs Paris" data-en="Real employer cost gap Lisbon vs Paris">Écart coût employeur réel Lisbonne vs Paris</div>
-      </div>
-      <div class="stat sr">
-        <div class="stat-val">1,54<sup>M</sup></div>
-        <div class="stat-label" data-fr="Résidents étrangers au Portugal fin 2024" data-en="Foreign residents in Portugal end 2024">Résidents étrangers au Portugal fin 2024</div>
-      </div>
-      <div class="stat sr">
-        <div class="stat-val">×3,1</div>
-        <div class="stat-label" data-fr="Hausse immobilier Lisbonne depuis 2015" data-en="Lisbon housing price increase since 2015">Hausse immobilier Lisbonne depuis 2015</div>
-      </div>
-      <div class="stat sr">
-        <div class="stat-val">70<sup>%</sup></div>
-        <div class="stat-label" data-fr="Du cloud européen entre trois mains américaines" data-en="Of European cloud in three American hands">Du cloud européen entre trois mains américaines</div>
-      </div>
+      <div class="stat sr"><div class="stat-val">38<sup>%</sup></div><div class="stat-label" data-fr="Écart coût employeur Lisbonne vs Paris" data-en="Employer cost gap Lisbon vs Paris">Écart coût employeur Lisbonne vs Paris</div></div>
+      <div class="stat sr"><div class="stat-val">1,54<sup>M</sup></div><div class="stat-label" data-fr="Résidents étrangers au Portugal" data-en="Foreign residents in Portugal">Résidents étrangers au Portugal</div></div>
+      <div class="stat sr"><div class="stat-val">×3,1</div><div class="stat-label" data-fr="Hausse immobilier Lisbonne depuis 2015" data-en="Lisbon housing increase since 2015">Hausse immobilier Lisbonne depuis 2015</div></div>
+      <div class="stat sr"><div class="stat-val">70<sup>%</sup></div><div class="stat-label" data-fr="Du cloud européen dans trois mains américaines" data-en="Of European cloud in three American hands">Du cloud européen dans trois mains américaines</div></div>
     </div>
     <blockquote class="about-pull sr">
       <span data-fr="Les données ne donnent pas de réponses. Elles posent de meilleures questions." data-en="Data doesn't give you answers. It helps you ask better questions.">Les données ne donnent pas de réponses. Elles posent de meilleures questions.</span>
@@ -518,13 +662,13 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </div>
 </section>
 
-<!-- ======== NEWSLETTER ======== -->
+<!-- NEWSLETTER -->
 <section class="newsletter" id="newsletter">
   <div class="nl-inner">
     <div>
       <div class="nl-label sr" data-fr="Newsletter" data-en="Newsletter">Newsletter</div>
       <h3 class="nl-title sr" data-fr="Un article par mois.<br><em>Dès sa parution.</em>" data-en="One article a month.<br><em>As soon as it's out.</em>">Un article par mois.<br><em>Dès sa parution.</em></h3>
-      <p class="nl-sub sr" data-fr="Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes." data-en="No digest, no aggregation. Only long-form analysis, when it's ready.">Pas de digest, pas d'agrégat. Uniquement les analyses longues, quand elles sont prêtes.</p>
+      <p class="nl-sub sr" data-fr="Pas de digest. Uniquement les analyses longues, quand elles sont prêtes." data-en="No digest. Only long-form analysis, when it's ready.">Pas de digest. Uniquement les analyses longues, quand elles sont prêtes.</p>
     </div>
     <div class="sr">
       <form method="POST" action="https://7d45d2c6.sibforms.com/serve/MUIFABFfdjVRSKoTiJpHRS1W5SzQYvldzUZ_vnykXBso2FOoWE8ZvXARMgz5Lx-16aEzcaAsY5hkOexdIR94SDJ32dYzm3EZGEWGIbpLj3DzP8ju2wu5WvPaS7jw1o_29SqfGSEhLhEGszlLZssYq_tSBKNpd7ZfrlxesIHqZUowFW0aedDDQrRcZLZbm4W-IwcgZtMRysq9fVX3ng==" class="nl-form">
@@ -541,7 +685,7 @@ footer { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,
   </div>
 </section>
 
-<!-- ======== FOOTER ======== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
@@ -587,7 +731,7 @@ document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
 ========================================*/
 const revealObs = new IntersectionObserver(
   entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); }),
-  { threshold: 0.08 }
+  { threshold: 0.06 }
 );
 document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
 
@@ -595,11 +739,12 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
-  'card-featured': { fr: 'articles/miradouro-cloud-FR.html',       en: 'articles/miradouro-cloud-EN.html' },
-  'card-03':       { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
-  'card-hs':       { fr: 'articles/ai-music-fr.html',              en: 'articles/ai-music-en.html' },
-  'card-01':       { fr: 'articles/01-scissor-effect-fr.html',     en: 'articles/01-scissor-effect-en.html' },
-  'card-02':       { fr: 'articles/02-immigration-fr.html',        en: 'articles/02-immigration-en.html' },
+  'card-phare': { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
+  'card-04':    { fr: 'articles/miradouro-cloud-FR.html',   en: 'articles/miradouro-cloud-EN.html' },
+  'card-03':    { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
+  'card-hs':    { fr: 'articles/ai-music-fr.html',          en: 'articles/ai-music-en.html' },
+  'card-01':    { fr: 'articles/01-scissor-effect-fr.html', en: 'articles/01-scissor-effect-en.html' },
+  'card-02':    { fr: 'articles/02-immigration-fr.html',    en: 'articles/02-immigration-en.html' },
 };
 
 function applyArticleLinks(lang) {
@@ -611,13 +756,127 @@ function applyArticleLinks(lang) {
     el.style.cursor = 'none';
   });
   const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-featured'][lang] || ARTICLE_LINKS['card-featured'].fr;
+  if(hero) hero.href = ARTICLE_LINKS['card-phare'][lang] || ARTICLE_LINKS['card-phare'].fr;
 }
 
 /*========================================
-  LANGUAGE
+  THÈME — données par thème
+========================================*/
+const THEME_DATA = {
+  finance: {
+    stat_num: '9 700',
+    stat_label_fr: 'Employés BNP Paribas au Portugal — 4e employeur privé du pays.',
+    stat_label_en: 'BNP Paribas employees in Portugal — 4th largest private employer.',
+    kicker_fr: 'Article en cours · Finance', kicker_en: 'Current article · Finance',
+    title_fr: 'Comment la finance française transforme le Portugal',
+    title_en: 'How French finance is transforming Portugal',
+    intro_fr: 'BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support.',
+    intro_en: 'BNP, Natixis, Euronext, AXA. From Lisbon and Porto, French finance no longer just builds support centres.',
+    link_fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html',
+    link_en: 'articles/miradouro_banking_portugal_EN_FINAL.html',
+    theme_label_fr: '— Finance & Géographie', theme_label_en: '— Finance & Geography',
+  },
+  infrastructure: {
+    stat_num: '70%',
+    stat_label_fr: 'Du cloud européen entre trois mains américaines. L\'Europe ne contrôle pas son infrastructure.',
+    stat_label_en: 'Of European cloud in three American hands. Europe does not control its infrastructure.',
+    kicker_fr: 'Article récent · Cloud', kicker_en: 'Recent article · Cloud',
+    title_fr: 'Compétences cloud au Portugal — le vide européen',
+    title_en: 'Cloud skills in Portugal — the European gap',
+    intro_fr: '195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud.',
+    intro_en: '195K cloud specialists across Europe. 197 Azure listings, 28 AWS, 0 OVHcloud.',
+    link_fr: 'articles/miradouro-cloud-FR.html',
+    link_en: 'articles/miradouro-cloud-EN.html',
+    theme_label_fr: '— Infrastructure & Cloud', theme_label_en: '— Infrastructure & Cloud',
+  },
+  talent: {
+    stat_num: '38%',
+    stat_label_fr: 'Écart de coût employeur réel entre Lisbonne et Paris. L\'avantage nearshore se compresse.',
+    stat_label_en: 'Real employer cost gap between Lisbon and Paris. The nearshore advantage is shrinking.',
+    kicker_fr: 'Article récent · Talent', kicker_en: 'Recent article · Talent',
+    title_fr: 'Pas une fuite des cerveaux — un hub qui aspire',
+    title_en: 'Not a brain drain — a hub that draws in',
+    intro_fr: '1,54M de résidents étrangers. Solde migratoire record. La vraie question n\'est plus combien partent.',
+    intro_en: '1.54M foreign residents. Record migration balance. The real question is no longer how many leave.',
+    link_fr: 'articles/02-immigration-fr.html',
+    link_en: 'articles/02-immigration-en.html',
+    theme_label_fr: '— Talent & Immigration', theme_label_en: '— Talent & Immigration',
+  },
+  ai: {
+    stat_num: '34%',
+    stat_label_fr: 'Des uploads Deezer générés par IA en 2024. 7 millions de morceaux Suno par jour.',
+    stat_label_en: 'Of Deezer uploads AI-generated in 2024. 7 million Suno tracks per day.',
+    kicker_fr: 'Article récent · IA', kicker_en: 'Recent article · AI',
+    title_fr: '97% ne font pas la différence',
+    title_en: '97% can\'t tell the difference',
+    intro_fr: 'Ce que les données disent sur la musique générée par IA — et ce qu\'elles ne disent pas.',
+    intro_en: 'What the data says about AI-generated music — and what it doesn\'t.',
+    link_fr: 'articles/ai-music-fr.html',
+    link_en: 'articles/ai-music-en.html',
+    theme_label_fr: '— IA & Société', theme_label_en: '— AI & Society',
+  }
+};
+
+let currentTheme = 'finance';
+let currentLang = 'fr';
+
+function setTheme(theme) {
+  currentTheme = theme;
+  // Mettre à jour les boutons
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  var btn = document.querySelector('.theme-btn[data-theme="' + theme + '"]');
+  if(btn) btn.classList.add('active');
+  // Mettre à jour le hero signal
+  var d = THEME_DATA[theme];
+  var lang = currentLang;
+  document.getElementById('hero-stat-num').textContent = d.stat_num;
+  // Fonction locale : met à jour data-fr/en ET écrit immédiatement dans la bonne langue
+  function syncEl(id, valFr, valEn) {
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.setAttribute('data-fr', valFr);
+    el.setAttribute('data-en', valEn);
+    el.innerHTML = (lang === 'en') ? valEn : valFr;
+  }
+  syncEl('hero-stat-label', d.stat_label_fr, d.stat_label_en);
+  syncEl('hero-kicker',     d.kicker_fr,     d.kicker_en);
+  syncEl('hero-title',      d.title_fr,      d.title_en);
+  syncEl('hero-intro',      d.intro_fr,      d.intro_en);
+  syncEl('theme-label',     d.theme_label_fr,d.theme_label_en);
+  var heroLink = document.getElementById('link-hero');
+  if(heroLink) heroLink.href = (lang === 'en') ? d.link_en : d.link_fr;
+  // Filtrer les articles
+  filterArticles(theme);
+}
+
+function applyLangToEl(el, lang) {
+  if(!el) return;
+  const v = el.getAttribute('data-'+lang);
+  if(v !== null) el.innerHTML = v;
+}
+
+function filterArticles(filter) {
+  const cards = document.querySelectorAll('.analyses-grid .art-card, .article-phare');
+  cards.forEach(card => {
+    const theme = card.getAttribute('data-theme');
+    if(filter === 'all' || !filter || theme === filter) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  // Mettre à jour les boutons filtres
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  var activeBtn = document.querySelector('.filter-btn[data-filter="' + filter + '"]') ||
+                    document.querySelector('.filter-btn[data-filter="all"]');
+  if(activeBtn) activeBtn.classList.add('active');
+}
+
+/*========================================
+  LANGUE
 ========================================*/
 function setLang(l) {
+  currentLang = l;
   document.getElementById('btnFR').classList.toggle('active', l==='fr');
   document.getElementById('btnEN').classList.toggle('active', l==='en');
   document.querySelectorAll('[data-fr]').forEach(el => {
@@ -627,14 +886,25 @@ function setLang(l) {
   document.documentElement.lang = l;
   localStorage.setItem('mira_lang', l);
   applyArticleLinks(l);
+  // Mettre à jour le lien hero selon thème actif
+  var d2 = THEME_DATA[currentTheme];
+  if(d2) document.getElementById('link-hero').href = (l === 'en') ? d2.link_en : d2.link_fr;
 }
 
 /*========================================
   INIT
 ========================================*/
 const savedLang = localStorage.getItem('mira_lang') || 'fr';
+currentLang = savedLang;
 if(savedLang === 'en') setLang('en');
-else applyArticleLinks('fr');
+else { applyArticleLinks('fr'); }
+
+// Thème par défaut : finance (article le plus récent)
+setTheme('finance');
+// Filtre par défaut : tout visible
+filterArticles('all');
+document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+document.querySelector('.filter-btn[data-filter="finance"]')?.classList.remove('active');
 
 /*========================================
   COOKIE
@@ -648,4 +918,3 @@ try{ if(localStorage.getItem('mira_cookie')) document.getElementById('cookieBann
 </script>
 </body>
 </html>
-
