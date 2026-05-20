@@ -74,6 +74,11 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .word-douro { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 300; font-style: italic; color: var(--pom-l); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
 .hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin: 24px 0; transform: scaleX(0); transform-origin: left; animation: expandX .8s cubic-bezier(.16,1,.3,1) .7s forwards; }
 
+/* Hero deck — phrase éditoriale entre titre et colonnes */
+.hero-deck { opacity: 0; animation: fadeUp .7s ease .75s forwards; margin-bottom: 28px; display: flex; align-items: baseline; gap: 12px; }
+.hero-deck-text { font-family: var(--f2); font-size: clamp(14px,1.6vw,18px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.5); line-height: 1.5; max-width: 680px; }
+.hero-deck-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.82); }
+
 /* Hero bottom: 3 colonnes — stat signal | article mis en avant | thème actif */
 .hero-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; }
 
@@ -307,6 +312,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
   .hero-signal { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 24px; }
   .hero-featured { padding: 24px 0 0; border-right: none; }
+  .hero-deck { margin-bottom: 20px; }
   .article-phare { grid-template-columns: 1fr; }
   .phare-visual { min-height: 180px; }
   .phare-content { padding: 28px 20px; }
@@ -381,6 +387,11 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       </div>
     </div>
     <div class="hero-rule"></div>
+    <div class="hero-deck">
+      <p class="hero-deck-text">
+        <span data-fr="Un blog de terrain sur la <strong>tech européenne</strong> — sources, données, hypothèses. Depuis Lisbonne." data-en="A field blog on <strong>European tech</strong> — sources, data, working hypotheses. From Lisbon.">Un blog de terrain sur la <strong>tech européenne</strong> — sources, données, hypothèses. Depuis Lisbonne.</span>
+      </p>
+    </div>
     <div class="hero-bottom">
 
       <!-- Colonne 1 : stat signal -->
@@ -529,10 +540,10 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-num">04</span>
       </div>
       <h3 class="art-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h3>
-      <p class="art-intro" data-fr="195K spécialistes en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences." data-en="195K specialists across Europe. 197 Azure listings, 28 AWS, 0 OVHcloud. The skills map.">195K spécialistes en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud. La carte des compétences.</p>
+      <p class="art-intro" data-fr="195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise." data-en="195K specialists across Europe. Portugal concentrates 10,700. The UK stands apart. And for senior profiles, salaries start to break from the Portuguese average.">195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise.</p>
       <div class="art-stat-inline">
-        <div class="art-stat-n">7:1</div>
-        <div class="art-stat-l">Ratio Azure/AWS au Portugal<br>vs 2:1 en Europe</div>
+        <div class="art-stat-n">€52,5K</div>
+        <div class="art-stat-l" data-fr="Salaire moyen cloud engineer<br>Portugal (ERI 2026)" data-en="Average cloud engineer salary<br>Portugal (ERI 2026)">Salaire moyen cloud engineer<br>Portugal (ERI 2026)</div>
       </div>
       <div class="art-foot">
         <span class="art-time">Avril 2026 · 12 min</span>
