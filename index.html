@@ -414,7 +414,11 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <div class="hero-themes-label" data-fr="Territoires éditoriaux" data-en="Editorial territories">Territoires éditoriaux</div>
         <button class="theme-btn" data-theme="finance" onclick="setTheme('finance')">
           <span data-fr="Finance & Géographie" data-en="Finance & Geography">Finance & Géographie</span>
-          <span class="theme-count">2</span>
+          <span class="theme-count">1</span>
+        </button>
+        <button class="theme-btn" data-theme="culture" onclick="setTheme('culture')">
+          <span data-fr="Culture & Soft power" data-en="Culture & Soft power">Culture & Soft power</span>
+          <span class="theme-count">1</span>
         </button>
         <button class="theme-btn" data-theme="infrastructure" onclick="setTheme('infrastructure')">
           <span data-fr="Infrastructure & Cloud" data-en="Infrastructure & Cloud">Infrastructure & Cloud</span>
@@ -422,7 +426,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         </button>
         <button class="theme-btn" data-theme="talent" onclick="setTheme('talent')">
           <span data-fr="Talent & Immigration" data-en="Talent & Immigration">Talent & Immigration</span>
-          <span class="theme-count">1</span>
+          <span class="theme-count">2</span>
         </button>
         <button class="theme-btn" data-theme="ai" onclick="setTheme('ai')">
           <span data-fr="IA & Société" data-en="AI & Society">IA & Société</span>
@@ -453,13 +457,14 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
     <span class="articles-theme-active" id="theme-label" data-fr="— Finance & Géographie" data-en="— Finance & Geography">— Finance & Géographie</span>
-    <span class="articles-count" id="articles-count" data-fr="06 en ligne · mensuel" data-en="06 live · monthly">06 en ligne · mensuel</span>
+    <span class="articles-count" id="articles-count" data-fr="06 articles · + HS" data-en="06 articles · + special">06 articles · + HS</span>
   </div>
 
   <!-- Filtres thématiques -->
   <div class="theme-filters">
     <button class="filter-btn" data-filter="all" onclick="filterArticles('all')" data-fr="Tout" data-en="All">Tout</button>
     <button class="filter-btn" data-filter="finance" onclick="filterArticles('finance')" data-fr="Finance" data-en="Finance">Finance</button>
+    <button class="filter-btn" data-filter="culture" onclick="filterArticles('culture')" data-fr="Culture" data-en="Culture">Culture</button>
     <button class="filter-btn" data-filter="infrastructure" onclick="filterArticles('infrastructure')" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</button>
     <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
     <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
@@ -532,6 +537,24 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
+
+    <!-- N°06 : Soft power portugais -->
+    <div id="card-06" class="art-card sr" data-theme="culture">
+      <div class="art-card-top">
+        <span class="art-tag tag-v" data-fr="Culture & Soft power" data-en="Culture & Soft power">Culture & Soft power</span>
+        <span class="art-num">06</span>
+      </div>
+      <h3 class="art-title" data-fr="Lisbonne, ou le <em>paradoxe portugais</em>" data-en="Lisbon and the <em>Portuguese paradox</em>">Lisbonne, ou le <em>paradoxe portugais</em></h3>
+      <p class="art-intro" data-fr="Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie." data-en="Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.">Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">36,1M</div>
+        <div class="art-stat-l" data-fr="Passagers à l'aéroport<br>de Lisbonne en 2025" data-en="Passengers at Lisbon<br>airport in 2025">Passagers à l'aéroport<br>de Lisbonne en 2025</div>
+      </div>
+      <div class="art-foot">
+        <span class="art-time">Mai 2026 · 12 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
+      </div>
+    </div>
 
     <!-- N°04 : Cloud -->
     <div id="card-04" class="art-card sr" data-theme="infrastructure">
@@ -751,6 +774,7 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
 ========================================*/
 const ARTICLE_LINKS = {
   'card-phare': { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
+  'card-06':    { fr: 'articles/06-soft-power-portugal-fr.html', en: 'articles/06-soft-power-portugal-en.html' },
   'card-04':    { fr: 'articles/miradouro-cloud-FR.html',   en: 'articles/miradouro-cloud-EN.html' },
   'card-03':    { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
   'card-hs':    { fr: 'articles/ai-music-fr.html',          en: 'articles/ai-music-en.html' },
@@ -786,6 +810,19 @@ const THEME_DATA = {
     link_fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html',
     link_en: 'articles/miradouro_banking_portugal_EN_FINAL.html',
     theme_label_fr: '— Finance & Géographie', theme_label_en: '— Finance & Geography',
+  },
+  culture: {
+    stat_num: '36,1M',
+    stat_label_fr: 'Passagers à l\'aéroport de Lisbonne en 2025. La ville devient une adresse mondiale.',
+    stat_label_en: 'Passengers at Lisbon airport in 2025. The city is becoming a global address.',
+    kicker_fr: 'Article récent · Soft power', kicker_en: 'Recent article · Soft power',
+    title_fr: 'Lisbonne, ou le paradoxe portugais',
+    title_en: 'Lisbon and the Portuguese paradox',
+    intro_fr: 'Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.',
+    intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
+    link_fr: 'articles/06-soft-power-portugal-fr.html',
+    link_en: 'articles/06-soft-power-portugal-en.html',
+    theme_label_fr: '— Culture & Soft power', theme_label_en: '— Culture & Soft power',
   },
   infrastructure: {
     stat_num: '70%',

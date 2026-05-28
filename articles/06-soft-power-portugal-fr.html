@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisbonne, ou le paradoxe portugais | Miradouro</title>
+<meta name="description" content="Le Portugal reste marque par l'emigration. Mais Lisbonne concentre une desirabilite nouvelle, entre culture, tech, mobilite et idee d'une autre vie.">
+<meta property="og:title" content="Lisbonne, ou le paradoxe portugais">
+<meta property="og:description" content="Le Portugal reste marque par l'emigration. Mais Lisbonne concentre une desirabilite nouvelle, entre culture, tech, mobilite et idee d'une autre vie.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://miradouro-blog.vercel.app/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"Lisbonne, ou le paradoxe portugais",
+  "datePublished":"2026-05-26",
+  "author":{"@type":"Person","name":"Jonathan"},
+  "description":"Le Portugal reste marque par l'emigration. Mais Lisbonne concentre une desirabilite nouvelle, entre culture, tech, mobilite et idee d'une autre vie.",
+  "image":"https://miradouro-blog.vercel.app/og-image.jpg"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,650;0,9..144,800;1,9..144,300;1,9..144,500;1,9..144,650&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+:root{
+  --pom:#C97A5E;
+  --pom-deep:#A85C42;
+  --pom-light:#EDB89A;
+  --verde:#243D2C;
+  --verde-mid:#2E5038;
+  --verde-light:#C8DAC8;
+  --ouro:#C4973A;
+  --ouro-light:#F0DFA8;
+  --ferro:#18140E;
+  --ferro-mid:#3A3028;
+  --creme:#FBF8F2;
+  --areia:#EDE6DA;
+  --rule:#D8CEBC;
+  --ink2:#6A5C50;
+  --ink3:#9A8C80;
+  --paper:var(--creme);
+  --paper2:var(--areia);
+  --ink:var(--ferro);
+  --muted:var(--ink2);
+  --green:var(--verde);
+  --green2:var(--verde-mid);
+  --clay:var(--pom);
+  --clay2:var(--pom-deep);
+  --gold:var(--ouro);
+  --blue:#315D75;
+  --wine:#7A4C66;
+  --f-display:"Fraunces", Georgia, serif;
+  --f-serif:"Cormorant Garamond", Georgia, serif;
+  --f-sans:"Cabinet Grotesk", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-serif);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit}
+button{font:inherit}
+.top{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  min-height:58px;
+  padding:0 clamp(18px,4vw,56px);
+  background:rgba(36,61,44,.97);
+  border-bottom:2px solid var(--ouro);
+  backdrop-filter:blur(12px);
+}
+.brand{
+  font-family:var(--f-display);
+  font-weight:800;
+  font-size:18px;
+  letter-spacing:.02em;
+  text-decoration:none;
+  color:var(--creme);
+}
+.nav{
+  display:flex;
+  gap:22px;
+  color:var(--verde-light);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.nav a{text-decoration:none}
+.download{
+  border:1px solid var(--ouro);
+  background:var(--ouro);
+  color:var(--ferro);
+  padding:9px 12px;
+  cursor:pointer;
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.hero{
+  min-height:calc(100vh - 58px);
+  display:grid;
+  align-items:end;
+  padding:clamp(58px,8vw,112px) clamp(22px,7vw,96px);
+  background:
+    radial-gradient(circle at 20% 25%,rgba(201,122,94,.18),transparent 34%),
+    radial-gradient(circle at 78% 70%,rgba(196,151,58,.13),transparent 38%),
+    linear-gradient(145deg,var(--verde) 0%,#1b2f22 58%,var(--ferro) 100%);
+  color:var(--paper);
+}
+.hero-inner{max-width:1180px}
+.kicker,.section-label{
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+.kicker{color:var(--ouro);margin-bottom:22px}
+h1{
+  max-width:12.5ch;
+  margin:0;
+  font-family:var(--f-display);
+  font-size:clamp(46px,8.6vw,118px);
+  line-height:.91;
+  letter-spacing:-.046em;
+  font-weight:650;
+}
+h1 em{font-weight:300;color:var(--pom-light)}
+.hero-deck{
+  max-width:780px;
+  margin:28px 0 0;
+  color:rgba(251,248,241,.76);
+  font-size:clamp(20px,2.3vw,30px);
+  line-height:1.46;
+  font-style:italic;
+}
+.byline{
+  margin-top:32px;
+  padding-top:18px;
+  border-top:1px solid rgba(251,248,241,.18);
+  color:rgba(251,248,241,.62);
+  font-family:var(--f-sans);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.kpis{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--pom);
+  color:var(--creme);
+}
+.kpi{
+  padding:28px 22px;
+  border-right:1px solid rgba(251,248,242,.22);
+  text-align:center;
+}
+.kpi:last-child{border-right:0}
+.kpi strong{
+  display:block;
+  font-family:var(--f-display);
+  font-size:clamp(30px,4vw,52px);
+  line-height:.95;
+}
+.kpi span{
+  display:block;
+  margin-top:8px;
+  color:rgba(251,248,242,.76);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+.kpi small{
+  display:block;
+  margin-top:5px;
+  color:rgba(251,248,242,.58);
+  font-size:13px;
+  font-style:italic;
+}
+.wrap{width:min(1120px,100%);margin:0 auto;padding:0 clamp(22px,5vw,56px)}
+.section{
+  padding:clamp(68px,9vw,118px) 0;
+  border-bottom:1px solid var(--rule);
+}
+.section-label{color:var(--clay);margin-bottom:14px}
+h2{
+  max-width:980px;
+  margin:0 0 20px;
+  font-family:var(--f-display);
+  font-size:clamp(34px,5.2vw,70px);
+  line-height:1.02;
+  letter-spacing:-.04em;
+  font-weight:650;
+}
+.lead{
+  max-width:820px;
+  margin:0;
+  color:var(--ink2);
+  font-size:clamp(20px,2.1vw,26px);
+  line-height:1.58;
+  font-style:italic;
+}
+.body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,360px);
+  gap:clamp(32px,6vw,76px);
+  align-items:start;
+  margin-top:46px;
+}
+.body-single{
+  grid-template-columns:minmax(0,780px);
+}
+.article p{
+  margin:0 0 24px;
+  color:var(--ink2);
+  font-size:20px;
+  line-height:1.86;
+}
+.article p:first-child::first-letter{
+  float:left;
+  padding:8px 10px 0 0;
+  color:var(--clay2);
+  font-family:var(--f-display);
+  font-size:72px;
+  line-height:.78;
+}
+.article strong{color:var(--ink);font-weight:600}
+.article a{
+  color:inherit;
+  text-decoration-color:var(--ouro);
+  text-decoration-thickness:2px;
+  text-underline-offset:4px;
+}
+.aside-note{
+  border-left:3px solid var(--ouro);
+  border-top:0;
+  border-bottom:0;
+  background:var(--areia);
+  padding:24px 26px;
+}
+.aside-note h3{
+  margin:0 0 12px;
+  color:var(--ouro);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.aside-note p{
+  margin:0;
+  color:var(--ink2);
+  font-size:19px;
+  line-height:1.58;
+  font-style:italic;
+}
+.concepts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  margin-top:52px;
+  border:1px solid var(--rule);
+  background:var(--rule);
+  gap:1px;
+}
+.concept{
+  background:var(--paper);
+  padding:30px 26px;
+  min-height:250px;
+}
+.concept b{
+  display:block;
+  margin-bottom:16px;
+  color:var(--clay2);
+  font-family:var(--f-display);
+  font-size:48px;
+  line-height:1;
+}
+.concept h3{
+  margin:0 0 12px;
+  font-family:var(--f-display);
+  font-size:27px;
+  line-height:1.05;
+  letter-spacing:-.025em;
+}
+.concept p{
+  margin:0;
+  color:var(--ink2);
+  font-size:17px;
+  line-height:1.62;
+}
+.quote{
+  margin:54px 0 0;
+  padding:32px 0;
+  border-top:2px solid var(--ferro);
+  border-bottom:1px solid var(--rule);
+  font-family:var(--f-display);
+  font-size:clamp(32px,4.8vw,64px);
+  line-height:1.08;
+  letter-spacing:-.038em;
+}
+.quote em{color:var(--pom-deep);font-weight:300}
+.soft-power{
+  background:var(--areia);
+}
+.soft-power-strip{
+  margin-top:34px;
+  border-top:1px solid var(--ferro);
+  border-bottom:1px solid var(--rule);
+}
+.soft-lane{
+  display:grid;
+  grid-template-columns:minmax(210px,.9fr) 1.8fr;
+  gap:28px;
+  padding:20px 0;
+  border-bottom:1px solid var(--rule);
+}
+.soft-lane:last-child{border-bottom:0}
+.lane-label span{
+  display:block;
+  margin-bottom:9px;
+  color:var(--pom);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.lane-label h3{
+  margin:0;
+  font-family:var(--f-display);
+  font-size:clamp(24px,2.8vw,34px);
+  line-height:1.02;
+  letter-spacing:-.025em;
+}
+.lane-label p{
+  margin:9px 0 0;
+  max-width:42ch;
+  color:var(--ink2);
+  font-size:16px;
+  line-height:1.42;
+}
+.signal-row{
+  display:flex;
+  flex-wrap:wrap;
+  align-content:flex-start;
+  gap:10px;
+  padding-top:8px;
+}
+.signal{
+  position:relative;
+  border:1px solid var(--rule);
+  background:rgba(251,248,242,.62);
+  color:var(--ferro);
+  padding:10px 13px 9px;
+  min-width:138px;
+  text-align:left;
+  cursor:help;
+}
+.signal strong{
+  display:block;
+  font-family:var(--f-display);
+  font-size:21px;
+  line-height:1;
+  letter-spacing:-.015em;
+}
+.signal em{
+  display:block;
+  margin-top:6px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-style:normal;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.signal-pop{
+  position:absolute;
+  z-index:40;
+  left:0;
+  top:calc(100% + 9px);
+  width:min(290px,72vw);
+  padding:13px 14px;
+  border:1px solid var(--ferro);
+  background:var(--creme);
+  color:var(--ink2);
+  box-shadow:0 16px 30px rgba(24,20,14,.12);
+  font-family:var(--f-sans);
+  font-size:13px;
+  line-height:1.42;
+  opacity:0;
+  transform:translateY(-4px);
+  pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease;
+}
+.signal:hover,.signal:focus-visible{
+  border-color:var(--ferro);
+  outline:0;
+}
+.signal:hover .signal-pop,.signal:focus .signal-pop,.signal:focus-visible .signal-pop{
+  opacity:1;
+  transform:translateY(0);
+}
+.visual-panel{
+  margin-top:48px;
+  border:1px solid var(--rule);
+  background:var(--paper2);
+}
+.visual-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  padding:28px 32px;
+  border-bottom:1px solid var(--rule);
+}
+.visual-head h3{
+  margin:0;
+  font-family:var(--f-display);
+  font-size:clamp(28px,3.8vw,48px);
+  line-height:1.04;
+  letter-spacing:-.03em;
+}
+.visual-head p{
+  max-width:380px;
+  margin:0;
+  color:var(--ink2);
+  font-size:16px;
+  line-height:1.5;
+  font-style:italic;
+}
+.visual-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+}
+.chart{
+  padding:30px;
+  border-right:1px solid var(--rule);
+  background:linear-gradient(180deg,var(--paper),var(--paper2));
+}
+.chart-title{
+  margin-bottom:14px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+svg{display:block;max-width:100%;height:auto}
+.axis text{font-family:var(--f-sans);font-size:10px;fill:var(--muted)}
+.axis line,.axis path{stroke:var(--rule)}
+.chart-note{
+  margin-top:12px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:10px;
+  line-height:1.45;
+}
+.micro-stack{display:grid;grid-template-rows:repeat(3,1fr)}
+.micro{
+  padding:28px;
+  border-bottom:1px solid var(--rule);
+  background:rgba(251,248,241,.5);
+}
+.micro:last-child{border-bottom:0}
+.micro-num{
+  color:var(--clay2);
+  font-family:var(--f-display);
+  font-size:46px;
+  font-weight:800;
+  line-height:1;
+}
+.micro-title{
+  margin:8px 0 9px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.micro p{
+  margin:0;
+  color:var(--ink2);
+  font-size:16px;
+  line-height:1.5;
+}
+.data-panel{
+  margin-top:48px;
+  border:1px solid var(--rule);
+  background:var(--areia);
+}
+.data-grid{
+  display:grid;
+  grid-template-columns:230px minmax(0,1fr);
+  gap:1px;
+  background:var(--rule);
+}
+.safety-tile,.data-card{
+  background:var(--creme);
+}
+.safety-tile{
+  padding:30px 28px;
+}
+.safety-tile strong{
+  display:block;
+  color:var(--pom-deep);
+  font-family:var(--f-display);
+  font-size:72px;
+  line-height:.9;
+}
+.safety-tile span{
+  display:block;
+  margin-top:10px;
+  color:var(--ferro);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.safety-tile p{
+  margin:14px 0 0;
+  color:var(--ink2);
+  font-size:17px;
+  line-height:1.5;
+}
+.data-stack{
+  display:block;
+}
+.data-card{
+  padding:26px 28px;
+}
+.data-card h3{
+  margin:0;
+  font-family:var(--f-display);
+  font-size:clamp(25px,3vw,36px);
+  line-height:1.06;
+  letter-spacing:-.025em;
+}
+.data-card .sub{
+  margin:7px 0 18px;
+  color:var(--ink2);
+  font-size:16px;
+  line-height:1.45;
+  font-style:italic;
+}
+.chart-svg{
+  width:100%;
+  min-height:520px;
+}
+.chart-svg text{
+  font-family:var(--f-sans);
+}
+.chart-source,.chart-interpretation{
+  margin:10px 0 0;
+  color:var(--ink3);
+  font-family:var(--f-sans);
+  font-size:10px;
+  line-height:1.45;
+}
+.chart-interpretation{
+  color:var(--ink2);
+  font-style:italic;
+}
+.data-after{
+  padding:22px 28px;
+  border-top:1px solid var(--rule);
+  background:rgba(251,248,242,.64);
+}
+.data-after p{
+  margin:0;
+  max-width:780px;
+  color:var(--ink2);
+  font-size:19px;
+  line-height:1.55;
+  font-style:italic;
+}
+.dark{
+  background:var(--ferro);
+  color:var(--creme);
+}
+.dark .section-label{color:var(--ouro)}
+.dark .lead,.dark .article p{color:rgba(251,248,242,.68)}
+.dark .aside-note{background:rgba(251,248,242,.055);border-left-color:var(--ouro)}
+.dark .aside-note h3{color:var(--ouro)}
+.dark .aside-note p{color:rgba(251,248,242,.72)}
+.dark .quote{border-color:rgba(251,248,242,.22)}
+.tech-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  margin-top:44px;
+  border:1px solid rgba(251,248,241,.14);
+  background:rgba(251,248,241,.14);
+}
+.tech-card{
+  background:rgba(251,248,241,.045);
+  padding:30px 26px;
+  min-height:260px;
+}
+.tech-card h3{
+  margin:0 0 12px;
+  font-family:var(--f-display);
+  font-size:30px;
+  line-height:1.05;
+  letter-spacing:-.02em;
+}
+.tech-card p{
+  margin:0;
+  color:rgba(251,248,241,.66);
+  font-size:17px;
+  line-height:1.62;
+}
+.maps-section{
+  background:var(--verde);
+  color:var(--creme);
+}
+.maps-section .lead{color:rgba(251,248,242,.88)}
+.maps-section .article p{color:rgba(251,248,242,.86)}
+.maps-section .article p:first-child::first-letter{color:var(--ouro)}
+.maps-section .section-label{color:var(--ouro)}
+.map-card{
+  margin-top:36px;
+  border:1px solid rgba(251,248,242,.16);
+  background:#1b2f22;
+  color:var(--creme);
+}
+.map-head{
+  display:flex;
+  justify-content:space-between;
+  gap:22px;
+  padding:22px;
+  border-bottom:1px solid var(--rule);
+}
+.map-title{
+  margin-top:5px;
+  font-family:var(--f-display);
+  font-size:42px;
+  line-height:1;
+  letter-spacing:-.025em;
+}
+.map-note{
+  max-width:300px;
+  margin:0;
+  color:rgba(251,248,242,.82);
+  text-align:right;
+  font-size:16px;
+  line-height:1.4;
+  font-style:italic;
+}
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:0 22px 18px;
+}
+.chip{
+  min-height:36px;
+  border:1px solid rgba(251,248,242,.18);
+  background:rgba(251,248,242,.07);
+  color:var(--verde-light);
+  padding:0 13px;
+  cursor:pointer;
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.chip small{
+  margin-left:6px;
+  opacity:.72;
+  font-size:9px;
+}
+.chip.active{
+  border-color:var(--color);
+  background:var(--color);
+  color:#fff;
+}
+.map-wrap{
+  position:relative;
+  height:650px;
+  border-top:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  background:#e9dfd1;
+}
+.map{position:absolute;inset:0}
+.map:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:410;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(251,248,241,.03),rgba(251,248,241,.22));
+  mix-blend-mode:multiply;
+}
+.leaflet-tile{filter:grayscale(1) sepia(.2) saturate(.7) contrast(.93) brightness(1.03)}
+.leaflet-control-attribution{
+  background:rgba(251,248,241,.76)!important;
+  color:rgba(85,74,64,.72)!important;
+  font-family:var(--f-sans);
+  font-size:9px;
+}
+.leaflet-control-zoom{border:0!important}
+.leaflet-control-zoom a{
+  border:1px solid var(--rule)!important;
+  background:rgba(251,248,241,.92)!important;
+  color:var(--ink)!important;
+}
+.marker{
+  width:40px;
+  height:40px;
+  position:relative;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:3px solid var(--paper);
+  background:var(--marker-color);
+  color:#fff;
+  box-shadow:0 12px 26px rgba(24,20,15,.25);
+  font-family:var(--f-display);
+  font-size:10px;
+  font-weight:800;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.marker-symbol{
+  display:none;
+  position:absolute;
+  top:4px;
+  left:4px;
+  font-family:var(--f-sans);
+  font-size:8px;
+  line-height:1;
+  opacity:.82;
+}
+.marker-number{
+  position:static;
+  transform:none;
+  font-family:var(--f-display);
+  font-size:18px;
+  line-height:1;
+  letter-spacing:0;
+}
+.marker.is-muted{opacity:0}
+.marker.is-active{
+  transform:scale(1.18);
+  box-shadow:0 0 0 8px rgba(251,248,241,.84),0 14px 32px rgba(24,20,15,.3);
+}
+.map-label{
+  border:1px solid var(--rule);
+  background:rgba(251,248,241,.95);
+  padding:10px 12px;
+  min-width:180px;
+}
+.map-label strong{
+  display:block;
+  font-family:var(--f-sans);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.map-label span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.map-label em{
+  display:block;
+  margin-top:6px;
+  color:var(--verde-light);
+  font-size:14px;
+  line-height:1.25;
+}
+.leaflet-popup-content-wrapper{
+  border-radius:0;
+  border:1px solid var(--rule);
+  background:rgba(251,248,241,.96);
+}
+.leaflet-popup-content{margin:0}
+.leaflet-popup-tip{background:rgba(251,248,241,.96)}
+.map-copy{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  padding:20px 22px;
+}
+.layer-title{
+  font-family:var(--f-display);
+  font-size:28px;
+  line-height:1.05;
+  letter-spacing:-.018em;
+}
+.layer-text{
+  max-width:760px;
+  margin-top:8px;
+  color:rgba(251,248,242,.84);
+  font-size:18px;
+  line-height:1.5;
+}
+.counter{
+  min-width:80px;
+  border-left:1px solid rgba(251,248,242,.18);
+  padding-left:16px;
+  color:rgba(251,248,242,.70);
+  text-align:right;
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.counter b{
+  display:block;
+  color:var(--creme);
+  font-family:var(--f-display);
+  font-size:36px;
+  line-height:.9;
+  letter-spacing:0;
+}
+.place-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1px;
+  padding:0 22px 22px;
+}
+.place-card{
+  min-height:154px;
+  border:1px solid rgba(251,248,242,.15);
+  background:rgba(251,248,242,.055);
+  padding:15px;
+  color:var(--creme);
+  text-align:left;
+  cursor:pointer;
+}
+.place-card:hover,.place-card.active{
+  border-color:var(--color);
+  background:rgba(251,248,242,.10);
+}
+.place-top{display:flex;gap:10px;margin-bottom:10px}
+.place-card .place-num{
+  flex:0 0 auto;
+  width:36px;
+  height:36px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--color);
+  color:#fff;
+  font-family:var(--f-display);
+  font-size:18px;
+  font-weight:800;
+  line-height:1;
+}
+.place-card strong{
+  display:block;
+  font-family:var(--f-sans);
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.05em;
+  line-height:1.1;
+  text-transform:uppercase;
+}
+.place-card span:not(.place-num){
+  display:block;
+  margin-top:4px;
+  color:rgba(251,248,242,.72);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.place-card p{
+  margin:0;
+  color:rgba(251,248,242,.84);
+  font-size:17px;
+  line-height:1.38;
+}
+.place-link{
+  display:inline-block;
+  margin-top:12px;
+  color:var(--ouro-light);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-decoration:none;
+}
+.place-link:hover{text-decoration:underline}
+.pressure-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1px;
+  margin-top:44px;
+  border:1px solid rgba(251,248,241,.14);
+  background:rgba(251,248,241,.14);
+}
+.pressure{
+  background:rgba(251,248,241,.045);
+  padding:30px;
+}
+.pressure .n{
+  color:#e6b69a;
+  font-family:var(--f-display);
+  font-size:54px;
+  font-weight:800;
+  line-height:1;
+}
+.pressure .l{
+  margin:8px 0 10px;
+  color:var(--gold);
+  font-family:var(--f-sans);
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.pressure p{
+  margin:0;
+  color:rgba(251,248,241,.68);
+  font-size:17px;
+  line-height:1.58;
+}
+.sources{
+  background:var(--paper2);
+  padding:54px 0;
+}
+.sources h3{
+  margin:0 0 16px;
+  color:var(--muted);
+  font-family:var(--f-sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.sources ol{max-width:920px;margin:0;padding-left:22px}
+.sources li{
+  margin-bottom:9px;
+  color:var(--ink2);
+  font-family:var(--f-sans);
+  font-size:12px;
+  line-height:1.58;
+}
+footer{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:34px clamp(22px,5vw,56px);
+  background:var(--ink);
+  color:rgba(251,248,241,.48);
+  font-family:var(--f-sans);
+  font-size:11px;
+  letter-spacing:.08em;
+}
+footer b{
+  color:var(--paper);
+  font-family:var(--f-display);
+  font-size:23px;
+  letter-spacing:0;
+}
+@media(max-width:920px){
+  .nav a:not(.download){display:none}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpi:nth-child(2){border-right:0}
+  .kpi{border-bottom:1px solid var(--rule)}
+  .body,.concepts,.soft-lane,.visual-grid,.tech-grid,.pressure-grid{grid-template-columns:1fr}
+  .soft-lane{gap:14px}
+  .signal{min-width:0;flex:1 1 145px}
+  .signal-pop{left:auto;right:0}
+  .data-grid{grid-template-columns:1fr}
+  .chart{border-right:0;border-bottom:1px solid var(--rule)}
+  .visual-head,.map-head,.map-copy{display:block}
+  .visual-head p,.map-note{margin-top:12px;text-align:left;max-width:none}
+  .map-wrap{height:560px}
+}
+@media(max-width:620px){
+  .top{padding:0 14px}
+  .download{padding:8px 10px}
+  .hero{min-height:78vh;padding:52px 18px}
+  .kpis{grid-template-columns:1fr}
+  .kpi{border-right:0}
+  .section{padding:62px 0}
+  .article p{font-size:18.5px}
+  .data-card,.safety-tile,.data-after{padding:22px 18px}
+  .chart-svg{min-height:470px}
+  .article p:first-child::first-letter{font-size:58px}
+  .map-wrap{height:470px}
+  .filters{padding:0 16px 16px}
+  .map-head,.map-copy{padding:18px 16px}
+  .place-list{grid-template-columns:1fr;padding:0 16px 16px}
+  .place-card{min-height:auto}
+  .counter{margin-top:14px;border-left:0;padding-left:0;text-align:left}
+  footer{display:block}
+}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var l = localStorage.getItem('mira_lang');
+  if(l === 'en') { window.location.replace('06-soft-power-portugal-en.html'); }
+})();
+function setArticleLang(l){
+  localStorage.setItem('mira_lang', l);
+}
+</script>
+<nav class="top">
+  <a class="brand" href="/">MIRADOURO</a>
+  <div class="nav">
+    <a href="#observation">Observation</a>
+    <a href="#data">Donnees & limites</a>
+    <a href="#maps">Cartes</a>
+    <a href="#questions">Questions</a>
+    <a class="download" href="06-soft-power-portugal-en.html" onclick="setArticleLang('en')">EN</a>
+    <button class="download" id="downloadPage" type="button">Telecharger</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Essai de terrain - Lisbonne - geographie tech - soft power</div>
+    <h1>Lisbonne, ou le <em>paradoxe</em> portugais.</h1>
+    <p class="hero-deck">Le Portugal reste marque par l'emigration. Mais Lisbonne concentre aujourd'hui une desirabilite nouvelle, portee par la culture, la tech, la mobilite et l'idee qu'une autre vie peut s'y construire.</p>
+    <div class="byline">Jonathan depuis Lisbonne - Miradouro - essai en cours</div>
+  </div>
+</header>
+
+<section class="kpis" aria-label="Signaux de donnees selectionnes">
+  <div class="kpi"><strong>36.1M</strong><span>passagers a l'aeroport de Lisbonne</span><small>2025, ANA/VINCI</small></div>
+  <div class="kpi"><strong>29.0M</strong><span>touristes non-residents</span><small>2024, INE</small></div>
+  <div class="kpi"><strong>72K</strong><span>participants Erasmus+ lies au Portugal</span><small>2024, Commission europeenne</small></div>
+  <div class="kpi"><strong>#7</strong><span>Global Peace Index</span><small>Portugal, 2024</small></div>
+</section>
+
+<main>
+  <section class="section wrap" id="observation">
+    <div class="section-label">01 Observation de terrain</div>
+    <h2>Pendant longtemps, je ne me voyais pas vivre au Portugal.</h2>
+    <p class="lead">Ce texte n'est pas une demonstration. C'est une tentative de comprendre comment un pays longtemps associe au depart peut, en partie, devenir un pays vers lequel on se projette.</p>
+    <div class="body">
+      <article class="article">
+        <p>Tous les etes, apres les vacances, mes parents reposaient plus ou moins la meme question: et si on venait vivre au Portugal ? Moi, je pleurais. Ma vie etait en France. Mes amis etaient en France. Mon ecole, mes habitudes, mon futur imaginaire etaient en France. Le Portugal, pour moi, c'etait le pays des vacances et de la famille, pas un endroit ou je pouvais vraiment me projeter.</p>
+        <p>Ca fait maintenant dix ans que je vis ici. C'est peut-etre la que commence, pour moi, le paradoxe portugais: le pays ou je ne me voyais pas vivre est devenu celui ou beaucoup de jeunes Franco-Portugais, puis de plus en plus d'Europeens sans lien familial particulier avec lui, commencent a se projeter. Avant, le Portugal etait surtout une terre de depart. Aujourd'hui, il devient aussi une terre d'accueil. Ce renversement m'interesse.</p>
+        <p>Je l'ai encore senti recemment au festival Yard. Beaucoup de festivaliers etrangers posaient la meme question: c'est comment de vivre ici ? Pas seulement comment est la fete, ou la plage, ou la soiree. Comment est la vie. On sentait la projection arriver tres vite.</p>
+        <p>En ligne, c'est encore plus direct. Une story a Caparica, a Marvila ou sur un rooftop suffit souvent a declencher les memes messages: c'est ou ? on vit comment la-bas ? est-ce que c'est vraiment comme ca ?</p>
+        <p>Je ne veux pas surjouer mon histoire personnelle. Elle explique seulement mon angle. Je suis un fils d'immigres portugais, j'ai grandi en France, et je vis aujourd'hui dans le pays que ma famille avait quitte. Ce deplacement intime rend le renversement plus visible pour moi.</p>
+        <p>La question est donc simple: comment un pays longtemps vu comme peripherique, parfois un peu en retard, est-il devenu assez desirable pour que Lisbonne concentre autant de projections ?</p>
+      </article>
+      <aside class="aside-note">
+        <h3>Angle mort</h3>
+        <p>Je regarde cette transformation depuis une bulle: Lisbonne, les coworkings, les festivals, les amis venus d'ailleurs. Ce n'est pas tout le Portugal, mais c'est une partie visible du changement.</p>
+      </aside>
+    </div>
+    <div class="concepts">
+      <div class="concept"><b>1</b><h3>Capital visuel</h3><p>La ville produit des images qui circulent facilement: lumiere, facades, miradouros, plages, rooftops, clubs, anciennes usines. Cette capacite a etre photographiee et partagee devient une ressource.</p></div>
+      <div class="concept"><b>2</b><h3>Projection residentielle</h3><p>Les images ne donnent pas seulement envie de visiter. Elles permettent a certains de s'imaginer vivre ici: travailler, sortir, rencontrer, habiter, construire une routine.</p></div>
+      <div class="concept"><b>3</b><h3>Qualite de vie activable</h3><p>La projection tient parce qu'elle semble praticable: securite, climat, vols directs, coworkings, anglais, plages proches, scene culturelle, travail a distance. Ce n'est pas seulement beau, c'est utilisable.</p></div>
+    </div>
+    <div class="quote">Le travail n'a pas disparu de l'equation. Mais dans une economie de services plus mobile, le lieu de vie entre davantage dans la decision.</div>
+  </section>
+
+  <section class="section soft-power">
+    <div class="wrap">
+      <div class="section-label">02 Contexte - avant que Lisbonne devienne l'image</div>
+      <h2>Le Portugal etait deja present dans le monde. Mais cette presence ne ressemblait pas encore a Lisbonne.</h2>
+      <p class="lead">L'histoire actuelle de Lisbonne n'apparait pas dans le vide. Avant les rooftops, les festivals et les coworkings, il y avait deja une langue, une diaspora, un monde lusophone et une image internationale du Portugal.</p>
+      <div class="body">
+        <article class="article">
+          <p>Pendant longtemps, le Portugal a garde une image de pays peripherique: plus pauvre, plus religieux, plus lent, parfois presque bloque dans le temps. Un pays de vacances, de famille, de villages, de maisons fermees une partie de l'annee. Rarement un lieu ou construire une jeune vie internationale.</p>
+          <p>Ce qui change aujourd'hui, ce n'est pas que cette image ait disparu. C'est qu'elle coexiste avec une autre: celle d'un Portugal redevenu desirable, presque aspirationnel, porte par Lisbonne, la securite, la lumiere, la culture, la tech et une qualite de vie devenue visible.</p>
+          <p>Mais le pays n'etait pas invisible. La langue portugaise circule sur plusieurs continents, portee par plus de 265 millions de locuteurs selon l'UNESCO. La CPLP reunit aujourd'hui neuf Etats membres. Derriere cela, il y a aussi une histoire coloniale violente, triste, impossible a romanticiser, mais qui continue de structurer des liens, des circulations, des familles, des imaginaires et des rapports au monde.</p>
+          <p>Il y a aussi la diaspora. Les dernieres estimations de l'Observatoire de l'Emigration parlent d'environ 1,8 million de Portugais nes au Portugal vivant a l'etranger en 2024. Si l'on ajoute les descendants, le gouvernement portugais evoque regulierement une communaute d'environ cinq millions de personnes, presque la moitie de la population du pays. En France, selon les definitions, la communaute portugaise et luso-descendante est souvent estimee autour d'un million de personnes. Ces gens-la ne sont pas seulement partis. Ils racontent le pays, y reviennent, y investissent parfois, y emmenent des amis, des conjoints, des collegues. Ils sont devenus, souvent sans le vouloir, des ambassadeurs ordinaires.</p>
+          <p>A cela s'ajoutent le football, la diplomatie, une reputation de calme et de securite, et quelques politiques publiques devenues references internationales, comme la decriminalisation des drogues. Rien de tout cela ne faisait du Portugal une grande puissance economique. Mais cela donnait deja au pays une presence. Le basculement, aujourd'hui, c'est que cette presence devient urbaine. Elle prend le visage de Lisbonne.</p>
+        </article>
+        <aside class="aside-note">
+          <h3>La transition</h3>
+          <p>Le Portugal etait deja familier. Lisbonne le rend maintenant imaginable comme vie.</p>
+        </aside>
+      </div>
+      <div class="soft-power-strip">
+        <section class="soft-lane">
+          <div class="lane-label">
+            <span>01 - langue et monde lusophone</span>
+            <h3>La langue a donne au Portugal une presence mondiale.</h3>
+            <p>Ce n'est pas seulement une question de taille. C'est une geographie historique, culturelle et familiale.</p>
+          </div>
+          <div class="signal-row">
+            <button class="signal" type="button"><strong>Portugais</strong><em>langue</em><span class="signal-pop">Plus de 265 millions de locuteurs selon l'UNESCO, et une presence sur plusieurs continents.</span></button>
+            <button class="signal" type="button"><strong>CPLP</strong><em>reseau</em><span class="signal-pop">Neuf Etats membres relies par la langue portugaise: un espace politique, culturel et symbolique discontinu mais reel.</span></button>
+            <button class="signal" type="button"><strong>Colonial</strong><em>heritage</em><span class="signal-pop">Un passe violent et triste, qu'il ne faut pas embellir, mais qui explique encore une partie des liens lusophones actuels.</span></button>
+          </div>
+        </section>
+        <section class="soft-lane">
+          <div class="lane-label">
+            <span>02 - culture populaire</span>
+            <h3>Le Portugal circulait deja par des signes tres reconnaissables.</h3>
+            <p>Pas seulement par de grandes institutions. Aussi par le football, le gout et l'Atlantique.</p>
+          </div>
+          <div class="signal-row">
+            <button class="signal" type="button"><strong>Football</strong><em>visibilite</em><span class="signal-pop">Ronaldo donne au Portugal une visibilite mondiale immediate. Mourinho exporte une voix manageriale. Jorge Mendes et Luis Campos montrent une autre couche: agents, scouting, reseaux et influence dans les coulisses du football europeen.</span></button>
+            <button class="signal" type="button"><strong>Gout</strong><em>quotidien</em><span class="signal-pop">Porto, pastel de nata, cafes portugais: des signes simples, exportables, reconnaissables. Pas de la puissance dure, plutot une presence quotidienne dans l'imaginaire europeen.</span></button>
+            <button class="signal" type="button"><strong>Atlantique</strong><em>imaginaire</em><span class="signal-pop">Nazare, le surf, les vagues, l'ocean, la cote: un imaginaire visuel qui donne au Portugal une echelle plus grande que son territoire.</span></button>
+          </div>
+        </section>
+        <section class="soft-lane">
+          <div class="lane-label">
+            <span>03 - image publique</span>
+            <h3>Le Portugal projetait aussi une forme de calme.</h3>
+            <p>Pas une puissance spectaculaire. Plutot un pays lisible, modere, relativement sur, facile a situer mentalement.</p>
+          </div>
+          <div class="signal-row">
+            <button class="signal" type="button"><strong>Diplomatie</strong><em>Guterres</em><span class="signal-pop">Antonio Guterres, ancien Premier ministre devenu secretaire general de l'ONU, donne au Portugal une visibilite diplomatique rare pour un pays de cette taille.</span></button>
+            <button class="signal" type="button"><strong>Europe</strong><em>Costa</em><span class="signal-pop">Antonio Costa, president du Conseil europeen depuis 2024, inscrit le Portugal dans le coeur institutionnel de l'Union et dans le retour de credibilite du Sud europeen.</span></button>
+            <button class="signal" type="button"><strong>Pragmatisme</strong><em>calme</em><span class="signal-pop">Decriminalisation des drogues, securite, moderation politique: le Portugal projette moins du spectacle qu'une forme de calme utile.</span></button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <section class="section wrap" id="data">
+    <div class="section-label">03 Donnees qui eclairent</div>
+    <h2>La sensation laisse des traces, pas des preuves.</h2>
+    <p class="lead">Le soft power est difficile a mesurer directement. Mais les conditions autour de Lisbonne ont change: acces aerien, installation d'etrangers, circulation Erasmus+ et socle de securite rendent la ville plus facile a choisir.</p>
+    <div class="data-panel">
+      <div class="visual-head">
+        <h3>Trois traces mesurables d'une ville plus facile a choisir</h3>
+        <p>Acces, mobilite, installation: ces indicateurs ne prouvent pas l'aspiration, mais ils montrent que davantage de personnes peuvent la tester.</p>
+      </div>
+      <div class="data-grid">
+        <aside class="safety-tile">
+          <strong>#7</strong>
+          <span>Global Peace Index</span>
+          <p>Portugal, 2024. Ce n'est pas une courbe de tendance; c'est un signal contextuel de confiance et de securite.</p>
+        </aside>
+        <div class="data-stack">
+          <article class="data-card">
+            <h3>Trois traces, trois echelles</h3>
+            <p class="sub">Lisbonne depasse son niveau pre-Covid de trafic aerien; les residents etrangers progressent beaucoup plus vite; Erasmus+ signale une circulation jeunesse plus visible.</p>
+            <div id="chart-mobility" class="chart-svg" role="img" aria-label="Petits graphiques alignes montrant les passagers de l'aeroport de Lisbonne, les residents etrangers au Portugal et certains points Erasmus+ sur des echelles separees."></div>
+          </article>
+        </div>
+      </div>
+      <div class="data-after">
+        <p>Les donnees ne disent pas pourquoi quelqu'un imagine une vie a Lisbonne. Elles montrent seulement que l'acces, la circulation et l'installation sont devenus plus visibles.</p>
+      </div>
+    </div>
+    <div class="body">
+      <article class="article">
+        <p>C'est la que l'observation compte. Lisbonne donne beaucoup de matiere a projeter: un coucher de soleil a Caparica, une rue en pente, un rooftop, une affiche de festival, un cafe ou tout le monde travaille en anglais, une ancienne usine devenue lieu de sortie.</p>
+        <p>Tout cela circule tres vite. En stories, en messages WhatsApp, en playlists, en videos TikTok, en recommandations Airbnb, en conversations de coworking. Souvent, la ville arrive avant le voyage. On l'a deja vue, deja sauvegardee, deja imaginee.</p>
+        <p>Ce n'est pas une preuve que Lisbonne est meilleure qu'ailleurs. C'est simplement une realite de notre epoque: certaines villes se racontent plus facilement que d'autres.</p>
+        <p>Ce qui compte, ce n'est pas que l'image soit parfaitement exacte. C'est qu'elle donne envie d'aller verifier. Et aujourd'hui, beaucoup plus de gens peuvent verifier vite: un vol, un sejour, un mois de travail a distance, puis parfois une installation.</p>
+      </article>
+      <aside class="aside-note"><h3>Image</h3><p>La ville n'est pas seulement visitee. Elle est apercue, enregistree, partagee, sauvegardee et imaginee.</p></aside>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="wrap">
+      <div class="section-label">04 Hypothese de travail - quand la vie devient mobile</div>
+      <h2>Le basculement decisif n'est pas le lifestyle. C'est la portabilite.</h2>
+      <p class="lead">Lisbonne cesse d'etre seulement une histoire culturelle quand une partie du travail devient assez mobile pour transformer l'envie en decision.</p>
+      <div class="body">
+        <article class="article">
+          <p>Dans une economie de services, tout le monde n'a pas besoin d'etre au meme endroit que l'usine, le siege ou le client. Cloud engineers, consultants, fondateurs, freelances et salaries remote peuvent garder une partie de leur revenu tout en changeant leur cadre de vie.</p>
+          <p>C'est la que la technologie change le sujet. Les organisations asynchrones, le cloud, les equipes distribuees, les ecosystemes nearshore et les carrieres portables permettent a suffisamment de personnes de traiter le lieu de vie comme une partie du package.</p>
+          <p>A l'anniversaire de mon coworking chez IDEA Spaces, l'anglais etait devenu la langue dominante dans la piece. Plus de la moitie des personnes presentes n'etaient pas portugaises. Bien sur, je sais que c'est une bulle. Mais les bulles comptent quand elles commencent a remodeler la texture sociale d'une ville.</p>
+          <p>Lisbonne n'a pas besoin d'offrir les salaires de Londres pour entrer dans la decision de certains travailleurs mobiles. Elle doit surtout etre compatible avec leur travail, leurs revenus, leurs reseaux et l'idee de vie qu'ils veulent tester.</p>
+        </article>
+        <aside class="aside-note"><h3>Pas le cliche nomade</h3><p>La question n'est pas de savoir si des gens travaillent depuis des cafes. C'est ce que cette mobilite change pour la ville, ses salaires, ses lieux et ses habitants.</p></aside>
+      </div>
+      <div class="tech-grid">
+        <div class="tech-card"><h3>Carrieres portables</h3><p>Beaucoup de roles a forte valeur n'exigent plus une proximite permanente avec les sieges. La geographie devient negociable.</p></div>
+        <div class="tech-card"><h3>Organisations async</h3><p>Le travail distribue fait entrer le rythme, le fuseau horaire, la securite et le lifestyle dans la decision economique.</p></div>
+        <div class="tech-card"><h3>Nearshore Europe</h3><p>Le Portugal peut devenir une base credible pour la delivery europeenne, le conseil, les equipes produit et les reseaux de fondateurs.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section maps-section" id="maps">
+    <div class="wrap">
+      <div class="section-label">05 Hypothese de travail - quand l'atmosphere devient infrastructure</div>
+      <h2>Les cartes ne sont pas decoratives. Elles montrent ou la projection devient physique.</h2>
+      <p class="lead">Une ville ne devient pas desirable dans l'abstrait. Il faut des adresses: salles, festivals, clubs, coworkings, plages hybrides, anciennes usines, quartiers en travaux. Les cartes montrent ou cette sensation se materialise.</p>
+      <div class="body">
+        <article class="article">
+          <p>Caparica raconte peut-etre cette histoire mieux que n'importe quel autre endroit. Il y a dix ans, beaucoup de Lisboetes la voyaient surtout comme une echappee plage. Aujourd'hui, la cote fonctionne de plus en plus comme une extension sociale, economique et culturelle de la ville.</p>
+          <p>En quelques annees, MOGA, Yard, SunceBeat et DHB sont apparus ou se sont intensifies le long de l'Atlantique. Aura, Irmao, Princesa ou Hangar sont devenus des infrastructures hybrides de lifestyle. La plage n'est plus seulement un loisir. Elle devient un arriere-plan permanent de projection.</p>
+          <p>Marvila raconte une autre version de la meme histoire. D'anciens entrepots deviennent clubs, brasseries, galeries, coworkings et lieux de musique, sans que le quartier ait encore totalement trouve son modele. Cette ambiguite compte. Lisbonne elle-meme semble encore inachevee: pas une ville parfaite, mais une ville en train de devenir.</p>
+          <p>Il y a dix ou quinze ans, apres la crise financiere et les annees d'austerite, certaines parties de Lisbonne donnaient encore une impression de ville fatiguee, parfois presque abandonnee. Aujourd'hui, depuis n'importe quel miradouro, on voit aussi des grues, des echafaudages, des immeubles en rehabilitation. La transformation est visible, mais elle revele aussi son probleme central: manque de logements, manque de main-d'oeuvre, prix qui montent plus vite que les salaires.</p>
+          <p>Cette effervescence culturelle a fini par me toucher aussi: elle m'a donne envie de devenir DJ et de monter <a href="https://www.instagram.com/kombava.lisboa/" target="_blank" rel="noopener">Kombava</a> avec des amis.</p>
+        </article>
+        <aside class="aside-note">
+          <h3>Indice spatial</h3>
+          <p>La projection prend de la consistance quand elle se materialise: scenes, coworkings, plages, entrepots, rooftops, quartiers et rituels.</p>
+        </aside>
+      </div>
+      <article class="map-card" data-map-card="lisbon">
+        <div class="map-head">
+          <div><div class="section-label">Carte 01 - Lisbonne</div><div class="map-title">Infrastructure culturelle</div></div>
+          <p class="map-note">Concerts, festivals, clubs, coworkings, campus et quartiers en transformation. Une carte sociologique des lieux ou l'aspiration se met en scene.</p>
+        </div>
+        <div class="filters"></div>
+        <div class="map-wrap"><div id="map-lisbon" class="map"></div></div>
+        <div class="map-copy">
+          <div><div class="section-label layer-kicker"></div><div class="layer-title"></div><div class="layer-text"></div></div>
+          <div class="counter"><b></b><span>lieux</span></div>
+        </div>
+        <div class="place-list"></div>
+      </article>
+
+      <article class="map-card" data-map-card="caparica">
+        <div class="map-head">
+          <div><div class="section-label">Carte 02 - Caparica</div><div class="map-title">Extension cotiere</div></div>
+          <p class="map-note">La plage n'est pas en dehors de l'histoire lisboete. Coworks, campus et lieux de cote prolongent cette histoire sur la rive sud.</p>
+        </div>
+        <div class="filters"></div>
+        <div class="map-wrap"><div id="map-caparica" class="map"></div></div>
+        <div class="map-copy">
+          <div><div class="section-label layer-kicker"></div><div class="layer-title"></div><div class="layer-text"></div></div>
+          <div class="counter"><b></b><span>lieux</span></div>
+        </div>
+        <div class="place-list"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section dark" id="questions">
+    <div class="wrap">
+      <div class="section-label">06 Questions ouvertes</div>
+      <h2>La desirabilite cree de la valeur. Puis elle cree de la pression.</h2>
+      <p class="lead">Le point n'est pas de dire que Lisbonne est devenue incroyable. Le point est qu'elle attire davantage, au moment meme ou elle devient plus difficile a habiter.</p>
+      <div class="body">
+        <article class="article">
+          <p>Une economie de projection peut enrichir une ville tout en la rendant plus dure pour ceux qui y vivent deja. Pression immobiliere, pression touristique, economies d'expatries, ecarts de salaires, quartiers sous tension et fragmentation culturelle ne sont pas des notes de bas de page. Ils font partie du modele.</p>
+          <p>Alfama rend cette tension visible. Le berceau historique du fado survit parfois davantage comme symbole esthetique pour visiteurs que comme tissu social vivant. Les tascas disparaissent. Les locations courte duree se multiplient. Certaines rues semblent moins habitees que mises en scene.</p>
+          <p>Meme une partie des nouveaux arrivants commence a sentir ce malaise. Un article du Guardian, repris par Atlas Lisboa, posait recemment la question du depart de certains digital nomads de Lisbonne: pas seulement parce que la ville change, mais parce qu'ils ont parfois l'impression de vivre dans une bulle qu'ils contribuent eux-memes a fabriquer.</p>
+          <p>Et pourtant, des traces restent. Pendant Santo Antonio en juin, certaines parties de Lisbonne echappent temporairement a la logique des plateformes. La ville redevient locale: plus bruyante, plus desordonnee, plus portugaise. Ces moments comptent parce qu'ils revelent ce qui est en jeu.</p>
+          <p>L'economie residente et l'economie de projection ne veulent pas toujours les memes choses. L'une a besoin de continuite, de loyers supportables, d'ecoles, de reparations, de calme, de services ordinaires. L'autre veut souvent de l'atmosphere, de l'acces, de la nouveaute et une version filtree de la vie urbaine.</p>
+        </article>
+        <aside class="aside-note"><h3>La tension</h3><p>Ce qui rend Lisbonne attractive est aussi ce qui peut la rendre moins habitable. C'est le coeur du paradoxe.</p></aside>
+      </div>
+      <div class="pressure-grid">
+        <div class="pressure"><div class="n">1</div><div class="l">Pression logement</div><p>La desirabilite devient loyer, distance et arbitrage.</p></div>
+        <div class="pressure"><div class="n">2</div><div class="l">Fragmentation</div><p>L'energie internationale ne produit pas toujours une vie civique partagee.</p></div>
+        <div class="pressure"><div class="n">3</div><div class="l">Charge touristique</div><p>La ville peut s'optimiser pour l'arrivee au detriment de la continuite.</p></div>
+        <div class="pressure"><div class="n">4</div><div class="l">Fragilite du modele</div><p>Une infrastructure d'aspiration doit encore devenir structure durable.</p></div>
+      </div>
+      <div class="body">
+        <article class="article">
+          <p>Les questions deviennent alors pratiques. Lisbonne peut-elle convertir l'attention en logements, meilleurs emplois et institutions ? L'energie culturelle peut-elle construire de l'appartenance plutot que decorer l'inflation ?</p>
+          <p>Et si le Portugal est devenu desirable avant de devenir puissant, quel type de pouvoir est vraiment en train de se construire ?</p>
+        </article>
+        <aside class="aside-note"><h3>Question ouverte</h3><p>L'aspiration peut-elle devenir structure durable sans rendre la ville plus difficile a habiter ?</p></aside>
+      </div>
+      <div class="quote">Le paradoxe portugais peut-il devenir une <em>structure durable</em>?</div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-label">Conclusion</div>
+    <h2>Nous sommes peut-etre en train d'assister a l'emergence d'un nouveau type de ville europeenne.</h2>
+    <div class="body body-single">
+      <article class="article">
+        <p>Pas une capitale de production au sens ancien. Pas non plus une pure machine touristique. Quelque chose de plus contemporain: une ville dont la pertinence economique se construit aussi par l'atmosphere, la securite, la culture, le travail a distance et le desir de vivre autrement.</p>
+        <p>Je ne sais pas si ce modele peut durer. Je ne suis meme pas certain que Lisbonne le sache. Mais la transformation est assez visible pour etre nommee, et assez ambigue pour etre prise au serieux.</p>
+        <p>C'est peut-etre pour cela qu'il me semble si etrange d'ecrire sur le Portugal aujourd'hui. Un pays que j'associais autrefois au depart est devenu un lieu ou d'autres imaginent l'arrivee.</p>
+        <p>Le Portugal est devenu desirable avant de devenir puissant. La prochaine question est de savoir si cette desirabilite peut construire des institutions, des logements, des opportunites et de l'appartenance assez solides pour survivre a la projection.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-label">Questions ouvertes</div>
+    <h2>Ce que je n'arrive pas encore a trancher.</h2>
+    <div class="body">
+      <article class="article">
+        <p>Est-ce que Lisbonne peut transformer cette desirabilite en meilleures opportunites pour les Portugais qui y vivent deja ?</p>
+        <p>Porto, Braga, Aveiro ou Coimbra captent deja une partie de cette energie. Peuvent-elles en absorber davantage, ou Lisbonne continuera-t-elle a concentrer l'essentiel de la projection ?</p>
+        <p>Est-ce que la diaspora portugaise peut devenir autre chose qu'un lien affectif avec le pays: un vrai reseau d'investissement, de talents et de circulation culturelle ?</p>
+        <p>Et surtout: le paradoxe portugais peut-il devenir une vraie structure economique, sociale et urbaine, ou restera-t-il une contradiction concentree autour de Lisbonne ?</p>
+      </article>
+      <aside class="aside-note"><h3>A discuter</h3><p>La reponse est probablement quelque part entre les deux. Mais c'est precisement pour cela que la question vaut la peine d'etre posee.</p></aside>
+    </div>
+  </section>
+
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <h3>Sources et notes conservees depuis la version V3</h3>
+      <ol>
+        <li>Passagers de l'aeroport de Lisbonne: rapports annuels ANA et reporting ANA/VINCI Airports. Chiffre 2025 utilise ici: 36,1 millions de passagers.</li>
+        <li>Notes sur les graphiques: les passagers aeroport incluent touristes, residents, correspondances, voyages professionnels et visites familiales. Erasmus+ mesure une circulation etudiante et jeunesse, pas une installation. Les residents etrangers sont le signal le plus proche de l'installation, mais ne disent pas pourquoi les personnes viennent.</li>
+        <li>Tourisme: INE Tourism Statistics et Turismo de Portugal TravelBI. Le graphique utilise les arrivees de touristes non-residents lorsque disponibles, notamment 22,8M en 2018, 24,6M en 2019, 26,5M en 2023 et 29,0M en 2024.</li>
+        <li>Erasmus+: reporting annuel Erasmus+ de la Commission europeenne pour les participants lies au Portugal, sauf clarification ulterieure vers l'enseignement superieur uniquement.</li>
+        <li>Global Peace Index: Institute for Economics & Peace, rang du Portugal utilise dans la version V3.</li>
+        <li>Langue portugaise et monde lusophone: UNESCO World Portuguese Language Day pour l'ordre de grandeur des locuteurs, et CPLP / Turismo de Portugal pour les Etats membres de la Communaute des Pays de Langue Portugaise.</li>
+        <li>Diaspora portugaise: Observatorio da Emigracao pour l'estimation d'environ 1,8 million d'emigres portugais en 2024; Gouvernement portugais pour l'ordre de grandeur d'environ cinq millions de Portugais et descendants a l'etranger; INED pour l'ordre de grandeur d'environ un million de personnes dans la communaute portugaise en France, selon definition.</li>
+        <li>Politique des drogues: references internationales issues notamment des travaux EUDA / EMCDDA et de la litterature sur la decriminalisation portugaise.</li>
+        <li>Tension expat / digital nomad: article du Guardian repris par Atlas Lisboa, juillet 2025, utilise comme signal editorial et non comme mesure statistique.</li>
+        <li>Les cartes sont des cartes editoriales interpretatives. Les coordonnees des lieux sont approximatives et servent la lecture sociologique, pas une precision cadastrale.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <b>Miradouro</b>
+  <span>Tech europeenne, talents et soft power vus depuis Lisbonne.</span>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+document.getElementById("downloadPage").addEventListener("click",()=>{
+  const html="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
+  const blob=new Blob([html],{type:"text/html;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement("a");
+  link.href=url;
+  link.download="miradouro-soft-power-portugal-editorial.html";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),500);
+});
+
+const colors={concerts:"#C97A5E",festivals:"#C4973A",clubs:"#243D2C",cowork:"#315D75",transformation:"#7A4C66",institutions:"#6A5C50",education:"#5F6F52",beach:"#7A4C66"};
+const symbols={concerts:"♪",festivals:"✦",clubs:"●",cowork:"▣",transformation:"⌂",institutions:"◐",education:"I",beach:"≈"};
+const chartData={
+  airport:{
+    label:"Passagers aeroport de Lisbonne",
+    color:"#243D2C",
+    unit:"millions de passagers",
+    decimals:1,
+    data:[
+      {year:2015,value:20.1},{year:2016,value:22.4},{year:2017,value:26.6},{year:2018,value:29.0},{year:2019,value:31.1},
+      {year:2020,value:9.2},{year:2021,value:12.1},{year:2022,value:28.2},{year:2023,value:33.6},{year:2024,value:35.0},{year:2025,value:36.1}
+    ]
+  },
+  residents:{
+    label:"Residents etrangers",
+    color:"#A85C42",
+    unit:"residents",
+    decimals:0,
+    data:[
+      {year:2014,value:390000},{year:2015,value:383000},{year:2016,value:392000},{year:2017,value:416000},{year:2018,value:477000},{year:2019,value:588000},
+      {year:2020,value:661000},{year:2021,value:698000},{year:2022,value:781000},{year:2023,value:1040000},{year:2024,value:1540000}
+    ]
+  },
+  erasmus:{
+    label:"Points Erasmus+ selectionnes",
+    color:"#C4973A",
+    unit:"participants",
+    decimals:0,
+    data:[{year:2018,value:42500},{year:2024,value:72300}]
+  }
+};
+
+function formatChartValue(value,unit,decimals){
+  if(unit==="residents"){
+    return value>=1000000?`${(value/1000000).toFixed(value%1000000===0?1:2)}M`:`${Math.round(value/1000)}k`;
+  }
+  if(unit==="participants"){
+    return `${(value/1000).toFixed(1)}K`;
+  }
+  return `${value.toFixed(decimals)}${unit}`;
+}
+
+function renderDataCharts(){
+  const el=document.getElementById("chart-mobility");
+  if(!el) return;
+  const width=880,height=520,pad={top:30,right:168,bottom:44,left:78};
+  const minYear=2014,maxYear=2025;
+  const bands=[
+    {key:"airport",title:"Acces aerien",note:"millions de passagers",y0:42,h:118,ticks:[0,20,40],valueLabel:v=>`${v.toFixed(1)}M`,callout:""},
+    {key:"residents",title:"Installation",note:"residents etrangers",y0:198,h:118,ticks:[0,750000,1500000],valueLabel:v=>v>=1000000?`${(v/1000000).toFixed(2)}M`:`${Math.round(v/1000)}k`,callout:"3,9x depuis 2014"},
+    {key:"erasmus",title:"Circulation Erasmus+",note:"mobilite etudiante et jeunesse, points selectionnes",y0:354,h:88,ticks:[0,40000,80000],valueLabel:v=>`${(v/1000).toFixed(1)}K`,callout:"+70%, 2018 a 2024"}
+  ];
+  const x=year=>pad.left+((year-minYear)/(maxYear-minYear))*(width-pad.left-pad.right);
+  const years=[2014,2016,2018,2020,2022,2024,2025].map(year=>`
+    <text x="${x(year)}" y="${height-20}" text-anchor="middle" font-size="10" fill="#9A8C80">${year}</text>
+  `).join("");
+  const bandEls=bands.map(band=>{
+    const item=chartData[band.key];
+    const maxTick=Math.max(...band.ticks);
+    const y=value=>band.y0+(1-value/maxTick)*band.h;
+    const points=item.data.map(d=>`${x(d.year)},${y(d.value)}`).join(" ");
+    const grid=band.ticks.map(t=>`
+      <line x1="${pad.left}" y1="${y(t)}" x2="${width-pad.right}" y2="${y(t)}" stroke="#D8CEBC" stroke-width="1"/>
+      <text x="${pad.left-10}" y="${y(t)+4}" text-anchor="end" font-size="9" fill="#9A8C80">${band.valueLabel(t)}</text>
+    `).join("");
+    const dots=item.data.map(d=>`<circle cx="${x(d.year)}" cy="${y(d.value)}" r="${item.data.length===2?5:3.4}" fill="${item.color}"><title>${item.label}, ${d.year}: ${band.valueLabel(d.value)}</title></circle>`).join("");
+    const first=item.data[0];
+    const last=item.data[item.data.length-1];
+    const covid=band.key==="airport"?`
+      <line x1="${x(2020)}" y1="${band.y0}" x2="${x(2020)}" y2="${band.y0+band.h}" stroke="#D8CEBC" stroke-width="1" stroke-dasharray="4 5"/>
+      <text x="${x(2020)+6}" y="${band.y0+12}" font-size="9" font-weight="800" fill="#9A8C80">Covid</text>
+    `:"";
+    const airportComparison=band.key==="airport"?`
+      <circle cx="${x(2019)}" cy="${y(31.1)}" r="5.8" fill="none" stroke="${item.color}" stroke-width="1.5"/>
+      <text x="${x(2019)-12}" y="${y(31.1)-13}" text-anchor="end" font-size="10" font-weight="800" fill="${item.color}">2019: 31,1M</text>
+      <path d="M${x(2019)+8} ${y(31.1)-8} L${x(2025)-8} ${y(36.1)-8}" stroke="${item.color}" stroke-width="1.2" stroke-dasharray="3 4" opacity=".55"/>
+      <text x="${x(2025)+10}" y="${y(36.1)-15}" font-size="10" font-weight="900" fill="${item.color}">2025: 36,1M</text>
+      <text x="${x(2025)+10}" y="${y(36.1)}" font-size="9" font-weight="800" fill="#6F6256">+16% vs 2019</text>
+    `:"";
+    return `
+      <text x="${pad.left}" y="${band.y0-16}" font-size="12" font-weight="800" fill="${item.color}">${band.title}</text>
+      <text x="${pad.left+122}" y="${band.y0-16}" font-size="10" fill="#9A8C80">${band.note}</text>
+      ${band.callout?`<text x="${width-pad.right+12}" y="${band.y0+16}" font-size="10" font-weight="800" fill="${item.color}">${band.callout}</text>`:""}
+      ${grid}
+      ${covid}
+      <polyline points="${points}" fill="none" stroke="${item.color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+      ${dots}
+      ${airportComparison}
+      ${band.key==="airport"?"":`<text x="${x(first.year)}" y="${y(first.value)-9}" text-anchor="middle" font-size="10" font-weight="800" fill="${item.color}">${band.valueLabel(first.value)}</text>`}
+      ${band.key==="airport"?"":`<text x="${x(last.year)}" y="${y(last.value)-9}" text-anchor="middle" font-size="10" font-weight="800" fill="${item.color}">${band.valueLabel(last.value)}</text>`}
+    `;
+  }).join("");
+  el.innerHTML=`
+    <svg viewBox="0 0 ${width} ${height}" aria-hidden="true">
+      <line x1="${pad.left}" y1="${height-pad.bottom}" x2="${width-pad.right}" y2="${height-pad.bottom}" stroke="#9A8C80" stroke-width="1"/>
+      ${years}
+      ${bandEls}
+    </svg>`;
+}
+
+const content={
+  lisbon:{
+    center:[38.733,-9.145],zoom:12,bounds:[[38.675,-9.455],[38.802,-9.065]],active:"festivals",
+    layers:{
+      concerts:{label:"Concerts",kicker:"Couche 01 - concerts",title:"Les grands concerts placent Lisbonne dans les geographies mondiales des tournees.",text:"La couche concerts tire Lisbonne vers trois bords: la Luz au nord, Belem et Alges a l'ouest, puis le district de l'arena au Parque das Nacoes.",points:[
+        ["Estadio da Luz","Bad Bunny","Pop de stade a l'ere du streaming",38.7528,-9.1847,"Bad Bunny n'est pas un artiste de stade comme un autre. Spotify l'a classe a plusieurs reprises parmi les artistes les plus ecoutes au monde, et sa presence a Lisbonne raconte l'entree de la pop hispanophone au centre de la culture de masse europeenne.","https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X"],
+        ["Estadio do Restelo","Kendrick Lamar","Pulitzer, Super Bowl, Lisbonne",38.7029,-9.2078,"Kendrick apporte une autre gravite: un rappeur prix Pulitzer, dont la performance au Super Bowl a transforme le spectacle pop en langage politique. Son passage a Lisbonne inscrit la ville dans ce circuit culturel mondial.","https://open.spotify.com/artist/2YZyLoL8N0Wb9xBt1NhZWg"],
+        ["Passeio Maritimo de Alges","Anitta","Signal de diaspora bresilienne",38.6989,-9.2308,"Le format 360 degres d'Anitta a Lisbonne compte parce qu'il parle directement a la plus grande communaute etrangere du Portugal: les Bresiliens. Alges devient une scene ou pop lusophone, migration et spectacle d'ete se croisent.","https://auroracultural.com/english/music/anittas-ensaios-lands-in-lisbon-with-a-360o-stage/"],
+        ["MEO Arena","Rosalia / Lux","Croisement classique-pop-reggaeton",38.7686,-9.0939,"Les concerts Lux de Rosalia au MEO Arena relient Lisbonne a une tournee ou langage classique, memoire reggaeton et presence fado de Carminho se superposent. Ce n'est pas seulement une date d'arena: c'est Lisbonne dans un son trans-iberique.","https://arena.meo.pt/en/agenda/rosalia-lux-tour-2026_en/15649"]
+      ]},
+      festivals:{label:"Festivals",kicker:"Couche 02 - festivals",title:"Les festivals transforment parcs et waterfronts en villes temporaires.",text:"Cette couche montre comment les grandes surfaces festivales de Lisbonne forment une colonne metropolitaine plutot qu'un simple cluster central.",points:[
+        ["Rock in Rio Lisboa","Parque Tejo","Ville de divertissement a grande echelle",38.7904,-9.0927,"Rock in Rio est la version la plus explicite de la culture comme infrastructure de masse: une ville temporaire de divertissement, environ 300 000 participants en 2024, et des noms 2026 comme Katy Perry et Linkin Park.","https://rockinriolisboa.pt/en"],
+        ["NOS Alive","Passeio Maritimo de Alges","Ancrage indie-pop europeen",38.6989,-9.2308,"NOS Alive est deja sur la carte europeenne des festivals: le waterfront d'Alges comme porte d'entree estivale repetable pour l'indie, le rock et les grandes tetes d'affiche internationales. Lisbonne semble branchee sur le meme circuit que Barcelone, Londres ou Berlin.","https://nosalive.com/"],
+        ["Kalorama","Parque da Bela Vista","Nouvelle couche internationale curate",38.7486,-9.1184,"Kalorama est le plus jeune entrant: un festival urbain et curate a Bela Vista, qui a deja accueilli des noms comme Burna Boy et revient avec Lauryn Hill, Grace Jones et d'autres en 2026.","https://meokalorama.pt/en/"],
+        ["Sonar Lisboa","Pavilhao Carlos Lopes","Musique electronique, art et technologie",38.7339,-9.1512,"Sonar donne a Lisbonne une couche electronique et culture numerique en plein centre-ville, avec des artistes comme Paul Kalkbrenner et un ancien palais d'exposition comme decor.","https://sonarlisboa.pt/"],
+        ["Coala Festival","Cascais","Pont musical lusophone",38.6979,-9.4210,"Coala relie Bresil, Portugal et Afrique par la musique en portugais. Avec des noms comme Caetano Veloso, Gilberto Gil, Bonga ou Slow J selon les editions, il fait de la region lisboete un point de rencontre culturel lusophone.","https://www.visitportugal.com/en/node/511793"],
+        ["Super Bock Super Rock","Parque das Nacoes","Festival d'ete historique",38.7686,-9.0939,"Super Bock Super Rock fait partie de la memoire moderne des festivals portugais, lance dans les annees 1990 et associe a l'arrivee reguliere de grands noms internationaux dans l'ete lisboete.","https://superbocksuperrock.pt/"]
+      ]},
+      clubs:{label:"Clubs",kicker:"Couche 03 - clubs et scenes",title:"La nuit cartographie le bord du fleuve et le tournant industriel de l'est.",text:"La couche clubs garde Lisbonne proche de l'eau et de la texture industrielle: bords portuaires, places centrales, entrepots de Marvila et geographie symbolique de la batida.",points:[
+        ["Lux Fragil","Santa Apolonia","Mythologie club europeenne",38.7147,-9.1222,"Lux est l'institution nocturne de Lisbonne: un club au bord du Tage souvent cite parmi les lieux essentiels en Europe, co-detenu par John Malkovich, avec de grands DJs internationaux et un rooftop face au fleuve.","https://luxfragil.com/"],
+        ["Ministerium","Terreiro do Paco","Techno dans l'architecture du pouvoir",38.7077,-9.1367,"Ministerium est plus alternatif et plus symbolique: de la musique electronique dans la Praca do Comercio, dans l'ancienne aile du Ministere des Finances, ou patrimoine, architecture d'Etat et DJs internationaux se croisent.","https://www.visitlisboa.com/en/places/ministerium"],
+        ["8 Marvila","Marvila","Ancienne usine reactualisee en lieu culturel",38.7390,-9.1034,"8 Marvila montre le basculement des entrepots de l'est: une ancienne structure industrielle reactivee en food, musique, evenements et infrastructure sociale dans la ceinture creative encore inachevee de Lisbonne.","https://www.8marvila.pt/"],
+        ["Casa Capitao","Beato / Marvila","Salle hybride post-Musicbox",38.7372,-9.1045,"Casa Capitao ressemble au nouveau relais apres des salles centrales comme Musicbox: concerts, DJ sets et sons afro-diasporiques dans la nouvelle geographie culturelle de Beato.","https://www.casacapitao.com/"],
+        ["Principe Discos","Scene batida","Lisbonne comme son, pas comme decor",38.7118,-9.1390,"Principe compte parce qu'il exporte Lisbonne comme rythme plutot que comme carte postale: batida, kuduro et scenes electroniques afro-portugaises deviennent une partie du langage international de la ville.","https://principediscos.com/"]
+      ]},
+      cowork:{label:"Cowork / coliving",kicker:"Couche 04 - le travail comme lifestyle",title:"La culture diurne suit le travail flexible et les talents mobiles.",text:"Coworkings et espaces hybrides creent la couche de semaine de l'economie d'aspiration lisboete: mobilite professionnelle, design, reseaux et nouvelles routines.",points:[
+        ["Heden","Espaces de travail creatifs","Le travail comme adresse culturelle",38.7164,-9.1227,"Heden represente la face plus discrete de la transformation du travail a Lisbonne: bureaux flexibles, langage design, evenements communautaires et rythme creative-class proche du fleuve.","https://heden.co/"],
+        ["IDEA Spaces","Saldanha / centre de Lisbonne","La bulle professionnelle rendue visible",38.7337,-9.1458,"IDEA est utile parce qu'il rend la bulle lisible: fondateurs, consultants, recruteurs et travailleurs mobiles partageant les memes pieces, souvent en anglais, au centre de Lisbonne.","https://ideaspaces.pt/"],
+        ["WeWork","Avenida da Liberdade","Grammaire globale du bureau flexible",38.7228,-9.1509,"WeWork importe a Lisbonne un code de bureau global familier. Pour des professionnels mobiles, cette familiarite reduit la friction du choix de la ville comme base.","https://www.wework.com/"],
+        ["LACS","Anjos / Santos / Conde Obidos","Infrastructure de communaute creative",38.7069,-9.1587,"LACS se situe entre bureau, evenements et reseau creatif. Il montre comment les espaces de travail se comportent de plus en plus comme des institutions culturelles plutot que comme de simples bureaux.","https://www.lacs.pt/"],
+        ["Second Home","Mercado da Ribeira","Coworking botanique comme lifestyle",38.7065,-9.1458,"Second Home transforme le travail en atmosphere: plantes, architecture, proximite du food market et langage visuel qui fait ressembler la productivite a un style de vie.","https://secondhome.io/location/lisbon/"],
+        ["Factory Lisbon","Beato","Workspace startup a l'est",38.7389,-9.1030,"Factory Lisbon relie l'identite startup au recodage industriel de Beato: l'espace de travail devient un signe physique que l'est peut etre lu comme le district futur-facing de Lisbonne.","https://factory.co/lisbon/"]
+      ]},
+      transformation:{label:"Transformation urbaine",kicker:"Couche 05 - quartiers en transformation",title:"L'ancienne ville est recodee en recit urbain tourne vers l'avenir.",text:"Ces quartiers montrent comment l'atmosphere devient strategie urbaine: usines, docks et terrains d'Expo sont reinterpretes comme innovation, creativite et infrastructure lifestyle.",points:[
+        ["Marvila","Ceinture creative de l'est","Urbanisme d'entrepots inacheve",38.7390,-9.1034,"Marvila est fascinant parce qu'il n'est pas resolu. Brasseries, galeries, clubs et restaurants voisinent avec des terrains vides et des restes industriels. Le quartier montre la transformation en temps reel, avant que le recit soit fige.","https://www.8marvila.pt/"],
+        ["Beato","District d'innovation","Identite industrielle tournee vers l'avenir",38.7385,-9.1055,"Beato est l'endroit ou de vieilles usines sont traduites en langage d'innovation. La promesse est claire: un district oriental ou startups, evenements et reuse creatif donnent a Lisbonne industrielle un nouveau recit economique.","https://hubcriativobeato.com/"],
+        ["Unicorn Factory Lisboa","Beato","Noeud de soft power startup",38.7393,-9.1032,"Unicorn Factory rend le basculement symbolique explicite. Ce n'est pas seulement de l'espace de bureau; c'est une tentative de donner a l'entrepreneuriat lisboete une adresse physique.","https://unicornfactorylisboa.com/"],
+        ["LX Factory","Alcantara","Premier modele de reuse creatif",38.7038,-9.1788,"LX Factory est une preuve de concept plus ancienne: un complexe industriel transforme en restaurants, boutiques, agences et creativite compatible avec le tourisme. Il a appris a Lisbonne comment aestheticiser le reuse.","https://lxfactory.com/"],
+        ["Parque das Nacoes","Heritage Expo","Lisbonne internationale planifiee",38.7686,-9.0939,"Parque das Nacoes est la contre-image de la Lisbonne azulejos: propre, planifiee, post-Expo, corporate et lisible. Il montre une autre version de la ville, construite autour des evenements, bureaux et grandes infrastructures.","https://www.portaldasnacoes.pt/"]
+      ]},
+      institutions:{label:"Musees / institutions",kicker:"Couche 06 - institutions culturelles",title:"Les musees rendent l'aspiration lisible au-dela de la nuit.",text:"Cette couche empeche la carte de devenir seulement une carte de festivals et de clubs. La puissance culturelle de Lisbonne passe aussi par musees, fondations et institutions de bord de fleuve qui donnent a la ville un cadre intellectuel plus durable.",points:[
+        ["MAC/CCB","Centre culturel de Belem","Art contemporain dans un lieu symbolique national",38.6956,-9.2097,"MAC/CCB fait de Belem autre chose que monuments et tourisme. Ses collections contemporaines placent Lisbonne dans une conversation museale europeenne tout en restant attachees a l'ouest symbolique de la ville.","https://www.ccb.pt/en/macccb/"],
+        ["MAAT","Rive de Belem","Architecture, technologie et Tage",38.6958,-9.1945,"Le MAAT compte parce qu'il rend le waterfront visiblement contemporain: ancienne centrale electrique, batiment blanc bas et idee que l'art, l'architecture et la technologie peuvent appartenir a la meme phrase urbaine.","https://www.maat.pt/en/about"],
+        ["CAM Gulbenkian","Sao Sebastiao","Art moderne comme profondeur institutionnelle",38.7370,-9.1545,"Le CAM donne a Lisbonne une autorite culturelle plus calme. Apres sa renovation, le jardin Gulbenkian et la collection d'art moderne forment un contrepoint plus lent a l'economie de projection de la ville.","https://gulbenkian.pt/cam/en/"],
+        ["MACAM","Alcantara / bord de Belem","Hybride musee-hotel",38.7032,-9.1772,"MACAM est interessant parce qu'il assemble art contemporain, hospitalite et patrimoine dans un meme format. Il montre comment l'infrastructure culturelle de Lisbonne fusionne aussi avec l'economie de l'experience.","https://macam.pt/en/"]
+      ]},
+      education:{label:"Campus / talents",kicker:"Couche 07 - universites et formation",title:"La desirabilite passe aussi par les campus et la formation internationale.",text:"Cette couche montre une infrastructure moins spectaculaire que les festivals, mais decisive: business schools, universites, ecoles tech et campus anglophones qui transforment Lisbonne en ville d'etudes, de reseaux et de carrieres mobiles.",points:[
+        ["NOVA SBE","Carcavelos","Business school internationale sur la cote",38.6798,-9.3265,"Le campus de Carcavelos deplace une partie de l'education internationale vers la cote: masters en anglais, forte part d'etudiants internationaux et lien direct entre formation, plage et carrieres mobiles.","https://www.novasbe.unl.pt/en/programs/masters"],
+        ["Catolica Lisbon SBE","Palma de Cima","Management au centre de Lisbonne",38.7483,-9.1668,"Catolica rend visible une couche plus institutionnelle: une ecole lisboete de management presente dans les classements internationaux, capable d'attirer des etudiants sans quitter le centre de la ville.","https://lisboa.ucp.pt/news/catolica-lisbons-masters-finance-among-best-world-financial-times-2025-ranking"],
+        ["ISEG","Santos / Sao Bento","Economie et management historiques",38.7104,-9.1547,"ISEG donne de la profondeur a la carte: la plus ancienne ecole d'economie et de management du pays, situee entre Parlement, Santos et le Tage, au contact de la ville ordinaire.","https://www.iseg.ulisboa.pt/en"],
+        ["Cidade Universitaria","Campo Grande","Grande masse etudiante",38.7514,-9.1585,"Cidade Universitaria rappelle que Lisbonne n'est pas seulement une ville de coworkings. C'est aussi une grande ville etudiante, avec universites, Erasmus, recherche et mobilite de moyen terme.","https://www.ulisboa.pt/en"],
+        ["42 Lisboa","Beato / Unicorn Factory","Formation tech gratuite",38.7390,-9.1030,"42 ajoute une brique plus tech: une ecole de programmation issue d'un reseau international, installee a Unicorn Factory, qui lie apprentissage, startups et quartier d'innovation.","https://www.42lisboa.com/pt/"]
+      ]}
+    }
+  },
+  caparica:{
+    center:[38.625,-9.225],zoom:13,bounds:[[38.585,-9.255],[38.705,-9.145]],active:"beach",
+    layers:{
+      festivals:{label:"Festivals",kicker:"Couche 01 - festivals",title:"La couche festivals suit la plage plutot que la grille urbaine.",text:"L'infrastructure musicale de Caparica est lineaire. La programmation descend le sable, des lieux proches de la ville jusqu'a la cote sud plus calme.",points:[
+        ["MOGA","Praia da Morena","Premier signal beach-festival d'ampleur",38.6064,-9.2135,"MOGA est le signe le plus clair que Caparica pouvait accueillir un festival international de plage. Tres francais, electronique, de plus en plus afro-house, et construit autour de ce luxe etrange: se baigner entre deux sets.","https://mogafestival.com/"],
+        ["Yard","Costa da Caparica","Mythologie de carriere instagrammable",38.6427,-9.2351,"Yard est presque un mythe d'echelle: ne d'un esprit garden-party, mis en scene autour de sable blanc et d'un decor de carriere, deja exporte a l'etranger. Le paysage devient lui-meme l'argument visuel.","https://yardfestival.pt/"],
+        ["SunceBeat","Plages Irmao / Sereia","Culture dance comme rituel cotier",38.6222,-9.2278,"SunceBeat apporte sur la cote lisboete un imaginaire boutique-festival de type Adriatique: dance music, temps de plage, lumiere et un public qui traite le decor comme une partie du line-up.","https://suncebeat.com/"],
+        ["DHB","Cote de Caparica","Littoral electronique distribue",38.6341,-9.2325,"DHB aide a rendre le littoral continu: pas un club, pas une scene unique, mais un rythme de plage ou la musique electronique se diffuse dans la geographie sociale de Caparica.","https://www.instagram.com/dhbportugal/"]
+      ]},
+      beach:{label:"Beach clubs",kicker:"Couche 02 - beach clubs",title:"Les beach clubs transforment la cote en sequence de salons sociaux.",text:"La couche beach clubs montre l'hospitalite comme culture: coucher de soleil, cuisine, musique et design transforment le sable en infrastructure sociale.",points:[
+        ["Aura Caparica","Praia do Infante","Hospitalite beach club sereine",38.6089,-9.2149,"Aura se presente autour de la serenite, de la connexion a l'ocean et des evenements. C'est la version plus douce de l'economie beach club de Caparica: l'hospitalite comme atmosphere plutot que seulement nightlife.","https://auracaparica.com/en/"],
+        ["Irmao","Praia do Castelo","Code du luxe pieds nus",38.6209,-9.2265,"Irmao cristallise le code Caparica: dunes, lits de plage, restaurant, cocktails, musique et foule internationale qui fait de la plage un salon urbain.","https://www.praia-irmao.com/"],
+        ["Princesa","Praia da Princesa","Couche sociale de la rive sud",38.6073,-9.2131,"Princesa montre la scene sociale descendre vers le sud, loin du centre de Caparica, devenant plus selective et lifestyle tout en restant ancree dans le sable.","https://www.instagram.com/praiadaprincesa/"],
+        ["Hangar","Bord de Fonte da Telha","Plage, travail et evenements",38.5875,-9.2022,"Hangar pousse le mouvement vers le bord: la culture de plage devient evenements, communaute, rythmes de travail et desir de vivre legerement hors du tempo normal de Lisbonne.","https://www.instagram.com/hangar.ft/"],
+        ["Casa Reia","Mention historique","Prefiguration de la scene",38.6184,-9.2240,"Casa Reia compte comme memoire: un signe precoce que Caparica pouvait accueillir une culture de plage plus raffinee avant la vague actuelle de clubs et de festivals.","https://www.instagram.com/casareia/"],
+        ["Ponto Final","Cacilhas / Almada","Icone Instagram de la rive sud",38.6876,-9.1508,"Ponto Final n'est pas Caparica, mais appartient au meme imaginaire de rive sud: un restaurant simple au bord de l'eau dont la vue sur Lisbonne est devenue l'une des images les plus circulees d'arrivee, de coucher de soleil et d'angoisse de reservation.","https://www.instagram.com/pontofinalrest/?hl=en"],
+        ["Quinta Mira Rio","Collines d'Almada","Piscine avec Lisbonne en decor",38.6765,-9.1650,"Quinta Mira Rio est le nouveau fantasme de la rive sud: piscine, jardins, evenements et relation panoramique a Lisbonne. Il montre comment l'economie de projection s'etend au-dela de la plage vers des lieux a vue privee.","https://www.quintamirario.com/"]
+      ]},
+      cowork:{label:"Cowork / hybride",kicker:"Couche 03 - espaces hybrides",title:"Le remote work suit la cote plutot que le quartier d'affaires.",text:"La couche travail de Caparica est plus concrete qu'un fantasme: espaces equipes, studios creatifs, appels video et routines de semaine a quelques metres de la plage.",points:[
+        ["Dr Bernard Caparica Cowork","Praia do CDS","Travail avec vue ocean",38.6448,-9.2380,"Dr Bernard rend litterale la promesse travail-plage: Wi-Fi, desks flexibles, ocean view, passes a la journee ou au mois et surf a proximite. C'est le remote work transforme en adresse cotiere.","https://www.drbernard.pt/en/cowork"],
+        ["Fabrica Moderna","Costa da Caparica","Studio creatif partage",38.6432,-9.2360,"Fabrica Moderna est un studio partage a 50 metres de la plage, pense comme workspace et hub de communaute pour creatifs, developpeurs, marketing, entrepreneurs et petites equipes.","https://www.fabricamoderna.com/en/caparica"]
+      ]},
+      education:{label:"Campus / formation",kicker:"Couche 04 - etudes et mobilite",title:"Caparica n'est pas seulement une plage: c'est aussi un territoire d'etudes.",text:"Cette couche ajoute une mobilite moins visible que les festivals: etudiants en sante, ingenierie, science et tech, qui font de la rive sud une infrastructure de formation metropolitaine.",points:[
+        ["Egas Moniz","Monte de Caparica","Sante, dentaire et mobilite europeenne",38.6624,-9.2015,"Egas Moniz rend visible une autre mobilite: celle des etudes de sante, notamment dentaires, qui attirent des etudiants europeens jusqu'a Monte de Caparica. Ce n'est pas nightlife, mais c'est aussi de la projection residentielle.","https://www.egasmoniz.com.pt/en/courses/dentistry"],
+        ["NOVA FCT","Campus de Caparica","Science, engineering et tech",38.6608,-9.2057,"NOVA FCT ancre Caparica dans une autre geographie: celle de l'ingenierie, de la science, de la technologie et des etudiants internationaux. La rive sud devient aussi un campus metropolitain.","https://www.fct.unl.pt/en/international"]
+      ]}
+    }
+  }
+};
+const maps={},markers={};
+function markerIcon(layer,number,muted,active){
+  return L.divIcon({className:"",html:`<div class="marker ${muted?"is-muted":""} ${active?"is-active":""}" style="--marker-color:${colors[layer]}"><span class="marker-symbol">${symbols[layer]||"•"}</span><span class="marker-number">${number}</span></div>`,iconSize:[40,40],iconAnchor:[20,20],popupAnchor:[0,-20]});
+}
+function popupHtml(point){
+  return `<div class="map-label"><strong>${point[0]}</strong><span>${point[1]}</span><em>${point[2]}</em>${point[6]?`<a class="place-link" href="${point[6]}" target="_blank" rel="noopener">Voir le lieu</a>`:""}</div>`;
+}
+function initMap(key){
+  const cfg=content[key];
+  const map=L.map(`map-${key}`,{zoomControl:true,scrollWheelZoom:false,attributionControl:true}).setView(cfg.center,cfg.zoom);
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+  map.fitBounds(cfg.bounds,{padding:[18,18]});
+  maps[key]=map;markers[key]=[];
+  Object.entries(cfg.layers).forEach(([layerKey,layer])=>{
+    layer.points.forEach((point,index)=>{
+      const marker=L.marker([point[3],point[4]],{icon:markerIcon(layerKey,index+1,layerKey!==cfg.active,false)})
+        .bindPopup(popupHtml(point),{closeButton:false,offset:[0,-8]})
+        .addTo(map);
+      marker._miradouro={layerKey,index};
+      marker.on("click",()=>{if(cfg.active===layerKey) updateCard(key,index);});
+      markers[key].push(marker);
+    });
+  });
+  const card=document.querySelector(`[data-map-card="${key}"]`);
+  const filters=card.querySelector(".filters");
+  Object.entries(cfg.layers).forEach(([layerKey,layer])=>{
+    const chip=document.createElement("button");
+    chip.className="chip";chip.type="button";chip.innerHTML=`${symbols[layerKey]||"•"} ${layer.label} <small>${layer.points.length}</small>`;chip.dataset.layer=layerKey;chip.style.setProperty("--color",colors[layerKey]);
+    chip.addEventListener("click",()=>{cfg.active=layerKey;updateCard(key,0);});
+    filters.appendChild(chip);
+  });
+  updateCard(key,0);
+}
+function updateCard(key,activeIndex){
+  const cfg=content[key],layer=cfg.layers[cfg.active],card=document.querySelector(`[data-map-card="${key}"]`);
+  card.querySelectorAll(".chip").forEach(chip=>chip.classList.toggle("active",chip.dataset.layer===cfg.active));
+  card.querySelector(".layer-kicker").textContent=layer.kicker;
+  card.querySelector(".layer-title").textContent=layer.title;
+  card.querySelector(".layer-text").textContent=layer.text;
+  card.querySelector(".counter b").textContent=layer.points.length;
+  card.querySelector(".place-list").innerHTML=layer.points.map((point,index)=>`
+    <article class="place-card ${index===activeIndex?"active":""}" data-index="${index}" tabindex="0" style="--color:${colors[cfg.active]}">
+      <div class="place-top"><span class="place-num">${index+1}</span><div><strong>${point[0]}</strong><span>${point[1]}</span></div></div>
+      <p>${point[5]}</p>
+      ${point[6]?`<a class="place-link" href="${point[6]}" target="_blank" rel="noopener">Voir le lieu</a>`:""}
+    </article>`).join("");
+  card.querySelectorAll(".place-card").forEach(button=>{
+    button.addEventListener("click",event=>{
+      if(event.target.closest("a")) return;
+      updateCard(key,Number(button.dataset.index));
+    });
+    button.addEventListener("keydown",event=>{
+      if(event.key==="Enter"||event.key===" "){event.preventDefault();updateCard(key,Number(button.dataset.index));}
+    });
+  });
+  markers[key].forEach(marker=>{
+    const sameLayer=marker._miradouro.layerKey===cfg.active;
+    const samePoint=sameLayer&&marker._miradouro.index===activeIndex;
+    marker.setIcon(markerIcon(marker._miradouro.layerKey,marker._miradouro.index+1,!sameLayer,samePoint));
+    marker.setOpacity(sameLayer?1:0);
+    const el=marker.getElement();
+    if(el) el.style.pointerEvents=sameLayer?"auto":"none";
+    if(!sameLayer&&marker.isPopupOpen()) marker.closePopup();
+    if(samePoint) marker.openPopup();
+  });
+  const point=layer.points[activeIndex]||layer.points[0];
+  maps[key].flyTo([point[3],point[4]],key==="lisbon"?12:13,{duration:.45});
+}
+renderDataCharts();
+if(window.L){initMap("lisbon");initMap("caparica");}
+else{document.querySelectorAll(".map").forEach(map=>{map.innerHTML="<div style='padding:24px;color:#554a40'>La bibliotheque de carte n'a pas pu charger. Verifie la connexion internet, puis recharge la page.</div>";});}
+</script>
+</body>
+</html>
