@@ -1040,7 +1040,6 @@ function setArticleLang(l){
     <a href="#maps">Cartes</a>
     <a href="#questions">Questions</a>
     <a class="download" href="06-soft-power-portugal-en.html" onclick="setArticleLang('en')">EN</a>
-    <button class="download" id="downloadPage" type="button">Telecharger</button>
   </div>
 </nav>
 
@@ -1338,19 +1337,6 @@ function setArticleLang(l){
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-document.getElementById("downloadPage").addEventListener("click",()=>{
-  const html="<!DOCTYPE html>\n"+document.documentElement.outerHTML;
-  const blob=new Blob([html],{type:"text/html;charset=utf-8"});
-  const url=URL.createObjectURL(blob);
-  const link=document.createElement("a");
-  link.href=url;
-  link.download="miradouro-soft-power-portugal-editorial.html";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  setTimeout(()=>URL.revokeObjectURL(url),500);
-});
-
 const colors={concerts:"#C97A5E",festivals:"#C4973A",clubs:"#243D2C",cowork:"#315D75",transformation:"#7A4C66",institutions:"#6A5C50",education:"#5F6F52",beach:"#7A4C66"};
 const symbols={concerts:"♪",festivals:"✦",clubs:"●",cowork:"▣",transformation:"⌂",institutions:"◐",education:"I",beach:"≈"};
 const chartData={
