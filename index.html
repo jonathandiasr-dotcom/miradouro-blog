@@ -80,7 +80,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .hero-deck-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.82); }
 
 /* Hero bottom: 3 colonnes — stat signal | article mis en avant | thème actif */
-.hero-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; }
+.hero-bottom { display: grid; grid-template-columns: minmax(260px,.9fr) minmax(320px,1.1fr); gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; max-width: 980px; }
 
 /* Colonne 1 : signal stat */
 .hero-signal { padding-right: 48px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
@@ -90,7 +90,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .hero-signal-label { font-family: var(--f2); font-size: clamp(13px,1.4vw,16px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.5; max-width: 260px; }
 
 /* Colonne 2 : article en avant */
-.hero-featured { padding: 0 40px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
+.hero-featured { padding: 0 0 0 40px; display: flex; flex-direction: column; justify-content: center; }
 .hero-featured-kicker { font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
 .hero-featured-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--pom-l); }
 .hero-featured-title { font-family: var(--f2); font-size: clamp(16px,1.8vw,22px); font-weight: 600; color: rgba(255,255,255,.88); line-height: 1.25; margin-bottom: 14px; }
@@ -98,22 +98,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .hero-read { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-l); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s; cursor: none; }
 .hero-read::after { content: '→'; font-size: 12px; }
 .hero-read:hover { gap: 12px; }
-
-/* Colonne 3 : navigateur thématique */
-.hero-themes { padding-left: 40px; display: flex; flex-direction: column; justify-content: center; gap: 6px; }
-.hero-themes-label { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 12px; }
-.theme-btn { display: flex; align-items: center; gap: 12px; padding: 8px 0; border: none; background: none; color: rgba(255,255,255,.42); font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; cursor: none; border-bottom: 1px solid rgba(255,255,255,.06); transition: color .2s; text-align: left; width: 100%; }
-.theme-btn:last-child { border-bottom: none; }
-.theme-btn::before { content: ''; display: block; width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.18); flex-shrink: 0; transition: background .2s, transform .2s; }
-.theme-btn.active { color: rgba(255,255,255,.9); }
-.theme-btn.active::before { background: var(--ouro); transform: scale(1.4); }
-.theme-btn:hover { color: rgba(255,255,255,.7); }
-.theme-count { margin-left: auto; font-size: 8px; color: rgba(255,255,255,.2); font-weight: 500; }
-
-.hero-scroll { position: absolute; bottom: 32px; right: clamp(24px,5vw,72px); display: flex; align-items: center; gap: 10px; z-index: 3; opacity: 0; animation: fadeUp .6s ease 1.2s forwards; }
-.hero-scroll span { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.22); }
-.scroll-track { width: 1px; height: 44px; background: rgba(255,255,255,.1); position: relative; overflow: hidden; }
-.scroll-fill { position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--ouro); animation: scrollAnim 2s ease-in-out 1.4s infinite; }
 
 /*========================================
   BANDE EDITORIALE — sous le hero
@@ -302,7 +286,6 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 ========================================*/
 @media(max-width:1100px) {
   .hero-bottom { grid-template-columns: 1fr 1fr; }
-  .hero-themes { display: none; }
   .analyses-grid { grid-template-columns: 1fr 1fr; }
 }
 @media(max-width:900px) {
@@ -403,42 +386,13 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
       <!-- Colonne 2 : article en avant -->
       <div class="hero-featured">
-        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Article en cours · Finance" data-en="Current article · Finance">Article en cours · Finance</div>
-        <div class="hero-featured-title" id="hero-title" data-fr="Comment la finance française transforme le Portugal" data-en="How French finance is transforming Portugal">Comment la finance française transforme le Portugal</div>
-        <div class="hero-featured-intro" id="hero-intro" data-fr="BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support." data-en="BNP, Natixis, Euronext, AXA. From Lisbon and Porto, French finance no longer just builds support centres.">BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support.</div>
-        <a id="link-hero" href="articles/miradouro_banques_portugal_FR_FINAL_V3.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
-      </div>
-
-      <!-- Colonne 3 : navigateur thématique -->
-      <div class="hero-themes">
-        <div class="hero-themes-label" data-fr="Territoires éditoriaux" data-en="Editorial territories">Territoires éditoriaux</div>
-        <button class="theme-btn" data-theme="finance" onclick="setTheme('finance')">
-          <span data-fr="Finance & Géographie" data-en="Finance & Geography">Finance & Géographie</span>
-          <span class="theme-count">1</span>
-        </button>
-        <button class="theme-btn" data-theme="culture" onclick="setTheme('culture')">
-          <span data-fr="Culture & Soft power" data-en="Culture & Soft power">Culture & Soft power</span>
-          <span class="theme-count">1</span>
-        </button>
-        <button class="theme-btn" data-theme="infrastructure" onclick="setTheme('infrastructure')">
-          <span data-fr="Infrastructure & Cloud" data-en="Infrastructure & Cloud">Infrastructure & Cloud</span>
-          <span class="theme-count">2</span>
-        </button>
-        <button class="theme-btn" data-theme="talent" onclick="setTheme('talent')">
-          <span data-fr="Talent & Immigration" data-en="Talent & Immigration">Talent & Immigration</span>
-          <span class="theme-count">2</span>
-        </button>
-        <button class="theme-btn" data-theme="ai" onclick="setTheme('ai')">
-          <span data-fr="IA & Société" data-en="AI & Society">IA & Société</span>
-          <span class="theme-count">1</span>
-        </button>
+        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Article récent · Soft power" data-en="Recent article · Soft power">Article récent · Soft power</div>
+        <div class="hero-featured-title" id="hero-title" data-fr="Lisbonne, ou le paradoxe portugais" data-en="Lisbon and the Portuguese paradox">Lisbonne, ou le paradoxe portugais</div>
+        <div class="hero-featured-intro" id="hero-intro" data-fr="Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle." data-en="Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.">Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.</div>
+        <a id="link-hero" href="articles/06-soft-power-portugal-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
 
     </div>
-  </div>
-  <div class="hero-scroll">
-    <span>Scroll</span>
-    <div class="scroll-track"><div class="scroll-fill"></div></div>
   </div>
 </section>
 
@@ -456,7 +410,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <!-- En-tête avec thème actif -->
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <span class="articles-theme-active" id="theme-label" data-fr="— Finance & Géographie" data-en="— Finance & Geography">— Finance & Géographie</span>
+    <span class="articles-theme-active" id="theme-label" data-fr="— Culture & Soft power" data-en="— Culture & Soft power">— Culture & Soft power</span>
     <span class="articles-count" id="articles-count" data-fr="06 articles · + HS" data-en="06 articles · + special">06 articles · + HS</span>
   </div>
 
@@ -471,7 +425,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   </div>
 
   <!-- NIVEAU 1 : Article phare -->
-  <div id="card-phare" class="article-phare sr" data-theme="finance">
+  <div id="card-06" class="article-phare sr" data-theme="culture">
     <div class="phare-visual">
       <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
         <defs><pattern id="az2" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -483,48 +437,48 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         </pattern></defs>
         <rect width="400" height="400" fill="url(#az2)"/>
       </svg>
-      <span class="phare-ghost">N°05</span>
+      <span class="phare-ghost">N°06</span>
       <!-- Stat visible dans la visual -->
       <div class="phare-stat">
-        <div class="phare-stat-num">9 700</div>
-        <div class="phare-stat-label">Employés BNP Paribas Portugal</div>
+        <div class="phare-stat-num">36,1M</div>
+        <div class="phare-stat-label">Passagers à l'aéroport de Lisbonne</div>
       </div>
-      <div class="phare-badge" data-fr="Enquête terrain" data-en="Field report">Enquête terrain</div>
+      <div class="phare-badge" data-fr="Essai de terrain" data-en="Field essay">Essai de terrain</div>
     </div>
     <div class="phare-content">
       <div>
         <div class="phare-meta">
           <span class="phare-tag" data-fr="Nouveau" data-en="New">Nouveau</span>
           <span class="phare-dot"></span>
-          <span class="phare-num">N°05</span>
+          <span class="phare-num">N°06</span>
           <span class="phare-dot"></span>
           <span class="phare-date">Mai 2026</span>
         </div>
-        <h2 class="phare-title" data-fr="Comment la finance française <em>transforme le Portugal</em>" data-en="How French finance <em>is transforming Portugal</em>">Comment la finance française <em>transforme le Portugal</em></h2>
-        <p class="phare-intro" data-fr="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support. Elle participe à une nouvelle géographie européenne de la technologie bancaire." data-en="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. From Lisbon and Porto, French finance is no longer just building support centres. It's shaping a new European geography of banking technology.">BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support. Elle participe à une nouvelle géographie européenne de la technologie bancaire.</p>
+        <h2 class="phare-title" data-fr="Lisbonne, ou le <em>paradoxe portugais</em>" data-en="Lisbon and the <em>Portuguese paradox</em>">Lisbonne, ou le <em>paradoxe portugais</em></h2>
+        <p class="phare-intro" data-fr="Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie." data-en="Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.">Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.</p>
         <!-- Données clés inline -->
         <div class="phare-data-strip">
           <div class="phare-data-item">
-            <div class="phare-data-val">9 700</div>
-            <div class="phare-data-lab">Employés BNP</div>
+            <div class="phare-data-val">36,1M</div>
+            <div class="phare-data-lab">Passagers LIS</div>
           </div>
           <div class="phare-data-item">
-            <div class="phare-data-val">3 000</div>
-            <div class="phare-data-lab">Employés Natixis</div>
+            <div class="phare-data-val">29,0M</div>
+            <div class="phare-data-lab">Touristes non-résidents</div>
           </div>
           <div class="phare-data-item">
-            <div class="phare-data-val">4e</div>
-            <div class="phare-data-lab">Employeur privé PT</div>
+            <div class="phare-data-val">72K</div>
+            <div class="phare-data-lab">Participants Erasmus+</div>
           </div>
           <div class="phare-data-item">
-            <div class="phare-data-val">5</div>
-            <div class="phare-data-lab">Hubs majeurs FR</div>
+            <div class="phare-data-val">#7</div>
+            <div class="phare-data-lab">Global Peace Index</div>
           </div>
         </div>
       </div>
       <div class="phare-footer">
         <span class="phare-author">Jonathan · Miradouro</span>
-        <span class="phare-cta" data-fr="Lire l'enquête" data-en="Read the report">Lire l'enquête</span>
+        <span class="phare-cta" data-fr="Lire l'essai" data-en="Read the essay">Lire l'essai</span>
       </div>
     </div>
   </div>
@@ -538,17 +492,17 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
 
-    <!-- N°06 : Soft power portugais -->
-    <div id="card-06" class="art-card sr" data-theme="culture">
+    <!-- N°05 : Finance française -->
+    <div id="card-05" class="art-card sr" data-theme="finance">
       <div class="art-card-top">
-        <span class="art-tag tag-v" data-fr="Culture & Soft power" data-en="Culture & Soft power">Culture & Soft power</span>
-        <span class="art-num">06</span>
+        <span class="art-tag tag-p" data-fr="Finance & Géographie" data-en="Finance & Geography">Finance & Géographie</span>
+        <span class="art-num">05</span>
       </div>
-      <h3 class="art-title" data-fr="Lisbonne, ou le <em>paradoxe portugais</em>" data-en="Lisbon and the <em>Portuguese paradox</em>">Lisbonne, ou le <em>paradoxe portugais</em></h3>
-      <p class="art-intro" data-fr="Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie." data-en="Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.">Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.</p>
+      <h3 class="art-title" data-fr="Comment la finance française <em>transforme le Portugal</em>" data-en="How French finance <em>is transforming Portugal</em>">Comment la finance française <em>transforme le Portugal</em></h3>
+      <p class="art-intro" data-fr="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française participe à une nouvelle géographie européenne de la technologie bancaire." data-en="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. From Lisbon and Porto, French finance is shaping a new European geography of banking technology.">BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française participe à une nouvelle géographie européenne de la technologie bancaire.</p>
       <div class="art-stat-inline">
-        <div class="art-stat-n">36,1M</div>
-        <div class="art-stat-l" data-fr="Passagers à l'aéroport<br>de Lisbonne en 2025" data-en="Passengers at Lisbon<br>airport in 2025">Passagers à l'aéroport<br>de Lisbonne en 2025</div>
+        <div class="art-stat-n">9 700</div>
+        <div class="art-stat-l" data-fr="Employés BNP Paribas<br>au Portugal" data-en="BNP Paribas employees<br>in Portugal">Employés BNP Paribas<br>au Portugal</div>
       </div>
       <div class="art-foot">
         <span class="art-time">Mai 2026 · 12 min</span>
@@ -644,13 +598,6 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-time">2025 · 7 min</span>
         <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
       </div>
-    </div>
-
-    <!-- Prochain article — soon -->
-    <div class="art-card soon sr">
-      <div class="soon-pill" data-fr="À paraître" data-en="Coming soon">À paraître</div>
-      <div class="art-tag tag-v" style="margin-bottom:12px;display:inline-block" data-fr="Nearshore & IA" data-en="Nearshore & AI">Nearshore & IA</div>
-      <h3 class="art-title" style="color:var(--ink3)" data-fr="L'IA va-t-elle tuer le nearshore — ou seulement les PowerPoints qui le vendent ?" data-en="Will AI kill nearshore — or just the PowerPoints selling it?">L'IA va-t-elle tuer le nearshore — ou seulement les PowerPoints qui le vendent ?</h3>
     </div>
 
   </div>
@@ -773,8 +720,8 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
-  'card-phare': { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
   'card-06':    { fr: 'articles/06-soft-power-portugal-fr.html', en: 'articles/06-soft-power-portugal-en.html' },
+  'card-05':    { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
   'card-04':    { fr: 'articles/miradouro-cloud-FR.html',   en: 'articles/miradouro-cloud-EN.html' },
   'card-03':    { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
   'card-hs':    { fr: 'articles/ai-music-fr.html',          en: 'articles/ai-music-en.html' },
@@ -791,7 +738,7 @@ function applyArticleLinks(lang) {
     el.style.cursor = 'none';
   });
   const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-phare'][lang] || ARTICLE_LINKS['card-phare'].fr;
+  if(hero) hero.href = ARTICLE_LINKS['card-06'][lang] || ARTICLE_LINKS['card-06'].fr;
 }
 
 /*========================================
@@ -802,14 +749,14 @@ const THEME_DATA = {
     stat_num: '9 700',
     stat_label_fr: 'Employés BNP Paribas au Portugal — 4e employeur privé du pays.',
     stat_label_en: 'BNP Paribas employees in Portugal — 4th largest private employer.',
-    kicker_fr: 'Article en cours · Finance', kicker_en: 'Current article · Finance',
-    title_fr: 'Comment la finance française transforme le Portugal',
-    title_en: 'How French finance is transforming Portugal',
-    intro_fr: 'BNP, Natixis, Euronext, AXA. Depuis Lisbonne et Porto, la finance française ne construit plus seulement des centres de support.',
-    intro_en: 'BNP, Natixis, Euronext, AXA. From Lisbon and Porto, French finance no longer just builds support centres.',
-    link_fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html',
-    link_en: 'articles/miradouro_banking_portugal_EN_FINAL.html',
-    theme_label_fr: '— Finance & Géographie', theme_label_en: '— Finance & Geography',
+    kicker_fr: 'Article récent · Soft power', kicker_en: 'Recent article · Soft power',
+    title_fr: 'Lisbonne, ou le paradoxe portugais',
+    title_en: 'Lisbon and the Portuguese paradox',
+    intro_fr: 'Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.',
+    intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
+    link_fr: 'articles/06-soft-power-portugal-fr.html',
+    link_en: 'articles/06-soft-power-portugal-en.html',
+    theme_label_fr: '— Culture & Soft power', theme_label_en: '— Culture & Soft power',
   },
   culture: {
     stat_num: '36,1M',
@@ -947,8 +894,6 @@ currentLang = savedLang;
 if(savedLang === 'en') setLang('en');
 else { applyArticleLinks('fr'); }
 
-// Thème par défaut : finance (article le plus récent)
-setTheme('finance');
 // Filtre par défaut : tout visible
 filterArticles('all');
 document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
