@@ -329,11 +329,11 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   .articles-header { flex-wrap: wrap; }
   .theme-filters { gap: 3px; }
 }
-@media(max-width:480px) {
+@media(max-width:620px) {
   .word-mira, .word-douro { font-size: 13vw; }
   .stats-grid { grid-template-columns: 1fr; }
   .phare-data-strip { gap: 14px; flex-wrap: wrap; }
-  .promesse, .map-feature, .articles, .about-dark, .about-light, .newsletter, footer { padding-left: 10px; padding-right: 10px; }
+  nav, .hero-content, .promesse, .map-feature, .articles, .about-dark, .about-light, .newsletter, footer { padding-left: 10px; padding-right: 10px; }
   .map-feature-content { padding: 24px 18px; }
   .map-feature-visual { min-height: 180px; }
 }
@@ -360,7 +360,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <a href="#articles" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</a>
     <a href="#articles" data-fr="Talent" data-en="Talent">Talent</a>
     <a href="#articles" data-fr="Finance" data-en="Finance">Finance</a>
-    <a href="miradouro-map.html" data-fr="La carte" data-en="The map">La carte</a>
+    <a class="map-link" href="articles/06-soft-power-portugal-fr.html#maps" data-fr="La carte" data-en="The map">La carte</a>
     <a href="#about" data-fr="À propos" data-en="About">À propos</a>
     <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden;margin-left:4px">
       <button onclick="setLang('fr')" id="btnFR" class="lang-btn active">FR</button>
@@ -430,7 +430,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
 <!-- MIRADOURO MAP -->
 <section class="map-feature" id="map">
-  <a class="map-feature-card sr" href="miradouro-map.html">
+  <a class="map-feature-card map-link sr" href="articles/06-soft-power-portugal-fr.html#maps">
     <div class="map-feature-visual">
       <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
         <rect width="700" height="380" fill="#243D2C"/>
@@ -731,7 +731,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <div class="footer-col">
       <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
       <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
-      <a href="miradouro-map.html" data-fr="Miradouro Map" data-en="Miradouro Map">Miradouro Map</a>
+      <a class="map-link" href="articles/06-soft-power-portugal-fr.html#maps" data-fr="Miradouro Map" data-en="Miradouro Map">Miradouro Map</a>
       <a href="#about" data-fr="À propos" data-en="About">À propos</a>
       <a href="#newsletter" data-fr="Newsletter" data-en="Newsletter">Newsletter</a>
     </div>
@@ -794,6 +794,11 @@ function applyArticleLinks(lang) {
   });
   const hero = document.getElementById('link-hero');
   if(hero) hero.href = ARTICLE_LINKS['card-06'][lang] || ARTICLE_LINKS['card-06'].fr;
+  document.querySelectorAll('.map-link').forEach(link => {
+    link.href = (lang === 'en')
+      ? 'articles/06-soft-power-portugal-en.html#maps'
+      : 'articles/06-soft-power-portugal-fr.html#maps';
+  });
 }
 
 /*========================================
