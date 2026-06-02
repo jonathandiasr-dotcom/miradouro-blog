@@ -126,6 +126,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .map-feature-cta { align-items: center; color: var(--pom-d); display: inline-flex; font-size: 9px; font-weight: 800; gap: 8px; letter-spacing: .18em; text-transform: uppercase; transition: gap .2s; }
 .map-feature-cta::after { content: '→'; font-size: 13px; }
 .map-feature-card:hover .map-feature-cta { gap: 13px; }
+.articles .map-feature { padding: 0; margin-bottom: clamp(32px,4vw,52px); }
+.articles .map-feature-card { min-height: 260px; }
+.articles .map-feature-visual { min-height: 260px; }
 
 /*========================================
   SECTION ARTICLES — hiérarchie repensée
@@ -360,7 +363,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <a href="#articles" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</a>
     <a href="#articles" data-fr="Talent" data-en="Talent">Talent</a>
     <a href="#articles" data-fr="Finance" data-en="Finance">Finance</a>
-    <a class="map-link" href="articles/06-soft-power-portugal-fr.html#maps" data-fr="La carte" data-en="The map">La carte</a>
+    <a class="map-link" href="miradouro-map.html" data-fr="La carte" data-en="The map">La carte</a>
     <a href="#about" data-fr="À propos" data-en="About">À propos</a>
     <div style="display:flex;border:1px solid rgba(255,255,255,.18);overflow:hidden;margin-left:4px">
       <button onclick="setLang('fr')" id="btnFR" class="lang-btn active">FR</button>
@@ -428,36 +431,6 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   </p>
 </div>
 
-<!-- MIRADOURO MAP -->
-<section class="map-feature" id="map">
-  <a class="map-feature-card map-link sr" href="articles/06-soft-power-portugal-fr.html#maps">
-    <div class="map-feature-visual">
-      <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
-        <rect width="700" height="380" fill="#243D2C"/>
-        <path d="M0 283C96 239 151 302 232 258C315 212 361 284 449 239C521 202 584 209 700 152V380H0Z" fill="#315D75" opacity=".8"/>
-        <g fill="none" stroke="#C8DAC8" stroke-width="1.2" opacity=".42">
-          <path d="M68 62L154 106L221 82L294 139L377 104L453 146L553 93L637 128"/>
-          <path d="M92 198L169 157L246 202L317 164L396 198L474 173L574 207"/>
-          <path d="M154 106L169 157L92 198M221 82L246 202M294 139L317 164M377 104L396 198M453 146L474 173M553 93L574 207"/>
-        </g>
-        <g fill="#C4973A" stroke="#F0DFA8" stroke-width="2">
-          <circle cx="154" cy="106" r="7"/><circle cx="246" cy="202" r="7"/><circle cx="377" cy="104" r="7"/><circle cx="474" cy="173" r="7"/><circle cx="574" cy="207" r="7"/>
-        </g>
-        <g fill="#EDB89A" opacity=".75">
-          <circle cx="317" cy="164" r="5"/><circle cx="92" cy="198" r="5"/><circle cx="553" cy="93" r="5"/>
-        </g>
-      </svg>
-      <span class="map-feature-stamp" data-fr="Explorer Lisbonne" data-en="Explore Lisbon">Explorer Lisbonne</span>
-    </div>
-    <div class="map-feature-content">
-      <div class="map-feature-kicker" data-fr="Un projet Miradouro" data-en="A Miradouro project">Un projet Miradouro</div>
-      <h2 class="map-feature-title">Miradouro <em>Map</em></h2>
-      <p class="map-feature-copy" data-fr="Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative." data-en="An interactive map of Lisbon's cultural infrastructure: venues, scenes, studios and spaces shaping the creative city.">Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative.</p>
-      <span class="map-feature-cta" data-fr="Ouvrir la carte interactive" data-en="Open the interactive map">Ouvrir la carte interactive</span>
-    </div>
-  </a>
-</section>
-
 <!-- ARTICLES -->
 <section class="articles" id="articles">
 
@@ -477,6 +450,36 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
     <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
   </div>
+
+  <!-- MIRADOURO MAP -->
+  <section class="map-feature" id="map">
+    <a class="map-feature-card map-link sr" href="miradouro-map.html">
+      <div class="map-feature-visual">
+        <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
+          <rect width="700" height="380" fill="#243D2C"/>
+          <path d="M0 283C96 239 151 302 232 258C315 212 361 284 449 239C521 202 584 209 700 152V380H0Z" fill="#315D75" opacity=".8"/>
+          <g fill="none" stroke="#C8DAC8" stroke-width="1.2" opacity=".42">
+            <path d="M68 62L154 106L221 82L294 139L377 104L453 146L553 93L637 128"/>
+            <path d="M92 198L169 157L246 202L317 164L396 198L474 173L574 207"/>
+            <path d="M154 106L169 157L92 198M221 82L246 202M294 139L317 164M377 104L396 198M453 146L474 173M553 93L574 207"/>
+          </g>
+          <g fill="#C4973A" stroke="#F0DFA8" stroke-width="2">
+            <circle cx="154" cy="106" r="7"/><circle cx="246" cy="202" r="7"/><circle cx="377" cy="104" r="7"/><circle cx="474" cy="173" r="7"/><circle cx="574" cy="207" r="7"/>
+          </g>
+          <g fill="#EDB89A" opacity=".75">
+            <circle cx="317" cy="164" r="5"/><circle cx="92" cy="198" r="5"/><circle cx="553" cy="93" r="5"/>
+          </g>
+        </svg>
+        <span class="map-feature-stamp" data-fr="Explorer Lisbonne" data-en="Explore Lisbon">Explorer Lisbonne</span>
+      </div>
+      <div class="map-feature-content">
+        <div class="map-feature-kicker" data-fr="Un projet Miradouro" data-en="A Miradouro project">Un projet Miradouro</div>
+        <h2 class="map-feature-title">Miradouro <em>Map</em></h2>
+        <p class="map-feature-copy" data-fr="Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative." data-en="An interactive map of Lisbon's cultural infrastructure: venues, scenes, studios and spaces shaping the creative city.">Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative.</p>
+        <span class="map-feature-cta" data-fr="Ouvrir la carte interactive" data-en="Open the interactive map">Ouvrir la carte interactive</span>
+      </div>
+    </a>
+  </section>
 
   <!-- NIVEAU 1 : Article phare -->
   <div id="card-06" class="article-phare sr" data-theme="culture">
@@ -731,7 +734,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <div class="footer-col">
       <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
       <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
-      <a class="map-link" href="articles/06-soft-power-portugal-fr.html#maps" data-fr="Miradouro Map" data-en="Miradouro Map">Miradouro Map</a>
+      <a class="map-link" href="miradouro-map.html" data-fr="Miradouro Map" data-en="Miradouro Map">Miradouro Map</a>
       <a href="#about" data-fr="À propos" data-en="About">À propos</a>
       <a href="#newsletter" data-fr="Newsletter" data-en="Newsletter">Newsletter</a>
     </div>
@@ -796,8 +799,8 @@ function applyArticleLinks(lang) {
   if(hero) hero.href = ARTICLE_LINKS['card-06'][lang] || ARTICLE_LINKS['card-06'].fr;
   document.querySelectorAll('.map-link').forEach(link => {
     link.href = (lang === 'en')
-      ? 'articles/06-soft-power-portugal-en.html#maps'
-      : 'articles/06-soft-power-portugal-fr.html#maps';
+      ? 'miradouro-map-en.html'
+      : 'miradouro-map.html';
   });
 }
 
