@@ -1376,7 +1376,7 @@ function setArticleLang(l){
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const colors={concerts:"#C97A5E",festivals:"#C4973A",clubs:"#243D2C",cowork:"#315D75",transformation:"#7A4C66",institutions:"#6A5C50",education:"#5F6F52",beach:"#7A4C66"};
-const symbols={concerts:"â™ª",festivals:"âœ¦",clubs:"â—",cowork:"â–£",transformation:"âŒ‚",institutions:"â—",education:"I",beach:"â‰ˆ"};
+const symbols={concerts:"♪",festivals:"✦",clubs:"●",cowork:"▣",transformation:"⌂",institutions:"◐",education:"I",beach:"≈"};
 const chartData={
   airport:{
     label:"Passagers aéroport de Lisbonne",
@@ -1561,7 +1561,7 @@ const content={
 };
 const maps={},markers={};
 function markerIcon(layer,number,muted,active){
-  return L.divIcon({className:"",html:`<div class="marker ${muted?"is-muted":""} ${active?"is-active":""}" style="--marker-color:${colors[layer]}"><span class="marker-symbol">${symbols[layer]||"â€¢"}</span><span class="marker-number">${number}</span></div>`,iconSize:[40,40],iconAnchor:[20,20],popupAnchor:[0,-20]});
+  return L.divIcon({className:"",html:`<div class="marker ${muted?"is-muted":""} ${active?"is-active":""}" style="--marker-color:${colors[layer]}"><span class="marker-symbol">${symbols[layer]||"•"}</span><span class="marker-number">${number}</span></div>`,iconSize:[40,40],iconAnchor:[20,20],popupAnchor:[0,-20]});
 }
 function popupHtml(point){
   return `<div class="map-label"><strong>${point[0]}</strong><span>${point[1]}</span><em>${point[2]}</em>${point[6]?`<a class="place-link" href="${point[6]}" target="_blank" rel="noopener">Voir le lieu</a>`:""}</div>`;
@@ -1586,7 +1586,7 @@ function initMap(key){
   const filters=card.querySelector(".filters");
   Object.entries(cfg.layers).forEach(([layerKey,layer])=>{
     const chip=document.createElement("button");
-    chip.className="chip";chip.type="button";chip.innerHTML=`${symbols[layerKey]||"â€¢"} ${layer.label} <small>${layer.points.length}</small>`;chip.dataset.layer=layerKey;chip.style.setProperty("--color",colors[layerKey]);
+    chip.className="chip";chip.type="button";chip.innerHTML=`${symbols[layerKey]||"•"} ${layer.label} <small>${layer.points.length}</small>`;chip.dataset.layer=layerKey;chip.style.setProperty("--color",colors[layerKey]);
     chip.addEventListener("click",()=>{cfg.active=layerKey;updateCard(key,0);});
     filters.appendChild(chip);
   });
