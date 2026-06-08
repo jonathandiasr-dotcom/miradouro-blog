@@ -126,9 +126,30 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .map-feature-cta { align-items: center; color: var(--pom-d); display: inline-flex; font-size: 9px; font-weight: 800; gap: 8px; letter-spacing: .18em; text-transform: uppercase; transition: gap .2s; }
 .map-feature-cta::after { content: '→'; font-size: 13px; }
 .map-feature-card:hover .map-feature-cta { gap: 13px; }
-.articles .map-feature { order: -1; padding: 0; margin-bottom: clamp(44px,6vw,72px); }
+.articles .map-feature { padding: 0; margin: clamp(26px,4vw,48px) 0 clamp(44px,6vw,72px); }
 .articles .map-feature-card { min-height: 260px; }
 .articles .map-feature-visual { min-height: 260px; }
+
+/*========================================
+  DOSSIER INTERNET.EXE
+========================================*/
+.dossier-feature { background: var(--ferro); color: var(--creme); margin-bottom: clamp(44px,6vw,72px); border: 1px solid rgba(240,223,168,.28); display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,.95fr); overflow: hidden; position: relative; }
+.dossier-feature::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(251,248,242,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(251,248,242,.035) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
+.dossier-feature-main { position: relative; z-index: 1; padding: clamp(32px,5vw,58px); background: radial-gradient(circle at 12% 10%, rgba(237,184,154,.18), transparent 34%), linear-gradient(145deg,#183022,#243D2C 68%,#16271d); }
+.dossier-feature-kicker { color: var(--ouro-l); font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; }
+.dossier-feature-title { color: #fff; font-family: var(--f1); font-size: clamp(34px,5vw,68px); font-weight: 800; letter-spacing: -.045em; line-height: .96; margin-bottom: 18px; }
+.dossier-feature-title em { color: var(--pom-l); font-style: italic; font-weight: 300; }
+.dossier-feature-copy { color: rgba(251,248,242,.78); font-family: var(--f2); font-size: clamp(17px,1.7vw,22px); font-style: italic; line-height: 1.55; max-width: 680px; margin-bottom: 26px; }
+.dossier-feature-cta { align-items: center; background: var(--pom); color: #fff; display: inline-flex; font-size: 9px; font-weight: 800; gap: 9px; letter-spacing: .18em; padding: 13px 16px; text-transform: uppercase; }
+.dossier-feature-cta::after { content: '→'; font-size: 13px; }
+.dossier-steps { position: relative; z-index: 1; background: var(--creme); color: var(--ferro); display: grid; grid-template-columns: 1fr; gap: 1px; }
+.dossier-step { background: var(--creme); border-bottom: 1px solid var(--rule); padding: 22px 24px; display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
+.dossier-step-num { color: var(--pom-d); font-family: var(--f1); font-size: 34px; font-weight: 800; letter-spacing: -.04em; line-height: .9; }
+.dossier-step-title { color: var(--ferro); font-family: var(--f1); font-size: clamp(19px,2vw,27px); font-weight: 650; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 8px; }
+.dossier-step-copy { color: var(--ink2); font-family: var(--f2); font-size: 15px; font-style: italic; line-height: 1.55; }
+.dossier-step.active { background: var(--pom-g); }
+.dossier-step.active .dossier-step-num { color: var(--verde); }
+.dossier-step-status { color: var(--ouro); display: block; font-family: var(--f3); font-size: 8px; font-style: normal; font-weight: 800; letter-spacing: .16em; margin-top: 11px; text-transform: uppercase; }
 
 /*========================================
   SECTION ARTICLES — hiérarchie repensée
@@ -320,6 +341,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   .article-phare { grid-template-columns: 1fr; }
   .phare-visual { min-height: 180px; }
   .phare-content { padding: 28px 20px; }
+  .dossier-feature { grid-template-columns: 1fr; }
   .map-feature-card { grid-template-columns: 1fr; }
   .map-feature-visual { min-height: 220px; }
   .analyses-grid { grid-template-columns: 1fr; }
@@ -429,10 +451,10 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
       <!-- Colonne 2 : article en avant -->
       <div class="hero-featured">
-        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Article récent · Soft power" data-en="Recent article · Soft power">Article récent · Soft power</div>
-        <div class="hero-featured-title" id="hero-title" data-fr="Lisbonne, ou le paradoxe portugais" data-en="Lisbon and the Portuguese paradox">Lisbonne, ou le paradoxe portugais</div>
-        <div class="hero-featured-intro" id="hero-intro" data-fr="Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle." data-en="Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.">Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.</div>
-        <a id="link-hero" href="articles/06-soft-power-portugal-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Dossier · Internet.exe · 1/4" data-en="Dossier · Internet.exe · 1/4">Dossier · Internet.exe · 1/4</div>
+        <div class="hero-featured-title" id="hero-title" data-fr="Quand l'Europe possédait Internet" data-en="When Europe owned the Internet">Quand l'Europe possédait Internet</div>
+        <div class="hero-featured-intro" id="hero-intro" data-fr="Première étape : une journée sur le web avant les plateformes. Même gestes, autres marques, autre géographie." data-en="Step one: a day on the web before the platforms. Same gestures, different brands, different geography.">Première étape : une journée sur le web avant les plateformes. Même gestes, autres marques, autre géographie.</div>
+        <a id="link-hero" href="articles/internet-exe-europe-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
 
     </div>
@@ -453,8 +475,8 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <!-- En-tête avec thème actif -->
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <span class="articles-theme-active" id="theme-label" data-fr="— Culture & Soft power" data-en="— Culture & Soft power">— Culture & Soft power</span>
-    <span class="articles-count" id="articles-count" data-fr="06 articles · + HS" data-en="06 articles · + special">06 articles · + HS</span>
+    <span class="articles-theme-active" id="theme-label" data-fr="— Infrastructure & Plateformes" data-en="— Infrastructure & Platforms">— Infrastructure & Plateformes</span>
+    <span class="articles-count" id="articles-count" data-fr="07 articles · + HS" data-en="07 articles · + special">07 articles · + HS</span>
   </div>
 
   <!-- Filtres thématiques -->
@@ -466,6 +488,50 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
     <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
   </div>
+
+  <!-- DOSSIER INTERNET.EXE -->
+  <section class="dossier-feature sr" data-theme="infrastructure" aria-label="Dossier Internet.exe Europe">
+    <div class="dossier-feature-main">
+      <div class="dossier-feature-kicker" data-fr="Dossier Miradouro · 4 étapes" data-en="Miradouro dossier · 4 steps">Dossier Miradouro · 4 étapes</div>
+      <h2 class="dossier-feature-title" data-fr="Quand l'Europe <em>possédait Internet</em>" data-en="When Europe <em>owned the Internet</em>">Quand l'Europe <em>possédait Internet</em></h2>
+      <p class="dossier-feature-copy" data-fr="Une série éditoriale façon Windows 2000 : partir d'une journée de 2004, retrouver les champions européens disparus, comprendre la bulle, puis regarder l'IA comme deuxième chance." data-en="A Windows 2000-style editorial series: start with a day in 2004, recover Europe's vanished champions, understand the bubble, then read AI as a second chance.">Une série éditoriale façon Windows 2000 : partir d'une journée de 2004, retrouver les champions européens disparus, comprendre la bulle, puis regarder l'IA comme deuxième chance.</p>
+      <a class="dossier-feature-cta" id="dossier-feature-link" href="articles/internet-exe-europe-fr.html" data-fr="Lire la partie 1" data-en="Read part 1">Lire la partie 1</a>
+    </div>
+    <div class="dossier-steps">
+      <div class="dossier-step active">
+        <div class="dossier-step-num">01</div>
+        <div>
+          <h3 class="dossier-step-title" data-fr="Une journée avant les plateformes" data-en="A day before the platforms">Une journée avant les plateformes</h3>
+          <p class="dossier-step-copy" data-fr="Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires." data-en="Nokia, Caramail, SAPO, Skyblog, Dailymotion: the same gestures, different owners.">Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires.</p>
+          <span class="dossier-step-status" data-fr="En ligne" data-en="Live">En ligne</span>
+        </div>
+      </div>
+      <div class="dossier-step">
+        <div class="dossier-step-num">02</div>
+        <div>
+          <h3 class="dossier-step-title" data-fr="L'atlas des géants disparus" data-en="The atlas of vanished giants">L'atlas des géants disparus</h3>
+          <p class="dossier-step-copy" data-fr="La carte réelle des marques européennes qui tenaient une couche du web." data-en="The real map of European brands that once held a layer of the web.">La carte réelle des marques européennes qui tenaient une couche du web.</p>
+          <span class="dossier-step-status" data-fr="À venir" data-en="Coming soon">À venir</span>
+        </div>
+      </div>
+      <div class="dossier-step">
+        <div class="dossier-step-num">03</div>
+        <div>
+          <h3 class="dossier-step-title" data-fr="La bulle et l'ambition" data-en="The bubble and ambition">La bulle et l'ambition</h3>
+          <p class="dossier-step-copy" data-fr="Capital, distribution, acquisitions : comment l'écosystème a basculé." data-en="Capital, distribution, acquisitions: how the ecosystem shifted.">Capital, distribution, acquisitions : comment l'écosystème a basculé.</p>
+          <span class="dossier-step-status" data-fr="À venir" data-en="Coming soon">À venir</span>
+        </div>
+      </div>
+      <div class="dossier-step">
+        <div class="dossier-step-num">04</div>
+        <div>
+          <h3 class="dossier-step-title" data-fr="L'IA, deuxième chance ?" data-en="AI, a second chance?">L'IA, deuxième chance ?</h3>
+          <p class="dossier-step-copy" data-fr="La question n'est pas la nostalgie. C'est la prochaine couche stratégique." data-en="The question is not nostalgia. It is the next strategic layer.">La question n'est pas la nostalgie. C'est la prochaine couche stratégique.</p>
+          <span class="dossier-step-status" data-fr="À venir" data-en="Coming soon">À venir</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- MIRADOURO MAP -->
   <section class="map-feature" id="map">
@@ -564,6 +630,24 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
+
+    <!-- N°07 : Internet.exe Europe -->
+    <div id="card-07" class="art-card sr" data-theme="infrastructure">
+      <div class="art-card-top">
+        <span class="art-tag tag-g" data-fr="Infrastructure · Plateformes" data-en="Infrastructure · Platforms">Infrastructure · Plateformes</span>
+        <span class="art-num">07</span>
+      </div>
+      <h3 class="art-title" data-fr="Internet.exe Europe — <em>l'autonomie perdue</em>" data-en="Internet.exe Europe — <em>lost autonomy</em>">Internet.exe Europe — <em>l'autonomie perdue</em></h3>
+      <p class="art-intro" data-fr="Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions — et pourquoi cela a basculé." data-en="Before dependency on American platforms, Europe had habits, brands and communities. A vintage map to understand what we had — and why it shifted.">Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions — et pourquoi cela a basculé.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">2000</div>
+        <div class="art-stat-l" data-fr="Windows 2000 comme mémoire<br>de l'Internet européen" data-en="Windows 2000 as memory<br>of the European Internet">Windows 2000 comme mémoire<br>de l'Internet européen</div>
+      </div>
+      <div class="art-foot">
+        <span class="art-time">Juin 2026 · 11 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
+      </div>
+    </div>
 
     <!-- N°05 : Finance française -->
     <div id="card-05" class="art-card sr" data-theme="finance">
@@ -794,6 +878,7 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
+  'card-07':    { fr: 'articles/internet-exe-europe-fr.html', en: 'articles/internet-exe-europe-en.html' },
   'card-06':    { fr: 'articles/06-soft-power-portugal-fr.html', en: 'articles/06-soft-power-portugal-en.html' },
   'card-05':    { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
   'card-04':    { fr: 'articles/miradouro-cloud-FR.html',   en: 'articles/miradouro-cloud-EN.html' },
@@ -812,7 +897,7 @@ function applyArticleLinks(lang) {
     el.style.cursor = 'none';
   });
   const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-06'][lang] || ARTICLE_LINKS['card-06'].fr;
+  if(hero) hero.href = ARTICLE_LINKS['card-07'][lang] || ARTICLE_LINKS['card-07'].fr;
   document.querySelectorAll('.map-link').forEach(link => {
     link.href = (lang === 'en')
       ? 'miradouro-map-en.html'
@@ -851,16 +936,16 @@ const THEME_DATA = {
     theme_label_fr: '— Culture & Soft power', theme_label_en: '— Culture & Soft power',
   },
   infrastructure: {
-    stat_num: '70%',
-    stat_label_fr: 'Du cloud européen entre trois mains américaines. L\'Europe ne contrôle pas son infrastructure.',
-    stat_label_en: 'Of European cloud in three American hands. Europe does not control its infrastructure.',
-    kicker_fr: 'Article récent · Cloud', kicker_en: 'Recent article · Cloud',
-    title_fr: 'Compétences cloud au Portugal — le vide européen',
-    title_en: 'Cloud skills in Portugal — the European gap',
-    intro_fr: '195K spécialistes cloud en Europe. 197 offres Azure au Portugal, 28 AWS, 0 OVHcloud.',
-    intro_en: '195K cloud specialists across Europe. 197 Azure listings, 28 AWS, 0 OVHcloud.',
-    link_fr: 'articles/miradouro-cloud-FR.html',
-    link_en: 'articles/miradouro-cloud-EN.html',
+    stat_num: '2000',
+    stat_label_fr: 'Windows 2000 comme mémoire de l\'Internet européen : usages locaux, marques fortes, plateformes perdues.',
+    stat_label_en: 'Windows 2000 as memory of the European Internet: local habits, strong brands, lost platforms.',
+    kicker_fr: 'Dossier · Internet.exe · 1/4', kicker_en: 'Dossier · Internet.exe · 1/4',
+    title_fr: 'Quand l\'Europe possédait Internet',
+    title_en: 'When Europe owned the Internet',
+    intro_fr: 'Première étape : une journée sur le web avant les plateformes. Même gestes, autres marques, autre géographie.',
+    intro_en: 'Step one: a day on the web before the platforms. Same gestures, different brands, different geography.',
+    link_fr: 'articles/internet-exe-europe-fr.html',
+    link_en: 'articles/internet-exe-europe-en.html',
     theme_label_fr: '— Infrastructure & Cloud', theme_label_en: '— Infrastructure & Cloud',
   },
   talent: {
@@ -891,7 +976,7 @@ const THEME_DATA = {
   }
 };
 
-let currentTheme = 'finance';
+let currentTheme = 'infrastructure';
 let currentLang = 'fr';
 
 function setTheme(theme) {
@@ -919,6 +1004,8 @@ function setTheme(theme) {
   syncEl('theme-label',     d.theme_label_fr,d.theme_label_en);
   var heroLink = document.getElementById('link-hero');
   if(heroLink) heroLink.href = (lang === 'en') ? d.link_en : d.link_fr;
+  var dossierLink = document.getElementById('dossier-feature-link');
+  if(dossierLink) dossierLink.href = (lang === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
   // Filtrer les articles
   filterArticles(theme);
 }
@@ -963,6 +1050,8 @@ function setLang(l) {
   // Mettre à jour le lien hero selon thème actif
   var d2 = THEME_DATA[currentTheme];
   if(d2) document.getElementById('link-hero').href = (l === 'en') ? d2.link_en : d2.link_fr;
+  var dossierLink = document.getElementById('dossier-feature-link');
+  if(dossierLink) dossierLink.href = (l === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
 }
 
 /*========================================

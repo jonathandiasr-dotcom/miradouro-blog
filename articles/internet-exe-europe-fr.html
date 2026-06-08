@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quand l'Europe possédait Internet — Dossier Miradouro</title>
+<meta name="description" content="Dossier Miradouro en 4 parties. Partie 1 : une journée sur Internet avant les plateformes — Nokia, Snake, Caramail, Skyblog, Dailymotion, SAPO. Quand l'archipel était encore européen.">
+<meta name="author" content="Miradouro">
+<meta property="og:title" content="Quand l'Europe possédait Internet — Dossier Miradouro">
+<meta property="og:description" content="Avant les plateformes américaines, Internet ressemblait à un archipel. Et une partie de cet archipel était européenne.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<link rel="canonical" href="https://miradouro.pt/articles/internet-exe-europe-fr.html">
+<link rel="alternate" hreflang="en" href="https://miradouro.pt/articles/internet-exe-europe-en.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="internet-exe.css">
+
+<!-- Styles propres au dossier (réutilisent les variables et l'univers existants) -->
+<style>
+  /* ---------- NAV DOSSIER ---------- */
+  .dossier-nav{background:var(--areia);border-bottom:2px solid var(--rule);padding:clamp(26px,4vw,44px) clamp(16px,5vw,72px)}
+  .dn-head{max-width:1180px;margin:0 auto 18px;display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .dn-kicker{font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--pom)}
+  .dn-progress{font:700 11px var(--mono);letter-spacing:.08em;color:var(--ink)}
+  .dn-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .dn-item{display:flex;flex-direction:column;gap:10px;padding:16px 16px 18px;background:#fff;border:2px solid #fff;border-right-color:#bcae97;border-bottom-color:#bcae97;text-align:left}
+  .dn-item .dn-num{font:700 12px var(--mono);letter-spacing:.06em;color:var(--ink)}
+  .dn-item .dn-name{font-family:var(--f1);font-weight:500;font-size:clamp(15px,1.3vw,18px);line-height:1.12;color:var(--ferro2);letter-spacing:-.01em}
+  .dn-item .dn-status{margin-top:auto;font:700 9.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);opacity:.8}
+  .dn-item.is-active{background:var(--verde);border-right-color:#0f1f16;border-bottom-color:#0f1f16}
+  .dn-item.is-active .dn-num{color:var(--ouro2)}
+  .dn-item.is-active .dn-name{color:var(--creme)}
+  .dn-item.is-active .dn-status{color:var(--pom2);opacity:1}
+  .dn-item.is-soon{opacity:.92}
+  .dn-bar{height:6px;background:var(--rule);position:relative;overflow:hidden}
+  .dn-bar i{position:absolute;inset:0 75% 0 0;background:var(--ouro)}
+  .dn-item.is-active .dn-bar{background:#13251a}
+  .dn-item.is-active .dn-bar i{background:var(--pom2)}
+  @media(max-width:720px){.dn-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* ---------- LE DOSSIER — objectif ---------- */
+  .dintro{background:var(--creme)}
+  .di-wrap{max-width:870px}
+  .arch-body{margin-top:30px}
+  .arch-body p{font-family:var(--f2);font-size:clamp(18px,1.55vw,23px);line-height:1.55;color:var(--ferro2);margin-bottom:17px;text-wrap:pretty}
+  .arch-body p.lede{font-size:clamp(22px,2vw,29px);line-height:1.4;color:var(--ferro);margin-bottom:22px}
+  .arch-body p.lede::first-letter{float:left;font-family:var(--f1);font-weight:700;font-size:3.3em;line-height:.78;padding:6px 12px 0 0;color:var(--pom)}
+  .arch-body strong{color:var(--ferro);font-weight:600}
+  .pull{margin:30px 0;padding:6px 0 6px 24px;border-left:4px solid var(--ouro);font-family:var(--f1);font-weight:300;font-style:italic;font-size:clamp(23px,2.4vw,33px);line-height:1.18;letter-spacing:-.01em;color:var(--verde);max-width:660px;text-wrap:balance}
+  /* Snake easter egg compact */
+  .nokiacta{display:inline-flex;align-items:center;gap:14px;margin-top:24px;background:var(--verde);color:var(--creme);border:2px solid #fff;border-right-color:#0f1f16;border-bottom-color:#0f1f16;padding:11px 18px 11px 11px;cursor:pointer;transition:transform .15s}
+  .nokiacta:hover{transform:translateY(-2px)}
+  .nokiacta .nk-screen{flex:0 0 auto;width:34px;height:42px;background:#9bb33a;border:2px solid #14210a;border-radius:4px;display:grid;place-items:center}
+  .nokiacta .nk-screen svg{width:22px;height:22px}
+  .nokiacta .nk-txt{font:700 11.5px var(--mono);letter-spacing:.03em;line-height:1.45;color:var(--creme)}
+  .nokiacta .nk-txt b{color:var(--ouro2)}
+
+  /* ---------- NEXT EPISODE ---------- */
+  .nextep{background:radial-gradient(circle at 80% 10%,rgba(237,184,154,.16),transparent 40%),linear-gradient(160deg,#1c3325,#223a2c 60%,#172a1f);color:var(--creme)}
+  .ne-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,4vw,54px);align-items:center}
+  .ne-num{font-family:var(--f1);font-weight:300;font-size:clamp(76px,11vw,150px);line-height:.82;letter-spacing:-.04em;color:var(--pom2)}
+  .ne-num span{display:block;font:700 12px var(--mono);letter-spacing:.18em;color:var(--ouro);margin-bottom:10px}
+  .ne-kicker{font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ouro2);margin-bottom:14px}
+  .ne-title{font-family:var(--f1);font-weight:500;font-size:clamp(28px,4vw,52px);line-height:1.02;letter-spacing:-.02em;color:#fff;text-wrap:balance}
+  .ne-title em{font-style:italic;font-weight:300;color:var(--pom2)}
+  .ne-text{font-family:var(--f2);font-size:clamp(18px,1.6vw,23px);line-height:1.5;color:rgba(251,248,242,.85);margin-top:18px;max-width:680px;text-wrap:pretty}
+  .ne-tag{display:inline-block;margin-top:22px;background:#1a140a;color:var(--ouro2);font:700 12px var(--mono);letter-spacing:.16em;padding:10px 18px;border:1px solid rgba(240,223,168,.3)}
+  @media(max-width:720px){.ne-inner{grid-template-columns:1fr}.ne-num{font-size:80px}}
+
+  /* corrections hero : éviter le chevauchement du grand titre italique */
+  .hero h1{font-size:clamp(40px,6vw,84px);line-height:.96}
+  .hero .body-copy{margin-top:34px}
+</style>
+</head>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+<rect width="240" height="240" fill="#243D2C"/>
+<rect x="48" y="62" width="144" height="116" fill="#D4D0C8" stroke="#18140E" stroke-width="3"/>
+<rect x="48" y="62" width="144" height="20" fill="#0a2f8c"/>
+<circle cx="58" cy="72" r="4" fill="#C4973A"/>
+<text x="120" y="132" font-family="Georgia, serif" font-size="50" font-weight="800" fill="#243D2C" text-anchor="middle">.exe</text>
+<text x="120" y="160" font-family="monospace" font-size="12" fill="#C97A5E" text-anchor="middle">DOSSIER · 4 PARTIES</text>
+</svg>
+</template>
+<body>
+<div class="noise"></div>
+<div class="flash" id="flash"></div>
+
+<button class="modem-mute" id="modemMute" title="Couper le son du modem">🔇 couper</button>
+
+<nav class="nav">
+  <a class="brand" href="../index.html#articles">Mira<em>douro</em></a>
+  <div class="nav-right"><a href="#dossier">Le dossier</a><a href="#journee">Partie 1</a><a href="#suite">Suite</a><a class="lang" href="internet-exe-europe-en.html">EN</a></div>
+</nav>
+
+<!-- ========================= HEADER DOSSIER ========================= -->
+<header class="hero" data-screen-label="Hero" data-startrail>
+  <div class="window">
+    <div class="titlebar"><span>Internet.exe — Dossier Europe · 4 parties</span><div class="win-buttons"><span>_</span><span>&#9633;</span><span>&times;</span></div></div>
+    <div class="browserbar"><span>Adresse</span><div class="address">http://europe.internet/dossier/quand-l-europe-possedait-internet.html</div><button class="skip-intro" id="skipIntro">[ SKIP INTRO ]</button></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="kicker">Dossier Miradouro · en 4 parties</div>
+        <h1>Quand l'Europe <em>possédait Internet</em></h1>
+        <div class="body-copy">
+          <p>Avant les plateformes américaines, Internet ressemblait à un archipel. Et une partie de cet archipel était européenne.</p>
+          <p>Un dossier en quatre parties pour comprendre ce qu'on a eu, ce qu'on a perdu — et ce que ça dit de notre prochaine chance. On commence par le plus simple : se souvenir d'une journée.</p>
+        </div>
+        <div class="thesis">
+          <div><strong>1.</strong><span>On avait les usages</span></div>
+          <div><strong>2.</strong><span>On a perdu les plateformes</span></div>
+          <div><strong>3.</strong><span>L'IA rejoue la scène</span></div>
+        </div>
+        <button class="wizz blink" id="wizzBtn" type="button">SEND WIZZZ</button>
+      </div>
+      <aside class="modem">
+        <div>
+          <h2>C:\Europe\Internet&gt; boot</h2>
+          <p class="modem-cap">// on rallume l'Internet européen de l'an 2000.<br>écoute le modem se connecter — puis regarde ce qui charge.</p>
+          <div class="modem-log" id="modemLog"></div>
+        </div>
+        <div class="modem-foot">
+          <div class="loading"><span></span></div>
+          <p class="modem-press">Press any key to continue_</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ========================= NAV DOSSIER ========================= -->
+<nav class="dossier-nav" aria-label="Sommaire du dossier">
+  <div class="dn-head">
+    <span class="dn-kicker">Dossier en 4 parties</span>
+    <span class="dn-progress">Partie 1 / 4 · en lecture</span>
+  </div>
+  <div class="dn-grid">
+    <a class="dn-item is-active" href="#journee" aria-current="page">
+      <span class="dn-num">PARTIE 01</span>
+      <span class="dn-name">Une journée sur Internet avant les plateformes</span>
+      <span class="dn-bar"><i></i></span>
+      <span class="dn-status">En lecture</span>
+    </a>
+    <div class="dn-item is-soon">
+      <span class="dn-num">PARTIE 02</span>
+      <span class="dn-name">L'atlas des géants européens disparus</span>
+      <span class="dn-bar"><i></i></span>
+      <span class="dn-status">À venir</span>
+    </div>
+    <div class="dn-item is-soon">
+      <span class="dn-num">PARTIE 03</span>
+      <span class="dn-name">La bulle Internet a-t-elle tué l'ambition européenne ?</span>
+      <span class="dn-bar"><i></i></span>
+      <span class="dn-status">À venir</span>
+    </div>
+    <div class="dn-item is-soon">
+      <span class="dn-num">PARTIE 04</span>
+      <span class="dn-name">L'IA, la deuxième chance européenne ?</span>
+      <span class="dn-bar"><i></i></span>
+      <span class="dn-status">À venir</span>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================= LE DOSSIER — OBJECTIF (avant la Partie 1) ========================= -->
+<section class="section dintro" id="dossier" data-screen-label="Le dossier">
+  <div class="inner di-wrap">
+    <div class="label">Le dossier · pourquoi</div>
+    <h2 class="section-title">On parle de souveraineté.<br><em>Commençons par se souvenir.</em></h2>
+    <div class="arch-body">
+      <p class="lede">On répète que les Américains ont gagné Internet. C'est vrai aujourd'hui. Ça ne l'a pas toujours été.</p>
+
+      <p>Au début des années 2000, Internet ressemblait à un archipel : des îles distinctes, des langues séparées, des propriétaires différents — et une bonne partie de ces îles étaient européennes. Au Portugal, on cherchait sur <strong>SAPO</strong>, né en 1995 à l'Université d'Aveiro : six étudiants qui avaient indexé le web lusophone avant même que le terme « moteur de recherche » ne veuille dire grand-chose. En 1999, c'était le site le plus visité du pays. Chaque pays avait son SAPO.</p>
+
+      <p class="pull">Sur le moment, personne n'y voyait une époque. C'était juste Internet.</p>
+
+      <p>Ce dossier raconte cet archipel en quatre temps : ce qu'on faisait dessus, la carte des géants qu'on a perdus, pourquoi la bulle de l'an 2000 a peut-être cassé l'ambition européenne, et ce que tout cela dit de notre deuxième chance — l'IA. <strong>On ouvre par le plus accessible : une journée, hier et aujourd'hui.</strong></p>
+
+      <div class="nokiacta" data-snake-open role="button" tabindex="0" aria-label="Jouer à Snake">
+        <span class="nk-screen"><svg viewBox="0 0 54 54" aria-hidden="true"><g fill="#14210a"><rect x="6" y="24" width="9" height="9"/><rect x="15" y="24" width="9" height="9"/><rect x="24" y="24" width="9" height="9"/><rect x="24" y="15" width="9" height="9"/><rect x="33" y="15" width="9" height="9"/></g><rect x="42" y="33" width="7" height="7" fill="#14210a"/></svg></span>
+        <span class="nk-txt">P.S. — ton vieux Nokia marche encore.<br><b>▶ Jouer à Snake</b></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= PARTIE 1 — LA SÉQUENCE (COMPARAISON 2004 VS 2026) ========================= -->
+<section class="section daycompare" id="journee" data-screen-label="Partie 1">
+  <div class="inner">
+    <div class="label">Partie 1 · La séquence</div>
+    <h2 class="section-title">Une journée sur Internet,<br><em>avant les plateformes</em></h2>
+    <p class="lead">La même journée, les mêmes gestes. À gauche, l'Internet de 2004 : une marque différente à chaque étape, et presque toutes européennes. À droite, 2026 : les mêmes besoins, absorbés par une poignée d'entreprises — toutes américaines.</p>
+
+    <div class="dc-grid">
+      <div class="dc-col dc-2000">
+        <div class="dc-colhead"><span class="dc-era">EN 2004</span><span class="dc-tag">marques diverses · faites en Europe</span></div>
+        <div class="dc-rows">
+          <div class="dc-row"><span class="dc-time">07:30</span><span class="dc-act">Je relève mes mails</span><span class="dc-logo"><img src="../assets/logos/caramail.jpg" alt="Caramail"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/fr.svg" alt="FR"></span></div>
+          <div class="dc-row"><span class="dc-time">08:00</span><span class="dc-act">Je cherche une info</span><span class="dc-logo"><img src="../assets/logos/sapo.svg" alt="SAPO"></span><span class="dc-meta"><span class="dc-own">Univ. Aveiro</span><img class="dc-flag" src="../assets/flags/pt.svg" alt="PT"></span></div>
+          <div class="dc-row"><span class="dc-time">12:30</span><span class="dc-act">J'achète un truc</span><span class="dc-logo"><img src="../assets/logos/ibazar.png" alt="iBazar"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/fr.svg" alt="FR"></span></div>
+          <div class="dc-row"><span class="dc-time">18:00</span><span class="dc-act">J'appelle mes potes</span><span class="dc-logo"><img src="../assets/logos/skype.png" alt="Skype"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/ee.svg" alt="EE"></span></div>
+          <div class="dc-row"><span class="dc-time">19:00</span><span class="dc-act">Je publie ma vie</span><span class="dc-logo"><img src="../assets/logos/skyblog.jpg" alt="Skyblog"></span><span class="dc-meta"><span class="dc-own">Skyrock</span><img class="dc-flag" src="../assets/flags/fr.svg" alt="FR"></span></div>
+          <div class="dc-row"><span class="dc-time">20:00</span><span class="dc-act">Je regarde une vidéo</span><span class="dc-logo"><img src="../assets/logos/dailymotion.png" alt="Dailymotion"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/fr.svg" alt="FR"></span></div>
+          <div class="dc-row"><span class="dc-time">21:00</span><span class="dc-act">Je cherche l'amour</span><span class="dc-logo"><img src="../assets/logos/meetic.png" alt="Meetic"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/fr.svg" alt="FR"></span></div>
+          <div class="dc-row"><span class="dc-time">22:00</span><span class="dc-act">Je trouve mon chemin</span><span class="dc-logo"><img src="../assets/logos/tomtom.png" alt="TomTom"></span><span class="dc-meta"><span class="dc-own">indép.</span><img class="dc-flag" src="../assets/flags/nl.svg" alt="NL"></span></div>
+        </div>
+        <div class="dc-foot"><strong>8 services · 8 entreprises.</strong> 8 européennes, indépendantes.</div>
+      </div>
+
+      <div class="dc-col dc-2026">
+        <div class="dc-colhead"><span class="dc-era">EN 2026</span><span class="dc-tag">mêmes gestes · une poignée de propriétaires</span></div>
+        <div class="dc-rows">
+          <div class="dc-row"><span class="dc-time">07:30</span><span class="dc-act">Je relève mes mails</span><span class="dc-logo"><img src="../assets/logos/google.svg" alt="Gmail"></span><span class="dc-meta"><span class="dc-own">Google</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">08:00</span><span class="dc-act">Je cherche une info</span><span class="dc-logo"><img src="../assets/logos/google.svg" alt="Google"></span><span class="dc-meta"><span class="dc-own">Google</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">12:30</span><span class="dc-act">J'achète un truc</span><span class="dc-logo"><img src="../assets/logos/amazon.svg" alt="Amazon"></span><span class="dc-meta"><span class="dc-own">Amazon</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">18:00</span><span class="dc-act">J'appelle mes potes</span><span class="dc-logo"><img src="../assets/logos/whatsapp.svg" alt="WhatsApp"></span><span class="dc-meta"><span class="dc-own">Meta</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">19:00</span><span class="dc-act">Je publie ma vie</span><span class="dc-logo"><img src="../assets/logos/instagram.svg" alt="Instagram"></span><span class="dc-meta"><span class="dc-own">Meta</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">20:00</span><span class="dc-act">Je regarde une vidéo</span><span class="dc-logo"><img src="../assets/logos/youtube.svg" alt="YouTube"></span><span class="dc-meta"><span class="dc-own">Google</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">21:00</span><span class="dc-act">Je cherche l'amour</span><span class="dc-logo"><img src="../assets/logos/tinder.svg" alt="Tinder"></span><span class="dc-meta"><span class="dc-own">Match</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+          <div class="dc-row"><span class="dc-time">22:00</span><span class="dc-act">Je trouve mon chemin</span><span class="dc-logo"><img src="../assets/logos/gmaps.svg" alt="Google Maps"></span><span class="dc-meta"><span class="dc-own">Google</span><img class="dc-flag" src="../assets/flags/us.svg" alt="US"></span></div>
+        </div>
+        <div class="dc-foot dc-foot-cold"><strong>8 services · 4 entreprises.</strong> 0 européenne.</div>
+      </div>
+    </div>
+    <p class="dc-kicker">On n'a pas seulement changé de marques. On a échangé un écosystème vivant, pluriel et largement européen contre quatre propriétaires américains. La suite du dossier raconte comment, enseigne après enseigne, l'archipel a été racheté.</p>
+  </div>
+</section>
+
+<!-- ========================= NEXT EPISODE ========================= -->
+<section class="section nextep" id="suite" data-screen-label="Prochain épisode">
+  <div class="ne-inner">
+    <div class="ne-num"><span>PROCHAIN ÉPISODE</span>02</div>
+    <div>
+      <div class="ne-kicker">Quand l'Europe possédait Internet</div>
+      <h2 class="ne-title">Partie 2 : <em>L'atlas des géants européens disparus</em></h2>
+      <p class="ne-text">Nokia, Ericsson, Alcatel, SAP, Skype, SAPO, ARM, TomTom… Dans la deuxième partie, on quitte la nostalgie pour regarder la carte réelle des champions européens du numérique.</p>
+      <span class="ne-tag">À VENIR</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="footer" data-screen-label="Footer">
+  <div class="marquee"><div class="marquee-track" id="marqueeTrack"></div></div>
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="counter-block">
+        <span class="counter-label">Vous êtes le visiteur n°</span>
+        <span class="odometer" id="odometer"></span>
+      </div>
+      <p class="ie-line">Ce site est optimisé pour Internet Explorer 6.0 à 800×600</p>
+      <p class="ie-line">Netscape 4.x supporté. Flash Player 6 requis.</p>
+    </div>
+    <div class="footer-col footer-links">
+      <a href="../index.html#articles">← Retour aux articles</a>
+      <a href="#dossier">Voir le dossier en 4 parties →</a>
+    </div>
+  </div>
+  <div class="sources">
+    <button class="sources-toggle" id="sourcesToggle" type="button" aria-expanded="false"><span class="src-arrow">▸</span> Sources &amp; références — Partie 1</button>
+    <div class="sources-body" id="sourcesBody" hidden>
+      <ul>
+        <li><strong>SAPO :</strong> Université d'Aveiro (1995) · 1er site du Portugal en 1999 · Portugal Telecom / MEO / Altice.</li>
+        <li><strong>Nokia :</strong> ~40 % de parts de marché mobile mondial en 2007.</li>
+        <li><strong>Skype :</strong> ingénierie estonienne (Tallinn), 2003.</li>
+        <li><strong>Dailymotion :</strong> lancé en mars 2005, même mois que YouTube.</li>
+        <li><strong>Skyblog :</strong> ComScore — 11,5M visiteurs (avril 2008).</li>
+        <li><strong>Caramail :</strong> messagerie et « Wizz » des années 2000.</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================= SNAKE (easter egg Nokia · Partie 1) ========================= -->
+<div class="snake-overlay" id="snakeOverlay" aria-hidden="true">
+  <div class="nokia" role="dialog" aria-label="Snake">
+    <button class="snake-x" data-snake-close aria-label="Fermer">✕</button>
+    <div class="nokia-top"><span class="nokia-brand">3210</span><span class="nokia-net">▮▮▮ ▂▄▆</span></div>
+    <div class="nokia-screen">
+      <div class="nokia-hud"><span>SCORE <b id="snakeScore">000</b></span><span>BEST <b id="snakeBest">000</b></span></div>
+      <canvas id="snakeCanvas" tabindex="0"></canvas>
+      <div class="nokia-state" id="snakeState">▲ ▼ ◀ ▶ pour jouer</div>
+    </div>
+    <div class="nokia-keys">
+      <button class="nk-up" data-snk="up" aria-label="Haut">▲</button>
+      <button class="nk-left" data-snk="left" aria-label="Gauche">◀</button>
+      <button class="nk-ok" data-snk="ok" aria-label="OK">●</button>
+      <button class="nk-right" data-snk="right" aria-label="Droite">▶</button>
+      <button class="nk-down" data-snk="down" aria-label="Bas">▼</button>
+    </div>
+    <div class="nokia-foot">SNAKE · clavier : flèches + espace</div>
+  </div>
+</div>
+
+<!-- WIZZ toast (MSN Messenger) -->
+<div class="wizz-toast" id="wizzToast">
+  <div class="wt-titlebar"><span>MSN Messenger</span><button class="wt-close" id="wtClose" type="button">&times;</button></div>
+  <div class="wt-body">Jonathan vous a envoyé un WIZZ 💬</div>
+</div>
+
+<!--
+================================================================
+  RESERVED FOR PART 2 — L'atlas des géants européens disparus
+  (Contenu déplacé depuis l'article original. À récupérer tel quel.)
+  ----------------------------------------------------------------
+  · Section ACTE 1 — ATLAS : carte SVG d'Europe interactive
+    (#atlas, .atlas-shell, .euro-svg, #atlasTabs, #atlasPanel)
+  · Données pays/entreprises : internet-exe-data.js
+    (COUNTRIES, COMPANIES, ORDER — 12 pays, 33 entreprises)
+  · Logique carte + fiches : renderCountry(), initMap(), companyCard()
+    dans internet-exe-app.js
+  · Mur d'enseignes (logos rétro) retiré de la Partie 1 — à réinvestir ici.
+  · EASTER EGG PARTIE 2 : lecteur Winamp « SOM.EXE » (déplacé depuis la Partie 1)
+    markup .winamp + logique waPlay/waEq dans internet-exe-app.js
+  · Logos vectorisés : internet-exe-logos.js (LOGO_DATA)
+  ⮕ Source intacte : articles/internet-exe.html (section #atlas)
+================================================================
+-->
+
+<!--
+================================================================
+  RESERVED FOR PART 3 — La bulle Internet a-t-elle tué l'ambition ?
+  ----------------------------------------------------------------
+  · Graphique NASDAQ.EXE (Chart.js dual-axis NASDAQ + VC européen)
+    initChart() dans internet-exe-app.js + <canvas id="nasdaqChart">
+  · Analyses parts de marché et explications économiques
+  · Arcs de bulle : World Online, Boo.com, Freeserve, Terra/Lycos, Tiscali
+  · Section TERRAIN — Jonathan / recrutement Meritis (le « mouton à 5 pattes »)
+    peut basculer ici ou en Partie 4 selon l'angle retenu.
+  ⮕ Source intacte : articles/internet-exe.html (sections charts + terrain)
+================================================================
+-->
+
+<!--
+================================================================
+  RESERVED FOR PART 4 — L'IA, la deuxième chance européenne ?
+  ----------------------------------------------------------------
+  · Mistral AI (levée 600M€) et la couche IA de 2026
+  · Parallèle « on rejoue 2000 » : usages présents, plateforme absente
+  · Conclusion / call-to-action souveraineté numérique
+  ⮕ Source intacte : articles/internet-exe.html (Acte final / 2026)
+================================================================
+-->
+
+<script src="internet-exe-p1.js"></script>
+<script src="internet-exe-snake.js"></script>
+</body>
+</html>
+
