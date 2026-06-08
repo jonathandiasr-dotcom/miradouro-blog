@@ -472,23 +472,6 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 <!-- ARTICLES -->
 <section class="articles" id="articles">
 
-  <!-- En-tête avec thème actif -->
-  <div class="articles-header">
-    <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <span class="articles-theme-active" id="theme-label" data-fr="— Infrastructure & Plateformes" data-en="— Infrastructure & Platforms">— Infrastructure & Plateformes</span>
-    <span class="articles-count" id="articles-count" data-fr="07 articles · + HS" data-en="07 articles · + special">07 articles · + HS</span>
-  </div>
-
-  <!-- Filtres thématiques -->
-  <div class="theme-filters">
-    <button class="filter-btn" data-filter="all" onclick="filterArticles('all')" data-fr="Tout" data-en="All">Tout</button>
-    <button class="filter-btn" data-filter="finance" onclick="filterArticles('finance')" data-fr="Finance" data-en="Finance">Finance</button>
-    <button class="filter-btn" data-filter="culture" onclick="filterArticles('culture')" data-fr="Culture" data-en="Culture">Culture</button>
-    <button class="filter-btn" data-filter="infrastructure" onclick="filterArticles('infrastructure')" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</button>
-    <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
-    <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
-  </div>
-
   <!-- DOSSIER INTERNET.EXE -->
   <section class="dossier-feature sr" data-theme="infrastructure" aria-label="Dossier Internet.exe Europe">
     <div class="dossier-feature-main">
@@ -533,35 +516,22 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     </div>
   </section>
 
-  <!-- MIRADOURO MAP -->
-  <section class="map-feature" id="map">
-    <a class="map-feature-card map-link sr" href="miradouro-map.html">
-      <div class="map-feature-visual">
-        <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
-          <rect width="700" height="380" fill="#243D2C"/>
-          <path d="M0 283C96 239 151 302 232 258C315 212 361 284 449 239C521 202 584 209 700 152V380H0Z" fill="#315D75" opacity=".8"/>
-          <g fill="none" stroke="#C8DAC8" stroke-width="1.2" opacity=".42">
-            <path d="M68 62L154 106L221 82L294 139L377 104L453 146L553 93L637 128"/>
-            <path d="M92 198L169 157L246 202L317 164L396 198L474 173L574 207"/>
-            <path d="M154 106L169 157L92 198M221 82L246 202M294 139L317 164M377 104L396 198M453 146L474 173M553 93L574 207"/>
-          </g>
-          <g fill="#C4973A" stroke="#F0DFA8" stroke-width="2">
-            <circle cx="154" cy="106" r="7"/><circle cx="246" cy="202" r="7"/><circle cx="377" cy="104" r="7"/><circle cx="474" cy="173" r="7"/><circle cx="574" cy="207" r="7"/>
-          </g>
-          <g fill="#EDB89A" opacity=".75">
-            <circle cx="317" cy="164" r="5"/><circle cx="92" cy="198" r="5"/><circle cx="553" cy="93" r="5"/>
-          </g>
-        </svg>
-        <span class="map-feature-stamp" data-fr="Explorer Lisbonne" data-en="Explore Lisbon">Explorer Lisbonne</span>
-      </div>
-      <div class="map-feature-content">
-        <div class="map-feature-kicker" data-fr="Un projet Miradouro" data-en="A Miradouro project">Un projet Miradouro</div>
-        <h2 class="map-feature-title">Miradouro <em>Map</em></h2>
-        <p class="map-feature-copy" data-fr="Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative." data-en="An interactive map of Lisbon's cultural infrastructure: venues, scenes, studios and spaces shaping the creative city.">Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative.</p>
-        <span class="map-feature-cta" data-fr="Ouvrir la carte interactive" data-en="Open the interactive map">Ouvrir la carte interactive</span>
-      </div>
-    </a>
-  </section>
+  <!-- En-tête avec thème actif -->
+  <div class="articles-header">
+    <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
+    <span class="articles-theme-active" id="theme-label" data-fr="— Infrastructure & Plateformes" data-en="— Infrastructure & Platforms">— Infrastructure & Plateformes</span>
+    <span class="articles-count" id="articles-count" data-fr="07 articles · + HS" data-en="07 articles · + special">07 articles · + HS</span>
+  </div>
+
+  <!-- Filtres thématiques -->
+  <div class="theme-filters">
+    <button class="filter-btn" data-filter="all" onclick="filterArticles('all')" data-fr="Tout" data-en="All">Tout</button>
+    <button class="filter-btn" data-filter="finance" onclick="filterArticles('finance')" data-fr="Finance" data-en="Finance">Finance</button>
+    <button class="filter-btn" data-filter="culture" onclick="filterArticles('culture')" data-fr="Culture" data-en="Culture">Culture</button>
+    <button class="filter-btn" data-filter="infrastructure" onclick="filterArticles('infrastructure')" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</button>
+    <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
+    <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
+  </div>
 
   <!-- NIVEAU 1 : Article phare -->
   <div id="card-06" class="article-phare sr" data-theme="culture">
@@ -758,6 +728,36 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     </div>
 
   </div>
+
+  <!-- MIRADOURO MAP -->
+  <section class="map-feature" id="map">
+    <a class="map-feature-card map-link sr" href="miradouro-map.html">
+      <div class="map-feature-visual">
+        <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
+          <rect width="700" height="380" fill="#243D2C"/>
+          <path d="M0 283C96 239 151 302 232 258C315 212 361 284 449 239C521 202 584 209 700 152V380H0Z" fill="#315D75" opacity=".8"/>
+          <g fill="none" stroke="#C8DAC8" stroke-width="1.2" opacity=".42">
+            <path d="M68 62L154 106L221 82L294 139L377 104L453 146L553 93L637 128"/>
+            <path d="M92 198L169 157L246 202L317 164L396 198L474 173L574 207"/>
+            <path d="M154 106L169 157L92 198M221 82L246 202M294 139L317 164M377 104L396 198M453 146L474 173M553 93L574 207"/>
+          </g>
+          <g fill="#C4973A" stroke="#F0DFA8" stroke-width="2">
+            <circle cx="154" cy="106" r="7"/><circle cx="246" cy="202" r="7"/><circle cx="377" cy="104" r="7"/><circle cx="474" cy="173" r="7"/><circle cx="574" cy="207" r="7"/>
+          </g>
+          <g fill="#EDB89A" opacity=".75">
+            <circle cx="317" cy="164" r="5"/><circle cx="92" cy="198" r="5"/><circle cx="553" cy="93" r="5"/>
+          </g>
+        </svg>
+        <span class="map-feature-stamp" data-fr="Explorer Lisbonne" data-en="Explore Lisbon">Explorer Lisbonne</span>
+      </div>
+      <div class="map-feature-content">
+        <div class="map-feature-kicker" data-fr="Un projet Miradouro" data-en="A Miradouro project">Un projet Miradouro</div>
+        <h2 class="map-feature-title">Miradouro <em>Map</em></h2>
+        <p class="map-feature-copy" data-fr="Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative." data-en="An interactive map of Lisbon's cultural infrastructure: venues, scenes, studios and spaces shaping the creative city.">Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative.</p>
+        <span class="map-feature-cta" data-fr="Ouvrir la carte interactive" data-en="Open the interactive map">Ouvrir la carte interactive</span>
+      </div>
+    </a>
+  </section>
 </section>
 
 <!-- ABOUT -->
