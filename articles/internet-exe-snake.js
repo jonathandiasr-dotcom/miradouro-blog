@@ -50,83 +50,37 @@ function initModemSound(){
     playing: isFr ? "🔊 couper" : "🔊 mute",
     stopped: isFr ? "🔇 relancer" : "🔇 replay"
   };
-  let ctx, master, noiseSource, timers = [], playing = false, triedAutoplay = false;
+  const audio = new Audio("../assets/audio/dial-up-modem-01.mp3");
+  audio.preload = "auto";
+  audio.volume = 0.55;
+  let playing = false, triedAutoplay = false;
   function setButton(){
     if(button) button.textContent = playing ? labels.playing : labels.stopped;
   }
-  function clearTimers(){
-    timers.forEach(id => clearTimeout(id));
-    timers = [];
-  }
   function stop(){
-    clearTimers();
     playing = false;
-    try { noiseSource?.stop(); } catch(e) {}
-    try { master?.gain.cancelScheduledValues(ctx.currentTime); master?.gain.setTargetAtTime(0, ctx.currentTime, .025); } catch(e) {}
+    audio.pause();
+    audio.currentTime = 0;
     setButton();
-  }
-  function makeNoise(duration){
-    const sampleRate = ctx.sampleRate;
-    const buffer = ctx.createBuffer(1, Math.ceil(sampleRate * duration), sampleRate);
-    const data = buffer.getChannelData(0);
-    for(let i = 0; i < data.length; i++) data[i] = (Math.random() * 2 - 1) * .23;
-    const source = ctx.createBufferSource();
-    source.buffer = buffer;
-    const filter = ctx.createBiquadFilter();
-    filter.type = "bandpass";
-    filter.frequency.value = 1800;
-    filter.Q.value = 1.9;
-    source.connect(filter).connect(master);
-    return source;
-  }
-  function beep(at, freq, duration, gain){
-    const osc = ctx.createOscillator();
-    const g = ctx.createGain();
-    osc.type = "square";
-    osc.frequency.setValueAtTime(freq, at);
-    g.gain.setValueAtTime(0, at);
-    g.gain.linearRampToValueAtTime(gain, at + .015);
-    g.gain.exponentialRampToValueAtTime(.0001, at + duration);
-    osc.connect(g).connect(master);
-    osc.start(at);
-    osc.stop(at + duration + .03);
   }
   async function play(){
     if(playing) return;
-    if(!ctx){
-      ctx = new (window.AudioContext || window.webkitAudioContext)();
-      master = ctx.createGain();
-      master.gain.value = 0;
-      master.connect(ctx.destination);
-    }
-    try { await ctx.resume(); } catch(e) {}
-    if(ctx.state !== "running") return false;
     stop();
     playing = true;
     setButton();
-    const now = ctx.currentTime + .05;
-    master.gain.cancelScheduledValues(now);
-    master.gain.setValueAtTime(0, now);
-    master.gain.linearRampToValueAtTime(.18, now + .08);
-    master.gain.setValueAtTime(.18, now + 4.4);
-    master.gain.linearRampToValueAtTime(0, now + 4.9);
-    noiseSource = makeNoise(4.9);
-    noiseSource.start(now);
-    const tones = [
-      [0.00, 1200, .10, .08], [0.16, 980, .11, .08], [0.34, 1450, .09, .08],
-      [0.55, 1700, .18, .07], [0.80, 650, .14, .08], [1.05, 2100, .09, .07],
-      [1.25, 900, .22, .08], [1.55, 1500, .18, .08], [1.86, 2400, .12, .06],
-      [2.12, 780, .24, .08], [2.48, 1320, .18, .07], [2.82, 1880, .14, .07],
-      [3.12, 1040, .20, .08], [3.46, 2250, .12, .06], [3.72, 1480, .34, .07],
-      [4.18, 620, .32, .08]
-    ];
-    tones.forEach(t => beep(now + t[0], t[1], t[2], t[3]));
-    timers.push(setTimeout(stop, 5100));
-    return true;
+    try {
+      await audio.play();
+      return true;
+    } catch(e) {
+      playing = false;
+      setButton();
+      return false;
+    }
   }
   function arm(){
     if(!button) return;
     setButton();
+    audio.addEventListener("ended", stop);
     if(!triedAutoplay){
       triedAutoplay = true;
       play();
