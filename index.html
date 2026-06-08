@@ -144,6 +144,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .dossier-feature-cta::after { content: '→'; font-size: 13px; }
 .dossier-steps { position: relative; z-index: 1; background: var(--creme); color: var(--ferro); display: grid; grid-template-columns: 1fr; gap: 1px; }
 .dossier-step { background: var(--creme); border-bottom: 1px solid var(--rule); padding: 22px 24px; display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
+.dossier-step-link { cursor: none; text-decoration: none; transition: background .2s ease, transform .2s ease; }
+.dossier-step-link:hover { background: #fff; transform: translateX(4px); }
 .dossier-step-num { color: var(--pom-d); font-family: var(--f1); font-size: 34px; font-weight: 800; letter-spacing: -.04em; line-height: .9; }
 .dossier-step-title { color: var(--ferro); font-family: var(--f1); font-size: clamp(19px,2vw,27px); font-weight: 650; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 8px; }
 .dossier-step-copy { color: var(--ink2); font-family: var(--f2); font-size: 15px; font-style: italic; line-height: 1.55; }
@@ -481,14 +483,14 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       <a class="dossier-feature-cta" id="dossier-feature-link" href="articles/internet-exe-europe-fr.html" data-fr="Lire la partie 1" data-en="Read part 1">Lire la partie 1</a>
     </div>
     <div class="dossier-steps">
-      <div class="dossier-step active">
+      <a class="dossier-step dossier-step-link active" id="dossier-step-01-link" href="articles/internet-exe-europe-fr.html">
         <div class="dossier-step-num">01</div>
         <div>
           <h3 class="dossier-step-title" data-fr="Une journée avant les plateformes" data-en="A day before the platforms">Une journée avant les plateformes</h3>
           <p class="dossier-step-copy" data-fr="Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires." data-en="Nokia, Caramail, SAPO, Skyblog, Dailymotion: the same gestures, different owners.">Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires.</p>
           <span class="dossier-step-status" data-fr="En ligne" data-en="Live">En ligne</span>
         </div>
-      </div>
+      </a>
       <div class="dossier-step">
         <div class="dossier-step-num">02</div>
         <div>
@@ -1006,6 +1008,8 @@ function setTheme(theme) {
   if(heroLink) heroLink.href = (lang === 'en') ? d.link_en : d.link_fr;
   var dossierLink = document.getElementById('dossier-feature-link');
   if(dossierLink) dossierLink.href = (lang === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
+  var dossierStep01 = document.getElementById('dossier-step-01-link');
+  if(dossierStep01) dossierStep01.href = (lang === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
   // Filtrer les articles
   filterArticles(theme);
 }
@@ -1052,6 +1056,8 @@ function setLang(l) {
   if(d2) document.getElementById('link-hero').href = (l === 'en') ? d2.link_en : d2.link_fr;
   var dossierLink = document.getElementById('dossier-feature-link');
   if(dossierLink) dossierLink.href = (l === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
+  var dossierStep01 = document.getElementById('dossier-step-01-link');
+  if(dossierStep01) dossierStep01.href = (l === 'en') ? THEME_DATA.infrastructure.link_en : THEME_DATA.infrastructure.link_fr;
 }
 
 /*========================================
