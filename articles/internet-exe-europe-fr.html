@@ -57,6 +57,33 @@
   .nokiacta .nk-txt{font:700 11.5px var(--mono);letter-spacing:.03em;line-height:1.45;color:var(--creme)}
   .nokiacta .nk-txt b{color:var(--ouro2)}
 
+  /* ---------- CE QU'ON A VRAIMENT PERDU ---------- */
+  .loss-note{margin-top:34px;background:#fff;border:2px solid #fff;border-right-color:#bcae97;border-bottom-color:#bcae97;box-shadow:0 18px 44px rgba(24,20,14,.08)}
+  .loss-titlebar{height:32px;background:linear-gradient(90deg,#082b86,#1b7bc6);display:flex;align-items:center;justify-content:space-between;color:white;padding:0 8px 0 12px;font:700 12px var(--mono)}
+  .loss-buttons{display:flex;gap:4px}
+  .loss-buttons span{display:grid;place-items:center;width:21px;height:19px;background:#c8c8c8;border:1px solid #fff;border-right-color:#222;border-bottom-color:#222;color:#111;font-size:11px}
+  .loss-screen{padding:28px clamp(22px,4vw,40px) 32px;background:linear-gradient(#fff,#fffdf8)}
+  .loss-note .label{color:var(--pom);margin-bottom:16px}
+  .loss-note p{font-family:var(--f2);font-size:clamp(20px,1.65vw,25px);line-height:1.48;color:var(--ferro2);max-width:900px;margin:0 0 17px;text-wrap:pretty}
+  .loss-note p:last-child{margin-bottom:0}
+  .loss-note strong{color:var(--ferro);font-weight:700}
+  .mobile-boot{display:none}
+  @media(max-width:620px){
+    .hero .modem{display:none}
+    .mobile-boot{display:block;background:var(--verde);padding:18px 14px 46px}
+    .mobile-boot .modem{display:block;min-height:auto;max-width:520px;margin:0 auto}
+    .loss-note{margin-top:24px}
+    .loss-screen{padding:22px 16px 24px}
+    .loss-note p{font-size:20px;line-height:1.42}
+    .snake-overlay{padding:10px;align-items:flex-start;overflow:auto}
+    .nokia{width:min(360px,100%);padding:16px;margin:10px auto 18px;border-radius:22px}
+    .nokia-screen{padding:8px}
+    .nokia-keys{gap:10px;margin-top:12px;touch-action:none}
+    .nokia-keys button{min-height:52px;font-size:18px;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    #snakeCanvas{touch-action:none}
+    .nokia-foot{font-size:10px;line-height:1.35}
+  }
+
   /* ---------- NEXT EPISODE ---------- */
   .nextep{background:radial-gradient(circle at 80% 10%,rgba(237,184,154,.16),transparent 40%),linear-gradient(160deg,#1c3325,#223a2c 60%,#172a1f);color:var(--creme)}
   .ne-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:clamp(26px,4vw,54px);align-items:center}
@@ -225,7 +252,37 @@
       </div>
     </div>
     <p class="dc-kicker">On n'a pas seulement changé de marques. On a échangé un écosystème vivant, pluriel et largement européen contre quatre propriétaires américains. La suite du dossier raconte comment, enseigne après enseigne, l'archipel a été racheté.</p>
+    <div class="loss-note">
+      <div class="loss-titlebar"><span>WHAT_WAS_LOST.TXT - Notepad</span><div class="loss-buttons"><span>_</span><span>&#9633;</span><span>&times;</span></div></div>
+      <div class="loss-screen">
+        <div class="label">Ce qu'on a vraiment perdu</div>
+        <p>Le sujet n'est pas seulement nostalgique. Perdre Caramail, Skyblog, SAPO, Skype ou TomTom, ce n'est pas seulement perdre des logos familiers. C'est perdre des <strong>points d'entrée</strong> dans la vie numérique quotidienne : chercher, écrire, publier, appeler, se déplacer, acheter, rencontrer.</p>
+        <p>On a aussi perdu des <strong>fleurons économiques</strong>. Derrière chaque service absorbé, racheté ou marginalisé, il y avait des équipes, des ingénieurs, des designers, des commerciaux, des centres de décision, des savoir-faire. Quand les plateformes disparaissent, les emplois hautement qualifiés ne disparaissent pas toujours d'un coup, mais ils se déplacent. La valeur, elle, finit souvent ailleurs.</p>
+        <p>Et puis il y a les <strong>données</strong>. Les gestes sont restés les mêmes, mais les traces qu'ils produisent partent désormais dans d'autres infrastructures, sous d'autres lois, au service d'autres modèles économiques. Cambridge Analytica a montré ce que le ciblage pouvait faire à la politique. Les révélations Snowden ont rappelé que la donnée n'est jamais seulement commerciale : elle est aussi stratégique.</p>
+        <p>C'est peut-être cela, la vraie bascule : l'Europe n'a pas seulement perdu des plateformes. Elle a perdu des entreprises, des emplois, des capteurs et une partie de sa capacité à lire le monde numérique qu'elle habite.</p>
+      </div>
+    </div>
   </div>
+</section>
+
+<section class="mobile-boot" aria-label="Terminal Internet Europe">
+  <aside class="modem">
+    <div>
+      <h2>C:\Europe\Internet&gt; boot</h2>
+      <p class="modem-cap">// bonus archive : l'ancien terminal charge plus bas sur mobile, une fois le coeur de l'article lu.</p>
+      <div class="modem-log">
+        <p>&gt; Loading Caramail.dll...</p>
+        <p>&gt; Mounting Nokia_OS.img...</p>
+        <p>&gt; Opening SAPO.pt...</p>
+        <p>&gt; Connecting Dailymotion 240p...</p>
+        <p>&gt; Status: autonomy found, platform layer missing.</p>
+      </div>
+    </div>
+    <div class="modem-foot">
+      <div class="loading"><span></span></div>
+      <p class="modem-press">Press any key to continue_</p>
+    </div>
+  </aside>
 </section>
 
 <!-- ========================= NEXT EPISODE ========================= -->
@@ -346,6 +403,51 @@
 
 <script src="internet-exe-p1.js"></script>
 <script src="internet-exe-snake.js"></script>
+<script>
+/* Mobile: make Snake playable with touch buttons and swipes. */
+(function(){
+  const overlay = document.getElementById("snakeOverlay");
+  const canvas = document.getElementById("snakeCanvas");
+  const state = document.getElementById("snakeState");
+  if(!overlay || !canvas) return;
+  let started = false;
+  function key(name){
+    const map = {up:"ArrowUp",down:"ArrowDown",left:"ArrowLeft",right:"ArrowRight",ok:" "};
+    window.dispatchEvent(new KeyboardEvent("keydown", {key:map[name] || " ", bubbles:true}));
+  }
+  function ensureStarted(name){
+    const text = state?.textContent || "";
+    if(!started || /lancer|rejouer|GAME OVER/i.test(text)){
+      key("ok");
+      started = true;
+    }
+    if(name && name !== "ok") key(name);
+  }
+  document.querySelectorAll("[data-snake-open]").forEach(el => el.addEventListener("click", () => { started = false; }));
+  document.querySelectorAll("[data-snake-close]").forEach(el => el.addEventListener("click", () => { started = false; }));
+  document.querySelectorAll("[data-snk]").forEach(btn => {
+    btn.addEventListener("pointerdown", event => {
+      event.preventDefault();
+      ensureStarted(btn.dataset.snk);
+    }, {passive:false});
+  });
+  let startX = 0, startY = 0;
+  canvas.addEventListener("pointerdown", event => {
+    startX = event.clientX;
+    startY = event.clientY;
+    canvas.setPointerCapture?.(event.pointerId);
+  });
+  canvas.addEventListener("pointerup", event => {
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+    if(Math.max(Math.abs(dx), Math.abs(dy)) < 18){
+      ensureStarted("ok");
+      return;
+    }
+    ensureStarted(Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up"));
+  });
+})();
+</script>
 </body>
 </html>
 
