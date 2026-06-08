@@ -1,16 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miradouro — Tech européenne, IA et nearshore depuis Lisbonne</title>
+<title>Miradouro - Tech européenne, IA et nearshore depuis Lisbonne</title>
 <meta name="description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
 <meta name="author" content="Jonathan Dias">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://miradouro.pt/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://miradouro.pt/">
-<meta property="og:title" content="Miradouro — Tech européenne vue depuis Lisbonne">
+<meta property="og:title" content="Miradouro - Tech européenne vue depuis Lisbonne">
 <meta property="og:description" content="Tech, IA, nearshore, géopolitique numérique. Des analyses depuis Lisbonne. Par Jonathan.">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
@@ -34,7 +34,7 @@
   --f1: 'Fraunces', Georgia, serif;
   --f2: 'Cormorant Garant', Georgia, serif;
   --f3: 'Cabinet Grotesk', system-ui, sans-serif;
-  /* Accent thématique — change par JS */
+  /* Accent thématique - change par JS */
   --accent: var(--pom);
   --accent-d: var(--pom-d);
 }
@@ -63,7 +63,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .lang-btn.active { background: var(--pom); color: #fff; }
 
 /*========================================
-  HERO — nouvelle architecture
+  HERO - nouvelle architecture
 ========================================*/
 .hero { min-height: 100vh; background: var(--verde); position: relative; display: flex; flex-direction: column; overflow: hidden; }
 .hero::before { content: ''; position: absolute; inset: -50%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: .6; pointer-events: none; z-index: 1; }
@@ -74,12 +74,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .word-douro { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 300; font-style: italic; color: var(--pom-l); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
 .hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin: 24px 0; transform: scaleX(0); transform-origin: left; animation: expandX .8s cubic-bezier(.16,1,.3,1) .7s forwards; }
 
-/* Hero deck — phrase éditoriale entre titre et colonnes */
+/* Hero deck - phrase éditoriale entre titre et colonnes */
 .hero-deck { opacity: 0; animation: fadeUp .7s ease .75s forwards; margin-bottom: 28px; display: flex; align-items: baseline; gap: 12px; }
 .hero-deck-text { font-family: var(--f2); font-size: clamp(14px,1.6vw,18px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.5); line-height: 1.5; max-width: 680px; }
 .hero-deck-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.82); }
 
-/* Hero bottom: 3 colonnes — stat signal | article mis en avant | thème actif */
+/* Hero bottom: 3 colonnes - stat signal | article mis en avant | thème actif */
 .hero-bottom { display: grid; grid-template-columns: minmax(260px,.9fr) minmax(320px,1.1fr); gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; max-width: 980px; }
 
 /* Colonne 1 : signal stat */
@@ -100,7 +100,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .hero-read:hover { gap: 12px; }
 
 /*========================================
-  BANDE EDITORIALE — sous le hero
+  BANDE EDITORIALE - sous le hero
 ========================================*/
 .promesse { background: var(--pom); padding: clamp(36px,4vw,56px) clamp(24px,5vw,72px); position: relative; overflow: hidden; }
 .promesse::after { content: ''; position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%); pointer-events: none; }
@@ -154,7 +154,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .dossier-step-status { color: var(--ouro); display: block; font-family: var(--f3); font-size: 8px; font-style: normal; font-weight: 800; letter-spacing: .16em; margin-top: 11px; text-transform: uppercase; }
 
 /*========================================
-  SECTION ARTICLES — hiérarchie repensée
+  SECTION ARTICLES - hiérarchie repensée
 ========================================*/
 .articles { display: flex; flex-direction: column; padding: clamp(48px,6vw,80px) clamp(24px,5vw,72px); background: var(--creme); }
 
@@ -170,7 +170,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .filter-btn.active { background: var(--verde); color: var(--creme); border-color: var(--verde); }
 .filter-btn:hover:not(.active) { border-color: var(--ferro); color: var(--ferro); }
 
-/* NIVEAU 1 : article phare — pleine largeur, traitement éditorial fort */
+/* NIVEAU 1 : article phare - pleine largeur, traitement éditorial fort */
 .article-phare { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
 .article-phare:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
 .article-phare::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
@@ -211,7 +211,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .phare-cta::after { content: '→'; font-size: 13px; }
 .article-phare:hover .phare-cta { gap: 10px; }
 
-/* NIVEAU 2 : analyses — grille 3 colonnes, données visibles */
+/* NIVEAU 2 : analyses - grille 3 colonnes, données visibles */
 .analyses-label { display: flex; align-items: center; gap: 16px; margin: clamp(28px,4vw,48px) 0 20px; }
 .analyses-label-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
 .analyses-label-rule { flex: 1; height: 1px; background: var(--rule); }
@@ -249,7 +249,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .soon-pill { font-size: 7px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ink3); border: 1px dashed var(--rule); padding: 2px 7px; width: fit-content; margin-bottom: 12px; font-family: var(--f3); }
 
 /*========================================
-  ABOUT — condensé
+  ABOUT - condensé
 ========================================*/
 .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
 .about-dark { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
@@ -439,7 +439,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     <div class="hero-rule"></div>
     <div class="hero-deck">
       <p class="hero-deck-text">
-        <span data-fr="Un blog de terrain sur la <strong>tech européenne</strong> — sources, données, hypothèses. Depuis Lisbonne." data-en="A field blog on <strong>European tech</strong> — sources, data, working hypotheses. From Lisbon.">Un blog de terrain sur la <strong>tech européenne</strong> — sources, données, hypothèses. Depuis Lisbonne.</span>
+        <span data-fr="Un blog de terrain sur la <strong>tech européenne</strong> - sources, données, hypothèses. Depuis Lisbonne." data-en="A field blog on <strong>European tech</strong> - sources, data, working hypotheses. From Lisbon.">Un blog de terrain sur la <strong>tech européenne</strong> - sources, données, hypothèses. Depuis Lisbonne.</span>
       </p>
     </div>
     <div class="hero-bottom">
@@ -448,7 +448,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       <div class="hero-signal">
         <div class="hero-signal-kicker" data-fr="Signal du moment" data-en="Current signal">Signal du moment</div>
         <div class="hero-signal-number" id="hero-stat-num">9 700</div>
-        <div class="hero-signal-label" id="hero-stat-label" data-fr="Employés BNP Paribas au Portugal — 4e employeur privé du pays." data-en="BNP Paribas employees in Portugal — 4th largest private employer.">Employés BNP Paribas au Portugal — 4e employeur privé du pays.</div>
+        <div class="hero-signal-label" id="hero-stat-label" data-fr="Employés BNP Paribas au Portugal - 4e employeur privé du pays." data-en="BNP Paribas employees in Portugal - 4th largest private employer.">Employés BNP Paribas au Portugal - 4e employeur privé du pays.</div>
       </div>
 
       <!-- Colonne 2 : article en avant -->
@@ -521,7 +521,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <!-- En-tête avec thème actif -->
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <span class="articles-theme-active" id="theme-label" data-fr="— Infrastructure & Plateformes" data-en="— Infrastructure & Platforms">— Infrastructure & Plateformes</span>
+    <span class="articles-theme-active" id="theme-label" data-fr="- Infrastructure & Plateformes" data-en="- Infrastructure & Platforms">- Infrastructure & Plateformes</span>
     <span class="articles-count" id="articles-count" data-fr="07 articles · + HS" data-en="07 articles · + special">07 articles · + HS</span>
   </div>
 
@@ -609,8 +609,8 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-tag tag-g" data-fr="Infrastructure · Plateformes" data-en="Infrastructure · Platforms">Infrastructure · Plateformes</span>
         <span class="art-num">07</span>
       </div>
-      <h3 class="art-title" data-fr="Internet.exe Europe — <em>l'autonomie perdue</em>" data-en="Internet.exe Europe — <em>lost autonomy</em>">Internet.exe Europe — <em>l'autonomie perdue</em></h3>
-      <p class="art-intro" data-fr="Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions — et pourquoi cela a basculé." data-en="Before dependency on American platforms, Europe had habits, brands and communities. A vintage map to understand what we had — and why it shifted.">Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions — et pourquoi cela a basculé.</p>
+      <h3 class="art-title" data-fr="Internet.exe Europe - <em>l'autonomie perdue</em>" data-en="Internet.exe Europe - <em>lost autonomy</em>">Internet.exe Europe - <em>l'autonomie perdue</em></h3>
+      <p class="art-intro" data-fr="Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions - et pourquoi cela a basculé." data-en="Before dependency on American platforms, Europe had habits, brands and communities. A vintage map to understand what we had - and why it shifted.">Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions - et pourquoi cela a basculé.</p>
       <div class="art-stat-inline">
         <div class="art-stat-n">2000</div>
         <div class="art-stat-l" data-fr="Windows 2000 comme mémoire<br>de l'Internet européen" data-en="Windows 2000 as memory<br>of the European Internet">Windows 2000 comme mémoire<br>de l'Internet européen</div>
@@ -645,7 +645,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-tag tag-g" data-fr="Infrastructure · Cloud" data-en="Infrastructure · Cloud">Infrastructure · Cloud</span>
         <span class="art-num">04</span>
       </div>
-      <h3 class="art-title" data-fr="Compétences cloud au Portugal — <em>le vide européen</em>" data-en="Cloud skills in Portugal — <em>the European gap</em>">Compétences cloud au Portugal — <em>le vide européen</em></h3>
+      <h3 class="art-title" data-fr="Compétences cloud au Portugal - <em>le vide européen</em>" data-en="Cloud skills in Portugal - <em>the European gap</em>">Compétences cloud au Portugal - <em>le vide européen</em></h3>
       <p class="art-intro" data-fr="195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise." data-en="195K specialists across Europe. Portugal concentrates 10,700. The UK stands apart. And for senior profiles, salaries start to break from the Portuguese average.">195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise.</p>
       <div class="art-stat-inline">
         <div class="art-stat-n">€52,5K</div>
@@ -682,7 +682,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-num">HS</span>
       </div>
       <h3 class="art-title" data-fr="97% ne font pas la <em>différence</em>" data-en="97% can't tell the <em>difference</em>">97% ne font pas la <em>différence</em></h3>
-      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent — et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
+      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent - et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
       <div class="art-stat-inline">
         <div class="art-stat-n">34%</div>
         <div class="art-stat-l">Des uploads Deezer<br>générés par IA en 2024</div>
@@ -699,7 +699,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-tag tag-o" data-fr="Nearshore & Économie" data-en="Nearshore & Economy">Nearshore & Économie</span>
         <span class="art-num">01</span>
       </div>
-      <h3 class="art-title" data-fr="L'effet <em>ciseaux</em> — nearshore à un tournant" data-en="The <em>scissor</em> effect — nearshore at a turning point">L'effet <em>ciseaux</em> — nearshore à un tournant</h3>
+      <h3 class="art-title" data-fr="L'effet <em>ciseaux</em> - nearshore à un tournant" data-en="The <em>scissor</em> effect - nearshore at a turning point">L'effet <em>ciseaux</em> - nearshore à un tournant</h3>
       <p class="art-intro" data-fr="Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent." data-en="Lisbon's cost of living is soaring. Senior salaries climbing. Nearshore rates are not.">Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent.</p>
       <div class="art-stat-inline">
         <div class="art-stat-n">38%</div>
@@ -717,7 +717,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
         <span class="art-tag tag-p" data-fr="Immigration & Talent" data-en="Immigration & Talent">Immigration & Talent</span>
         <span class="art-num">02</span>
       </div>
-      <h3 class="art-title" data-fr="Pas une fuite des cerveaux — un <em>hub qui aspire</em>" data-en="Not a brain drain — a <em>hub that draws in</em>">Pas une fuite des cerveaux — un <em>hub qui aspire</em></h3>
+      <h3 class="art-title" data-fr="Pas une fuite des cerveaux - un <em>hub qui aspire</em>" data-en="Not a brain drain - a <em>hub that draws in</em>">Pas une fuite des cerveaux - un <em>hub qui aspire</em></h3>
       <p class="art-intro" data-fr="1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent." data-en="1.54M foreign residents. Record migration balance. The real question is no longer how many leave.">1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent.</p>
       <div class="art-stat-inline">
         <div class="art-stat-n">1,54M</div>
@@ -781,7 +781,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       </a>
       <a href="https://we-are-kombava.com/" target="_blank" rel="noopener" class="about-cta">
         <div>
-          <div class="cta-label" data-fr="Kombava — collectif musical, Lisbonne" data-en="Kombava — music collective, Lisbon">Kombava — collectif musical, Lisbonne</div>
+          <div class="cta-label" data-fr="Kombava - collectif musical, Lisbonne" data-en="Kombava - music collective, Lisbon">Kombava - collectif musical, Lisbonne</div>
           <div class="cta-sub" data-fr="Deux mondes, même énergie." data-en="Two worlds, same energy.">Deux mondes, même énergie.</div>
         </div>
         <span class="cta-arrow">↗</span>
@@ -908,13 +908,13 @@ function applyArticleLinks(lang) {
 }
 
 /*========================================
-  THÈME — données par thème
+  THÈME - données par thème
 ========================================*/
 const THEME_DATA = {
   finance: {
     stat_num: '9 700',
-    stat_label_fr: 'Employés BNP Paribas au Portugal — 4e employeur privé du pays.',
-    stat_label_en: 'BNP Paribas employees in Portugal — 4th largest private employer.',
+    stat_label_fr: 'Employés BNP Paribas au Portugal - 4e employeur privé du pays.',
+    stat_label_en: 'BNP Paribas employees in Portugal - 4th largest private employer.',
     kicker_fr: 'Article récent · Soft power', kicker_en: 'Recent article · Soft power',
     title_fr: 'Lisbonne, ou le paradoxe portugais',
     title_en: 'Lisbon and the Portuguese paradox',
@@ -922,7 +922,7 @@ const THEME_DATA = {
     intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
     link_fr: 'articles/06-soft-power-portugal-fr.html',
     link_en: 'articles/06-soft-power-portugal-en.html',
-    theme_label_fr: '— Culture & Soft power', theme_label_en: '— Culture & Soft power',
+    theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
   },
   culture: {
     stat_num: '36,1M',
@@ -935,7 +935,7 @@ const THEME_DATA = {
     intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
     link_fr: 'articles/06-soft-power-portugal-fr.html',
     link_en: 'articles/06-soft-power-portugal-en.html',
-    theme_label_fr: '— Culture & Soft power', theme_label_en: '— Culture & Soft power',
+    theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
   },
   infrastructure: {
     stat_num: '2000',
@@ -948,20 +948,20 @@ const THEME_DATA = {
     intro_en: 'Step one: a day on the web before the platforms. Same gestures, different brands, different geography.',
     link_fr: 'articles/internet-exe-europe-fr.html',
     link_en: 'articles/internet-exe-europe-en.html',
-    theme_label_fr: '— Infrastructure & Cloud', theme_label_en: '— Infrastructure & Cloud',
+    theme_label_fr: '- Infrastructure & Cloud', theme_label_en: '- Infrastructure & Cloud',
   },
   talent: {
     stat_num: '38%',
     stat_label_fr: 'Écart de coût employeur réel entre Lisbonne et Paris. L\'avantage nearshore se compresse.',
     stat_label_en: 'Real employer cost gap between Lisbon and Paris. The nearshore advantage is shrinking.',
     kicker_fr: 'Article récent · Talent', kicker_en: 'Recent article · Talent',
-    title_fr: 'Pas une fuite des cerveaux — un hub qui aspire',
-    title_en: 'Not a brain drain — a hub that draws in',
+    title_fr: 'Pas une fuite des cerveaux - un hub qui aspire',
+    title_en: 'Not a brain drain - a hub that draws in',
     intro_fr: '1,54M de résidents étrangers. Solde migratoire record. La vraie question n\'est plus combien partent.',
     intro_en: '1.54M foreign residents. Record migration balance. The real question is no longer how many leave.',
     link_fr: 'articles/02-immigration-fr.html',
     link_en: 'articles/02-immigration-en.html',
-    theme_label_fr: '— Talent & Immigration', theme_label_en: '— Talent & Immigration',
+    theme_label_fr: '- Talent & Immigration', theme_label_en: '- Talent & Immigration',
   },
   ai: {
     stat_num: '34%',
@@ -970,11 +970,11 @@ const THEME_DATA = {
     kicker_fr: 'Article récent · IA', kicker_en: 'Recent article · AI',
     title_fr: '97% ne font pas la différence',
     title_en: '97% can\'t tell the difference',
-    intro_fr: 'Ce que les données disent sur la musique générée par IA — et ce qu\'elles ne disent pas.',
-    intro_en: 'What the data says about AI-generated music — and what it doesn\'t.',
+    intro_fr: 'Ce que les données disent sur la musique générée par IA - et ce qu\'elles ne disent pas.',
+    intro_en: 'What the data says about AI-generated music - and what it doesn\'t.',
     link_fr: 'articles/ai-music-fr.html',
     link_en: 'articles/ai-music-en.html',
-    theme_label_fr: '— IA & Société', theme_label_en: '— AI & Society',
+    theme_label_fr: '- IA & Société', theme_label_en: '- AI & Society',
   }
 };
 
