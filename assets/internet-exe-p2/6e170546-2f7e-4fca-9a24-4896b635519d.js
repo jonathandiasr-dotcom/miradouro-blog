@@ -46,6 +46,7 @@ function companyCard(id){
   const c = COMPANIES[id];
   if(!c) return '';
   const note = c.note ? '<span class="badge note">'+esc(c.note)+'</span>' : '';
+  const insight = c.insight ? '<p class="co-insight">'+esc(c.insight)+'</p>' : '';
   return '<article class="co-card">'
     + '<div class="co-titlebar"><span>'+esc(c.name.toUpperCase().replace(/[^A-Z0-9]/g,'_'))+'.EXE</span><span class="tb-btns">_ &#9633; &times;</span></div>'
     + '<div class="co-head">'+logoMarkup(c)
@@ -53,7 +54,8 @@ function companyCard(id){
     + '<div class="co-period">'+esc(c.period||'')+'</div></div></div>'
     + '<div class="co-badges" style="padding:8px 16px 0;margin-top:0"><span class="badge cat">'+esc(c.cat)+'</span>'
     + '<span class="badge status '+c.sclass+'">'+esc(c.status)+'</span>'+note+'</div>'
-    + '<p class="co-story co-story-solo">'+esc(c.story)+'</p>'
+    + '<p class="co-story '+(c.insight?'':'co-story-solo')+'">'+esc(c.story)+'</p>'
+    + insight
     + '</article>';
 }
 
