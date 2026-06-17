@@ -66,7 +66,7 @@ const COMPANIES = {
   /* 🇫🇮 FINLANDE */
   nokia:{name:"Nokia", cat:"Terminal · Mobile", status:"ACQUIS", sclass:"status-bought", period:"1987–2014",
     img:"nokia.png",
-    story:"Premier fabricant mondial de téléphones avant le smartphone, l'objet numérique central. N'a pas vu le téléphone devenir une plateforme logicielle : division mobile vendue à Microsoft en 2013, puis évaporée des poches."},
+    story:"Premier fabricant mondial de téléphones avant le smartphone, l'objet numérique central. N'a pas vu le téléphone devenir une plateforme logicielle : division mobile vendue à Microsoft en 2013, puis évaporée des poches. Le groupe, lui, existe toujours et facture encore plusieurs milliards dans les réseaux ; la perte mise en avant ici est celle du potentiel mobile grand public, passé hors d'Europe."},
   mysql:{name:"MySQL", cat:"Base de données · Open source", status:"ACQUIS", sclass:"status-bought", period:"1995–2008",
     wm:{word:"MySQL", color:"#00758F", weight:800},
     story:"La base de données open source qui faisait tourner une large part du web. Rachetée par Sun en 2008, puis tombée par ricochet chez Oracle, son concurrent direct."},

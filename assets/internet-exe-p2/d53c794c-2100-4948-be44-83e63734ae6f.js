@@ -62,7 +62,7 @@ const COMPANIES = {
   /* FINLAND */
   nokia:{name:"Nokia", cat:"Handset · Mobile", status:"ACQUIRED", sclass:"status-bought", period:"1987–2014",
     img:"nokia.png",
-    story:"The world's biggest phone maker before the smartphone, the central digital object of its time. It never saw the phone become a software platform: the mobile division was sold to Microsoft in 2013, then evaporated from our pockets."},
+    story:"The world's biggest phone maker before the smartphone, the central digital object of its time. It never saw the phone become a software platform: the mobile division was sold to Microsoft in 2013, then evaporated from our pockets. The group itself still exists and generates several billion euros in networks; the loss highlighted here is the consumer mobile potential that moved outside Europe."},
   mysql:{name:"MySQL", cat:"Database · Open source", status:"ACQUIRED", sclass:"status-bought", period:"1995–2008",
     wm:{word:"MySQL", color:"#00758F", weight:800},
     story:"The open-source database that powered a huge slice of the web. Bought by Sun in 2008, then swept up, by way of Sun, into Oracle, its direct rival."},
