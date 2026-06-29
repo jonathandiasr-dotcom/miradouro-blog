@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>La bulle et l'ambition : ce que l'IA rejoue de l'an 2000 | Miradouro</title>
-<meta name="description" content="Partie 3 du dossier Miradouro : comment la bulle Internet de l'an 2000 a abîmé l'ambition technologique européenne — et pourquoi l'IA en rejoue le scénario, des valorisations à la dépendance.">
+<title>Le crash qui a refroidi l'Europe : ce que l'IA rejoue de l'an 2000 | Miradouro</title>
+<meta name="description" content="Partie finale du dossier Miradouro : comment la bulle Internet de l'an 2000 a refroidi l'ambition technologique européenne, et ce que l'IA rejoue aujourd'hui sans répéter exactement le même scénario.">
 <meta name="author" content="Miradouro">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#243D2C">
@@ -12,8 +12,8 @@
 <link rel="alternate" hreflang="fr" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html">
 <link rel="alternate" hreflang="en" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
 <link rel="alternate" hreflang="x-default" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
-<meta property="og:title" content="La bulle et l'ambition — Miradouro, Partie 3">
-<meta property="og:description" content="La bulle n'a pas tué les idées. Elle a usé la capacité européenne à financer le temps long — et à choisir son futur technologique.">
+<meta property="og:title" content="Le crash qui a refroidi l'Europe · Miradouro, partie finale">
+<meta property="og:description" content="La bulle n'a pas tué les idées. Elle a usé la capacité européenne à financer le temps long et à garder ses champions.">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="../assets/og/internet-exe-p3-fr.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="La bulle et l'ambition — Miradouro, Partie 3">
+<meta property="og:image:alt" content="Le crash qui a refroidi l'Europe · Miradouro, partie finale">
 <meta property="article:section" content="Tech">
 <meta property="article:published_time" content="2026-06-29">
 <meta property="article:tag" content="Europe">
@@ -56,7 +56,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   MIRADOURO — La bulle et l'ambition
+   MIRADOURO  -  La bulle et l'ambition
    Univers Windows 2000 / salle de marche / bulle Internet 2000
    ============================================================ */
 :root{
@@ -117,7 +117,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .dark .body-copy strong{color:var(--ouro2)}
 
 /* ============================================================
-   1 — HERO : SALLE DE MARCHE, MARS 2000
+   1  -  HERO : SALLE DE MARCHE, MARS 2000
    ============================================================ */
 .hero{position:relative;min-height:100vh;padding:78px clamp(14px,4vw,56px) clamp(40px,5vw,72px);display:flex;align-items:center;
   background:radial-gradient(circle at 80% 14%,rgba(196,151,58,.22),transparent 38%),linear-gradient(155deg,#0c1a12,#16271d 55%,#0a130d);overflow:hidden}
@@ -167,7 +167,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .hero-hint{position:absolute;bottom:14px;right:18px;z-index:7;font:600 10px var(--mono);letter-spacing:.08em;color:rgba(200,218,200,.5);text-transform:uppercase}
 
 /* ============================================================
-   2 — EXPLIQUER LA BULLE (fenetre aide) + TV CRT
+   2  -  EXPLIQUER LA BULLE (fenetre aide) + TV CRT
    ============================================================ */
 .explain-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:34px;align-items:start;margin-top:34px}
 .help-win .titlebar{background:linear-gradient(90deg,#0a2f8c,#1b7bc6)}
@@ -191,7 +191,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .crt{background:linear-gradient(165deg,#3a3631,#211e1a);border-radius:22px;padding:22px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.08),inset 0 -8px 18px rgba(0,0,0,.5);position:relative}
 .crt:before{content:"MIRADOURO";position:absolute;left:50%;transform:translateX(-50%);bottom:30px;font:800 9px var(--mono);letter-spacing:.34em;color:rgba(255,255,255,.22)}
 .crt-screen{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/10;border:2px solid #0c0c0c;box-shadow:inset 0 0 50px rgba(0,0,0,.9),inset 0 0 0 6px #161412}
-.crt-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.crt-screen iframe{display:none}
 /* curvature + scan + glare overlays */
 .crt-screen:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:
   linear-gradient(rgba(18,20,18,0) 50%,rgba(0,0,0,.16) 50%),
@@ -219,7 +219,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .tv-note a{color:var(--pom);text-decoration:underline;text-underline-offset:2px}
 
 /* ============================================================
-   3 — EUROPE S'EMBALLE : tickets IPO
+   3  -  EUROPE S'EMBALLE : tickets IPO
    ============================================================ */
 .ipo-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
 .ipo-card{background:var(--win);border:1px solid #f5f5f5;box-shadow:0 0 0 1px #111,0 12px 30px rgba(0,0,0,.28)}
@@ -241,7 +241,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .ipo-foot b{color:var(--verde2)}
 
 /* ============================================================
-   4 — CHOC TELECOM / GUEULE DE BOIS (facture)
+   4  -  CHOC TELECOM / GUEULE DE BOIS (facture)
    ============================================================ */
 .bill-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:30px;align-items:start;margin-top:34px}
 .bill-win .titlebar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
@@ -475,7 +475,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   background:linear-gradient(90deg,#bfe0bf 0 16%,#f1e6c2 16% 30%,#f4cfc4 30% 100%);box-shadow:inset 1px 1px 2px rgba(0,0,0,.15)}
 .gauge .ticks{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 1px,transparent 1px 10%);pointer-events:none}
 .gauge .norme{position:absolute;left:16%;top:-9px;bottom:-9px;width:2px;background:var(--verde)}
-.gauge .norme:after{content:"\D7 8 EBITDA \2014 norme";position:absolute;top:-17px;left:5px;font:700 9px var(--mono);letter-spacing:.04em;color:var(--verde2);white-space:nowrap}
+.gauge .norme:after{content:"\D7 8 EBITDA  -  norme";position:absolute;top:-17px;left:5px;font:700 9px var(--mono);letter-spacing:.04em;color:var(--verde2);white-space:nowrap}
 .gauge .needle{position:absolute;top:-7px;bottom:-7px;width:3px;background:#a8362e;left:16%;box-shadow:0 0 9px rgba(168,54,46,.6);transition:left 1.5s cubic-bezier(.2,.85,.2,1)}
 .gauge .needle:after{content:"";position:absolute;top:-7px;left:-4px;width:11px;height:11px;background:#a8362e;transform:rotate(45deg)}
 .valmeter.run .vm.e1 .needle{left:90%}
@@ -503,8 +503,11 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .float.hide{opacity:0;transform:translateY(-10px) scale(.96);pointer-events:none}
 
 /* ---------- LOGOS : plaques robustes ---------- */
-.logo-plate{height:76px;padding:13px 18px}
-.logo-plate img{max-height:48px;width:auto;object-fit:contain}
+.logo-plate{height:92px;padding:15px 20px}
+.logo-plate img{max-height:66px;width:auto;object-fit:contain}
+.crash-mini{margin-top:12px;border:1px solid #8a2f2a;background:#fff4ef;padding:10px 11px;font:11px/1.45 var(--mono);color:#3a1f1c}
+.crash-mini b{color:#8a2f2a}
+.crash-line{height:38px;margin-top:7px;background:linear-gradient(160deg,transparent 0 42%,#8a2f2a 43% 47%,transparent 48%),repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 18px)}
 
 /* ---------- VIDEO : poster click-to-play ---------- */
 .crt-poster{position:absolute;inset:0;z-index:6;cursor:pointer;border:0;padding:0;display:block;background:#0a0d0a center/cover no-repeat;overflow:hidden}
@@ -675,24 +678,24 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </nav>
 
 <!-- ============================================================
-     1 — HERO : SALLE DE MARCHE, MARS 2000
+     1  -  HERO : SALLE DE MARCHE, MARS 2000
      ============================================================ -->
-<header class="hero" data-screen-label="Hero — Mars 2000">
+<header class="hero" data-screen-label="Hero  -  Mars 2000">
   <!-- bandeau de cotation -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
 
   <div class="hero-stage">
-    <div class="datestamp"><span class="blip"></span>Mars 2000 — Salle de marche — flux en direct</div>
-    <h1 class="hero-title">La bulle <em>et</em> l'ambition</h1>
-    <p class="hero-deck">Des ecrans de cotation. Une introduction en Bourse toutes les semaines. Tout ce qui contient <b>.com</b> ou <b>online</b> semble valoir le futur. On achete des promesses au prix d'empires.</p>
+    <div class="datestamp"><span class="blip"></span>Mars 2000  -  Salle de marche  -  flux en direct</div>
+    <h1 class="hero-title">Le crash qui a <em>refroidi</em> l'Europe</h1>
+    <p class="hero-deck">Il y avait des ecrans de cotation, une introduction en Bourse presque chaque semaine, et tout ce qui contenait <b>.com</b> ou <b>online</b> semblait valoir le futur. On achetait des promesses au prix d'empires.</p>
     <div class="hero-meta">
       <span>Dossier · Quand l'Europe possedait Internet</span>
       <span>Partie finale</span>
       <span>Lecture documentaire</span>
     </div>
-    <div class="scroll-cue"><span class="arrow">&#9660;</span> Defiler pour ouvrir le dossier</div>
+    <div class="scroll-cue"><span class="arrow">&#9660;</span> Defiler pour fermer le dossier</div>
   </div>
 
   <!-- popups IPO flottants (draggable, desktop) -->
@@ -700,7 +703,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <div class="titlebar" data-drag><span>IPO_ALERT.exe</span><span class="tb-btns"><span data-close>&times;</span></span></div>
     <div class="ipo-body">
       <div class="co">World Online</div>
-      <div class="ev">Introduction — 17 mars 2000</div>
+      <div class="ev">Introduction en Bourse · 17 mars 2000</div>
       <div class="price"><b>43&nbsp;&euro;</b><span class="arr">&#9650;</span></div>
       <div class="sub">Valorisation : 12&nbsp;milliards d'euros</div>
     </div>
@@ -719,28 +722,37 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
   </div>
 
-  <div class="hero-hint">Astuce : les fenetres se ferment seules &mdash; ou faites-le d'un clic</div>
+  <div class="hero-hint">Astuce : les fenetres se ferment seules, ou faites-le d'un clic</div>
 </header>
 
+<section class="section alt" id="recap" data-screen-label="Recapitulatif du dossier">
+  <div class="inner">
+    <div class="label">Avant le crash · pourquoi on arrive ici</div>
+    <h2 class="section-title">Le dossier partait d'une question simple : <em>qu'est-ce que l'Europe avait vraiment ?</em></h2>
+    <p class="lead">Dans la partie 1, on a refait une journee de web d'avant les plateformes : chercher, discuter, vendre, ecouter, reserver, avec des marques souvent europeennes. Dans la partie 2, on a ouvert l'atlas : FAI, portails, mobile, cartographie, petites annonces, voix sur IP. L'Europe n'avait pas tout Internet, mais elle possedait plusieurs couches d'usage.</p>
+    <p class="lead">La partie finale raconte le moment ou cette avance s'est grippee. Pas parce que les idees etaient mauvaises. Parce que la bulle a casse le financement, charge les telecoms de dette, puis installe une prudence durable au moment exact ou il fallait recommencer.</p>
+  </div>
+</section>
+
 <!-- ============================================================
-     2 — EXPLIQUER LA BULLE + TELE CRT
+     2  -  EXPLIQUER LA BULLE + TELE CRT
      ============================================================ -->
 <section class="section" id="bulle" data-screen-label="Expliquer la bulle">
   <div class="inner">
-    <div class="label">Comprendre — pour celles et ceux qui n'y etaient pas</div>
+    <div class="label">Comprendre · pour celles et ceux qui n'y etaient pas</div>
     <h2 class="section-title">Une bulle, c'est une vraie revolution qui rencontre <em>trop d'argent, trop vite</em>.</h2>
     <p class="lead">Internet etait reel. Le probleme n'etait pas la technologie : c'etait le rythme. Les valorisations couraient plus vite que les revenus, et une introduction en Bourse suffisait a transformer une promesse en prix public.</p>
 
     <div class="explain-grid">
       <!-- fenetre aide Windows -->
       <div class="help-win win">
-        <div class="titlebar"><span>Aide — Qu'est-ce qu'une bulle&nbsp;?</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>Aide  -  Qu'est-ce qu'une bulle&nbsp;?</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
         <div class="help-body">
           <div class="help-head">
             <div class="help-q">?</div>
             <div>
               <h3>bulle.hlp</h3>
-              <p>Lecon 1 / 1 — 6 points</p>
+              <p>Lecon 1 / 1  -  6 points</p>
             </div>
           </div>
           <ol class="help-steps">
@@ -756,19 +768,14 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
       <!-- TELE CRT avec chaines FR/EN -->
       <div class="tv-wrap">
-        <div class="tv-caption">Documentaire — <span class="rec">en lecture</span> · choisissez votre chaine</div>
+        <div class="tv-caption">Documentaire  -  <span class="rec">en lecture</span> · choisissez votre chaine</div>
         <div class="crt">
           <div class="crt-screen">
             <div class="crt-chlabel" id="chLabel">CH&nbsp;03 · FR</div>
             <div class="crt-static" id="crtStatic"></div>
-            <iframe id="tvFrame"
-              src="https://www.youtube-nocookie.com/embed/EU7whDUJYyU?rel=0&modestbranding=1"
-              title="La bulle Internet expliquee — version francaise"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-            <button class="crt-poster" id="tvPoster" type="button" style="background-image:url('https://img.youtube.com/vi/EU7whDUJYyU/hqdefault.jpg')" aria-label="Lire la video">
+            <button class="crt-poster" id="tvPoster" type="button" data-url="https://www.youtube.com/watch?v=EU7whDUJYyU" style="background-image:url('https://img.youtube.com/vi/EU7whDUJYyU/hqdefault.jpg')" aria-label="Ouvrir la video sur YouTube">
               <span class="play"></span>
-              <span class="pl-label">Cliquer pour lancer la video</span>
+              <span class="pl-label">Ouvrir la video sur YouTube</span>
             </button>
           </div>
           <div class="crt-deck">
@@ -783,18 +790,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
             </div>
           </div>
         </div>
-        <p class="tv-note">Une explication video de la bulle Internet, en francais (CH 03) et en anglais (CH 07). Tournez le bouton de chaine pour changer de langue.</p>
+        <p class="tv-note">Une explication video de la bulle Internet, en francais (CH 03) et en anglais (CH 07). L'image reste affichee ici ; le clic ouvre YouTube dans un nouvel onglet.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     3 — L'EUROPE S'EMBALLE AUSSI (tickets IPO)
+     3  -  L'EUROPE S'EMBALLE AUSSI (tickets IPO)
      ============================================================ -->
 <section class="section alt" data-screen-label="L'Europe s'emballe">
   <div class="inner">
-    <div class="label">Symptomes — pas un atlas</div>
+    <div class="label">Symptomes  -  pas un atlas</div>
     <h2 class="section-title">L'Europe ne regardait pas la bulle. Elle <em>la vivait</em>.</h2>
     <p class="lead">Quatre fenetres systeme, quatre symptomes. Inutile de derouler tout un annuaire : ces quelques cas suffisent a montrer que l'euphorie etait europeenne, et que la chute le fut aussi. En coulisse, un autre boom&nbsp;: des milliers de particuliers ouvrent des comptes de courtage en ligne pour boursicoter sur la bulle.</p>
 
@@ -804,12 +811,13 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>WORLD_ONLINE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/world-online.png" alt="World Online" loading="lazy"></div>
-          <span class="ipo-tag">IPO — 17 mars 2000</span>
+          <span class="ipo-tag">IPO  -  17 mars 2000</span>
           <div class="ipo-name">World Online</div>
           <div class="ipo-cat">Pays-Bas · FAI / portail</div>
           <div class="ipo-stat"><span class="k">Prix d'introduction</span><span class="vv green">43 &euro; / action</span></div>
           <div class="ipo-stat"><span class="k">Valorisation</span><span class="vv">12 Md&euro;</span></div>
-          <p class="ipo-foot">L'une des plus grosses IPO Internet d'Europe. <b>Quelques jours avant le sommet des marches.</b></p>
+          <p class="ipo-foot">FAI et portail paneuropeen, World Online promettait un acces Internet gratuit et une presence dans une quinzaine de pays. <b>Le probleme, c'est le prix.</b></p>
+          <div class="crash-mini"><b>Crash visible</b><br>Introduite a 43 &euro;, l'action tombe autour de 31 &euro; en quelques jours. La valorisation passe d'environ 12 Md&euro; a 5 Md&euro; en une semaine, sur fond de polemique autour de la vente d'actions de Nina Brink avant l'IPO.<div class="crash-line" aria-hidden="true"></div></div>
         </div>
       </article>
 
@@ -818,7 +826,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>LASTMINUTE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/lastminute.png" alt="Lastminute.com" loading="lazy"></div>
-          <span class="ipo-tag">IPO — 14 mars 2000</span>
+          <span class="ipo-tag">IPO  -  14 mars 2000</span>
           <div class="ipo-name">Lastminute.com</div>
           <div class="ipo-cat">Royaume-Uni · voyage / e-commerce</div>
           <div class="ipo-stat"><span class="k">Prix d'introduction</span><span class="vv green">380 pence</span></div>
@@ -829,10 +837,10 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
       <!-- Boo.com -->
       <article class="ipo-card dead">
-        <div class="titlebar"><span>BOO.exe — erreur</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>BOO.exe  -  erreur</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/boo.png" alt="Boo.com" loading="lazy"></div>
-          <span class="ipo-tag">Liquidation — 18 mai 2000</span>
+          <span class="ipo-tag">Liquidation  -  18 mai 2000</span>
           <div class="ipo-name">Boo.com</div>
           <div class="ipo-cat">Europe · mode en ligne</div>
           <div class="ipo-stat"><span class="k">Capital brule</span><span class="vv red">135 M$</span></div>
@@ -846,7 +854,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>IFRANCE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><span class="wm">i<em>France</em></span></div>
-          <span class="ipo-tag">Rachat — mai 2000</span>
+          <span class="ipo-tag">Rachat  -  mai 2000</span>
           <div class="ipo-name">iFrance</div>
           <div class="ipo-cat">France · portail communautaire</div>
           <div class="ipo-stat"><span class="k">Rachete par</span><span class="vv">Vivendi</span></div>
@@ -859,18 +867,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     4 — LE CHOC TELECOM (gueule de bois industrielle)
+     4  -  LE CHOC TELECOM (gueule de bois industrielle)
      ============================================================ -->
 <section class="section" data-screen-label="Choc telecom 3G">
   <div class="inner">
     <div class="label">Le choc europeen specifique</div>
     <h2 class="section-title">Pas seulement une bulle de startups. Une <em>bulle telecom</em>.</h2>
-    <p class="lead">Pendant que les .com s'envolaient, les operateurs europeens ont fait pire que speculer : ils ont <b>surpaye</b>. Licences 3G aux encheres, rachats au sommet du marche, le tout finance par la dette. Une gueule de bois industrielle inscrite au bilan pour des annees &mdash; mais qui, paradoxalement, a laisse un reseau.</p>
+    <p class="lead">Pendant que les .com s'envolaient, les operateurs europeens ont fait pire que speculer : ils ont <b>surpaye</b>. Les Etats vendaient aux encheres les licences 3G, c'est-a-dire le droit d'utiliser des frequences mobiles pour construire l'Internet sur telephone. Les operateurs ont paye ces droits avant les revenus, puis ont encore achete des concurrents au sommet du marche, le tout finance par la dette.</p>
 
     <div class="bill-grid">
       <!-- facture 3G -->
       <div class="bill-win win">
-        <div class="titlebar"><span>licences_3G.txt — Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>licences_3G.txt  -  Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
         <div class="bill-body">
           <div class="bill-head">
             <h3>Facture des encheres 3G</h3>
@@ -879,14 +887,14 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <div class="bill-row"><span class="desc">Royaume-Uni<small>Enchere des licences 3G</small></span><span class="amt">22,5 Md&pound;</span></div>
           <div class="bill-row"><span class="desc">Allemagne<small>Enchere des licences 3G</small></span><span class="amt">50,8 Md&euro;</span></div>
           <div class="bill-total"><span class="desc">Total europeen 3G</span><span class="amt">&gt; 100 Md&euro;</span></div>
-          <p class="bill-note">Total cumule des licences 3G en Europe : plus de 100 milliards d'euros. Une promesse payee comptant, avant tout revenu.</p>
+          <p class="bill-note">Total cumule des licences 3G en Europe : plus de 100 milliards d'euros. Une promesse payee comptant, avant les telephones 3G de masse, avant les usages, avant les revenus.</p>
         </div>
       </div>
 
       <!-- la dette qui reste -->
       <div>
         <div class="body-copy" style="margin-top:0">
-          <p>Le plus brutal n'est pas le prix des licences. C'est ce qu'il en restait au bilan, des annees plus tard. Fin 2002, les deux geants telecom du continent portaient une dette nette colossale&nbsp;:</p>
+          <p>Pourquoi l'impact est massif ? Parce qu'une licence 3G n'est pas une application qu'on ferme si elle marche mal. C'est un ticket d'entree public, paye tres cher, auquel il faut ajouter les antennes, le reseau, le marketing et le temps d'attendre les clients. Fin 2002, les deux geants telecom du continent portaient une dette nette colossale&nbsp;:</p>
         </div>
         <div class="ipo-board duo" style="margin-top:20px">
           <article class="ipo-card dead">
@@ -909,7 +917,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           </article>
         </div>
         <div class="body-copy">
-          <p>Message&nbsp;: ce n'etait pas seulement un krach a l'ecran. C'etait une <strong>gueule de bois industrielle</strong> &mdash; des bilans a desendetter avant meme de penser au coup d'apres.</p>
+          <p>Message&nbsp;: ce n'etait pas seulement un krach a l'ecran. C'etait une <strong>gueule de bois industrielle</strong>  -  des bilans a desendetter avant meme de penser au coup d'apres.</p>
         </div>
       </div>
     </div>
@@ -921,8 +929,8 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="sub">Acheter le futur au prix fort, a credit, au plus haut.</div>
         <ul class="tel-list">
           <li><span class="mk">1</span><span>Une <b>bulle dans la bulle</b>&nbsp;: plus de <b>100 Md&euro;</b> de licences 3G payes comptant, avant le moindre abonne 3G.</span></li>
-          <li><span class="mk">2</span><span>Des <b>rachats au sommet</b>&nbsp;: France Telecom s'offre <b>Orange</b> (mobile UK) en 2000 pour ~40 Md&euro;&nbsp;; Deutsche Telekom s'offre <b>VoiceStream</b> (US) en 2001 pour ~35&ndash;50 Md$ <i>(ordres de grandeur)</i>.</span></li>
-          <li><span class="mk">3</span><span>Le tout <b>finance par la dette</b>, juste avant le retournement &mdash; d'ou les ~68 et ~61 Md&euro; de dette nette fin 2002.</span></li>
+          <li><span class="mk">2</span><span>Des <b>rachats au sommet</b>&nbsp;: France Telecom rachete <b>Orange plc</b> a Vodafone en 2000 pour ~39,7 Md&euro;&nbsp;; Deutsche Telekom rachete <b>VoiceStream</b> (US) en 2001 pour ~35&ndash;50 Md$ <i>(ordres de grandeur)</i>.</span></li>
+          <li><span class="mk">3</span><span>Le tout <b>finance par la dette</b>, juste avant le retournement  -  d'ou les ~68 et ~61 Md&euro; de dette nette fin 2002.</span></li>
           <li><span class="mk">4</span><span>S'ensuit une <b>purge</b>&nbsp;: ventes d'actifs, recapitalisations, dividendes coupes, des annees a se desendetter.</span></li>
         </ul>
       </div>
@@ -930,9 +938,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <h4>&#9650; Ce qu'il en reste de bon</h4>
         <div class="sub">L'Europe a paye tres cher une infrastructure dont elle se sert encore.</div>
         <ul class="tel-list">
-          <li><span class="mk">+</span><span>Cet argent a aussi construit du <b>reseau</b>&nbsp;: dorsales fibre, antennes, spectre 3G &mdash; le socle de <b>l'internet mobile</b> des annees 2010.</span></li>
+          <li><span class="mk">+</span><span>Cet argent a aussi construit du <b>reseau</b>&nbsp;: dorsales fibre, antennes, spectre 3G  -  le socle de <b>l'internet mobile</b> des annees 2010.</span></li>
           <li><span class="mk">+</span><span>L'<b>assainissement</b> a fait le tri&nbsp;: consolidation, et les <b>survivants</b> en ressortent plus solides.</span></li>
-          <li><span class="mk">+</span><span>Sur ces tuyaux assainis, de <b>nouveaux entrants</b> ont pu pousser &mdash; dont l'aventure Free / Iliad de Xavier Niel, qui dynamitera les prix.</span></li>
+          <li><span class="mk">+</span><span>Sur ces tuyaux assainis, de <b>nouveaux entrants</b> ont pu pousser  -  dont l'aventure Free / Iliad de Xavier Niel, qui dynamitera les prix.</span></li>
           <li><span class="mk">+</span><span>La lecon&nbsp;: la depense a ete <b>mal calibree dans le temps</b>, pas inutile. Le probleme n'etait pas d'investir, mais le <b>prix</b> et le <b>moment</b>.</span></li>
         </ul>
       </div>
@@ -942,16 +950,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     5 — GRAPHIQUE 1 : LA MONTEE ET LA CHUTE
+     5  -  GRAPHIQUE 1 : LA MONTEE ET LA CHUTE
      ============================================================ -->
-<section class="section dark" data-screen-label="Graphique 1 — La chute">
+<section class="section dark" data-screen-label="Graphique 1  -  La chute">
   <div class="inner">
-    <div class="label">Graphique 1 / 2 — le krach</div>
+    <div class="label">Graphique 1 / 2  -  le krach</div>
     <h2 class="section-title">Le NASDAQ, <em>icone du krach</em>. Et l'Europe a fait pire.</h2>
-    <p class="lead">Voici la courbe que tout le monde a en tete&nbsp;: le NASDAQ, du sommet du 10 mars 2000 jusqu'au creux d'octobre 2002. En dessous, en plus discret, le NEMAX allemand &mdash; tombe encore plus bas. Indices ramenes a 100 au sommet.</p>
+    <p class="lead">Voici la courbe que tout le monde a en tete&nbsp;: le NASDAQ, du sommet du 10 mars 2000 jusqu'au creux d'octobre 2002. En dessous, en plus discret, le NEMAX allemand  -  tombe encore plus bas. Indices ramenes a 100 au sommet.</p>
 
     <div class="chart-win win">
-      <div class="titlebar"><span>montee_chute.chart — Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>montee_chute.chart  -  Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="chart-body">
         <div class="chart-toolbar">
           <div class="chart-h">NASDAQ Composite &middot; sommet &rarr; creux</div>
@@ -976,16 +984,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="ba">John Cassidy<br>2002</div>
       </div>
       <div class="bx">
-        <div class="tag">Pour comprendre le crash &mdash; lecture de reference</div>
-        <p class="q">Le journaliste John Cassidy a raconte, presque heure par heure, comment l'euphorie s'est retournee &mdash; et pourquoi tant d'investisseurs ont voulu croire, jusqu'au bout, a une histoire trop belle.</p>
-        <div class="src"><b>John Cassidy</b>, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (2002) &mdash; recit de la montee et de l'eclatement de la bulle Internet.</div>
+        <div class="tag">Pour comprendre le crash  -  lecture de reference</div>
+        <p class="q">Le journaliste John Cassidy a raconte, presque heure par heure, comment l'euphorie s'est retournee  -  et pourquoi tant d'investisseurs ont voulu croire, jusqu'au bout, a une histoire trop belle.</p>
+        <div class="src"><b>John Cassidy</b>, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (2002)  -  recit de la montee et de l'eclatement de la bulle Internet.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     6 — APRES LE CRASH : USA vs EUROPE
+     6  -  APRES LE CRASH : USA vs EUROPE
      ============================================================ -->
 <section class="section" id="crash" data-screen-label="Apres le crash">
   <div class="inner">
@@ -995,9 +1003,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
     <div class="vs-wrap">
       <div class="vs-row head">
-        <div class="c-us">Etats-Unis &mdash; la machine redemarre</div>
+        <div class="c-us">Etats-Unis  -  la machine redemarre</div>
         <div class="c-sp">Annee</div>
-        <div class="c-eu">Europe &mdash; l'echelle decroche</div>
+        <div class="c-eu">Europe  -  l'echelle decroche</div>
       </div>
       <div class="vs-row">
         <div class="c-us"><span class="tag">Purge</span><br>VC tombe a <b>21,2 Md$</b>. <b>PayPal</b> et <b>Netflix</b> (mai) entrent quand meme en Bourse.</div>
@@ -1007,7 +1015,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
       <div class="vs-row">
         <div class="c-us"><span class="tag">Relance</span><br><b>Google</b> entre en Bourse&nbsp;; <b>Facebook</b> est fonde. Le capital revient vite.</div>
         <div class="c-sp">2004</div>
-        <div class="c-eu"><span class="tag">Exit, pas scale</span><br><b>Skype</b> (europeen) explose &mdash; et sera <b>vendu</b> a eBay des 2005. La sortie plutot que l'empire.</div>
+        <div class="c-eu"><span class="tag">Exit, pas scale</span><br><b>Skype</b>, cree par des fondateurs nordiques avec une equipe cle en Estonie, explose. Il est vendu a <b>eBay</b> en 2005, passe par des investisseurs en 2009, puis finit chez <b>Microsoft</b> en 2011. L'usage devient mondial, le controle sort d'Europe.</div>
       </div>
       <div class="vs-row">
         <div class="c-us"><span class="tag">Plateformes</span><br>Google rachete <b>YouTube</b> (1,65 Md$). Les gagnants deviennent des geants mondiaux.</div>
@@ -1023,7 +1031,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
     <div class="vs-metric">
       <div class="m dk">
-        <div class="k">VC investi &mdash; 2000 &rarr; 2010 (Etats-Unis)</div>
+        <div class="k">VC investi  -  2000 &rarr; 2010 (Etats-Unis)</div>
         <div class="v">~105 &rarr; 11,8 Md$</div>
       </div>
       <div class="m">
@@ -1036,16 +1044,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     7 — GRAPHIQUE 2 : QUI GARDE LE MOTEUR ?
+     7  -  GRAPHIQUE 2 : QUI GARDE LE MOTEUR ?
      ============================================================ -->
-<section class="section alt" data-screen-label="Graphique 2 — VC">
+<section class="section alt" data-screen-label="Graphique 2  -  VC">
   <div class="inner">
-    <div class="label">Graphique 2 / 2 — financer l'apres-crash</div>
+    <div class="label">Graphique 2 / 2  -  financer l'apres-crash</div>
     <h2 class="section-title">Le crash n'est pas toute l'histoire. La vraie difference, c'est <em>l'apres</em>.</h2>
     <p class="lead">Capital-risque investi, ordres de grandeur. En 2000 comme en 2010, l'ecart de financement entre les Etats-Unis et l'Europe ne se referme pas.</p>
 
     <div class="chart-win win" style="margin-top:34px">
-      <div class="titlebar"><span>venture_capital.chart — Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>venture_capital.chart  -  Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="chart-body" style="background:#0e1a12">
         <div class="chart-toolbar">
           <div class="chart-h">Capital-risque investi · ordres de grandeur</div>
@@ -1059,24 +1067,24 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <div class="chart-tip" id="tip2"></div>
         </div>
         <p class="chart-msg">Le crash n'est pas toute l'histoire. La vraie difference est la capacite a financer l'apres-crash.</p>
-        <p class="chart-foot">Lecture : 2000 — US ~105 Md$ vs Europe &gt;19,6 Md&euro;. 2010 — US 11,8 Md$ vs Europe ~3,5 Md&euro;. Devises et perimetres (EVCA/NVCA) non strictement comparables : a lire en ordres de grandeur.</p>
+        <p class="chart-foot">Lecture : 2000  -  US ~105 Md$ vs Europe &gt;19,6 Md&euro;. 2010  -  US 11,8 Md$ vs Europe ~3,5 Md&euro;. Devises et perimetres (EVCA/NVCA) non strictement comparables : a lire en ordres de grandeur.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     8 — CITATIONS (lecteur media) + THESE CENTRALE
+     8  -  CITATIONS (lecteur media) + THESE CENTRALE
      ============================================================ -->
 <section class="section" data-screen-label="Citations">
   <div class="inner">
-    <div class="label">Voix — celles qui ont traverse la bascule</div>
+    <div class="label">Parcours · ceux qui ont traverse la bascule</div>
     <h2 class="section-title">L'un a <em>esquive</em>. L'autre a tout perdu, puis <em>recommence</em>.</h2>
 
     <div class="players">
       <!-- NIEL / WORLDNET -->
       <article class="winamp" id="waNiel" data-dur="184">
-        <div class="wa-title"><span>&#9835; WORLDNET.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-title"><span>WORLDNET.TXT</span><span class="dots"><i></i><i></i><i></i></span></div>
         <div class="wa-screen">
           <div class="wa-photo av">XN</div>
           <div class="wa-id">
@@ -1091,19 +1099,19 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
         <div class="wa-controls">
           <button class="wa-play" type="button" data-play aria-label="Lecture / pause">&#9658;</button>
-          <div class="wa-marq"><span>Xavier Niel &middot; Worldnet vendu en mai 2000, quelques mois avant l'eclatement de la bulle &middot; sortie au sommet &middot;&nbsp;</span></div>
+          <div class="wa-marq"><span>Xavier Niel &middot; entrepreneur francais, fondateur d'Iliad / Free &middot; Worldnet vendu en mai 2000 &middot; sortie au sommet &middot;&nbsp;</span></div>
         </div>
         <div class="wa-story">
           <div class="tag">Fait documente</div>
           <p class="q fact">Vendu en mai 2000. Quelques mois avant le krach.</p>
-          <p class="note">Worldnet, l'un des premiers FAI grand public francais (1994), <b>dernier independant</b> et rentable, est <b>cede en mai 2000</b> (a Kaptech, futur Neuf Telecom) au lieu d'entrer en Bourse. Niel sort au sommet &mdash; puis batira Free.</p>
+          <p class="note">Xavier Niel est l'entrepreneur francais derriere Iliad / Free, l'operateur qui bousculera plus tard le marche telecom francais. Worldnet, l'un des premiers FAI grand public francais (1994), <b>dernier independant</b> et rentable, est <b>cede en mai 2000</b> (a Kaptech, futur Neuf Telecom) au lieu d'entrer en Bourse. Niel sort au sommet, puis batira Free.</p>
           <a class="src" href="https://fr.wikipedia.org/wiki/Worldnet" target="_blank" rel="noopener">Source : Worldnet &#8599;</a>
         </div>
       </article>
 
       <!-- SIMONCINI / IFRANCE -->
       <article class="winamp" id="waSim" data-dur="183">
-        <div class="wa-title"><span>&#9835; IFRANCE.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-title"><span>IFRANCE.TXT</span><span class="dots"><i></i><i></i><i></i></span></div>
         <div class="wa-screen">
           <div class="wa-photo av">MS</div>
           <div class="wa-id">
@@ -1118,17 +1126,17 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
         <div class="wa-controls">
           <button class="wa-play" type="button" data-play aria-label="Lecture / pause">&#9658;</button>
-          <div class="wa-marq"><span>Marc Simoncini &middot; iFrance vendu a Vivendi en 2000, ruine en 2003, puis Meetic &middot; tout perdre et recommencer &middot;&nbsp;</span></div>
+          <div class="wa-marq"><span>Marc Simoncini &middot; entrepreneur francais, fondateur d'iFrance puis de Meetic &middot; tout perdre et recommencer &middot;&nbsp;</span></div>
         </div>
         <div class="wa-story">
           <div class="tag">Citation</div>
           <p class="q">&laquo;&nbsp;Le probleme avec les gens qui ont trop fait d'etudes&nbsp;: ils savent, ils regardent, mais ils ne voient rien.&nbsp;&raquo;</p>
-          <p class="note">iFrance cede a Vivendi en 2000 (paye en actions). En 2003, l'action Vivendi s'effondre (~120 &rarr; 9 &euro;) et il se retrouve <b>ruine et endette</b> &mdash; avant de rebondir avec Meetic.</p>
+          <p class="note">Marc Simoncini est l'entrepreneur francais qui fonde iFrance, puis Meetic, l'un des grands sites europeens de rencontre en ligne. iFrance est cede a Vivendi en 2000 (paye en actions). En 2003, l'action Vivendi s'effondre (~120 &rarr; 9 &euro;) et il se retrouve <b>ruine et endette</b>, avant de rebondir avec Meetic.</p>
           <a class="src" href="https://www.lemonde.fr/technologies/article/2010/03/10/les-rescapes-de-la-toile_1317136_651865.html" target="_blank" rel="noopener">Source : Le Monde / &laquo; Une vie choisie &raquo; &#8599;</a>
         </div>
       </article>
     </div>
-    <p class="chart-foot" style="color:var(--ink);margin-top:16px;max-width:820px">Lecteurs evocateurs (aucun enregistrement audio n'est embarque) : la lecture anime la barre de progression et l'equaliseur. Les liens &laquo;&nbsp;Source&nbsp;&raquo; ouvrent les materiaux d'origine.</p>
+    <p class="chart-foot" style="color:var(--ink);margin-top:16px;max-width:820px">Cartes de parcours, pas d'audio embarque : le bouton anime seulement la barre et l'equaliseur. Les liens &laquo;&nbsp;Source&nbsp;&raquo; ouvrent les materiaux d'origine.</p>
   </div>
 </section>
 
@@ -1140,23 +1148,23 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <div class="thesis-nuance">
       <div><b>Ce qui a survecu</b><p>L'innovation europeenne n'a pas disparu. Les entrepreneurs ont continue, encaisse, recommence.</p></div>
       <div><b>Ce qui s'est abime</b><p>La capacite a financer longtemps, a coter, a supporter les pertes, a garder ses champions.</p></div>
-      <div><b>Ce qui s'est joue</b><p>Transformer des produits en plateformes mondiales — c'est la qu'une partie du nerf s'est perdue.</p></div>
+      <div><b>Ce qui s'est joue</b><p>Transformer des produits en plateformes mondiales  -  c'est la qu'une partie du nerf s'est perdue.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     9 — L'IA, MAIS AVEC NUANCE
+     9  -  L'IA, MAIS AVEC NUANCE
      ============================================================ -->
 <section class="section" id="ia" data-screen-label="L'IA">
   <div class="inner">
-    <div class="label">Le dernier tiers — sans parallele paresseux</div>
+    <div class="label">Le dernier tiers  -  sans parallele paresseux</div>
     <h2 class="section-title">L'IA <em>rejoue</em> 2000 sur les valorisations. Elle s'en distingue par l'infrastructure.</h2>
-    <p class="lead">Le point commun le plus genant n'est pas l'emballement : c'est la valorisation. Comme en 2000, beaucoup de societes portees par l'IA ne sont pas rentables, et leur prix decroche de tout repere economique. La difference, c'est ce qu'il y a dessous : une infrastructure deja massive, facturee, solvable.</p>
+    <p class="lead">Le point commun le plus genant n'est pas l'emballement : c'est la valorisation. Comme en 2000, beaucoup de societes portees par l'IA ne sont pas rentables, et leur prix decroche de tout repere economique. Mais le parallele a une limite importante : l'IA n'est pas seulement une page web avec une promesse commerciale. Elle repose deja sur des clients payants, des GPU, des data centers, des contrats cloud et des bilans d'hyperscalers capables d'absorber des centaines de milliards de capex.</p>
 
     <!-- LE REPERE QUI SAUTE : multiple d'EBITDA -->
     <div class="valwrap">
-      <p class="valhead">Une valorisation &laquo;&nbsp;normale&nbsp;&raquo; tourne autour de <b>8 fois l'EBITDA</b>. En 2000, ce repere a saute&nbsp;: on payait des entreprises sans benefices, parfois sans revenus. <b>Aujourd'hui, le meme signal clignote</b> &mdash; des societes IA non rentables, valorisees en multiples de reve.</p>
+      <p class="valhead">Une valorisation &laquo;&nbsp;normale&nbsp;&raquo; peut tourner autour de <b>8 fois l'EBITDA</b> pour une entreprise deja rentable. En 2000, ce repere saute&nbsp;: World Online vaut environ <b>12 Md&euro;</b> a l'introduction, Lastminute.com plus de <b>570 M&pound;</b> avant meme d'avoir prouve son modele, Boo.com brule <b>135 M$</b> en dix-huit mois. On ne paye plus un profit. On paye une option sur le futur. <b>Aujourd'hui, le meme signal clignote</b>, mais dans un decor different.</p>
       <div class="valmeter" id="valmeter">
         <div class="vm e1">
           <div class="vm-era"><b>Bulle .com</b><span>2000</span></div>
@@ -1171,18 +1179,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <p class="vm-note">Beaucoup d'acteurs IA <b>brulent du cash</b> et ne degagent pas de benefices, tout en affichant des valorisations record. Meme signal qu'en 2000.</p>
         </div>
       </div>
-      <p class="valcaption">Lecture : &times;8 EBITDA est un repere d'ordre de grandeur pour une valorisation &laquo;&nbsp;raisonnable&nbsp;&raquo;, pas une regle absolue. L'aiguille &laquo;&nbsp;hors echelle&nbsp;&raquo; illustre la deconnexion entre prix et profits &mdash; observee en 2000, partiellement rejouee aujourd'hui.</p>
+      <p class="valcaption">Lecture : &times;8 EBITDA est un repere d'ordre de grandeur, pas une regle absolue. L'aiguille &laquo;&nbsp;hors echelle&nbsp;&raquo; illustre la deconnexion entre prix et profits, observee en 2000 et partiellement rejouee aujourd'hui.</p>
     </div>
 
     <p class="valhead" style="margin-top:34px">Mais voici ce qui n'existait pas en 2000&nbsp;: sous l'emballement, des revenus deja factures.</p>
     <div class="ai-grid">
       <div class="ai-card">
-        <div class="k">Nvidia — Data Center · T1 ex. 2027</div>
+        <div class="k">Nvidia  -  Data Center · T1 ex. 2027</div>
         <div class="v">75 <em>Md$</em></div>
         <p>Sur 81,6 Md$ de chiffre d'affaires trimestriel. Ce n'est pas une promesse : c'est facture.</p>
       </div>
       <div class="ai-card">
-        <div class="k">Nvidia — capitalisation · 24 juin 2026</div>
+        <div class="k">Nvidia  -  capitalisation · 24 juin 2026</div>
         <div class="v">~4,82 <em>T$</em></div>
         <p>Environ 4,824 billions de dollars. Une echelle sans equivalent en 2000.</p>
       </div>
@@ -1196,12 +1204,12 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <!-- terminal : ou est l'Europe -->
     <div class="ai-terminal">
       C:\Europe\IA&gt; analyse_position.exe<br>
-      <span class="dim"># Part de la valeur mondiale des deals VC IA — 2025</span><br>
+      <span class="dim"># Part de la valeur mondiale des deals VC IA  -  2025</span><br>
       Etats-Unis ........ <span class="ok">75 %</span><br>
       UE27 .............. <span class="warn">6 %</span><br>
       Chine ............. 5 %<br>
       Royaume-Uni ....... 5 %<br>
-      <span class="dim"># Modeles IA notables — Stanford HAI, 2024</span><br>
+      <span class="dim"># Modeles IA notables  -  Stanford HAI, 2024</span><br>
       Etats-Unis ........ <span class="ok">40 modeles</span><br>
       Chine ............. 15 modeles<br>
       Europe ............ <span class="warn">3 modeles</span><br>
@@ -1220,17 +1228,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
 
     <div class="body-copy" style="max-width:840px">
-      <p>La question n'est donc pas de savoir <strong>s'il y aura une bulle IA</strong>. Les bulles font partie du cycle. La vraie question est ailleurs&nbsp;: <strong>que restera-t-il a l'Europe une fois la vague passee</strong> &mdash; assez de prise sur ses propres outils pour <strong>choisir</strong> la suite, plutot que de la subir&nbsp;?</p>
+      <p>La question n'est donc pas seulement de savoir <strong>s'il y aura une bulle IA</strong>. Il y aura de l'exces, des valorisations absurdes, des acteurs qui tomberont. La question utile est plus concrete&nbsp;: apres la purge, qui gardera les modeles, les puces, le cloud, les donnees, les canaux de distribution et les clients&nbsp;?</p>
+      <p>En 2000, les Etats-Unis ont encaisse le crash puis ont reconstruit la vague suivante autour de Google, Amazon, Facebook, Netflix, PayPal, Salesforce. L'Europe, elle, a garde des talents, mais a souvent perdu l'echelle. En 2026, le risque n'est pas de manquer d'ingenieurs. Le risque est de regarder une nouvelle couche strategique se consolider ailleurs, puis de louer l'acces a ses propres usages.</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     10 — CONCLUSION : ECRAN DE FIN
+     10  -  CONCLUSION : ECRAN DE FIN
      ============================================================ -->
 <section class="section endscreen" data-screen-label="Fin du dossier">
   <div class="inner">
-    <div class="end-eyebrow">// FIN DU DOSSIER &mdash; ou debut de la boucle&nbsp;?</div>
+    <div class="end-eyebrow">// FIN DU DOSSIER  -  ou debut de la boucle&nbsp;?</div>
 
     <!-- programme qui s'execute (rempli par JS) -->
     <div class="reboot" id="reboot">
@@ -1239,8 +1248,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
 
     <h2 class="end-title">L'Europe n'a pas seulement perdu des <em>entreprises</em>.</h2>
-    <p class="end-engage">En 2000, elle a garde ses talents mais perdu le nerf&nbsp;: la capacite a financer le temps long, a coter, a garder ses champions. Vingt-six ans plus tard, le decor a change. Face a l'IA, l'Europe ne part plus d'une page blanche &mdash; elle part deja <b>dependante</b> d'infrastructures, de plateformes et d'ecosystemes construits ailleurs.</p>
-    <p class="end-engage">Et une dependance, ca se constate souvent trop tard&nbsp;: un jour un service ferme &mdash; comme l'arret de <b>Fable</b> et de ses fonctions IA pour les lecteurs europeens &mdash; et l'on decouvre qu'il n'existe pas d'equivalent local pour prendre le relais. <em>Plus une dependance dure, plus elle devient difficile a defaire.</em></p>
+    <p class="end-engage">En 2000, elle a garde ses talents mais perdu le nerf&nbsp;: la capacite a financer le temps long, a coter, a supporter les pertes et a garder ses champions. Vingt-six ans plus tard, le decor a change. L'IA a deja des revenus reels, une infrastructure massive et des clients solvables. Ce n'est donc pas une copie conforme de la bulle Internet.</p>
+    <p class="end-engage">Mais le piege europeen se ressemble&nbsp;: etre present dans la recherche, dans les usages, parfois dans les produits, sans posseder assez de couches critiques. Les modeles tournent sur du compute largement americain, dans des clouds largement americains, finances par des bilans que l'Europe ne peut pas facilement imiter. Si la vague se purge, ce qui restera comptera plus que les valorisations du pic.</p>
+    <p class="end-engage">Et une dependance, ca se constate souvent trop tard&nbsp;: un jour un service ferme, une API change, un modele devient plus cher, une fonctionnalite disparait pour les utilisateurs europeens, et l'on decouvre qu'il n'existe pas d'equivalent local pour prendre le relais. <em>Plus une dependance dure, plus elle devient difficile a defaire.</em></p>
     <p class="end-engage soft">La vraie question n'est peut-etre plus de savoir si l'Europe sait encore <em>innover</em>. Mais si elle peut encore <em>choisir</em>.</p>
 
     <!-- boite de dialogue Windows -->
@@ -1264,32 +1274,32 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     11 — SOURCES & NOTES EDITORIALES
+     11  -  SOURCES & NOTES EDITORIALES
      ============================================================ -->
 <section class="section alt" data-screen-label="Sources">
   <div class="inner">
     <div class="sources win">
-      <div class="titlebar"><span>sources_et_notes.txt — Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>sources_et_notes.txt  -  Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="sources-body">
         <h3>Sources &amp; notes editoriales</h3>
         <p class="intro">Toutes les donnees chiffrees de cette page proviennent des sources ci-dessous. Aucune donnee n'a ete inventee ; les traces de graphiques sont schematiques entre points documentes.</p>
         <div class="src-cols">
-          <div class="src-item"><b>Nasdaq Composite</b>Niveaux de marche (5&nbsp;048,62 le 10 mars 2000 ; 1&nbsp;114,11 le 9 octobre 2002 ; &minus;77,9&nbsp;%) — donnees de marche Nasdaq.</div>
-          <div class="src-item"><b>NEMAX All Share</b>8&nbsp;583 le 10 mars 2000 ; 349,02 debut octobre 2002 — donnees historiques Bundesbank.</div>
+          <div class="src-item"><b>Nasdaq Composite</b>Niveaux de marche (5&nbsp;048,62 le 10 mars 2000 ; 1&nbsp;114,11 le 9 octobre 2002 ; &minus;77,9&nbsp;%)  -  donnees de marche Nasdaq.</div>
+          <div class="src-item"><b>NEMAX All Share</b>8&nbsp;583 le 10 mars 2000 ; 349,02 debut octobre 2002  -  donnees historiques Bundesbank.</div>
           <div class="src-item"><b>Licences 3G</b>Total europeen &gt; 100 Md&euro; ; Allemagne 50,8 Md&euro; (OCDE) ; Royaume-Uni 22,5 Md&pound; (UK Debt Management Office, encheres 3G).</div>
-          <div class="src-item"><b>Dettes telecom 2002</b>France Telecom : 68,019 Md&euro; de dette nette fin 2002 ; Deutsche Telekom : 61,1 Md&euro; — rapports annuels 2002.</div>
-          <div class="src-item"><b>Telecom — rachats au sommet</b>France Telecom &rarr; Orange (mobile UK, 2000, ~40 Md&euro;) ; Deutsche Telekom &rarr; VoiceStream (US, 2001, ~35&ndash;50 Md$ selon le perimetre cash/titres/dette) — presse de l'epoque, ordres de grandeur. Spectre 3G et reseaux ensuite reutilises comme socle de l'internet mobile.</div>
-          <div class="src-item"><b>Venture capital</b>US ~105 Md$ (2000), 41 Md$ (2001), 21,2 Md$ (2002) ; Europe &gt;19,6 Md&euro; (2000), ~3,5 Md&euro; (2010) vs 11,8 Md$ US — OCDE, EVCA/NVCA (series non strictement comparables).</div>
-          <div class="src-item"><b>Scale-up gap</b>Scale-ups europeennes ~la moitie du capital de leurs equivalents Silicon Valley — EIB, FMI, Commission europeenne, rapport Draghi.</div>
-          <div class="src-item"><b>Cas d'entreprises</b>World Online, Lastminute.com, Boo.com, iFrance — chiffres d'IPO, valorisations, liquidation et rachat tels que rapportes par la presse de l'epoque.</div>
-          <div class="src-item"><b>IA &amp; infrastructure</b>Nvidia : revenus Data Center (75 Md$ sur 81,6 Md$, T1 ex. 2027) et capitalisation ~4,824 T$ (24 juin 2026) — Nvidia, Reuters. Capex hyperscalers 2026 ~600&ndash;635 Md$ — Reuters. ASML annual results.</div>
-          <div class="src-item"><b>Position IA</b>Part des deals VC IA 2025 (US 75 %, UE27 6 %, Chine 5 %, UK 5 %) ; modeles notables 2024 (US 40, Chine 15, Europe 3) — Stanford HAI AI Index.</div>
-          <div class="src-item"><b>Dependance &mdash; exemple Fable</b>L'arret de fonctions / du service Fable pour les utilisateurs europeens est cite comme <i>illustration</i> du theme &laquo;&nbsp;un service disparait, sans equivalent local&nbsp;&raquo;. A verifier et dater precisement avant publication.</div>
+          <div class="src-item"><b>Dettes telecom 2002</b>France Telecom : 68,019 Md&euro; de dette nette fin 2002 ; Deutsche Telekom : 61,1 Md&euro;  -  rapports annuels 2002.</div>
+          <div class="src-item"><b>Telecom  -  rachats au sommet</b>France Telecom &rarr; Orange plc rachete a Vodafone (2000, ~39,7 Md&euro;) ; Deutsche Telekom &rarr; VoiceStream (US, 2001, ~35&ndash;50 Md$ selon le perimetre cash/titres/dette)  -  presse de l'epoque, ordres de grandeur. Spectre 3G et reseaux ensuite reutilises comme socle de l'internet mobile.</div>
+          <div class="src-item"><b>Venture capital</b>US ~105 Md$ (2000), 41 Md$ (2001), 21,2 Md$ (2002) ; Europe &gt;19,6 Md&euro; (2000), ~3,5 Md&euro; (2010) vs 11,8 Md$ US  -  OCDE, EVCA/NVCA (series non strictement comparables).</div>
+          <div class="src-item"><b>Scale-up gap</b>Scale-ups europeennes ~la moitie du capital de leurs equivalents Silicon Valley  -  EIB, FMI, Commission europeenne, rapport Draghi.</div>
+          <div class="src-item"><b>Cas d'entreprises</b>World Online, Lastminute.com, Boo.com, iFrance  -  chiffres d'IPO, valorisations, liquidation et rachat tels que rapportes par la presse de l'epoque.</div>
+          <div class="src-item"><b>IA &amp; infrastructure</b>Nvidia : revenus Data Center (75 Md$ sur 81,6 Md$, T1 ex. 2027) et capitalisation ~4,824 T$ (24 juin 2026)  -  Nvidia, Reuters. Capex hyperscalers 2026 ~600&ndash;635 Md$  -  Reuters. ASML annual results.</div>
+          <div class="src-item"><b>Position IA</b>Part des deals VC IA 2025 (US 75 %, UE27 6 %, Chine 5 %, UK 5 %) ; modeles notables 2024 (US 40, Chine 15, Europe 3)  -  Stanford HAI AI Index.</div>
+          <div class="src-item"><b>Dependance numerique</b>Le passage final emploie des exemples generiques (service ferme, API changee, modele plus cher, fonctionnalite retiree) pour eviter de citer un cas non verifie dans le corps de l'article.</div>
         </div>
         <div class="src-quote">
-          <div class="src-item"><b>Crash &mdash; lecture de reference</b>John Cassidy, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (HarperCollins, 2002) : recit detaille de la montee et de l'eclatement de la bulle Internet, cite ici pour l'explication du crash.</div>
+          <div class="src-item"><b>Crash  -  lecture de reference</b>John Cassidy, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (HarperCollins, 2002) : recit detaille de la montee et de l'eclatement de la bulle Internet, cite ici pour l'explication du crash.</div>
           <div class="src-item"><b>Valorisations &amp; EBITDA</b>Le repere &laquo;&nbsp;&times;8 EBITDA&nbsp;&raquo; est un ordre de grandeur usuel (multiples EV/EBITDA), employe ici a titre illustratif. Constat d'entreprises non rentables a forte valorisation : largement documente pour la bulle .com (2000) et rapporte pour plusieurs acteurs de l'IA (2025&ndash;26).</div>
-          <div class="src-item"><b>Citations &amp; recits</b>Marc Simoncini, &laquo;&nbsp;Une vie choisie&nbsp;&raquo; (Grasset, 2018) pour la citation et le parcours (iFrance cede a Vivendi en 2000 ; ruine en 2003 lors de la chute de l'action Vivendi). Xavier Niel / Worldnet : historique de Worldnet (FAI 1994, cede en mai 2000 a Kaptech / futur Neuf Telecom). A traiter avec source, date et contexte lors de la publication.</div>
+          <div class="src-item"><b>Citations &amp; recits</b>Marc Simoncini, &laquo;&nbsp;Une vie choisie&nbsp;&raquo; (Grasset, 2018) pour la citation et le parcours (iFrance cede a Vivendi en 2000 ; ruine en 2003 lors de la chute de l'action Vivendi). Xavier Niel / Worldnet : historique de Worldnet (FAI 1994, cede en mai 2000 a Kaptech / futur Neuf Telecom).</div>
         </div>
       </div>
     </div>
@@ -1300,7 +1310,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 <div class="statusbar">
   <span class="sb-cell">Pret</span>
   <span class="sb-cell">Visiteurs depuis mars 2000 : <span class="counter" id="hitCounter"><b>0</b><b>0</b><b>2</b><b>5</b><b>9</b><b>1</b></span></span>
-  <span class="sb-marquee"><span class="run">&#9733; Miradouro Archives &mdash; Dossier &laquo; Quand l'Europe possedait Internet &raquo; &middot; La bulle n'a pas tue les idees, elle a tue la tolerance au temps long &middot; 2000 &rarr; 2026, le meme film ? &middot; Best viewed with an open mind &#9733;</span></span>
+  <span class="sb-marquee"><span class="run">&#9733; Miradouro Archives  -  Dossier &laquo; Quand l'Europe possedait Internet &raquo; &middot; La bulle n'a pas tue les idees, elle a tue la tolerance au temps long &middot; 2000 &rarr; 2026, le meme film ? &middot; Best viewed with an open mind &#9733;</span></span>
   <span class="sb-cell">800 &times; 600</span>
 </div>
 
@@ -1383,20 +1393,23 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   };
   let cur="fr";
   function load(key,auto){
-    frame.src="https://www.youtube-nocookie.com/embed/"+SRC[key].id+"?rel=0&modestbranding=1"+(auto?"&autoplay=1":"");
+    if(poster){
+      poster.style.backgroundImage="url('https://img.youtube.com/vi/"+SRC[key].id+"/hqdefault.jpg')";
+      poster.dataset.url="https://www.youtube.com/watch?v="+SRC[key].id;
+      poster.style.display='block';
+    }
     lab.textContent=SRC[key].ch;
-    if(poster) poster.style.display='none';
   }
   function tune(key){
-    if(key===cur && poster && poster.style.display==='none') return;
+    if(key===cur) return;
     cur=key;
     stat.classList.add('on');
     btnFR.classList.toggle('active', key==='fr');
     btnEN.classList.toggle('active', key==='en');
-    setTimeout(()=>load(key,true),360);
+    setTimeout(()=>load(key,false),360);
     setTimeout(()=>stat.classList.remove('on'),760);
   }
-  if(poster) poster.addEventListener('click',()=>{ load(cur,true); });
+  if(poster) poster.addEventListener('click',()=>{ window.open(poster.dataset.url || ("https://www.youtube.com/watch?v="+SRC[cur].id), '_blank', 'noopener'); });
   btnFR.addEventListener('click',()=>tune('fr'));
   btnEN.addEventListener('click',()=>tune('en'));
 })();
@@ -1468,7 +1481,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     {task:'recherche d\u2019un equivalent europeen', spin:760, res:'...', cls:'spin', keep:true},
     {task:'tentative 1/3', spin:520, res:'echec', cls:'miss', sub:true},
     {task:'tentative 2/3', spin:560, res:'echec', cls:'miss', sub:true},
-    {task:'ex. alternative a Fable (IA, lecteurs)', spin:680, res:'INTROUVABLE', cls:'miss', sub:true},
+    {task:'alternative locale a un service retire', spin:680, res:'INTROUVABLE', cls:'miss', sub:true},
     {task:'niveau de dependance', spin:640, res:'CROISSANT', cls:'pend'},
     {task:'capacite a choisir', spin:900, res:'[ A DECIDER ]', cls:'pend'},
     {final:'&gt; La boucle n\u2019est pas une fatalite. Mais <em>chaque dependance est plus dure a defaire que la precedente.</em>'}
@@ -1700,7 +1713,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   });
   no.addEventListener('click',()=>{
     if(busy) return; reset();
-    line('\u2715 Non enregistre. On a deja vu ce film — et on connait la fin.', '#e8a99a');
+    line('\u2715 Non enregistre. On a deja vu ce film  -  et on connait la fin.', '#e8a99a');
   });
   cancel.addEventListener('click',()=>{ if(busy) return; reset(); line('Rien n\u2019est encore joue. Le dossier reste ouvert.', 'var(--ouro2)'); });
 })();

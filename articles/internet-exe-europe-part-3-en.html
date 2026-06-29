@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Bubble and the Ambition: what AI is replaying from 2000 | Miradouro</title>
-<meta name="description" content="Part 3 of the Miradouro dossier: how the dot-com crash of 2000 wore down Europe's technological ambition — and why AI is replaying the same script, from valuations to dependency.">
+<title>The crash that cooled Europe: what AI is replaying from 2000 | Miradouro</title>
+<meta name="description" content="The final part of the Miradouro dossier: how the dot-com crash cooled Europe's technological ambition, and what AI is replaying today without repeating exactly the same story.">
 <meta name="author" content="Miradouro">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#243D2C">
@@ -12,8 +12,8 @@
 <link rel="alternate" hreflang="en" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
 <link rel="alternate" hreflang="fr" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html">
 <link rel="alternate" hreflang="x-default" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
-<meta property="og:title" content="The Bubble and the Ambition — Miradouro, Part 3">
-<meta property="og:description" content="The bubble didn't kill the ideas. It wore down Europe's ability to fund the long game — and to choose its own technological future.">
+<meta property="og:title" content="The crash that cooled Europe · Miradouro, final part">
+<meta property="og:description" content="The bubble did not kill the ideas. It wore down Europe's ability to fund the long game and keep its champions.">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="fr_FR">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="../assets/og/internet-exe-p3-en.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Bubble and the Ambition — Miradouro, Part 3">
+<meta property="og:image:alt" content="The crash that cooled Europe · Miradouro, final part">
 <meta property="article:section" content="Tech">
 <meta property="article:published_time" content="2026-06-29">
 <meta property="article:tag" content="Europe">
@@ -56,7 +56,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   MIRADOURO — La bulle et l'ambition
+   MIRADOURO  -  La bulle et l'ambition
    Univers Windows 2000 / salle de marche / bulle Internet 2000
    ============================================================ */
 :root{
@@ -117,7 +117,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .dark .body-copy strong{color:var(--ouro2)}
 
 /* ============================================================
-   1 — HERO : SALLE DE MARCHE, MARS 2000
+   1  -  HERO : SALLE DE MARCHE, MARS 2000
    ============================================================ */
 .hero{position:relative;min-height:100vh;padding:78px clamp(14px,4vw,56px) clamp(40px,5vw,72px);display:flex;align-items:center;
   background:radial-gradient(circle at 80% 14%,rgba(196,151,58,.22),transparent 38%),linear-gradient(155deg,#0c1a12,#16271d 55%,#0a130d);overflow:hidden}
@@ -167,7 +167,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .hero-hint{position:absolute;bottom:14px;right:18px;z-index:7;font:600 10px var(--mono);letter-spacing:.08em;color:rgba(200,218,200,.5);text-transform:uppercase}
 
 /* ============================================================
-   2 — EXPLIQUER LA BULLE (fenetre aide) + TV CRT
+   2  -  EXPLIQUER LA BULLE (fenetre aide) + TV CRT
    ============================================================ */
 .explain-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:34px;align-items:start;margin-top:34px}
 .help-win .titlebar{background:linear-gradient(90deg,#0a2f8c,#1b7bc6)}
@@ -191,7 +191,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .crt{background:linear-gradient(165deg,#3a3631,#211e1a);border-radius:22px;padding:22px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.08),inset 0 -8px 18px rgba(0,0,0,.5);position:relative}
 .crt:before{content:"MIRADOURO";position:absolute;left:50%;transform:translateX(-50%);bottom:30px;font:800 9px var(--mono);letter-spacing:.34em;color:rgba(255,255,255,.22)}
 .crt-screen{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/10;border:2px solid #0c0c0c;box-shadow:inset 0 0 50px rgba(0,0,0,.9),inset 0 0 0 6px #161412}
-.crt-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.crt-screen iframe{display:none}
 /* curvature + scan + glare overlays */
 .crt-screen:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:
   linear-gradient(rgba(18,20,18,0) 50%,rgba(0,0,0,.16) 50%),
@@ -219,7 +219,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .tv-note a{color:var(--pom);text-decoration:underline;text-underline-offset:2px}
 
 /* ============================================================
-   3 — EUROPE S'EMBALLE : tickets IPO
+   3  -  EUROPE S'EMBALLE : tickets IPO
    ============================================================ */
 .ipo-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
 .ipo-card{background:var(--win);border:1px solid #f5f5f5;box-shadow:0 0 0 1px #111,0 12px 30px rgba(0,0,0,.28)}
@@ -241,7 +241,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .ipo-foot b{color:var(--verde2)}
 
 /* ============================================================
-   4 — CHOC TELECOM / GUEULE DE BOIS (facture)
+   4  -  CHOC TELECOM / GUEULE DE BOIS (facture)
    ============================================================ */
 .bill-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:30px;align-items:start;margin-top:34px}
 .bill-win .titlebar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
@@ -475,7 +475,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   background:linear-gradient(90deg,#bfe0bf 0 16%,#f1e6c2 16% 30%,#f4cfc4 30% 100%);box-shadow:inset 1px 1px 2px rgba(0,0,0,.15)}
 .gauge .ticks{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 1px,transparent 1px 10%);pointer-events:none}
 .gauge .norme{position:absolute;left:16%;top:-9px;bottom:-9px;width:2px;background:var(--verde)}
-.gauge .norme:after{content:"\D7 8 EBITDA \2014 norme";position:absolute;top:-17px;left:5px;font:700 9px var(--mono);letter-spacing:.04em;color:var(--verde2);white-space:nowrap}
+.gauge .norme:after{content:"\D7 8 EBITDA  -  norme";position:absolute;top:-17px;left:5px;font:700 9px var(--mono);letter-spacing:.04em;color:var(--verde2);white-space:nowrap}
 .gauge .needle{position:absolute;top:-7px;bottom:-7px;width:3px;background:#a8362e;left:16%;box-shadow:0 0 9px rgba(168,54,46,.6);transition:left 1.5s cubic-bezier(.2,.85,.2,1)}
 .gauge .needle:after{content:"";position:absolute;top:-7px;left:-4px;width:11px;height:11px;background:#a8362e;transform:rotate(45deg)}
 .valmeter.run .vm.e1 .needle{left:90%}
@@ -503,8 +503,11 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 .float.hide{opacity:0;transform:translateY(-10px) scale(.96);pointer-events:none}
 
 /* ---------- LOGOS : plaques robustes ---------- */
-.logo-plate{height:76px;padding:13px 18px}
-.logo-plate img{max-height:48px;width:auto;object-fit:contain}
+.logo-plate{height:92px;padding:15px 20px}
+.logo-plate img{max-height:66px;width:auto;object-fit:contain}
+.crash-mini{margin-top:12px;border:1px solid #8a2f2a;background:#fff4ef;padding:10px 11px;font:11px/1.45 var(--mono);color:#3a1f1c}
+.crash-mini b{color:#8a2f2a}
+.crash-line{height:38px;margin-top:7px;background:linear-gradient(160deg,transparent 0 42%,#8a2f2a 43% 47%,transparent 48%),repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 18px)}
 
 /* ---------- VIDEO : poster click-to-play ---------- */
 .crt-poster{position:absolute;inset:0;z-index:6;cursor:pointer;border:0;padding:0;display:block;background:#0a0d0a center/cover no-repeat;overflow:hidden}
@@ -675,24 +678,24 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </nav>
 
 <!-- ============================================================
-     1 — HERO : SALLE DE MARCHE, MARS 2000
+     1  -  HERO : SALLE DE MARCHE, MARS 2000
      ============================================================ -->
-<header class="hero" data-screen-label="Hero — Mars 2000">
+<header class="hero" data-screen-label="Hero  -  Mars 2000">
   <!-- bandeau de cotation -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack"></div>
   </div>
 
   <div class="hero-stage">
-    <div class="datestamp"><span class="blip"></span>March 2000 — Trading floor — live feed</div>
-    <h1 class="hero-title">The bubble <em>and</em> the ambition</h1>
-    <p class="hero-deck">Quote screens. An IPO every week. Anything with <b>.com</b> or <b>online</b> in its name seems to be worth the future. Promises bought at the price of empires.</p>
+    <div class="datestamp"><span class="blip"></span>March 2000  -  Trading floor  -  live feed</div>
+    <h1 class="hero-title">The crash that <em>cooled</em> Europe</h1>
+    <p class="hero-deck">There were quote screens, an IPO almost every week, and anything with <b>.com</b> or <b>online</b> in its name seemed to be worth the future. Promises were bought at the price of empires.</p>
     <div class="hero-meta">
       <span>Dossier · When Europe owned the Internet</span>
       <span>Part 3 of 3</span>
       <span>A documentary read</span>
     </div>
-    <div class="scroll-cue"><span class="arrow">&#9660;</span> Scroll to open the dossier</div>
+    <div class="scroll-cue"><span class="arrow">&#9660;</span> Scroll to close the dossier</div>
   </div>
 
   <!-- popups IPO flottants (draggable, desktop) -->
@@ -700,7 +703,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <div class="titlebar" data-drag><span>IPO_ALERT.exe</span><span class="tb-btns"><span data-close>&times;</span></span></div>
     <div class="ipo-body">
       <div class="co">World Online</div>
-      <div class="ev">IPO — March 17, 2000</div>
+      <div class="ev">IPO · March 17, 2000</div>
       <div class="price"><b>&euro;43</b><span class="arr">&#9650;</span></div>
       <div class="sub">Valuation: &euro;12 billion</div>
     </div>
@@ -719,28 +722,37 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
   </div>
 
-  <div class="hero-hint">Tip: the windows close on their own &mdash; or do it with a click</div>
+  <div class="hero-hint">Tip: the windows close on their own, or do it with a click</div>
 </header>
 
+<section class="section alt" id="recap" data-screen-label="Dossier recap">
+  <div class="inner">
+    <div class="label">Before the crash · why we are here</div>
+    <h2 class="section-title">The dossier started with a simple question: <em>what did Europe really have?</em></h2>
+    <p class="lead">Part 1 replayed a day on the web before the platforms: searching, chatting, selling, listening, booking, often through European brands. Part 2 opened the atlas: ISPs, portals, mobile, mapping, classifieds, voice over IP. Europe did not own all of the Internet, but it did own several layers of use.</p>
+    <p class="lead">The final part is about the moment that advance jammed. Not because the ideas were bad. Because the bubble broke financing, loaded telecom balance sheets with debt, then installed lasting caution exactly when Europe needed to start again.</p>
+  </div>
+</section>
+
 <!-- ============================================================
-     2 — EXPLIQUER LA BULLE + TELE CRT
+     2  -  EXPLIQUER LA BULLE + TELE CRT
      ============================================================ -->
 <section class="section" id="bulle" data-screen-label="Expliquer la bulle">
   <div class="inner">
-    <div class="label">Context — for those who weren't there</div>
+    <div class="label">Context  -  for those who weren't there</div>
     <h2 class="section-title">A bubble is a real revolution that meets <em>too much money, too fast</em>.</h2>
-    <p class="lead">The Internet was real. The problem wasn't the technology — it was the pace. Valuations ran faster than revenue, and a single IPO was enough to turn a promise into a public price.</p>
+    <p class="lead">The Internet was real. The problem wasn't the technology  -  it was the pace. Valuations ran faster than revenue, and a single IPO was enough to turn a promise into a public price.</p>
 
     <div class="explain-grid">
       <!-- fenetre aide Windows -->
       <div class="help-win win">
-        <div class="titlebar"><span>Help &mdash; What is a bubble?</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>Help  -  What is a bubble?</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
         <div class="help-body">
           <div class="help-head">
             <div class="help-q">?</div>
             <div>
               <h3>bubble.hlp</h3>
-              <p>Lesson 1 of 1 — 6 points</p>
+              <p>Lesson 1 of 1  -  6 points</p>
             </div>
           </div>
           <ol class="help-steps">
@@ -756,19 +768,14 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
       <!-- TELE CRT avec chaines FR/EN -->
       <div class="tv-wrap">
-        <div class="tv-caption">Documentary &mdash; <span class="rec">now playing</span> · pick your channel</div>
+        <div class="tv-caption">Documentary  -  <span class="rec">now playing</span> · pick your channel</div>
         <div class="crt">
           <div class="crt-screen">
             <div class="crt-chlabel" id="chLabel">CH&nbsp;07 · EN</div>
             <div class="crt-static" id="crtStatic"></div>
-            <iframe id="tvFrame"
-              src="https://www.youtube-nocookie.com/embed/FtqZbfdtUAQ?rel=0&modestbranding=1"
-              title="The dot-com bubble explained — English version"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen loading="lazy"></iframe>
-            <button class="crt-poster" id="tvPoster" type="button" style="background-image:url('https://img.youtube.com/vi/FtqZbfdtUAQ/hqdefault.jpg')" aria-label="Play the video">
+            <button class="crt-poster" id="tvPoster" type="button" data-url="https://www.youtube.com/watch?v=FtqZbfdtUAQ" style="background-image:url('https://img.youtube.com/vi/FtqZbfdtUAQ/hqdefault.jpg')" aria-label="Open the video on YouTube">
               <span class="play"></span>
-              <span class="pl-label">Click to play the video</span>
+              <span class="pl-label">Open the video on YouTube</span>
             </button>
           </div>
           <div class="crt-deck">
@@ -783,20 +790,20 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
             </div>
           </div>
         </div>
-        <p class="tv-note">A video explainer of the dot-com bubble, in English (CH 07) and French (CH 03). Turn the channel knob to switch language.</p>
+        <p class="tv-note">A video explainer of the dot-com bubble, in English (CH 07) and French (CH 03). The opening image stays here; clicking opens YouTube in a new tab.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     3 — L'EUROPE S'EMBALLE AUSSI (tickets IPO)
+     3  -  L'EUROPE S'EMBALLE AUSSI (tickets IPO)
      ============================================================ -->
 <section class="section alt" data-screen-label="L'Europe s'emballe">
   <div class="inner">
-    <div class="label">Symptoms — not an atlas</div>
+    <div class="label">Symptoms  -  not an atlas</div>
     <h2 class="section-title">Europe wasn't watching the bubble. It <em>was living it</em>.</h2>
-    <p class="lead">Four system windows, four symptoms. No need to scroll through a whole directory: these few cases are enough to show the euphoria was European — and so was the fall. Behind the scenes, another boom: thousands of retail investors opening online brokerage accounts to play the bubble.</p>
+    <p class="lead">Four system windows, four symptoms. No need to scroll through a whole directory: these few cases are enough to show the euphoria was European  -  and so was the fall. Behind the scenes, another boom: thousands of retail investors opening online brokerage accounts to play the bubble.</p>
 
     <div class="ipo-board">
       <!-- World Online -->
@@ -804,12 +811,13 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>WORLD_ONLINE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/world-online.png" alt="World Online" loading="lazy"></div>
-          <span class="ipo-tag">IPO — March 17, 2000</span>
+          <span class="ipo-tag">IPO  -  March 17, 2000</span>
           <div class="ipo-name">World Online</div>
           <div class="ipo-cat">Netherlands · ISP / portal</div>
           <div class="ipo-stat"><span class="k">IPO price</span><span class="vv green">&euro;43 / share</span></div>
           <div class="ipo-stat"><span class="k">Valuation</span><span class="vv">&euro;12bn</span></div>
-          <p class="ipo-foot">One of Europe's biggest Internet IPOs. <b>Days before the market peak.</b></p>
+          <p class="ipo-foot">A pan-European ISP and portal, World Online promised free Internet access and a presence across roughly fifteen countries. <b>The problem was the price.</b></p>
+          <div class="crash-mini"><b>Visible crash</b><br>Listed at &euro;43, the stock fell to around &euro;31 within days. Its valuation dropped from about &euro;12bn to &euro;5bn in a week, amid controversy over Nina Brink's pre-IPO share sale.<div class="crash-line" aria-hidden="true"></div></div>
         </div>
       </article>
 
@@ -818,7 +826,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>LASTMINUTE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/lastminute.png" alt="Lastminute.com" loading="lazy"></div>
-          <span class="ipo-tag">IPO — March 14, 2000</span>
+          <span class="ipo-tag">IPO  -  March 14, 2000</span>
           <div class="ipo-name">Lastminute.com</div>
           <div class="ipo-cat">United Kingdom · travel / e-commerce</div>
           <div class="ipo-stat"><span class="k">IPO price</span><span class="vv green">380 pence</span></div>
@@ -829,10 +837,10 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
       <!-- Boo.com -->
       <article class="ipo-card dead">
-        <div class="titlebar"><span>BOO.exe — erreur</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>BOO.exe  -  erreur</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><img src="../assets/bulle/boo.png" alt="Boo.com" loading="lazy"></div>
-          <span class="ipo-tag">Liquidation — May 18, 2000</span>
+          <span class="ipo-tag">Liquidation  -  May 18, 2000</span>
           <div class="ipo-name">Boo.com</div>
           <div class="ipo-cat">Europe · online fashion</div>
           <div class="ipo-stat"><span class="k">Cash burned</span><span class="vv red">$135M</span></div>
@@ -846,7 +854,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="titlebar"><span>IFRANCE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
         <div class="ipo-in">
           <div class="logo-plate"><span class="wm">i<em>France</em></span></div>
-          <span class="ipo-tag">Acquired — May 2000</span>
+          <span class="ipo-tag">Acquired  -  May 2000</span>
           <div class="ipo-name">iFrance</div>
           <div class="ipo-cat">France · community portal</div>
           <div class="ipo-stat"><span class="k">Acquired by</span><span class="vv">Vivendi</span></div>
@@ -859,18 +867,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     4 — LE CHOC TELECOM (gueule de bois industrielle)
+     4  -  LE CHOC TELECOM (gueule de bois industrielle)
      ============================================================ -->
 <section class="section" data-screen-label="Choc telecom 3G">
   <div class="inner">
     <div class="label">The specifically European shock</div>
     <h2 class="section-title">Not just a startup bubble. A <em>telecom bubble</em>.</h2>
-    <p class="lead">While the .coms soared, Europe's carriers did worse than speculate: they <b>overpaid</b>. 3G licences at auction, acquisitions at the market top, all funded by debt. An industrial hangover written into the balance sheet for years &mdash; but one that, paradoxically, left a network behind.</p>
+    <p class="lead">While the .coms soared, Europe's carriers did worse than speculate: they <b>overpaid</b>. Governments were auctioning 3G licences, meaning the right to use mobile spectrum for the Internet on phones. Operators paid for that right before the revenue arrived, then bought rivals at the top of the market, all funded by debt.</p>
 
     <div class="bill-grid">
       <!-- facture 3G -->
       <div class="bill-win win">
-        <div class="titlebar"><span>licences_3G.txt &mdash; Notepad</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="titlebar"><span>licences_3G.txt  -  Notepad</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
         <div class="bill-body">
           <div class="bill-head">
             <h3>3G auction invoice</h3>
@@ -879,14 +887,14 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <div class="bill-row"><span class="desc">United Kingdom<small>3G licence auction</small></span><span class="amt">&pound;22.5bn</span></div>
           <div class="bill-row"><span class="desc">Germany<small>3G licence auction</small></span><span class="amt">&euro;50.8bn</span></div>
           <div class="bill-total"><span class="desc">European 3G total</span><span class="amt">&gt; &euro;100bn</span></div>
-          <p class="bill-note">Cumulative 3G licences across Europe: more than 100 billion euros. A promise paid in cash, before any revenue.</p>
+          <p class="bill-note">Cumulative 3G licences across Europe: more than 100 billion euros. A promise paid in cash before mass-market 3G phones, before usage, before revenue.</p>
         </div>
       </div>
 
       <!-- la dette qui reste -->
       <div>
         <div class="body-copy" style="margin-top:0">
-          <p>The brutal part isn't the licence price. It's what was left on the balance sheet years later. By the end of 2002, the continent's two telecom giants carried colossal net debt:</p>
+          <p>Why did it hit so hard? Because a 3G licence is not an app you shut down if it disappoints. It is a public entry ticket, paid upfront, followed by antennas, networks, marketing and years of waiting for customers. By the end of 2002, the continent's two telecom giants carried colossal net debt:</p>
         </div>
         <div class="ipo-board duo" style="margin-top:20px">
           <article class="ipo-card dead">
@@ -909,7 +917,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           </article>
         </div>
         <div class="body-copy">
-          <p>The point: this wasn't only a crash on screen. It was an <strong>industrial hangover</strong> &mdash; balance sheets to de-leverage before even thinking about the next move.</p>
+          <p>The point: this wasn't only a crash on screen. It was an <strong>industrial hangover</strong>  -  balance sheets to de-leverage before even thinking about the next move.</p>
         </div>
       </div>
     </div>
@@ -921,8 +929,8 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="sub">Buying the future at top price, on credit, at the peak.</div>
         <ul class="tel-list">
           <li><span class="mk">1</span><span>A <b>bubble inside the bubble</b>: over <b>&euro;100bn</b> of 3G licences paid in cash, before a single 3G subscriber.</span></li>
-          <li><span class="mk">2</span><span><b>Acquisitions at the top</b>: France Telecom buys <b>Orange</b> (UK mobile) in 2000 for ~&euro;40bn; Deutsche Telekom buys <b>VoiceStream</b> (US) in 2001 for ~$35&ndash;50bn <i>(rough orders of magnitude)</i>.</span></li>
-          <li><span class="mk">3</span><span>All of it <b>debt-funded</b>, right before the turn &mdash; hence the ~&euro;68bn and ~&euro;61bn of net debt at end-2002.</span></li>
+          <li><span class="mk">2</span><span><b>Acquisitions at the top</b>: France Telecom buys <b>Orange plc</b> from Vodafone in 2000 for ~&euro;39.7bn; Deutsche Telekom buys <b>VoiceStream</b> (US) in 2001 for ~$35&ndash;50bn <i>(rough orders of magnitude)</i>.</span></li>
+          <li><span class="mk">3</span><span>All of it <b>debt-funded</b>, right before the turn  -  hence the ~&euro;68bn and ~&euro;61bn of net debt at end-2002.</span></li>
           <li><span class="mk">4</span><span>Then the <b>purge</b>: asset sales, recapitalisations, dividends cut, years spent de-leveraging.</span></li>
         </ul>
       </div>
@@ -930,9 +938,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <h4>&#9650; What good came of it</h4>
         <div class="sub">Europe paid dearly for infrastructure it still relies on.</div>
         <ul class="tel-list">
-          <li><span class="mk">+</span><span>That money also built <b>network</b>: fibre backbones, masts, 3G spectrum &mdash; the foundation of <b>mobile internet</b> in the 2010s.</span></li>
+          <li><span class="mk">+</span><span>That money also built <b>network</b>: fibre backbones, masts, 3G spectrum  -  the foundation of <b>mobile internet</b> in the 2010s.</span></li>
           <li><span class="mk">+</span><span>The <b>clean-up</b> sorted the field: consolidation, and the <b>survivors</b> came out stronger.</span></li>
-          <li><span class="mk">+</span><span>On those cleaned-up pipes, <b>new entrants</b> could grow &mdash; including Xavier Niel's Free / Iliad, which would blow up prices.</span></li>
+          <li><span class="mk">+</span><span>On those cleaned-up pipes, <b>new entrants</b> could grow  -  including Xavier Niel's Free / Iliad, which would blow up prices.</span></li>
           <li><span class="mk">+</span><span>The lesson: the spending was <b>mistimed</b>, not pointless. The problem wasn't investing, but the <b>price</b> and the <b>timing</b>.</span></li>
         </ul>
       </div>
@@ -942,16 +950,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     5 — GRAPHIQUE 1 : LA MONTEE ET LA CHUTE
+     5  -  GRAPHIQUE 1 : LA MONTEE ET LA CHUTE
      ============================================================ -->
-<section class="section dark" data-screen-label="Graphique 1 — La chute">
+<section class="section dark" data-screen-label="Graphique 1  -  La chute">
   <div class="inner">
-    <div class="label">Chart 1 / 2 — the crash</div>
+    <div class="label">Chart 1 / 2  -  the crash</div>
     <h2 class="section-title">The NASDAQ, <em>icon of the crash</em>. And Europe did worse.</h2>
-    <p class="lead">Here's the curve everyone pictures: the NASDAQ, from its March 10, 2000 peak to its October 2002 trough. Below it, more quietly, Germany's NEMAX &mdash; which fell even further. Indices rebased to 100 at the peak.</p>
+    <p class="lead">Here's the curve everyone pictures: the NASDAQ, from its March 10, 2000 peak to its October 2002 trough. Below it, more quietly, Germany's NEMAX  -  which fell even further. Indices rebased to 100 at the peak.</p>
 
     <div class="chart-win win">
-      <div class="titlebar"><span>rise_fall.chart — Financial terminal</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>rise_fall.chart  -  Financial terminal</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="chart-body">
         <div class="chart-toolbar">
           <div class="chart-h">NASDAQ Composite &middot; peak &rarr; trough</div>
@@ -976,16 +984,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="ba">John Cassidy<br>2002</div>
       </div>
       <div class="bx">
-        <div class="tag">To understand the crash &mdash; essential reading</div>
-        <p class="q">Journalist John Cassidy told, almost hour by hour, how the euphoria turned &mdash; and why so many investors wanted to believe, right to the end, in a story too good to be true.</p>
-        <div class="src"><b>John Cassidy</b>, “Dot.con: The Greatest Story Ever Sold” (2002) &mdash; an account of the rise and burst of the Internet bubble.</div>
+        <div class="tag">To understand the crash  -  essential reading</div>
+        <p class="q">Journalist John Cassidy told, almost hour by hour, how the euphoria turned  -  and why so many investors wanted to believe, right to the end, in a story too good to be true.</p>
+        <div class="src"><b>John Cassidy</b>, “Dot.con: The Greatest Story Ever Sold” (2002)  -  an account of the rise and burst of the Internet bubble.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     6 — APRES LE CRASH : USA vs EUROPE
+     6  -  APRES LE CRASH : USA vs EUROPE
      ============================================================ -->
 <section class="section" id="crash" data-screen-label="Apres le crash">
   <div class="inner">
@@ -995,9 +1003,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
     <div class="vs-wrap">
       <div class="vs-row head">
-        <div class="c-us">United States &mdash; the machine restarts</div>
+        <div class="c-us">United States  -  the machine restarts</div>
         <div class="c-sp">Year</div>
-        <div class="c-eu">Europe &mdash; scale slips away</div>
+        <div class="c-eu">Europe  -  scale slips away</div>
       </div>
       <div class="vs-row">
         <div class="c-us"><span class="tag">Purge</span><br>VC drops to <b>$21.2bn</b>. <b>PayPal</b> and <b>Netflix</b> (May) go public anyway.</div>
@@ -1007,7 +1015,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
       <div class="vs-row">
         <div class="c-us"><span class="tag">Rebound</span><br><b>Google</b> goes public; <b>Facebook</b> is founded. Capital comes back fast.</div>
         <div class="c-sp">2004</div>
-        <div class="c-eu"><span class="tag">Exit, not scale</span><br><b>Skype</b> (European) takes off &mdash; and will be <b>sold</b> to eBay by 2005. The exit rather than the empire.</div>
+        <div class="c-eu"><span class="tag">Exit, not scale</span><br><b>Skype</b>, created by Nordic founders with a key team in Estonia, takes off. It is sold to <b>eBay</b> in 2005, moves through investors in 2009, then ends up at <b>Microsoft</b> in 2011. The usage becomes global, the control leaves Europe.</div>
       </div>
       <div class="vs-row">
         <div class="c-us"><span class="tag">Platforms</span><br>Google buys <b>YouTube</b> ($1.65bn). The winners become global giants.</div>
@@ -1023,7 +1031,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 
     <div class="vs-metric">
       <div class="m dk">
-        <div class="k">VC invested &mdash; 2000 &rarr; 2010 (United States)</div>
+        <div class="k">VC invested  -  2000 &rarr; 2010 (United States)</div>
         <div class="v">~$105 &rarr; 11.8bn</div>
       </div>
       <div class="m">
@@ -1036,16 +1044,16 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     7 — GRAPHIQUE 2 : QUI GARDE LE MOTEUR ?
+     7  -  GRAPHIQUE 2 : QUI GARDE LE MOTEUR ?
      ============================================================ -->
-<section class="section alt" data-screen-label="Graphique 2 — VC">
+<section class="section alt" data-screen-label="Graphique 2  -  VC">
   <div class="inner">
-    <div class="label">Graphique 2 / 2 — financer l'apres-crash</div>
+    <div class="label">Graphique 2 / 2  -  financer l'apres-crash</div>
     <h2 class="section-title">Le crash n'est pas toute l'histoire. La vraie difference, c'est <em>l'apres</em>.</h2>
     <p class="lead">Capital-risque investi, ordres de grandeur. En 2000 comme en 2010, l'ecart de financement entre les Etats-Unis et l'Europe ne se referme pas.</p>
 
     <div class="chart-win win" style="margin-top:34px">
-      <div class="titlebar"><span>venture_capital.chart — Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>venture_capital.chart  -  Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="chart-body" style="background:#0e1a12">
         <div class="chart-toolbar">
           <div class="chart-h">Capital-risque investi · ordres de grandeur</div>
@@ -1059,24 +1067,24 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <div class="chart-tip" id="tip2"></div>
         </div>
         <p class="chart-msg">The crash isn't the whole story. The real difference is the ability to fund the years after.</p>
-        <p class="chart-foot">Reading: 2000 — US ~$105bn vs Europe &gt;&euro;19.6bn. 2010 — US $11.8bn vs Europe ~&euro;3.5bn. Currencies and scopes (EVCA/NVCA) not strictly comparable: read as orders of magnitude.</p>
+        <p class="chart-foot">Reading: 2000  -  US ~$105bn vs Europe &gt;&euro;19.6bn. 2010  -  US $11.8bn vs Europe ~&euro;3.5bn. Currencies and scopes (EVCA/NVCA) not strictly comparable: read as orders of magnitude.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     8 — CITATIONS (lecteur media) + THESE CENTRALE
+     8  -  CITATIONS (lecteur media) + THESE CENTRALE
      ============================================================ -->
 <section class="section" data-screen-label="Citations">
   <div class="inner">
-    <div class="label">Voices &mdash; those who lived through the turn</div>
+    <div class="label">Paths · people who lived through the turn</div>
     <h2 class="section-title">One <em>dodged it</em>. The other lost everything, then <em>started over</em>.</h2>
 
     <div class="players">
       <!-- NIEL / WORLDNET -->
       <article class="winamp" id="waNiel" data-dur="184">
-        <div class="wa-title"><span>&#9835; WORLDNET.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-title"><span>WORLDNET.TXT</span><span class="dots"><i></i><i></i><i></i></span></div>
         <div class="wa-screen">
           <div class="wa-photo av">XN</div>
           <div class="wa-id">
@@ -1091,19 +1099,19 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
         <div class="wa-controls">
           <button class="wa-play" type="button" data-play aria-label="Play / pause">&#9658;</button>
-          <div class="wa-marq"><span>Xavier Niel &middot; Worldnet sold in May 2000, months before the bubble burst &middot; an exit at the top &middot;&nbsp;</span></div>
+          <div class="wa-marq"><span>Xavier Niel &middot; French entrepreneur, founder of Iliad / Free &middot; Worldnet sold in May 2000 &middot; an exit at the top &middot;&nbsp;</span></div>
         </div>
         <div class="wa-story">
           <div class="tag">Documented fact</div>
           <p class="q fact">Sold in May 2000. Months before the crash.</p>
-          <p class="note">Worldnet, one of France's first consumer ISPs (1994), the <b>last independent</b> and profitable one, was <b>sold in May 2000</b> (to Kaptech, later Neuf Telecom) instead of going public. Niel exits at the top &mdash; then builds Free.</p>
+          <p class="note">Xavier Niel is the French entrepreneur behind Iliad / Free, the operator that later shook up the French telecom market. Worldnet, one of France's first consumer ISPs (1994), the <b>last independent</b> and profitable one, was <b>sold in May 2000</b> (to Kaptech, later Neuf Telecom) instead of going public. Niel exits at the top, then builds Free.</p>
           <a class="src" href="https://en.wikipedia.org/wiki/Free_(ISP)" target="_blank" rel="noopener">Source: Worldnet / Free &#8599;</a>
         </div>
       </article>
 
       <!-- SIMONCINI / IFRANCE -->
       <article class="winamp" id="waSim" data-dur="183">
-        <div class="wa-title"><span>&#9835; IFRANCE.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-title"><span>IFRANCE.TXT</span><span class="dots"><i></i><i></i><i></i></span></div>
         <div class="wa-screen">
           <div class="wa-photo av">MS</div>
           <div class="wa-id">
@@ -1118,17 +1126,17 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
         <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
         <div class="wa-controls">
           <button class="wa-play" type="button" data-play aria-label="Play / pause">&#9658;</button>
-          <div class="wa-marq"><span>Marc Simoncini &middot; iFrance sold to Vivendi in 2000, ruined in 2003, then Meetic &middot; lose everything and start again &middot;&nbsp;</span></div>
+          <div class="wa-marq"><span>Marc Simoncini &middot; French entrepreneur, founder of iFrance then Meetic &middot; lose everything and start again &middot;&nbsp;</span></div>
         </div>
         <div class="wa-story">
           <div class="tag">Quote</div>
           <p class="q">&ldquo;The problem with people who have studied too much: they know, they look, but they see nothing.&rdquo;</p>
-          <p class="note">iFrance sold to Vivendi in 2000 (paid in stock). In 2003, Vivendi's share price collapses (~&euro;120 &rarr; &euro;9) and he ends up <b>ruined and in debt</b> &mdash; before bouncing back with Meetic.</p>
+          <p class="note">Marc Simoncini is the French entrepreneur who founded iFrance, then Meetic, one of Europe's major online dating sites. iFrance is sold to Vivendi in 2000 (paid in stock). In 2003, Vivendi's share price collapses (~&euro;120 &rarr; &euro;9) and he ends up <b>ruined and in debt</b>, before bouncing back with Meetic.</p>
           <a class="src" href="https://www.lemonde.fr/technologies/article/2010/03/10/les-rescapes-de-la-toile_1317136_651865.html" target="_blank" rel="noopener">Source: Le Monde / “Une vie choisie” &#8599;</a>
         </div>
       </article>
     </div>
-    <p class="chart-foot" style="color:var(--ink);margin-top:16px;max-width:820px">Evocative players (no audio recording is embedded): pressing play animates the progress bar and the equaliser. The “Source” links open the original material.</p>
+    <p class="chart-foot" style="color:var(--ink);margin-top:16px;max-width:820px">Path cards, not embedded audio: pressing play only animates the progress bar and equaliser. The “Source” links open the original material.</p>
   </div>
 </section>
 
@@ -1140,23 +1148,23 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <div class="thesis-nuance">
       <div><b>What survived</b><p>European innovation didn't vanish. Founders kept going, took the hit, started over.</p></div>
       <div><b>What was damaged</b><p>The ability to fund for the long haul, to list, to absorb losses, to keep its champions.</p></div>
-      <div><b>What was at stake</b><p>Turning products into global platforms &mdash; that's where some of the nerve was lost.</p></div>
+      <div><b>What was at stake</b><p>Turning products into global platforms  -  that's where some of the nerve was lost.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     9 — L'IA, MAIS AVEC NUANCE
+     9  -  L'IA, MAIS AVEC NUANCE
      ============================================================ -->
 <section class="section" id="ia" data-screen-label="L'IA">
   <div class="inner">
-    <div class="label">The final third — no lazy parallel</div>
+    <div class="label">The final third · no lazy parallel</div>
     <h2 class="section-title">AI <em>replays</em> 2000 on valuations. It differs on infrastructure.</h2>
-    <p class="lead">The most uncomfortable parallel isn't the hype: it's the valuation. As in 2000, many AI-driven companies aren't profitable, and their price detaches from any economic anchor. The difference is what sits underneath: an infrastructure that is already massive, billed, solvent.</p>
+    <p class="lead">The most uncomfortable parallel isn't the hype: it's the valuation. As in 2000, many AI-driven companies are not profitable, and their price detaches from any economic anchor. But the parallel has a hard limit: AI is not just a webpage with a commercial promise. It already sits on paying customers, GPUs, data centers, cloud contracts and hyperscaler balance sheets able to absorb hundreds of billions in capex.</p>
 
     <!-- LE REPERE QUI SAUTE : multiple d'EBITDA -->
     <div class="valwrap">
-      <p class="valhead">A &ldquo;normal&rdquo; valuation runs around <b>8 times EBITDA</b>. In 2000, that anchor snapped: companies were priced with no profits, sometimes no revenue. <b>Today the same signal is flashing</b> &mdash; unprofitable AI companies valued at dream multiples.</p>
+      <p class="valhead">A &ldquo;normal&rdquo; valuation can run around <b>8 times EBITDA</b> for an already profitable company. In 2000, that anchor snapped: World Online was worth about <b>&euro;12bn</b> at IPO, Lastminute.com more than <b>&pound;570M</b> before proving its model, Boo.com burned <b>$135M</b> in eighteen months. Investors were no longer pricing profit. They were pricing an option on the future. <b>Today the same signal is flashing</b>, but in a different setting.</p>
       <div class="valmeter" id="valmeter">
         <div class="vm e1">
           <div class="vm-era"><b>.com bubble</b><span>2000</span></div>
@@ -1171,18 +1179,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
           <p class="vm-note">Many AI players <b>burn cash</b> and post no profits, while carrying record valuations. The same signal as 2000.</p>
         </div>
       </div>
-      <p class="valcaption">Reading: &times;8 EBITDA is a rough benchmark for a &ldquo;reasonable&rdquo; valuation, not an absolute rule. The &ldquo;off the scale&rdquo; needle illustrates the gap between price and profits &mdash; seen in 2000, partly replayed today.</p>
+      <p class="valcaption">Reading: &times;8 EBITDA is a rough benchmark, not an absolute rule. The &ldquo;off the scale&rdquo; needle illustrates the gap between price and profits, seen in 2000 and partly replayed today.</p>
     </div>
 
     <p class="valhead" style="margin-top:34px">But here's what didn't exist in 2000: underneath the hype, revenue already billed.</p>
     <div class="ai-grid">
       <div class="ai-card">
-        <div class="k">Nvidia &mdash; Data Center · Q1 FY2027</div>
+        <div class="k">Nvidia  -  Data Center · Q1 FY2027</div>
         <div class="v">$75 <em>bn</em></div>
         <p>Out of $81.6bn in quarterly revenue. Not a promise: it's billed.</p>
       </div>
       <div class="ai-card">
-        <div class="k">Nvidia &mdash; market cap · June 24, 2026</div>
+        <div class="k">Nvidia  -  market cap · June 24, 2026</div>
         <div class="v">~$4.82 <em>tn</em></div>
         <p>About $4.824 trillion. A scale with no equivalent in 2000.</p>
       </div>
@@ -1196,12 +1204,12 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     <!-- terminal : ou est l'Europe -->
     <div class="ai-terminal">
       C:\Europe\AI&gt; analyze_position.exe<br>
-      <span class="dim"># Share of global AI VC deal value — 2025</span><br>
+      <span class="dim"># Share of global AI VC deal value  -  2025</span><br>
       United States ..... <span class="ok">75%</span><br>
       EU27 .............. <span class="warn">6%</span><br>
       China ............. 5%<br>
       United Kingdom .... 5%<br>
-      <span class="dim"># Notable AI models — Stanford HAI, 2024</span><br>
+      <span class="dim"># Notable AI models  -  Stanford HAI, 2024</span><br>
       United States ..... <span class="ok">40 models</span><br>
       China ............. 15 models<br>
       Europe ............ <span class="warn">3 models</span><br>
@@ -1220,17 +1228,18 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
 
     <div class="body-copy" style="max-width:840px">
-      <p>So the question isn't <strong>whether there will be an AI bubble</strong>. Bubbles are part of the cycle. The real question is elsewhere: <strong>what will be left to Europe once the wave passes</strong> &mdash; enough grip on its own tools to <strong>choose</strong> what comes next, rather than have it imposed?</p>
+      <p>So the question is not only <strong>whether there will be an AI bubble</strong>. There will be excess, absurd valuations and companies that fall. The useful question is more concrete: after the purge, who will still hold the models, chips, cloud, data, distribution channels and customers?</p>
+      <p>In 2000, the United States absorbed the crash, then rebuilt the next wave around Google, Amazon, Facebook, Netflix, PayPal and Salesforce. Europe kept talent, but often lost scale. In 2026, the risk is not a lack of engineers. The risk is watching a new strategic layer consolidate elsewhere, then renting access to its own uses.</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     10 — CONCLUSION : ECRAN DE FIN
+     10  -  CONCLUSION : ECRAN DE FIN
      ============================================================ -->
 <section class="section endscreen" data-screen-label="End of dossier">
   <div class="inner">
-    <div class="end-eyebrow">// END OF DOSSIER &mdash; or the start of the loop?</div>
+    <div class="end-eyebrow">// END OF DOSSIER  -  or the start of the loop?</div>
 
     <!-- programme qui s'execute (rempli par JS) -->
     <div class="reboot" id="reboot">
@@ -1239,8 +1248,9 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     </div>
 
     <h2 class="end-title">Europe didn't only lose <em>companies</em>.</h2>
-    <p class="end-engage">In 2000 it kept its talent but lost the nerve: the ability to fund the long game, to list, to keep its champions. Twenty-six years on, the scene has changed. Facing AI, Europe is no longer starting from a blank page &mdash; it starts already <b>dependent</b> on infrastructures, platforms and ecosystems built elsewhere.</p>
-    <p class="end-engage">And dependency is usually noticed too late: one day a service shuts down &mdash; like the withdrawal of <b>Fable</b> and its AI features for European readers &mdash; and you discover there's no local equivalent to take over. <em>The longer a dependency lasts, the harder it becomes to reverse.</em></p>
+    <p class="end-engage">In 2000 it kept its talent but lost the nerve: the ability to fund the long game, to list, to absorb losses and to keep its champions. Twenty-six years on, the scene has changed. AI already has real revenue, massive infrastructure and solvent customers. It is not a carbon copy of the Internet bubble.</p>
+    <p class="end-engage">But the European trap looks familiar: being present in research, in use cases, sometimes in products, without owning enough of the critical layers. Models run on mostly American compute, inside mostly American clouds, financed by balance sheets Europe cannot easily imitate. If the wave purges, what remains will matter more than peak valuations.</p>
+    <p class="end-engage">And dependency is usually noticed too late: one day a service shuts down, an API changes, a model becomes more expensive, a feature disappears for European users, and you discover there is no local equivalent to take over. <em>The longer a dependency lasts, the harder it becomes to reverse.</em></p>
     <p class="end-engage soft">The real question may no longer be whether Europe can still <em>innovate</em>. But whether it can still <em>choose</em>.</p>
 
     <!-- boite de dialogue Windows -->
@@ -1264,32 +1274,32 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 </section>
 
 <!-- ============================================================
-     11 — SOURCES & NOTES EDITORIALES
+     11  -  SOURCES & NOTES EDITORIALES
      ============================================================ -->
 <section class="section alt" data-screen-label="Sources">
   <div class="inner">
     <div class="sources win">
-      <div class="titlebar"><span>sources_and_notes.txt &mdash; Notepad</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="titlebar"><span>sources_and_notes.txt  -  Notepad</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
       <div class="sources-body">
         <h3>Sources &amp; editorial notes</h3>
         <p class="intro">Every figure on this page comes from the sources below. No data was invented; chart lines are schematic between documented points.</p>
         <div class="src-cols">
-          <div class="src-item"><b>NASDAQ Composite</b>Market levels (5,048.62 on Mar 10, 2000; 1,114.11 on Oct 9, 2002; &minus;77.9%) &mdash; NASDAQ market data.</div>
-          <div class="src-item"><b>NEMAX All Share</b>8,583 on Mar 10, 2000; 349.02 in early Oct 2002 &mdash; Bundesbank historical data.</div>
+          <div class="src-item"><b>NASDAQ Composite</b>Market levels (5,048.62 on Mar 10, 2000; 1,114.11 on Oct 9, 2002; &minus;77.9%)  -  NASDAQ market data.</div>
+          <div class="src-item"><b>NEMAX All Share</b>8,583 on Mar 10, 2000; 349.02 in early Oct 2002  -  Bundesbank historical data.</div>
           <div class="src-item"><b>3G licences</b>European total &gt; &euro;100bn; Germany &euro;50.8bn (OECD); UK &pound;22.5bn (UK Debt Management Office, 3G auctions).</div>
-          <div class="src-item"><b>Telecom debt 2002</b>France Telecom: &euro;68.019bn net debt at end-2002; Deutsche Telekom: &euro;61.1bn &mdash; 2002 annual reports.</div>
-          <div class="src-item"><b>Telecom &mdash; acquisitions at the top</b>France Telecom &rarr; Orange (UK mobile, 2000, ~&euro;40bn); Deutsche Telekom &rarr; VoiceStream (US, 2001, ~$35&ndash;50bn depending on cash/stock/debt scope) &mdash; period press, orders of magnitude. 3G spectrum and networks later reused as the foundation of mobile internet.</div>
-          <div class="src-item"><b>Venture capital</b>US ~$105bn (2000), $41bn (2001), $21.2bn (2002); Europe &gt;&euro;19.6bn (2000), ~&euro;3.5bn (2010) vs $11.8bn US &mdash; OECD, EVCA/NVCA (series not strictly comparable).</div>
-          <div class="src-item"><b>Scale-up gap</b>European scale-ups raise ~half the capital of their Silicon Valley peers &mdash; EIB, IMF, European Commission, Draghi report.</div>
-          <div class="src-item"><b>Company cases</b>World Online, Lastminute.com, Boo.com, iFrance &mdash; IPO figures, valuations, liquidation and acquisition as reported by the press at the time.</div>
-          <div class="src-item"><b>AI &amp; infrastructure</b>Nvidia: Data Center revenue ($75bn of $81.6bn, Q1 FY2027) and market cap ~$4.824tn (Jun 24, 2026) &mdash; Nvidia, Reuters. 2026 hyperscaler capex ~$600&ndash;635bn &mdash; Reuters. ASML annual results.</div>
-          <div class="src-item"><b>AI position</b>Share of AI VC deal value 2025 (US 75%, EU27 6%, China 5%, UK 5%); notable models 2024 (US 40, China 15, Europe 3) &mdash; Stanford HAI AI Index.</div>
-          <div class="src-item"><b>Dependency &mdash; the Fable example</b>The withdrawal of Fable's features / service for European users is cited as an <i>illustration</i> of the theme &ldquo;a service disappears, with no local equivalent.&rdquo; To be verified and precisely dated before publication.</div>
+          <div class="src-item"><b>Telecom debt 2002</b>France Telecom: &euro;68.019bn net debt at end-2002; Deutsche Telekom: &euro;61.1bn  -  2002 annual reports.</div>
+          <div class="src-item"><b>Telecom  -  acquisitions at the top</b>France Telecom &rarr; Orange plc bought from Vodafone (2000, ~&euro;39.7bn); Deutsche Telekom &rarr; VoiceStream (US, 2001, ~$35&ndash;50bn depending on cash/stock/debt scope)  -  period press, orders of magnitude. 3G spectrum and networks later reused as the foundation of mobile internet.</div>
+          <div class="src-item"><b>Venture capital</b>US ~$105bn (2000), $41bn (2001), $21.2bn (2002); Europe &gt;&euro;19.6bn (2000), ~&euro;3.5bn (2010) vs $11.8bn US  -  OECD, EVCA/NVCA (series not strictly comparable).</div>
+          <div class="src-item"><b>Scale-up gap</b>European scale-ups raise ~half the capital of their Silicon Valley peers  -  EIB, IMF, European Commission, Draghi report.</div>
+          <div class="src-item"><b>Company cases</b>World Online, Lastminute.com, Boo.com, iFrance  -  IPO figures, valuations, liquidation and acquisition as reported by the press at the time.</div>
+          <div class="src-item"><b>AI &amp; infrastructure</b>Nvidia: Data Center revenue ($75bn of $81.6bn, Q1 FY2027) and market cap ~$4.824tn (Jun 24, 2026)  -  Nvidia, Reuters. 2026 hyperscaler capex ~$600&ndash;635bn  -  Reuters. ASML annual results.</div>
+          <div class="src-item"><b>AI position</b>Share of AI VC deal value 2025 (US 75%, EU27 6%, China 5%, UK 5%); notable models 2024 (US 40, China 15, Europe 3)  -  Stanford HAI AI Index.</div>
+          <div class="src-item"><b>Digital dependency</b>The final passage uses generic examples (service shutdown, API change, higher model pricing, removed feature) to avoid citing an unverified case in the article body.</div>
         </div>
         <div class="src-quote">
-          <div class="src-item"><b>Crash &mdash; essential reading</b>John Cassidy, &ldquo;Dot.con: The Greatest Story Ever Sold&rdquo; (HarperCollins, 2002): a detailed account of the rise and burst of the Internet bubble, cited here for the explanation of the crash.</div>
+          <div class="src-item"><b>Crash  -  essential reading</b>John Cassidy, &ldquo;Dot.con: The Greatest Story Ever Sold&rdquo; (HarperCollins, 2002): a detailed account of the rise and burst of the Internet bubble, cited here for the explanation of the crash.</div>
           <div class="src-item"><b>Valuations &amp; EBITDA</b>The &ldquo;&times;8 EBITDA&rdquo; benchmark is a common order of magnitude (EV/EBITDA multiples), used here for illustration. The observation of unprofitable, highly valued companies is widely documented for the .com bubble (2000) and reported for several AI players (2025&ndash;26).</div>
-          <div class="src-item"><b>Quotes &amp; stories</b>Marc Simoncini, &ldquo;Une vie choisie&rdquo; (Grasset, 2018) for the quote and the path (iFrance sold to Vivendi in 2000; ruined in 2003 as Vivendi's stock fell). Xavier Niel / Worldnet: Worldnet history (ISP 1994, sold in May 2000 to Kaptech / later Neuf Telecom). To be handled with source, date and context at publication.</div>
+          <div class="src-item"><b>Quotes &amp; stories</b>Marc Simoncini, &ldquo;Une vie choisie&rdquo; (Grasset, 2018) for the quote and the path (iFrance sold to Vivendi in 2000; ruined in 2003 as Vivendi's stock fell). Xavier Niel / Worldnet: Worldnet history (ISP 1994, sold in May 2000 to Kaptech / later Neuf Telecom).</div>
         </div>
       </div>
     </div>
@@ -1300,7 +1310,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
 <div class="statusbar">
   <span class="sb-cell">Ready</span>
   <span class="sb-cell">Visitors since March 2000: <span class="counter" id="hitCounter"><b>0</b><b>0</b><b>2</b><b>5</b><b>9</b><b>1</b></span></span>
-  <span class="sb-marquee"><span class="run">&#9733; Miradouro Archives &mdash; Dossier &ldquo;When Europe owned the Internet&rdquo; &middot; The bubble didn't kill the ideas, it wore down the tolerance for the long game &middot; 2000 &rarr; 2026, the same movie? &middot; Best viewed with an open mind &#9733;</span></span>
+  <span class="sb-marquee"><span class="run">&#9733; Miradouro Archives  -  Dossier &ldquo;When Europe owned the Internet&rdquo; &middot; The bubble didn't kill the ideas, it wore down the tolerance for the long game &middot; 2000 &rarr; 2026, the same movie? &middot; Best viewed with an open mind &#9733;</span></span>
   <span class="sb-cell">800 &times; 600</span>
 </div>
 
@@ -1383,20 +1393,23 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   };
   let cur="en";
   function load(key,auto){
-    frame.src="https://www.youtube-nocookie.com/embed/"+SRC[key].id+"?rel=0&modestbranding=1"+(auto?"&autoplay=1":"");
+    if(poster){
+      poster.style.backgroundImage="url('https://img.youtube.com/vi/"+SRC[key].id+"/hqdefault.jpg')";
+      poster.dataset.url="https://www.youtube.com/watch?v="+SRC[key].id;
+      poster.style.display='block';
+    }
     lab.textContent=SRC[key].ch;
-    if(poster) poster.style.display='none';
   }
   function tune(key){
-    if(key===cur && poster && poster.style.display==='none') return;
+    if(key===cur) return;
     cur=key;
     stat.classList.add('on');
     btnFR.classList.toggle('active', key==='fr');
     btnEN.classList.toggle('active', key==='en');
-    setTimeout(()=>load(key,true),360);
+    setTimeout(()=>load(key,false),360);
     setTimeout(()=>stat.classList.remove('on'),760);
   }
-  if(poster) poster.addEventListener('click',()=>{ load(cur,true); });
+  if(poster) poster.addEventListener('click',()=>{ window.open(poster.dataset.url || ("https://www.youtube.com/watch?v="+SRC[cur].id), '_blank', 'noopener'); });
   btnFR.addEventListener('click',()=>tune('fr'));
   btnEN.addEventListener('click',()=>tune('en'));
 })();
@@ -1468,7 +1481,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
     {task:'recherche d\u2019un equivalent europeen', spin:760, res:'...', cls:'spin', keep:true},
     {task:'attempt 1/3', spin:520, res:'failed', cls:'miss', sub:true},
     {task:'attempt 2/3', spin:560, res:'failed', cls:'miss', sub:true},
-    {task:'e.g. alternative to Fable (AI, readers)', spin:680, res:'NOT FOUND', cls:'miss', sub:true},
+    {task:'local alternative to withdrawn service', spin:680, res:'NOT FOUND', cls:'miss', sub:true},
     {task:'dependency level', spin:640, res:'RISING', cls:'pend'},
     {task:'ability to choose', spin:900, res:'[ TBD ]', cls:'pend'},
     {final:'&gt; La boucle n\u2019est pas une fatalite. Mais <em>chaque dependance est plus dure a defaire que la precedente.</em>'}
@@ -1700,7 +1713,7 @@ body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;b
   });
   no.addEventListener('click',()=>{
     if(busy) return; reset();
-    line('\u2715 Not saved. We\u2019ve seen this movie before — and we know how it ends.', '#e8a99a');
+    line('\u2715 Not saved. We\u2019ve seen this movie before  -  and we know how it ends.', '#e8a99a');
   });
   cancel.addEventListener('click',()=>{ if(busy) return; reset(); line('Nothing is decided yet. The dossier stays open.', 'var(--ouro2)'); });
 })();
