@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La bulle et l'ambition : ce que l'IA rejoue de l'an 2000 | Miradouro</title>
+<meta name="description" content="Partie 3 du dossier Miradouro : comment la bulle Internet de l'an 2000 a abîmé l'ambition technologique européenne — et pourquoi l'IA en rejoue le scénario, des valorisations à la dépendance.">
+<meta name="author" content="Miradouro">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#243D2C">
+<link rel="canonical" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html">
+<link rel="alternate" hreflang="fr" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html">
+<link rel="alternate" hreflang="en" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
+<link rel="alternate" hreflang="x-default" href="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-en.html">
+<meta property="og:title" content="La bulle et l'ambition — Miradouro, Partie 3">
+<meta property="og:description" content="La bulle n'a pas tué les idées. Elle a usé la capacité européenne à financer le temps long — et à choisir son futur technologique.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Miradouro">
+<meta property="og:url" content="https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html">
+<meta property="og:image" content="../assets/og/internet-exe-p3-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La bulle et l'ambition — Miradouro, Partie 3">
+<meta property="article:section" content="Tech">
+<meta property="article:published_time" content="2026-06-29">
+<meta property="article:tag" content="Europe">
+<meta property="article:tag" content="bulle Internet">
+<meta property="article:tag" content="intelligence artificielle">
+<meta property="article:tag" content="souveraineté numérique">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La bulle et l'ambition">
+<meta name="twitter:description" content="De la bulle .com à l'IA : ce que l'Europe a perdu, et ce qu'elle risque de perdre encore.">
+<meta name="twitter:image" content="../assets/og/internet-exe-p3-fr.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "La bulle et l'ambition",
+  "description": "Comment la bulle Internet de l'an 2000 a abîmé l'ambition technologique européenne, et pourquoi l'IA en rejoue le scénario.",
+  "inLanguage": "fr",
+  "articleSection": "Tech",
+  "image": ["../assets/og/internet-exe-p3-fr.png"],
+  "author": { "@type": "Organization", "name": "Miradouro" },
+  "publisher": { "@type": "Organization", "name": "Miradouro" },
+  "datePublished": "2026-06-29",
+  "dateModified": "2026-06-29",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://miradouro-blog.vercel.app/articles/internet-exe-europe-part-3-fr.html" },
+  "isPartOf": { "@type": "CreativeWorkSeries", "name": "Quand l'Europe possédait Internet" },
+  "keywords": "Europe, bulle Internet, dot-com, NASDAQ, NEMAX, 3G, intelligence artificielle, souveraineté numérique"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MIRADOURO — La bulle et l'ambition
+   Univers Windows 2000 / salle de marche / bulle Internet 2000
+   ============================================================ */
+:root{
+  --verde:#243D2C;--verde2:#2E5038;--verde3:#C8DAC8;--creme:#FBF8F2;--areia:#EDE6DA;--rule:#D8CEBC;
+  --pom:#C97A5E;--pom2:#EDB89A;--ouro:#C4973A;--ouro2:#F0DFA8;--ferro:#18140E;--ferro2:#3A3028;--ink:#6A5C50;
+  --win:#D4D0C8;--win-light:#F1EFEA;--win-blue:#0a2f8c;--win-blue2:#1b7bc6;
+  --green:#9cff9c;--red:#ff6a5a;--amber:#ffc04d;
+  --f1:"Fraunces",Georgia,serif;--f2:"Cormorant Garamond",Georgia,serif;--f3:"Inter",system-ui,sans-serif;--mono:"Space Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--creme);color:var(--ferro);font-family:var(--f3);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+/* scanlines + grain (univers Internet.exe) */
+body:before{content:"";position:fixed;inset:0;z-index:9000;pointer-events:none;background:linear-gradient(rgba(24,20,14,0) 50%,rgba(24,20,14,.03) 50%);background-size:100% 4px;mix-blend-mode:multiply;opacity:.5}
+.noise{position:fixed;inset:-20%;z-index:8999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E");opacity:.14;mix-blend-mode:multiply}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,54px);background:rgba(36,61,44,.96);backdrop-filter:blur(6px);border-bottom:2px solid var(--ouro);color:var(--creme)}
+.brand{font-family:var(--f1);font-weight:800;letter-spacing:.04em;font-size:18px}
+.brand em{font-weight:300;color:var(--pom2)}
+.nav-right{display:flex;gap:18px;align-items:center;font:700 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--verde3)}
+.nav-right a:hover{color:var(--ouro2)}
+.nav-tag{padding:4px 8px;border:1px solid var(--ouro);color:var(--ouro2)}
+.lang-toggle{display:inline-flex;border:1px solid var(--verde3);overflow:hidden;margin-left:2px}
+.lang-toggle .on,.lang-toggle a{font:800 9px var(--mono);letter-spacing:.08em;padding:5px 9px;line-height:1}
+.lang-toggle .on{background:var(--pom);color:#fff}
+.lang-toggle a{color:var(--verde3)}
+.lang-toggle a:hover{color:var(--ouro2)}
+
+/* ---------- WINDOW CHROME ---------- */
+.win{position:relative;border:1px solid #f5f5f5;box-shadow:0 0 0 1px #111,0 22px 56px rgba(0,0,0,.4);background:var(--win)}
+.titlebar{height:30px;background:linear-gradient(90deg,var(--win-blue),var(--win-blue2));display:flex;align-items:center;justify-content:space-between;color:#fff;padding:0 7px 0 12px;font:700 12px var(--mono);letter-spacing:.02em}
+.titlebar.grey{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
+.titlebar.warn{background:linear-gradient(90deg,#8a2f2a,#b6473f)}
+.tb-btns{display:flex;gap:4px}
+.tb-btns span{display:grid;place-items:center;width:19px;height:17px;background:var(--win);border:1px solid #fff;border-right-color:#404040;border-bottom-color:#404040;color:#111;font-size:10px;line-height:1;cursor:default}
+.btn3d{background:var(--win-light);color:#111;border:2px solid #fff;border-right-color:#404040;border-bottom-color:#404040;padding:9px 14px;font:700 11px var(--mono);letter-spacing:.04em;cursor:pointer;text-transform:uppercase}
+.btn3d:active{border-color:#404040;border-right-color:#fff;border-bottom-color:#fff;transform:translateY(1px)}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:clamp(48px,7vw,96px) clamp(16px,5vw,72px)}
+.dark{background:var(--verde);color:var(--creme)}
+.alt{background:var(--areia)}
+.inner{max-width:1180px;margin:auto}
+.label{font:700 11px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ouro);margin-bottom:16px}
+.dark .label{color:var(--ouro2)}
+.section-title{font-family:var(--f1);font-size:clamp(32px,5.2vw,68px);line-height:1.02;letter-spacing:-.03em;max-width:1000px;text-wrap:balance}
+.section-title em{font-weight:300;color:var(--pom);font-style:italic}
+.dark .section-title em{color:var(--pom2)}
+.lead{font-family:var(--f2);font-size:clamp(19px,2vw,27px);line-height:1.34;color:rgba(24,20,14,.74);max-width:840px;margin-top:18px;text-wrap:pretty}
+.dark .lead{color:rgba(251,248,242,.78)}
+.body-copy{max-width:720px;margin-top:22px;font-size:16.5px;color:#3a352e}
+.dark .body-copy{color:rgba(251,248,242,.74)}
+.body-copy p{margin-bottom:15px;text-wrap:pretty}
+.body-copy strong{color:var(--verde2);font-weight:700}
+.dark .body-copy strong{color:var(--ouro2)}
+
+/* ============================================================
+   1 — HERO : SALLE DE MARCHE, MARS 2000
+   ============================================================ */
+.hero{position:relative;min-height:100vh;padding:78px clamp(14px,4vw,56px) clamp(40px,5vw,72px);display:flex;align-items:center;
+  background:radial-gradient(circle at 80% 14%,rgba(196,151,58,.22),transparent 38%),linear-gradient(155deg,#0c1a12,#16271d 55%,#0a130d);overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(156,255,156,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(156,255,156,.04) 1px,transparent 1px);background-size:46px 46px;pointer-events:none;mask-image:radial-gradient(circle at 50% 40%,#000,transparent 78%)}
+/* ticker tape */
+.ticker{position:absolute;top:56px;left:0;right:0;z-index:6;height:40px;background:#070b08;border-bottom:1px solid #1d3a1d;border-top:1px solid #1d3a1d;display:flex;align-items:center;overflow:hidden;font:700 13px var(--mono);color:var(--green)}
+.ticker-track{display:flex;gap:42px;white-space:nowrap;padding-left:42px;animation:ticker 38s linear infinite;will-change:transform}
+.ticker:hover .ticker-track{animation-play-state:paused}
+@keyframes ticker{to{transform:translateX(-50%)}}
+.tk{display:inline-flex;align-items:center;gap:8px}
+.tk .nm{color:#cfe9cf}
+.tk .up{color:var(--green)}
+.tk .up:before{content:"\25B2 "}
+.tk .dn{color:var(--red)}
+.tk .dn:before{content:"\25BC "}
+.tk .v{color:var(--ouro2)}
+.hero-stage{position:relative;z-index:5;width:min(1180px,100%);margin:auto;padding-top:24px}
+.datestamp{font:700 12px var(--mono);letter-spacing:.28em;color:var(--pom2);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.datestamp .blip{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(255,106,90,.6);animation:blip 1.6s ease-out infinite}
+@keyframes blip{0%{box-shadow:0 0 0 0 rgba(255,106,90,.6)}100%{box-shadow:0 0 0 12px rgba(255,106,90,0)}}
+.hero-title{font-family:var(--f1);font-size:clamp(46px,9vw,128px);line-height:.86;letter-spacing:-.04em;color:var(--creme);max-width:14ch;text-wrap:balance}
+.hero-title em{font-weight:300;font-style:italic;color:var(--pom2)}
+.hero-deck{font-family:var(--f2);font-size:clamp(20px,2.3vw,30px);line-height:1.28;color:rgba(251,248,242,.82);max-width:680px;margin-top:24px;text-wrap:pretty}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;font:700 10px var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.hero-meta span{padding:7px 12px;border:1px solid rgba(240,223,168,.4);color:var(--ouro2);background:rgba(196,151,58,.08)}
+.scroll-cue{margin-top:34px;display:inline-flex;align-items:center;gap:10px;font:700 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--verde3)}
+.scroll-cue .arrow{animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(5px)}}
+
+/* floating IPO popups + crash alert in hero */
+.float{position:absolute;z-index:7;width:248px;font-family:var(--f3)}
+.float .titlebar{height:24px;font-size:10px;cursor:grab}
+.float .titlebar:active{cursor:grabbing}
+.ipo-body{background:var(--win-light);padding:12px 13px 14px;color:#1a1a1a}
+.ipo-body .co{font:800 16px var(--f1);color:#16140e}
+.ipo-body .ev{font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin:3px 0 9px}
+.ipo-body .price{display:flex;align-items:baseline;gap:7px}
+.ipo-body .price b{font:800 27px var(--f1);color:#1f7a3a}
+.ipo-body .price .arr{color:#1f7a3a;font-size:18px}
+.ipo-body .sub{font:600 11px var(--mono);color:#4a443c;margin-top:7px}
+.float.alert{width:300px}
+.float.alert .a-body{background:var(--win);padding:16px 15px;display:flex;gap:13px;align-items:flex-start}
+.a-ico{flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:#b6473f;color:#fff;display:grid;place-items:center;font:800 22px var(--f1);box-shadow:inset -2px -2px 0 rgba(0,0,0,.25)}
+.a-txt{font-size:13px;color:#1a1a1a}
+.a-txt b{display:block;font:700 12px var(--mono);margin-bottom:5px}
+.a-actions{display:flex;gap:8px;justify-content:flex-end;padding:0 15px 14px;background:var(--win)}
+.hero-hint{position:absolute;bottom:14px;right:18px;z-index:7;font:600 10px var(--mono);letter-spacing:.08em;color:rgba(200,218,200,.5);text-transform:uppercase}
+
+/* ============================================================
+   2 — EXPLIQUER LA BULLE (fenetre aide) + TV CRT
+   ============================================================ */
+.explain-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:34px;align-items:start;margin-top:34px}
+.help-win .titlebar{background:linear-gradient(90deg,#0a2f8c,#1b7bc6)}
+.help-body{background:var(--win-light);padding:20px 22px 24px}
+.help-head{display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid #c9c3b8;padding-bottom:16px;margin-bottom:16px}
+.help-q{flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:linear-gradient(160deg,#1b7bc6,#0a2f8c);color:#fff;display:grid;place-items:center;font:800 26px var(--f1);box-shadow:inset -2px -2px 0 rgba(0,0,0,.25)}
+.help-head h3{font-family:var(--f1);font-size:23px;line-height:1.05;color:#16140e}
+.help-head p{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--ink);margin-top:4px}
+.help-steps{list-style:none;counter-reset:hs}
+.help-steps li{counter-increment:hs;display:flex;gap:13px;padding:11px 0;border-top:1px dashed #cdc6ba;font-size:15px;color:#322d27;line-height:1.45}
+.help-steps li:first-child{border-top:none}
+.help-steps li:before{content:counter(hs);flex:0 0 26px;width:26px;height:26px;background:var(--verde);color:#fff;font:800 13px var(--mono);display:grid;place-items:center}
+.help-steps b{color:var(--verde2)}
+
+/* ---- CRT TELEVISION ---- */
+.tv-wrap{position:relative}
+.tv-caption{font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.tv-caption .rec{display:inline-flex;align-items:center;gap:6px;color:#b6473f}
+.tv-caption .rec:before{content:"";width:8px;height:8px;border-radius:50%;background:#b6473f;animation:blip2 1.4s ease-in-out infinite}
+@keyframes blip2{50%{opacity:.25}}
+.crt{background:linear-gradient(165deg,#3a3631,#211e1a);border-radius:22px;padding:22px 22px 18px;box-shadow:0 26px 60px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.08),inset 0 -8px 18px rgba(0,0,0,.5);position:relative}
+.crt:before{content:"MIRADOURO";position:absolute;left:50%;transform:translateX(-50%);bottom:30px;font:800 9px var(--mono);letter-spacing:.34em;color:rgba(255,255,255,.22)}
+.crt-screen{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/10;border:2px solid #0c0c0c;box-shadow:inset 0 0 50px rgba(0,0,0,.9),inset 0 0 0 6px #161412}
+.crt-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+/* curvature + scan + glare overlays */
+.crt-screen:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:3;background:
+  linear-gradient(rgba(18,20,18,0) 50%,rgba(0,0,0,.16) 50%),
+  radial-gradient(circle at 50% 50%,transparent 60%,rgba(0,0,0,.45) 100%),
+  linear-gradient(115deg,rgba(255,255,255,.07),transparent 32%);
+  background-size:100% 3px,100% 100%,100% 100%}
+.crt-static{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23s)'/%3E%3C/svg%3E");background-size:200px 200px}
+.crt-static.on{opacity:.85;animation:snow .14s steps(2) infinite}
+@keyframes snow{to{background-position:60px 40px}}
+.crt-chlabel{position:absolute;top:12px;right:14px;z-index:5;font:700 13px var(--mono);color:var(--green);text-shadow:0 0 6px rgba(156,255,156,.7);letter-spacing:.1em;pointer-events:none;opacity:.92}
+/* control deck under screen */
+.crt-deck{display:flex;align-items:center;gap:16px;margin-top:16px;padding:0 6px}
+.crt-brand{display:flex;flex-direction:column;gap:5px}
+.crt-brand .pw{display:flex;align-items:center;gap:7px;font:700 8px var(--mono);letter-spacing:.18em;color:rgba(255,255,255,.5);text-transform:uppercase}
+.crt-brand .led{width:7px;height:7px;border-radius:50%;background:#5fe06a;box-shadow:0 0 7px #5fe06a}
+.crt-grille{flex:1;height:30px;border-radius:5px;background:repeating-linear-gradient(90deg,#15130f 0 3px,#2b2722 3px 6px);box-shadow:inset 0 1px 2px rgba(0,0,0,.6);min-width:40px}
+.crt-channels{display:flex;gap:8px}
+.ch-btn{width:auto;padding:9px 14px;background:linear-gradient(#48433c,#322e29);border:1px solid #0c0c0c;border-top-color:#5e584f;border-radius:6px;color:#cfc9bf;font:700 11px var(--mono);letter-spacing:.04em;cursor:pointer;box-shadow:0 2px 0 #15130f;transition:transform .08s}
+.ch-btn:hover{color:#fff}
+.ch-btn:active{transform:translateY(2px);box-shadow:0 0 0 #15130f}
+.ch-btn.active{background:linear-gradient(#1f8a5b,#15633f);color:#fff;border-top-color:#3fd07f;box-shadow:0 2px 0 #0c3a24,0 0 14px rgba(31,138,91,.5)}
+.crt-knob{width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 38% 32%,#6a635a,#2a2620);border:1px solid #0c0c0c;box-shadow:inset -2px -2px 4px rgba(0,0,0,.6),0 2px 0 #15130f;position:relative}
+.crt-knob:after{content:"";position:absolute;top:5px;left:50%;width:2px;height:11px;background:#cfc9bf;transform:translateX(-50%)}
+.tv-note{font:600 11px var(--mono);color:var(--ink);margin-top:14px;line-height:1.5}
+.tv-note a{color:var(--pom);text-decoration:underline;text-underline-offset:2px}
+
+/* ============================================================
+   3 — EUROPE S'EMBALLE : tickets IPO
+   ============================================================ */
+.ipo-board{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px}
+.ipo-card{background:var(--win);border:1px solid #f5f5f5;box-shadow:0 0 0 1px #111,0 12px 30px rgba(0,0,0,.28)}
+.ipo-card .titlebar{height:26px;font-size:10px}
+.ipo-card.dead .titlebar{background:linear-gradient(90deg,#8a2f2a,#b6473f)}
+.ipo-card.bought .titlebar{background:linear-gradient(90deg,#1f5577,#2f7aa6)}
+.ipo-in{padding:15px 15px 17px;background:var(--win-light)}
+.ipo-tag{font:700 9px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--verde);padding:3px 7px;display:inline-block;margin-bottom:11px}
+.ipo-card.dead .ipo-tag{background:#8a2f2a}
+.ipo-card.bought .ipo-tag{background:#1f5577}
+.ipo-name{font-family:var(--f1);font-size:25px;line-height:1;color:#16140e}
+.ipo-cat{font:600 10px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink);margin:5px 0 14px}
+.ipo-stat{display:flex;flex-direction:column;gap:3px;padding:10px 0;border-top:1px dashed #cdc6ba}
+.ipo-stat .k{font:600 9.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#7a7064}
+.ipo-stat .vv{font:800 21px var(--f1);color:#16140e;line-height:1}
+.ipo-stat .vv.green{color:#1f7a3a}
+.ipo-stat .vv.red{color:#a8362e}
+.ipo-foot{margin-top:13px;font-size:13px;line-height:1.45;color:#3a352e}
+.ipo-foot b{color:var(--verde2)}
+
+/* ============================================================
+   4 — CHOC TELECOM / GUEULE DE BOIS (facture)
+   ============================================================ */
+.bill-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:30px;align-items:start;margin-top:34px}
+.bill-win .titlebar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
+.bill-body{background:#fff;color:#1a1a1a;padding:24px 26px 26px;font-family:var(--mono)}
+.bill-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #1a1a1a;padding-bottom:12px;margin-bottom:6px}
+.bill-head h3{font-family:var(--f1);font-size:24px;letter-spacing:-.01em}
+.bill-head .stamp{font:700 10px var(--mono);letter-spacing:.1em;border:1.5px solid #a8362e;color:#a8362e;padding:4px 8px;transform:rotate(-5deg);text-transform:uppercase}
+.bill-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;padding:12px 0;border-bottom:1px dotted #bbb;font-size:13px}
+.bill-row .desc{color:#322d27}
+.bill-row .desc small{display:block;color:#8a8276;font-size:11px;margin-top:2px;text-transform:none;letter-spacing:0}
+.bill-row .amt{font-weight:700;font-size:18px;white-space:nowrap;color:#16140e;font-family:var(--f1)}
+.bill-total{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:baseline;margin-top:14px;padding-top:14px;border-top:2px solid #1a1a1a}
+.bill-total .desc{font:700 12px var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.bill-total .amt{font:800 30px var(--f1);color:#a8362e}
+.bill-note{font:600 11px var(--mono);color:#8a8276;margin-top:12px;line-height:1.5}
+
+/* ============================================================
+   GRAPHIQUES (fenetres Windows)
+   ============================================================ */
+.chart-win{margin-top:34px}
+.chart-win .titlebar{background:linear-gradient(90deg,#0a2f8c,#1b7bc6)}
+.chart-body{background:#0a0d0a;padding:20px clamp(14px,3vw,30px) 24px;color:#cfe9cf}
+.chart-toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:14px}
+.chart-h{font-family:var(--f1);font-size:clamp(20px,2.6vw,30px);color:#fff;letter-spacing:-.01em}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;font:700 11px var(--mono);letter-spacing:.03em}
+.lg{display:inline-flex;align-items:center;gap:7px;color:#cfe9cf}
+.lg i{width:16px;height:4px;display:inline-block}
+.lg.nasdaq i{background:var(--ouro2)}
+.lg.nemax i{background:var(--pom)}
+.lg.us i{background:var(--ouro2);height:13px;width:13px}
+.lg.eu i{background:var(--verde3);height:13px;width:13px}
+.chart-stage{position:relative;width:100%}
+.chart-stage svg{display:block;width:100%;height:auto;overflow:visible}
+.chart-msg{margin-top:16px;font-family:var(--f2);font-size:clamp(17px,1.9vw,22px);line-height:1.3;color:#efe7d3;border-left:3px solid var(--ouro);padding-left:16px;max-width:780px}
+.chart-foot{font:600 11px var(--mono);color:#7f9b7f;margin-top:14px;line-height:1.5}
+/* svg styling */
+.axis line{stroke:rgba(207,233,207,.18);stroke-width:1}
+.axis .base{stroke:rgba(207,233,207,.4)}
+.axis text{fill:#8fae8f;font:600 11px var(--mono)}
+.grad-line{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.8s ease-out}
+.chart-stage.drawn .grad-line{stroke-dashoffset:0}
+.dot{opacity:0;transition:opacity .4s ease .9s}
+.chart-stage.drawn .dot{opacity:1}
+.dotlabel{fill:#fff;font:800 13px var(--f1)}
+.dotsub{fill:#cfe9cf;font:600 10px var(--mono)}
+.evt{cursor:pointer}
+.evt .stem{stroke:rgba(240,223,168,.5);stroke-width:1;stroke-dasharray:3 3}
+.evt circle{fill:#0a0d0a;stroke:var(--ouro2);stroke-width:2}
+.evt:hover circle{fill:var(--ouro2)}
+.evt text{fill:#f0dfa8;font:700 10px var(--mono)}
+/* bars */
+.bar{transition:height .9s cubic-bezier(.2,.8,.2,1),y .9s cubic-bezier(.2,.8,.2,1)}
+.barlabel{fill:#fff;font:800 15px var(--f1);text-anchor:middle}
+.barcur{fill:#9fbf9f;font:600 10px var(--mono);text-anchor:middle}
+.groupyear{fill:#8fae8f;font:700 12px var(--mono);text-anchor:middle;letter-spacing:.05em}
+.chart-tip{position:absolute;z-index:9;pointer-events:none;background:var(--win-light);border:2px solid #fff;border-right-color:#404040;border-bottom-color:#404040;color:#111;padding:8px 11px;font:700 11px var(--mono);transform:translate(-50%,-130%);opacity:0;transition:opacity .12s;white-space:nowrap;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.chart-tip.show{opacity:1}
+.chart-tip b{display:block;font-family:var(--f1);font-size:14px;color:var(--verde)}
+
+/* ============================================================
+   APRES LE CRASH : USA vs EUROPE
+   ============================================================ */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:34px}
+.side{border:1px solid var(--rule);background:#fff;padding:24px 24px 26px}
+.side.us{background:#16140e;color:var(--creme);border-color:#16140e}
+.side h3{font:700 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--verde);margin-bottom:4px}
+.side.us h3{color:var(--ouro2)}
+.side .big{font-family:var(--f1);font-size:clamp(24px,3vw,34px);line-height:1.04;letter-spacing:-.02em;margin-bottom:16px;color:#16140e}
+.side.us .big{color:#fff}
+.side .big em{font-style:italic;font-weight:300;color:var(--pom)}
+.side.us .big em{color:var(--pom2)}
+.timeline{list-style:none}
+.timeline li{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:10px 0;border-top:1px solid rgba(154,140,128,.25);font-size:14.5px}
+.side.us .timeline li{border-top-color:rgba(251,248,242,.16)}
+.timeline .yr{font:800 15px var(--f1);color:var(--pom)}
+.side.us .timeline .yr{color:var(--pom2)}
+.timeline .ev{color:#3a352e}
+.side.us .timeline .ev{color:rgba(251,248,242,.82)}
+.timeline .ev b{color:#16140e}
+.side.us .timeline .ev b{color:#fff}
+
+/* ============================================================
+   CITATIONS (fenetre lecteur media)
+   ============================================================ */
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.qwin .titlebar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
+.q-body{background:#11140f;color:#e9ead6;padding:22px 24px 20px}
+.q-screen{background:#070b07;border:1px solid #1d3a1d;padding:18px 18px;position:relative;overflow:hidden}
+.q-screen:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(156,255,156,.04) 1px,transparent 1px);background-size:100% 3px;pointer-events:none}
+.q-mark{font-family:var(--f1);font-size:54px;line-height:.6;color:var(--pom2);opacity:.5}
+.q-text{font-family:var(--f2);font-size:clamp(20px,2.3vw,28px);line-height:1.26;color:#f3f1e2;margin:6px 0 16px;font-style:italic;text-wrap:pretty}
+.q-by{display:flex;align-items:center;gap:12px;border-top:1px solid #2a3a2a;padding-top:14px}
+.q-av{flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:linear-gradient(150deg,var(--verde2),var(--verde));border:2px solid var(--ouro);display:grid;place-items:center;font:800 16px var(--f1);color:var(--ouro2)}
+.q-meta .nm{font:700 14px var(--f3);color:#fff}
+.q-meta .role{font:600 10px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#9fbf9f;margin-top:2px}
+.q-controls{display:flex;align-items:center;gap:10px;margin-top:14px;color:#7f9b7f}
+.q-controls .pp{width:30px;height:30px;border-radius:50%;border:2px solid #5fe06a;color:#5fe06a;display:grid;place-items:center;font-size:12px}
+.q-bar{flex:1;height:5px;background:#1d3a1d;position:relative;overflow:hidden}
+.q-bar i{position:absolute;inset:0 70% 0 0;background:#5fe06a}
+.q-time{font:700 10px var(--mono)}
+
+/* ---- THESE CENTRALE ---- */
+.thesis-band{background:radial-gradient(circle at 84% 10%,rgba(201,122,94,.16),transparent 42%),linear-gradient(160deg,#1c3325,#16271d);text-align:left}
+.thesis-quote{font-family:var(--f1);font-size:clamp(30px,5.4vw,72px);line-height:1.02;letter-spacing:-.025em;color:var(--creme);max-width:16ch;text-wrap:balance}
+.thesis-quote em{color:var(--pom2);font-style:italic;font-weight:300}
+.thesis-nuance{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(240,223,168,.18);border:1px solid rgba(240,223,168,.18);max-width:960px}
+.thesis-nuance div{background:#16271d;padding:18px 20px}
+.thesis-nuance b{display:block;font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ouro2);margin-bottom:8px}
+.thesis-nuance p{font-size:14px;color:rgba(251,248,242,.78);line-height:1.45}
+
+/* ============================================================
+   IA : terminal nuance
+   ============================================================ */
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+.ai-card{background:#fff;border:1px solid var(--rule);padding:20px}
+.ai-card .k{font:700 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.ai-card .v{font:800 clamp(28px,3.6vw,44px) var(--f1);color:var(--verde);line-height:1;margin:8px 0 6px;letter-spacing:-.02em}
+.ai-card .v em{color:var(--pom);font-style:normal}
+.ai-card p{font-size:13.5px;color:#5a5048;line-height:1.45}
+.ai-terminal{margin-top:18px;background:#070907;color:var(--green);border:2px solid #2a2a2a;padding:22px clamp(16px,3vw,26px);font:13.5px/1.9 var(--mono);box-shadow:inset 0 0 0 1px #1d3a1d;overflow-x:auto}
+.ai-terminal .dim{color:#5f8f5f}
+.ai-terminal .warn{color:var(--amber)}
+.ai-terminal .ok{color:#7fffa0}
+.ai-terminal .cursor{display:inline-block;width:9px;height:16px;background:var(--green);vertical-align:-3px;animation:cur 1s steps(2) infinite}
+@keyframes cur{50%{opacity:0}}
+.ai-strength{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.str-box{border:1px solid var(--rule);background:var(--win-light);padding:18px 20px}
+.str-box.weak{background:#fbeeea;border-color:#e6c4bb}
+.str-box h4{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--verde2);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.str-box.weak h4{color:#a8362e}
+.str-box .chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font:700 11px var(--mono);padding:5px 10px;background:#fff;border:1px solid #c9c3b8;color:#322d27}
+.str-box.weak .chip{border-color:#e0bdb4}
+
+/* ============================================================
+   CONCLUSION : ECRAN DE FIN
+   ============================================================ */
+.endscreen{background:#0a130d;text-align:center;position:relative;overflow:hidden}
+.endscreen:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(156,255,156,.04) 50%,transparent 50%);background-size:100% 4px;pointer-events:none}
+.end-eyebrow{font:700 12px var(--mono);letter-spacing:.34em;text-transform:uppercase;color:var(--green);margin-bottom:18px}
+.end-title{font-family:var(--f1);font-size:clamp(40px,7vw,96px);line-height:.94;color:var(--creme);letter-spacing:-.03em;max-width:18ch;margin:0 auto;text-wrap:balance}
+.end-title em{color:var(--pom2);font-style:italic;font-weight:300}
+.end-sub{font-family:var(--f2);font-size:clamp(19px,2.2vw,27px);color:rgba(251,248,242,.74);max-width:760px;margin:24px auto 0;text-wrap:pretty}
+.save-dialog{position:relative;z-index:2;max-width:430px;margin:40px auto 0;text-align:left}
+.save-dialog .save-body{background:var(--win);padding:20px 20px 18px}
+.save-row{display:flex;gap:14px;align-items:flex-start}
+.save-ico{flex:0 0 36px;width:36px;height:36px;border-radius:50%;background:linear-gradient(160deg,#1b7bc6,#0a2f8c);color:#fff;display:grid;place-items:center;font:800 22px var(--f1)}
+.save-row p{font-size:14px;color:#1a1a1a}
+.save-row p b{display:block;font:700 12px var(--mono);margin-bottom:5px}
+.save-progress{height:16px;border:1px solid #7a7468;background:#fff;margin:16px 0 4px;display:none;padding:2px}
+.save-progress i{display:block;height:100%;width:0;background:repeating-linear-gradient(90deg,var(--verde) 0 7px,transparent 7px 10px);transition:width 1.5s linear}
+.save-status{font:600 11px var(--mono);color:var(--verde2);min-height:16px;margin-bottom:14px}
+.save-actions{display:flex;gap:10px;justify-content:flex-end}
+.save-actions .btn3d.primary{background:var(--win-light);box-shadow:inset 0 0 0 2px var(--verde)}
+
+/* ============================================================
+   SOURCES & NOTES (bloc notepad)
+   ============================================================ */
+.sources .titlebar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a)}
+.sources-body{background:#fffef8;padding:clamp(22px,3vw,34px)}
+.sources-body h3{font-family:var(--f1);font-size:26px;color:#16140e;margin-bottom:6px}
+.sources-body .intro{font-size:14px;color:#5a5048;max-width:680px;margin-bottom:22px;font-family:var(--mono)}
+.src-cols{column-count:2;column-gap:40px}
+.src-item{break-inside:avoid;padding:11px 0;border-top:1px solid #e7e0d2;font-size:13.5px;line-height:1.5;color:#322d27}
+.src-item:first-child{border-top:none}
+.src-item b{display:block;font:700 11px var(--mono);letter-spacing:.03em;color:var(--verde2);margin-bottom:3px;text-transform:uppercase}
+.src-quote{margin-top:24px;border-top:2px solid #16140e;padding-top:16px}
+.src-quote .src-item b{color:var(--pom)}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--ferro);color:rgba(251,248,242,.7);padding:30px clamp(16px,5vw,72px);font:12px var(--mono);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer a:hover{color:var(--ouro2)}
+.footer .nxt{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ---------- LOGOS (plaques d'archive) ---------- */
+.logo-plate{display:flex;align-items:center;justify-content:center;height:68px;background:#fff;border:2px solid #fff;border-right-color:#9a948a;border-bottom-color:#9a948a;box-shadow:inset 1px 1px 0 #fff;margin-bottom:14px;padding:11px 14px;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease}
+.logo-plate img{max-height:44px;max-width:100%;object-fit:contain;display:block;filter:saturate(1.02)}
+.logo-plate .wm{font:800 24px var(--f1);letter-spacing:-.01em;color:#16140e}
+.logo-plate .wm em{font-style:italic;font-weight:300;color:var(--pom)}
+.ipo-card:hover .logo-plate{transform:translateY(-2px);box-shadow:inset 1px 1px 0 #fff,0 8px 18px rgba(0,0,0,.2)}
+
+/* ---------- CONCLUSION : boucle scenario (programme qui s'execute) ---------- */
+.reboot{position:relative;z-index:2;max-width:800px;margin:0 auto 38px;text-align:left;background:#070b07;border:2px solid #1d3a1d;box-shadow:0 0 0 1px #000,0 26px 56px rgba(0,0,0,.55);font:clamp(12px,1.4vw,14px)/1.85 var(--mono);color:var(--green)}
+.reboot .rb-bar{background:linear-gradient(90deg,#5a5a5a,#7a7a7a);color:#fff;font:700 11px var(--mono);padding:7px 11px;display:flex;justify-content:space-between;letter-spacing:.03em}
+.reboot .rb-body{padding:18px clamp(15px,3vw,26px);min-height:330px}
+.rb-line{display:flex;align-items:baseline;gap:10px;opacity:0;transform:translateY(4px);transition:opacity .28s ease,transform .28s ease}
+.rb-line.show{opacity:1;transform:none}
+.rb-task{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rb-res{flex:0 0 auto;font-weight:700;white-space:nowrap}
+.rb-res.ok{color:#7fffa0}
+.rb-res.lost{color:var(--red);text-shadow:0 0 8px rgba(255,106,90,.5)}
+.rb-res.pend{color:var(--amber)}
+.rb-res.miss{color:var(--red)}
+.rb-res.spin{color:#5f8f5f}
+.rb-line .dim{color:#5f8f5f}
+.rb-line.sub .rb-task{padding-left:16px;color:#7faf7f}
+.rb-line.sub{font-size:.92em}
+.rb-head{color:#cfe9cf;font-weight:700;display:block}
+.rb-head.mt{margin-top:14px}
+.rb-final{display:block;margin-top:16px;color:#fff;font-weight:700;white-space:normal;line-height:1.5}
+.rb-final em{color:var(--pom2);font-style:normal}
+.reboot .cursor{display:inline-block;width:9px;height:15px;background:var(--green);vertical-align:-2px;margin-left:3px;animation:cur 1s steps(2) infinite}
+.end-engage{position:relative;z-index:2;font-family:var(--f2);font-size:clamp(18px,2.1vw,25px);line-height:1.34;color:rgba(251,248,242,.82);max-width:820px;margin:26px auto 0;text-wrap:pretty}
+.end-engage em{font-style:italic;color:var(--pom2)}
+.end-engage b{color:#fff;font-weight:700;font-family:var(--f1)}
+.end-engage.soft{color:rgba(251,248,242,.6);font-size:clamp(15px,1.7vw,19px);margin-top:18px}
+
+/* ---------- CITATION LIVRE (Dot.con) ---------- */
+.bookref{display:flex;gap:24px;align-items:center;margin-top:28px;background:var(--creme);border:1px solid var(--ouro);padding:22px 26px;box-shadow:0 16px 38px rgba(0,0,0,.32)}
+.book-cover{flex:0 0 96px;width:96px;height:132px;background:linear-gradient(152deg,#1c3325,#16271d);border:1px solid #0a130d;border-left:5px solid var(--ouro);box-shadow:4px 4px 0 rgba(0,0,0,.25),inset 0 0 0 1px rgba(240,223,168,.12);display:flex;flex-direction:column;justify-content:space-between;padding:13px 11px;color:#f0dfa8;position:relative;transform:rotate(-2deg);transition:transform .2s ease}
+.bookref:hover .book-cover{transform:rotate(0) translateY(-3px)}
+.book-cover .bt{font:800 17px/.96 var(--f1);letter-spacing:-.01em}
+.book-cover .bt em{font-style:italic;font-weight:300;color:var(--pom2)}
+.book-cover .ba{font:600 8px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(240,223,168,.7)}
+.bookref .bx{flex:1}
+.bookref .bx .tag{font:700 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--pom);margin-bottom:8px}
+.bookref .bx .q{font-family:var(--f2);font-size:clamp(18px,2vw,23px);line-height:1.28;font-style:italic;color:#16140e;text-wrap:pretty}
+.bookref .bx .src{font:700 11px var(--mono);color:var(--verde2);margin-top:10px}
+.bookref .bx .src b{color:#16140e}
+
+/* ---------- COMPTEUR DE VALORISATION (EBITDA) ---------- */
+.valwrap{margin-top:18px}
+.valhead{font-family:var(--f2);font-size:clamp(18px,2vw,24px);line-height:1.3;color:#3a352e;max-width:780px;text-wrap:pretty;margin-bottom:6px}
+.valhead b{color:var(--verde2);font-weight:700;font-family:var(--f1)}
+.valmeter{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.vm{background:#fff;border:1px solid var(--rule);padding:18px 20px 20px;box-shadow:0 0 0 1px #fff inset}
+.vm .vm-era{display:flex;justify-content:space-between;align-items:baseline}
+.vm .vm-era b{font:800 17px var(--f1);color:#16140e}
+.vm .vm-era span{font:700 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pom)}
+.gauge{position:relative;height:30px;margin:30px 0 30px;border:2px solid #fff;border-right-color:#9a948a;border-bottom-color:#9a948a;
+  background:linear-gradient(90deg,#bfe0bf 0 16%,#f1e6c2 16% 30%,#f4cfc4 30% 100%);box-shadow:inset 1px 1px 2px rgba(0,0,0,.15)}
+.gauge .ticks{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 1px,transparent 1px 10%);pointer-events:none}
+.gauge .norme{position:absolute;left:16%;top:-9px;bottom:-9px;width:2px;background:var(--verde)}
+.gauge .norme:after{content:"\D7 8 EBITDA \2014 norme";position:absolute;top:-17px;left:5px;font:700 9px var(--mono);letter-spacing:.04em;color:var(--verde2);white-space:nowrap}
+.gauge .needle{position:absolute;top:-7px;bottom:-7px;width:3px;background:#a8362e;left:16%;box-shadow:0 0 9px rgba(168,54,46,.6);transition:left 1.5s cubic-bezier(.2,.85,.2,1)}
+.gauge .needle:after{content:"";position:absolute;top:-7px;left:-4px;width:11px;height:11px;background:#a8362e;transform:rotate(45deg)}
+.valmeter.run .vm.e1 .needle{left:90%}
+.valmeter.run .vm.e2 .needle{left:85%}
+.vm .vm-ends{display:flex;justify-content:space-between;font:600 9.5px var(--mono);letter-spacing:.03em;text-transform:uppercase;color:#8a8276;margin-top:-22px}
+.vm .vm-note{font-size:13.5px;line-height:1.45;color:#5a5048;margin-top:14px}
+.vm .vm-note b{color:#a8362e}
+.valcaption{font:600 11px var(--mono);color:var(--ink);margin-top:14px;line-height:1.5;max-width:820px}
+
+/* ---------- FOOTER Y2K (compteur, badges, webring) ---------- */
+.statusbar{position:relative;z-index:1;background:var(--win);border-top:2px solid #fff;border-bottom:1px solid #404040;padding:6px 12px;display:flex;align-items:center;gap:14px;font:700 11px var(--mono);color:#1a1a1a;overflow:hidden}
+.statusbar .sb-cell{border:1px solid #fff;border-right-color:#808080;border-bottom-color:#808080;padding:3px 9px;background:var(--win-light);white-space:nowrap;flex:0 0 auto}
+.statusbar .sb-marquee{flex:1;overflow:hidden;border:1px solid #808080;border-right-color:#fff;border-bottom-color:#fff;background:#fff;padding:3px 0}
+.statusbar .sb-marquee .run{display:inline-block;white-space:nowrap;padding-left:100%;animation:mq 26s linear infinite;color:#243D2C}
+.statusbar:hover .sb-marquee .run{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-100%)}}
+.counter{display:inline-flex;gap:2px;vertical-align:-2px}
+.counter b{display:inline-block;background:#070b07;color:#5fe06a;font:700 12px var(--mono);padding:2px 4px;border:1px solid #1d3a1d;text-shadow:0 0 5px rgba(95,224,106,.7)}
+.bestview{display:inline-flex;align-items:center;gap:7px;font:700 9px var(--mono);letter-spacing:.06em;color:rgba(251,248,242,.6);text-transform:uppercase;border:1px solid rgba(240,223,168,.3);padding:5px 9px}
+.bestview .blink{color:var(--ouro2);animation:blink 1.1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- POPUPS : auto-fade ---------- */
+.float{transition:opacity .55s ease,transform .55s ease}
+.float.hide{opacity:0;transform:translateY(-10px) scale(.96);pointer-events:none}
+
+/* ---------- LOGOS : plaques robustes ---------- */
+.logo-plate{height:76px;padding:13px 18px}
+.logo-plate img{max-height:48px;width:auto;object-fit:contain}
+
+/* ---------- VIDEO : poster click-to-play ---------- */
+.crt-poster{position:absolute;inset:0;z-index:6;cursor:pointer;border:0;padding:0;display:block;background:#0a0d0a center/cover no-repeat;overflow:hidden}
+.crt-poster:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 42%,rgba(7,11,7,.18),rgba(7,11,7,.74))}
+.crt-poster .play{position:absolute;top:42%;left:50%;transform:translate(-50%,-50%);z-index:2;width:78px;height:78px;border-radius:50%;background:rgba(196,151,58,.94);border:3px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.55);display:grid;place-items:center;transition:transform .16s}
+.crt-poster:hover .play{transform:translate(-50%,-50%) scale(1.09)}
+.crt-poster .play:after{content:"";margin-left:7px;border-style:solid;border-width:15px 0 15px 25px;border-color:transparent transparent transparent #16140e}
+.crt-poster .pl-label{position:absolute;bottom:16px;left:0;right:0;text-align:center;z-index:2;font:700 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#f0dfa8;text-shadow:0 1px 5px #000}
+
+/* ---------- TELECOM : erreurs / legs ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.tel-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px}
+.tel-panel{padding:24px 26px;border:1px solid var(--rule);background:#fff}
+.tel-panel.bad{background:#fbeeea;border-color:#e6c4bb}
+.tel-panel.good{background:#eef5ee;border-color:#bcd3bc}
+.tel-panel h4{font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.tel-panel.bad h4{color:#a8362e}
+.tel-panel.good h4{color:var(--verde2)}
+.tel-panel .sub{font-family:var(--f1);font-size:21px;line-height:1.08;color:#16140e;margin-bottom:8px;letter-spacing:-.01em}
+.tel-list{list-style:none}
+.tel-list li{padding:13px 0;border-top:1px dashed #cdc6ba;font-size:14.5px;line-height:1.5;color:#3a352e;display:grid;grid-template-columns:24px 1fr;gap:11px}
+.tel-list li:first-child{border-top:none}
+.tel-list .mk{font:800 14px var(--f1);text-align:center}
+.tel-panel.bad .mk{color:#a8362e}
+.tel-panel.good .mk{color:var(--verde2)}
+.tel-list b{color:#16140e}
+.tel-foot{font:600 11px var(--mono);color:var(--ink);margin-top:22px;line-height:1.5;max-width:860px}
+
+/* ---------- APRES CRASH : timeline deux trajectoires ---------- */
+.vs-wrap{margin-top:30px;border:1px solid #16140e;box-shadow:0 16px 40px rgba(0,0,0,.18)}
+.vs-row{display:grid;grid-template-columns:1fr 74px 1fr;border-top:1px solid rgba(154,140,128,.3)}
+.vs-row:first-child{border-top:none}
+.vs-row .c-us,.vs-row .c-eu{padding:15px 20px;font-size:14px;line-height:1.45}
+.vs-row .c-us{background:#16140e;color:rgba(251,248,242,.88);text-align:right}
+.vs-row .c-eu{background:#fff;color:#3a352e}
+.vs-row .c-us b{color:#fff}.vs-row .c-eu b{color:#16140e}
+.vs-row .c-sp{background:var(--verde);color:#fff;display:grid;place-items:center;font:800 16px var(--f1);letter-spacing:.02em}
+.vs-row.head .c-us{background:#16140e;color:var(--ouro2);font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.vs-row.head .c-eu{background:var(--areia);color:var(--verde2);font:700 11px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.vs-row.head .c-sp{background:var(--verde2);font-size:10px;font-family:var(--mono);letter-spacing:.1em}
+.vs-row .empty{opacity:.4;font-style:italic;font-family:var(--f2);font-size:15px}
+.vs-row .tag{display:inline-block;font:700 9px var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:2px 6px;margin-bottom:5px}
+.vs-row .c-us .tag{background:rgba(240,223,168,.16);color:var(--ouro2)}
+.vs-row .c-eu .tag{background:rgba(36,61,44,.1);color:var(--verde2)}
+.vs-metric{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.vs-metric .m{border:1px solid var(--rule);padding:16px 18px;background:#fff}
+.vs-metric .m.dk{background:#16140e;border-color:#16140e;color:#fff}
+.vs-metric .m .k{font:700 10px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.vs-metric .m.dk .k{color:var(--ouro2)}
+.vs-metric .m .v{font:800 clamp(24px,3.2vw,38px) var(--f1);line-height:1;margin-top:6px;color:var(--verde);letter-spacing:-.02em}
+.vs-metric .m.dk .v{color:#fff}
+
+/* ---------- CITATIONS : lecteurs compacts (skin Winamp) ---------- */
+.players{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px;align-items:start}
+.winamp{background:linear-gradient(180deg,#33343e,#1c1d23);border:1px solid #000;box-shadow:inset 0 0 0 1px #4d4f5e,0 16px 36px rgba(0,0,0,.42);min-width:0}
+.wa-title{height:21px;background:linear-gradient(90deg,#3c3e72,#26284c);display:flex;align-items:center;justify-content:space-between;padding:0 8px;font:700 9px var(--mono);color:#b9bbe8;letter-spacing:.08em;text-transform:uppercase}
+.wa-title .dots{display:flex;gap:3px}
+.wa-title .dots i{width:8px;height:8px;background:#16172a;border:1px solid #54577f}
+/* ecran compact : photo + identite + temps + viz */
+.wa-screen{margin:9px 9px 0;background:#06080c;border:1px solid #000;padding:9px 10px;box-shadow:inset 0 0 12px rgba(0,0,0,.8);display:grid;grid-template-columns:54px 1fr auto;gap:11px;align-items:center}
+.wa-photo{width:54px;height:54px;display:block;border:1px solid #11331c;box-shadow:0 0 0 1px #000,inset 0 0 14px rgba(0,0,0,.6);background:#0c120c}
+.wa-photo.av{display:grid;place-items:center;font:800 18px var(--f1);color:var(--ouro2);background:linear-gradient(150deg,#2E5038,#243D2C);border-color:var(--ouro)}
+.wa-photo::part(placeholder),.wa-photo .is-placeholder{font-size:8px}
+.wa-id{min-width:0}
+.wa-id .nm{font:800 16px var(--f1);color:#eafff0;line-height:1;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wa-id .role{font:700 9px var(--mono);letter-spacing:.04em;text-transform:uppercase;color:#3fe06a;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 0 6px rgba(63,224,106,.4)}
+.wa-right{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.wa-time{font:800 17px var(--mono);color:#3fe06a;letter-spacing:.03em;text-shadow:0 0 9px rgba(63,224,106,.55);font-variant-numeric:tabular-nums}
+.wa-viz{display:flex;align-items:flex-end;gap:2px;height:20px;width:52px}
+.wa-viz i{flex:1;background:linear-gradient(#7dffa8,#1f8a5b);height:18%;transform-origin:bottom;animation:eq 850ms ease-in-out infinite;animation-play-state:paused}
+.winamp.playing .wa-viz i{animation-play-state:running}
+@keyframes eq{0%,100%{height:14%}50%{height:96%}}
+/* barre de lecture cliquable */
+.wa-seek{margin:9px 10px 0;height:10px;background:#06080c;border:1px solid #000;box-shadow:inset 0 0 6px rgba(0,0,0,.8);position:relative;cursor:pointer}
+.wa-seek .fill{position:absolute;inset:1px auto 1px 1px;width:0;background:linear-gradient(90deg,#1f8a5b,#3fe06a);box-shadow:0 0 8px rgba(63,224,106,.5)}
+.wa-seek .knob{position:absolute;top:50%;width:4px;height:16px;background:#cfd0e4;border:1px solid #000;transform:translate(-50%,-50%);left:0;box-shadow:0 0 4px rgba(0,0,0,.6)}
+/* controls : play + marquee */
+.wa-controls{display:flex;gap:9px;align-items:center;padding:9px 10px}
+.wa-play{flex:0 0 auto;width:38px;height:30px;background:linear-gradient(#3c3d47,#22232b);border:1px solid #000;box-shadow:inset 0 1px 0 #565869,inset 0 -2px 4px rgba(0,0,0,.5);color:#3fe06a;font-size:12px;display:grid;place-items:center;cursor:pointer;text-shadow:0 0 6px rgba(63,224,106,.5)}
+.wa-play:active{box-shadow:inset 0 1px 4px #000}
+.wa-marq{flex:1;min-width:0;overflow:hidden;white-space:nowrap;border-left:1px solid #11331c;padding-left:9px}
+.wa-marq span{display:inline-block;font:700 10px var(--mono);color:#3fe06a;text-shadow:0 0 6px rgba(63,224,106,.5);padding-left:100%;animation:mq 16s linear infinite}
+.winamp:not(.playing) .wa-marq span{animation-play-state:paused}
+/* histoire courte + source */
+.wa-story{padding:0 12px 13px;border-top:1px solid #2a2b36;margin-top:4px}
+.wa-story .tag{font:700 9px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#8a8de0;margin:12px 0 7px}
+.wa-story .q{font-family:var(--f2);font-size:clamp(16px,1.7vw,19px);font-style:italic;line-height:1.28;color:#fff;text-wrap:pretty}
+.wa-story .q.fact{font-style:normal;font-family:var(--f1);font-weight:700;letter-spacing:-.01em}
+.wa-story p.note{font-size:12.5px;color:#a9abc0;line-height:1.45;margin-top:9px}
+.wa-story p.note b{color:#eafff0}
+.wa-story .src{display:inline-flex;align-items:center;gap:5px;font:700 10px var(--mono);color:#8a8de0;margin-top:11px;border-bottom:1px solid rgba(138,141,224,.4);padding-bottom:1px}
+.wa-story .src:hover{color:#b9bbe8}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1024px){
+  .explain-grid{grid-template-columns:1fr}
+  .ipo-board{grid-template-columns:1fr 1fr}
+  .bill-grid{grid-template-columns:1fr}
+  .ai-grid{grid-template-columns:1fr 1fr}
+  .valmeter{grid-template-columns:1fr}
+  .bookref{flex-direction:column;align-items:flex-start;text-align:left}
+  .tel-grid{grid-template-columns:1fr}
+  .players{grid-template-columns:1fr}
+  .float{display:none}
+}
+@media(max-width:768px){
+  .split{grid-template-columns:1fr}
+  .quotes{grid-template-columns:1fr}
+  .thesis-nuance{grid-template-columns:1fr}
+  .nav-right > a{display:none}
+  .ch-btn{padding:13px 16px}
+  .vs-row{grid-template-columns:1fr}
+  .vs-row .c-us{text-align:left;order:2}
+  .vs-row .c-eu{order:3}
+  .vs-row .c-sp{order:1;padding:7px;font-size:13px;letter-spacing:.06em}
+  .vs-row.head{display:none}
+  .vs-row .c-us:before{content:"\1F1FA\1F1F8 \C9tats-Unis";display:block;font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ouro2);margin-bottom:5px}
+  .vs-row .c-eu:before{content:"\1F1EA\1F1FA Europe";display:block;font:700 9px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--verde2);margin-bottom:5px}
+}
+@media(max-width:600px){
+  .section{padding:46px 18px}
+  .ipo-board{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .ai-grid{grid-template-columns:1fr}
+  .ai-strength{grid-template-columns:1fr}
+  .vs-metric{grid-template-columns:1fr}
+  .src-cols{column-count:1}
+  .crt-channels{flex-direction:column}
+  .footer{flex-direction:column}
+  .statusbar{flex-wrap:wrap}
+  .statusbar .sb-marquee{order:3;flex-basis:100%}
+  .hero-title{font-size:clamp(40px,13vw,64px)}
+  .axis text{font-size:13px}
+  /* lecteurs : empiles, plein largeur */
+  .wa-id .nm{font-size:15px}
+  .reboot{font-size:12px}
+  .reboot .rb-body{min-height:300px;padding:16px 14px}
+  .ai-terminal{font-size:12px;padding:18px 14px;line-height:1.85}
+  .save-dialog{max-width:100%}
+  .save-actions{flex-wrap:wrap}
+}
+@media(max-width:380px){
+  .reboot{font-size:11px}
+  .wa-screen{grid-template-columns:46px 1fr;gap:9px}
+  .wa-photo{width:46px;height:46px}
+  .wa-right{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  .ticker-track,.wa-marq span,.wa-viz i,.sb-marquee .run{animation:none}
+  .grad-line{transition:none;stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <a class="brand" href="internet-exe-europe-fr.html">Mira<em>douro</em></a>
+  <div class="nav-right">
+    <span class="nav-tag">Partie 3</span>
+    <a href="#bulle">La bulle</a>
+    <a href="#crash">Le crash</a>
+    <a href="#ia">L'IA</a>
+    <a href="internet-exe-europe-part-2-fr.html">&larr; Partie 2</a>
+    <span class="lang-toggle"><span class="on">FR</span><a href="internet-exe-europe-part-3-en.html">EN</a></span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     1 — HERO : SALLE DE MARCHE, MARS 2000
+     ============================================================ -->
+<header class="hero" data-screen-label="Hero — Mars 2000">
+  <!-- bandeau de cotation -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+
+  <div class="hero-stage">
+    <div class="datestamp"><span class="blip"></span>Mars 2000 — Salle de marche — flux en direct</div>
+    <h1 class="hero-title">La bulle <em>et</em> l'ambition</h1>
+    <p class="hero-deck">Des ecrans de cotation. Une introduction en Bourse toutes les semaines. Tout ce qui contient <b>.com</b> ou <b>online</b> semble valoir le futur. On achete des promesses au prix d'empires.</p>
+    <div class="hero-meta">
+      <span>Dossier · Quand l'Europe possedait Internet</span>
+      <span>Partie finale</span>
+      <span>Lecture documentaire</span>
+    </div>
+    <div class="scroll-cue"><span class="arrow">&#9660;</span> Defiler pour ouvrir le dossier</div>
+  </div>
+
+  <!-- popups IPO flottants (draggable, desktop) -->
+  <div class="float win drag" id="popWO" style="top:120px;right:5%;">
+    <div class="titlebar" data-drag><span>IPO_ALERT.exe</span><span class="tb-btns"><span data-close>&times;</span></span></div>
+    <div class="ipo-body">
+      <div class="co">World Online</div>
+      <div class="ev">Introduction — 17 mars 2000</div>
+      <div class="price"><b>43&nbsp;&euro;</b><span class="arr">&#9650;</span></div>
+      <div class="sub">Valorisation : 12&nbsp;milliards d'euros</div>
+    </div>
+  </div>
+
+  <!-- alerte crash differee -->
+  <div class="float alert win drag" id="crashAlert" style="top:200px;left:5%;display:none;">
+    <div class="titlebar warn" data-drag><span>Erreur systeme</span><span class="tb-btns"><span data-close>&times;</span></span></div>
+    <div class="a-body">
+      <div class="a-ico">&times;</div>
+      <div class="a-txt"><b>NASDAQ.EXE</b>NASDAQ.EXE ne repond plus. Le programme a cesse de fonctionner pendant l'execution de la sequence "euphorie".</div>
+    </div>
+    <div class="a-actions">
+      <button class="btn3d" data-close>Fin de tache</button>
+      <button class="btn3d" data-close>Ignorer</button>
+    </div>
+  </div>
+
+  <div class="hero-hint">Astuce : les fenetres se ferment seules &mdash; ou faites-le d'un clic</div>
+</header>
+
+<!-- ============================================================
+     2 — EXPLIQUER LA BULLE + TELE CRT
+     ============================================================ -->
+<section class="section" id="bulle" data-screen-label="Expliquer la bulle">
+  <div class="inner">
+    <div class="label">Comprendre — pour celles et ceux qui n'y etaient pas</div>
+    <h2 class="section-title">Une bulle, c'est une vraie revolution qui rencontre <em>trop d'argent, trop vite</em>.</h2>
+    <p class="lead">Internet etait reel. Le probleme n'etait pas la technologie : c'etait le rythme. Les valorisations couraient plus vite que les revenus, et une introduction en Bourse suffisait a transformer une promesse en prix public.</p>
+
+    <div class="explain-grid">
+      <!-- fenetre aide Windows -->
+      <div class="help-win win">
+        <div class="titlebar"><span>Aide — Qu'est-ce qu'une bulle&nbsp;?</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="help-body">
+          <div class="help-head">
+            <div class="help-q">?</div>
+            <div>
+              <h3>bulle.hlp</h3>
+              <p>Lecon 1 / 1 — 6 points</p>
+            </div>
+          </div>
+          <ol class="help-steps">
+            <li><span>Une bulle, c'est quand une <b>vraie revolution technique</b> rencontre trop d'argent trop vite.</span></li>
+            <li><span>Internet etait <b>reel</b> : les usages, les utilisateurs et les ingenieurs existaient deja.</span></li>
+            <li><span>Mais les <b>valorisations couraient plus vite</b> que les revenus.</span></li>
+            <li><span>Une <b>IPO</b> transformait une promesse en prix public, du jour au lendemain.</span></li>
+            <li><span>Les investisseurs n'achetaient pas toujours une entreprise : <b>ils achetaient un futur</b>.</span></li>
+            <li><span>Et tout le monde s'y met : des milliers de <b>particuliers</b> ouvrent des comptes de <b>courtage en ligne</b> pour trader la bulle.</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- TELE CRT avec chaines FR/EN -->
+      <div class="tv-wrap">
+        <div class="tv-caption">Documentaire — <span class="rec">en lecture</span> · choisissez votre chaine</div>
+        <div class="crt">
+          <div class="crt-screen">
+            <div class="crt-chlabel" id="chLabel">CH&nbsp;03 · FR</div>
+            <div class="crt-static" id="crtStatic"></div>
+            <iframe id="tvFrame"
+              src="https://www.youtube-nocookie.com/embed/EU7whDUJYyU?rel=0&modestbranding=1"
+              title="La bulle Internet expliquee — version francaise"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen loading="lazy"></iframe>
+            <button class="crt-poster" id="tvPoster" type="button" style="background-image:url('https://img.youtube.com/vi/EU7whDUJYyU/hqdefault.jpg')" aria-label="Lire la video">
+              <span class="play"></span>
+              <span class="pl-label">Cliquer pour lancer la video</span>
+            </button>
+          </div>
+          <div class="crt-deck">
+            <div class="crt-brand">
+              <div class="crt-knob"></div>
+              <div class="pw"><span class="led"></span>Power</div>
+            </div>
+            <div class="crt-grille"></div>
+            <div class="crt-channels">
+              <button class="ch-btn active" id="btnFR" type="button">CH 03 · FR</button>
+              <button class="ch-btn" id="btnEN" type="button">CH 07 · EN</button>
+            </div>
+          </div>
+        </div>
+        <p class="tv-note">Une explication video de la bulle Internet, en francais (CH 03) et en anglais (CH 07). Tournez le bouton de chaine pour changer de langue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3 — L'EUROPE S'EMBALLE AUSSI (tickets IPO)
+     ============================================================ -->
+<section class="section alt" data-screen-label="L'Europe s'emballe">
+  <div class="inner">
+    <div class="label">Symptomes — pas un atlas</div>
+    <h2 class="section-title">L'Europe ne regardait pas la bulle. Elle <em>la vivait</em>.</h2>
+    <p class="lead">Quatre fenetres systeme, quatre symptomes. Inutile de derouler tout un annuaire : ces quelques cas suffisent a montrer que l'euphorie etait europeenne, et que la chute le fut aussi. En coulisse, un autre boom&nbsp;: des milliers de particuliers ouvrent des comptes de courtage en ligne pour boursicoter sur la bulle.</p>
+
+    <div class="ipo-board">
+      <!-- World Online -->
+      <article class="ipo-card bought">
+        <div class="titlebar"><span>WORLD_ONLINE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="ipo-in">
+          <div class="logo-plate"><img src="../assets/bulle/world-online.png" alt="World Online" loading="lazy"></div>
+          <span class="ipo-tag">IPO — 17 mars 2000</span>
+          <div class="ipo-name">World Online</div>
+          <div class="ipo-cat">Pays-Bas · FAI / portail</div>
+          <div class="ipo-stat"><span class="k">Prix d'introduction</span><span class="vv green">43 &euro; / action</span></div>
+          <div class="ipo-stat"><span class="k">Valorisation</span><span class="vv">12 Md&euro;</span></div>
+          <p class="ipo-foot">L'une des plus grosses IPO Internet d'Europe. <b>Quelques jours avant le sommet des marches.</b></p>
+        </div>
+      </article>
+
+      <!-- Lastminute -->
+      <article class="ipo-card bought">
+        <div class="titlebar"><span>LASTMINUTE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="ipo-in">
+          <div class="logo-plate"><img src="../assets/bulle/lastminute.png" alt="Lastminute.com" loading="lazy"></div>
+          <span class="ipo-tag">IPO — 14 mars 2000</span>
+          <div class="ipo-name">Lastminute.com</div>
+          <div class="ipo-cat">Royaume-Uni · voyage / e-commerce</div>
+          <div class="ipo-stat"><span class="k">Prix d'introduction</span><span class="vv green">380 pence</span></div>
+          <div class="ipo-stat"><span class="k">Valorisation</span><span class="vv">571 M&pound; &rarr; 768 M&pound;</span></div>
+          <p class="ipo-foot">Valorisee <b>571 M&pound;</b>, montee a <b>768 M&pound; le premier jour</b>. L'appetit etait total.</p>
+        </div>
+      </article>
+
+      <!-- Boo.com -->
+      <article class="ipo-card dead">
+        <div class="titlebar"><span>BOO.exe — erreur</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="ipo-in">
+          <div class="logo-plate"><img src="../assets/bulle/boo.png" alt="Boo.com" loading="lazy"></div>
+          <span class="ipo-tag">Liquidation — 18 mai 2000</span>
+          <div class="ipo-name">Boo.com</div>
+          <div class="ipo-cat">Europe · mode en ligne</div>
+          <div class="ipo-stat"><span class="k">Capital brule</span><span class="vv red">135 M$</span></div>
+          <div class="ipo-stat"><span class="k">Duree de vie</span><span class="vv">18 mois</span></div>
+          <p class="ipo-foot"><b>135 M$ brules en 18 mois</b>, puis liquidation le 18 mai 2000. Le symbole du trop-tot, trop-cher.</p>
+        </div>
+      </article>
+
+      <!-- iFrance -->
+      <article class="ipo-card bought">
+        <div class="titlebar"><span>IFRANCE.exe</span><span class="tb-btns"><span>_</span><span>&times;</span></span></div>
+        <div class="ipo-in">
+          <div class="logo-plate"><span class="wm">i<em>France</em></span></div>
+          <span class="ipo-tag">Rachat — mai 2000</span>
+          <div class="ipo-name">iFrance</div>
+          <div class="ipo-cat">France · portail communautaire</div>
+          <div class="ipo-stat"><span class="k">Rachete par</span><span class="vv">Vivendi</span></div>
+          <div class="ipo-stat"><span class="k">Montant</span><span class="vv">~150 a 182 M&euro;</span></div>
+          <p class="ipo-foot">Vendu a Vivendi pour <b>environ 150 a 182 M&euro;</b> selon les sources. La sortie europeenne typique : l'acquisition.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     4 — LE CHOC TELECOM (gueule de bois industrielle)
+     ============================================================ -->
+<section class="section" data-screen-label="Choc telecom 3G">
+  <div class="inner">
+    <div class="label">Le choc europeen specifique</div>
+    <h2 class="section-title">Pas seulement une bulle de startups. Une <em>bulle telecom</em>.</h2>
+    <p class="lead">Pendant que les .com s'envolaient, les operateurs europeens ont fait pire que speculer : ils ont <b>surpaye</b>. Licences 3G aux encheres, rachats au sommet du marche, le tout finance par la dette. Une gueule de bois industrielle inscrite au bilan pour des annees &mdash; mais qui, paradoxalement, a laisse un reseau.</p>
+
+    <div class="bill-grid">
+      <!-- facture 3G -->
+      <div class="bill-win win">
+        <div class="titlebar"><span>licences_3G.txt — Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+        <div class="bill-body">
+          <div class="bill-head">
+            <h3>Facture des encheres 3G</h3>
+            <div class="stamp">Impaye</div>
+          </div>
+          <div class="bill-row"><span class="desc">Royaume-Uni<small>Enchere des licences 3G</small></span><span class="amt">22,5 Md&pound;</span></div>
+          <div class="bill-row"><span class="desc">Allemagne<small>Enchere des licences 3G</small></span><span class="amt">50,8 Md&euro;</span></div>
+          <div class="bill-total"><span class="desc">Total europeen 3G</span><span class="amt">&gt; 100 Md&euro;</span></div>
+          <p class="bill-note">Total cumule des licences 3G en Europe : plus de 100 milliards d'euros. Une promesse payee comptant, avant tout revenu.</p>
+        </div>
+      </div>
+
+      <!-- la dette qui reste -->
+      <div>
+        <div class="body-copy" style="margin-top:0">
+          <p>Le plus brutal n'est pas le prix des licences. C'est ce qu'il en restait au bilan, des annees plus tard. Fin 2002, les deux geants telecom du continent portaient une dette nette colossale&nbsp;:</p>
+        </div>
+        <div class="ipo-board duo" style="margin-top:20px">
+          <article class="ipo-card dead">
+            <div class="titlebar"><span>FRANCE_TELECOM.dat</span><span class="tb-btns"><span>&times;</span></span></div>
+            <div class="ipo-in">
+              <div class="logo-plate"><img src="../assets/bulle/france-telecom.png" alt="France Telecom" loading="lazy"></div>
+              <span class="ipo-tag">Dette nette · fin 2002</span>
+              <div class="ipo-name">France Telecom</div>
+              <div class="ipo-stat"><span class="k">Dette nette</span><span class="vv red">68,019 Md&euro;</span></div>
+            </div>
+          </article>
+          <article class="ipo-card dead">
+            <div class="titlebar"><span>DEUTSCHE_TELEKOM.dat</span><span class="tb-btns"><span>&times;</span></span></div>
+            <div class="ipo-in">
+              <div class="logo-plate"><img src="../assets/bulle/deutsche-telekom.jpg" alt="Deutsche Telekom" loading="lazy"></div>
+              <span class="ipo-tag">Dette nette · fin 2002</span>
+              <div class="ipo-name">Deutsche Telekom</div>
+              <div class="ipo-stat"><span class="k">Dette nette</span><span class="vv red">61,1 Md&euro;</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="body-copy">
+          <p>Message&nbsp;: ce n'etait pas seulement un krach a l'ecran. C'etait une <strong>gueule de bois industrielle</strong> &mdash; des bilans a desendetter avant meme de penser au coup d'apres.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- les erreurs vs le legs -->
+    <div class="tel-grid">
+      <div class="tel-panel bad">
+        <h4>&#9660; Pourquoi ils se sont trompes</h4>
+        <div class="sub">Acheter le futur au prix fort, a credit, au plus haut.</div>
+        <ul class="tel-list">
+          <li><span class="mk">1</span><span>Une <b>bulle dans la bulle</b>&nbsp;: plus de <b>100 Md&euro;</b> de licences 3G payes comptant, avant le moindre abonne 3G.</span></li>
+          <li><span class="mk">2</span><span>Des <b>rachats au sommet</b>&nbsp;: France Telecom s'offre <b>Orange</b> (mobile UK) en 2000 pour ~40 Md&euro;&nbsp;; Deutsche Telekom s'offre <b>VoiceStream</b> (US) en 2001 pour ~35&ndash;50 Md$ <i>(ordres de grandeur)</i>.</span></li>
+          <li><span class="mk">3</span><span>Le tout <b>finance par la dette</b>, juste avant le retournement &mdash; d'ou les ~68 et ~61 Md&euro; de dette nette fin 2002.</span></li>
+          <li><span class="mk">4</span><span>S'ensuit une <b>purge</b>&nbsp;: ventes d'actifs, recapitalisations, dividendes coupes, des annees a se desendetter.</span></li>
+        </ul>
+      </div>
+      <div class="tel-panel good">
+        <h4>&#9650; Ce qu'il en reste de bon</h4>
+        <div class="sub">L'Europe a paye tres cher une infrastructure dont elle se sert encore.</div>
+        <ul class="tel-list">
+          <li><span class="mk">+</span><span>Cet argent a aussi construit du <b>reseau</b>&nbsp;: dorsales fibre, antennes, spectre 3G &mdash; le socle de <b>l'internet mobile</b> des annees 2010.</span></li>
+          <li><span class="mk">+</span><span>L'<b>assainissement</b> a fait le tri&nbsp;: consolidation, et les <b>survivants</b> en ressortent plus solides.</span></li>
+          <li><span class="mk">+</span><span>Sur ces tuyaux assainis, de <b>nouveaux entrants</b> ont pu pousser &mdash; dont l'aventure Free / Iliad de Xavier Niel, qui dynamitera les prix.</span></li>
+          <li><span class="mk">+</span><span>La lecon&nbsp;: la depense a ete <b>mal calibree dans le temps</b>, pas inutile. Le probleme n'etait pas d'investir, mais le <b>prix</b> et le <b>moment</b>.</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="tel-foot">Montants des rachats (Orange, VoiceStream) indiques en ordres de grandeur, tels que rapportes par la presse de l'epoque&nbsp;; ils varient selon le perimetre (cash, titres, dette reprise).</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     5 — GRAPHIQUE 1 : LA MONTEE ET LA CHUTE
+     ============================================================ -->
+<section class="section dark" data-screen-label="Graphique 1 — La chute">
+  <div class="inner">
+    <div class="label">Graphique 1 / 2 — le krach</div>
+    <h2 class="section-title">Le NASDAQ, <em>icone du krach</em>. Et l'Europe a fait pire.</h2>
+    <p class="lead">Voici la courbe que tout le monde a en tete&nbsp;: le NASDAQ, du sommet du 10 mars 2000 jusqu'au creux d'octobre 2002. En dessous, en plus discret, le NEMAX allemand &mdash; tombe encore plus bas. Indices ramenes a 100 au sommet.</p>
+
+    <div class="chart-win win">
+      <div class="titlebar"><span>montee_chute.chart — Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="chart-body">
+        <div class="chart-toolbar">
+          <div class="chart-h">NASDAQ Composite &middot; sommet &rarr; creux</div>
+          <div class="chart-legend">
+            <span class="lg nasdaq"><i></i>NASDAQ Composite</span>
+            <span class="lg nemax"><i></i>NEMAX (Allemagne)</span>
+          </div>
+        </div>
+        <div class="chart-stage" id="chart1stage">
+          <svg id="chart1" viewBox="0 0 920 470" role="img" aria-label="Chute indexee du Nasdaq Composite et du NEMAX All Share entre mars 2000 et octobre 2002"></svg>
+          <div class="chart-tip" id="tip1"></div>
+        </div>
+        <p class="chart-msg">L'Europe n'a pas seulement regarde la bulle americaine&nbsp;: le NEMAX a perdu pres de 96&nbsp;%, davantage encore que le NASDAQ (&minus;77,9&nbsp;%).</p>
+        <p class="chart-foot">Lecture : indices base 100 au sommet du 10 mars 2000. NASDAQ Composite 5&nbsp;048,62 &rarr; 1&nbsp;114,11 (9 oct. 2002, &minus;77,9&nbsp;%). NEMAX All Share 8&nbsp;583 &rarr; 349,02 (debut oct. 2002, &minus;95,9&nbsp;%). Trace schematique entre points documentes. Survolez le sommet et les creux.</p>
+      </div>
+    </div>
+
+    <!-- citation livre : Dot.con, John Cassidy -->
+    <div class="bookref">
+      <div class="book-cover">
+        <div class="bt">Dot.<em>con</em></div>
+        <div class="ba">John Cassidy<br>2002</div>
+      </div>
+      <div class="bx">
+        <div class="tag">Pour comprendre le crash &mdash; lecture de reference</div>
+        <p class="q">Le journaliste John Cassidy a raconte, presque heure par heure, comment l'euphorie s'est retournee &mdash; et pourquoi tant d'investisseurs ont voulu croire, jusqu'au bout, a une histoire trop belle.</p>
+        <div class="src"><b>John Cassidy</b>, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (2002) &mdash; recit de la montee et de l'eclatement de la bulle Internet.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     6 — APRES LE CRASH : USA vs EUROPE
+     ============================================================ -->
+<section class="section" id="crash" data-screen-label="Apres le crash">
+  <div class="inner">
+    <div class="label">Apres le crash</div>
+    <h2 class="section-title">Tout le monde a souffert. Mais qui a <em>garde le moteur&nbsp;?</em></h2>
+    <p class="lead">Memes degats des deux cotes de l'Atlantique. La difference se joue <b>apres</b> : les Etats-Unis ont recommence a coter et a faire grandir des geants&nbsp;; l'Europe a continue d'inventer, mais a finance plus court.</p>
+
+    <div class="vs-wrap">
+      <div class="vs-row head">
+        <div class="c-us">Etats-Unis &mdash; la machine redemarre</div>
+        <div class="c-sp">Annee</div>
+        <div class="c-eu">Europe &mdash; l'echelle decroche</div>
+      </div>
+      <div class="vs-row">
+        <div class="c-us"><span class="tag">Purge</span><br>VC tombe a <b>21,2 Md$</b>. <b>PayPal</b> et <b>Netflix</b> (mai) entrent quand meme en Bourse.</div>
+        <div class="c-sp">2002</div>
+        <div class="c-eu"><span class="tag">Desendettement</span><br>Les telecoms vendent des actifs et coupent les couts. <span class="empty">Peu d'IPO tech.</span></div>
+      </div>
+      <div class="vs-row">
+        <div class="c-us"><span class="tag">Relance</span><br><b>Google</b> entre en Bourse&nbsp;; <b>Facebook</b> est fonde. Le capital revient vite.</div>
+        <div class="c-sp">2004</div>
+        <div class="c-eu"><span class="tag">Exit, pas scale</span><br><b>Skype</b> (europeen) explose &mdash; et sera <b>vendu</b> a eBay des 2005. La sortie plutot que l'empire.</div>
+      </div>
+      <div class="vs-row">
+        <div class="c-us"><span class="tag">Plateformes</span><br>Google rachete <b>YouTube</b> (1,65 Md$). Les gagnants deviennent des geants mondiaux.</div>
+        <div class="c-sp">2006</div>
+        <div class="c-eu"><span class="tag">Champions disperses</span><br>De belles boites, rachetees ou cantonnees a leur marche national. <span class="empty">Peu de plateformes mondiales.</span></div>
+      </div>
+      <div class="vs-row">
+        <div class="c-us"><span class="tag">Moteur plein regime</span><br>L'ecosysteme VC est reparti de plus belle&nbsp;: <b>11,8 Md$</b> investis sur l'annee.</div>
+        <div class="c-sp">2010</div>
+        <div class="c-eu"><span class="tag">Ecart installe</span><br>~<b>3,5 Md&euro;</b> de VC, soit environ <b>un tiers</b> du niveau americain.</div>
+      </div>
+    </div>
+
+    <div class="vs-metric">
+      <div class="m dk">
+        <div class="k">VC investi &mdash; 2000 &rarr; 2010 (Etats-Unis)</div>
+        <div class="v">~105 &rarr; 11,8 Md$</div>
+      </div>
+      <div class="m">
+        <div class="k">Scale-ups europeennes vs Silicon Valley</div>
+        <div class="v">~&frac12; du capital</div>
+      </div>
+    </div>
+    <p class="chart-foot" style="color:var(--ink);margin-top:16px">Note : montants VC en ordres de grandeur (sources OCDE, EVCA / NVCA, perimetres et devises non strictement comparables). Les jalons d'entreprises sont dates ; ils illustrent une dynamique, pas un palmares exhaustif.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     7 — GRAPHIQUE 2 : QUI GARDE LE MOTEUR ?
+     ============================================================ -->
+<section class="section alt" data-screen-label="Graphique 2 — VC">
+  <div class="inner">
+    <div class="label">Graphique 2 / 2 — financer l'apres-crash</div>
+    <h2 class="section-title">Le crash n'est pas toute l'histoire. La vraie difference, c'est <em>l'apres</em>.</h2>
+    <p class="lead">Capital-risque investi, ordres de grandeur. En 2000 comme en 2010, l'ecart de financement entre les Etats-Unis et l'Europe ne se referme pas.</p>
+
+    <div class="chart-win win" style="margin-top:34px">
+      <div class="titlebar"><span>venture_capital.chart — Terminal financier</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="chart-body" style="background:#0e1a12">
+        <div class="chart-toolbar">
+          <div class="chart-h">Capital-risque investi · ordres de grandeur</div>
+          <div class="chart-legend">
+            <span class="lg us"><i></i>Etats-Unis</span>
+            <span class="lg eu"><i></i>Europe</span>
+          </div>
+        </div>
+        <div class="chart-stage" id="chart2stage">
+          <svg id="chart2" viewBox="0 0 920 440" role="img" aria-label="Capital-risque investi aux Etats-Unis et en Europe en 2000 et 2010"></svg>
+          <div class="chart-tip" id="tip2"></div>
+        </div>
+        <p class="chart-msg">Le crash n'est pas toute l'histoire. La vraie difference est la capacite a financer l'apres-crash.</p>
+        <p class="chart-foot">Lecture : 2000 — US ~105 Md$ vs Europe &gt;19,6 Md&euro;. 2010 — US 11,8 Md$ vs Europe ~3,5 Md&euro;. Devises et perimetres (EVCA/NVCA) non strictement comparables : a lire en ordres de grandeur.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8 — CITATIONS (lecteur media) + THESE CENTRALE
+     ============================================================ -->
+<section class="section" data-screen-label="Citations">
+  <div class="inner">
+    <div class="label">Voix — celles qui ont traverse la bascule</div>
+    <h2 class="section-title">L'un a <em>esquive</em>. L'autre a tout perdu, puis <em>recommence</em>.</h2>
+
+    <div class="players">
+      <!-- NIEL / WORLDNET -->
+      <article class="winamp" id="waNiel" data-dur="184">
+        <div class="wa-title"><span>&#9835; WORLDNET.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-screen">
+          <div class="wa-photo av">XN</div>
+          <div class="wa-id">
+            <div class="nm">Xavier Niel</div>
+            <div class="role">Worldnet &rarr; Free / Iliad</div>
+          </div>
+          <div class="wa-right">
+            <div class="wa-time" data-time>0:00</div>
+            <div class="wa-viz"><i style="animation-delay:0ms"></i><i style="animation-delay:90ms"></i><i style="animation-delay:180ms"></i><i style="animation-delay:60ms"></i><i style="animation-delay:240ms"></i><i style="animation-delay:120ms"></i><i style="animation-delay:300ms"></i></div>
+          </div>
+        </div>
+        <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
+        <div class="wa-controls">
+          <button class="wa-play" type="button" data-play aria-label="Lecture / pause">&#9658;</button>
+          <div class="wa-marq"><span>Xavier Niel &middot; Worldnet vendu en mai 2000, quelques mois avant l'eclatement de la bulle &middot; sortie au sommet &middot;&nbsp;</span></div>
+        </div>
+        <div class="wa-story">
+          <div class="tag">Fait documente</div>
+          <p class="q fact">Vendu en mai 2000. Quelques mois avant le krach.</p>
+          <p class="note">Worldnet, l'un des premiers FAI grand public francais (1994), <b>dernier independant</b> et rentable, est <b>cede en mai 2000</b> (a Kaptech, futur Neuf Telecom) au lieu d'entrer en Bourse. Niel sort au sommet &mdash; puis batira Free.</p>
+          <a class="src" href="https://fr.wikipedia.org/wiki/Worldnet" target="_blank" rel="noopener">Source : Worldnet &#8599;</a>
+        </div>
+      </article>
+
+      <!-- SIMONCINI / IFRANCE -->
+      <article class="winamp" id="waSim" data-dur="183">
+        <div class="wa-title"><span>&#9835; IFRANCE.MP3</span><span class="dots"><i></i><i></i><i></i></span></div>
+        <div class="wa-screen">
+          <div class="wa-photo av">MS</div>
+          <div class="wa-id">
+            <div class="nm">Marc Simoncini</div>
+            <div class="role">iFrance &rarr; Meetic</div>
+          </div>
+          <div class="wa-right">
+            <div class="wa-time" data-time>0:00</div>
+            <div class="wa-viz"><i style="animation-delay:30ms"></i><i style="animation-delay:150ms"></i><i style="animation-delay:90ms"></i><i style="animation-delay:240ms"></i><i style="animation-delay:60ms"></i><i style="animation-delay:300ms"></i><i style="animation-delay:120ms"></i></div>
+          </div>
+        </div>
+        <div class="wa-seek" data-seek><span class="fill" data-fill></span><span class="knob" data-knob></span></div>
+        <div class="wa-controls">
+          <button class="wa-play" type="button" data-play aria-label="Lecture / pause">&#9658;</button>
+          <div class="wa-marq"><span>Marc Simoncini &middot; iFrance vendu a Vivendi en 2000, ruine en 2003, puis Meetic &middot; tout perdre et recommencer &middot;&nbsp;</span></div>
+        </div>
+        <div class="wa-story">
+          <div class="tag">Citation</div>
+          <p class="q">&laquo;&nbsp;Le probleme avec les gens qui ont trop fait d'etudes&nbsp;: ils savent, ils regardent, mais ils ne voient rien.&nbsp;&raquo;</p>
+          <p class="note">iFrance cede a Vivendi en 2000 (paye en actions). En 2003, l'action Vivendi s'effondre (~120 &rarr; 9 &euro;) et il se retrouve <b>ruine et endette</b> &mdash; avant de rebondir avec Meetic.</p>
+          <a class="src" href="https://www.lemonde.fr/technologies/article/2010/03/10/les-rescapes-de-la-toile_1317136_651865.html" target="_blank" rel="noopener">Source : Le Monde / &laquo; Une vie choisie &raquo; &#8599;</a>
+        </div>
+      </article>
+    </div>
+    <p class="chart-foot" style="color:var(--ink);margin-top:16px;max-width:820px">Lecteurs evocateurs (aucun enregistrement audio n'est embarque) : la lecture anime la barre de progression et l'equaliseur. Les liens &laquo;&nbsp;Source&nbsp;&raquo; ouvrent les materiaux d'origine.</p>
+  </div>
+</section>
+
+<!-- THESE CENTRALE -->
+<section class="section thesis-band" data-screen-label="These centrale">
+  <div class="inner">
+    <div class="label">La these</div>
+    <blockquote class="thesis-quote">La bulle n'a pas tue les idees. Elle a tue la <em>tolerance europeenne au temps long</em>.</blockquote>
+    <div class="thesis-nuance">
+      <div><b>Ce qui a survecu</b><p>L'innovation europeenne n'a pas disparu. Les entrepreneurs ont continue, encaisse, recommence.</p></div>
+      <div><b>Ce qui s'est abime</b><p>La capacite a financer longtemps, a coter, a supporter les pertes, a garder ses champions.</p></div>
+      <div><b>Ce qui s'est joue</b><p>Transformer des produits en plateformes mondiales — c'est la qu'une partie du nerf s'est perdue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     9 — L'IA, MAIS AVEC NUANCE
+     ============================================================ -->
+<section class="section" id="ia" data-screen-label="L'IA">
+  <div class="inner">
+    <div class="label">Le dernier tiers — sans parallele paresseux</div>
+    <h2 class="section-title">L'IA <em>rejoue</em> 2000 sur les valorisations. Elle s'en distingue par l'infrastructure.</h2>
+    <p class="lead">Le point commun le plus genant n'est pas l'emballement : c'est la valorisation. Comme en 2000, beaucoup de societes portees par l'IA ne sont pas rentables, et leur prix decroche de tout repere economique. La difference, c'est ce qu'il y a dessous : une infrastructure deja massive, facturee, solvable.</p>
+
+    <!-- LE REPERE QUI SAUTE : multiple d'EBITDA -->
+    <div class="valwrap">
+      <p class="valhead">Une valorisation &laquo;&nbsp;normale&nbsp;&raquo; tourne autour de <b>8 fois l'EBITDA</b>. En 2000, ce repere a saute&nbsp;: on payait des entreprises sans benefices, parfois sans revenus. <b>Aujourd'hui, le meme signal clignote</b> &mdash; des societes IA non rentables, valorisees en multiples de reve.</p>
+      <div class="valmeter" id="valmeter">
+        <div class="vm e1">
+          <div class="vm-era"><b>Bulle .com</b><span>2000</span></div>
+          <div class="gauge"><div class="ticks"></div><div class="norme"></div><div class="needle"></div></div>
+          <div class="vm-ends"><span>valo liee aux profits</span><span>hors echelle</span></div>
+          <p class="vm-note">Des champions du Web cotes <b>sans benefices</b>, parfois sans chiffre d'affaires. Le lien valorisation &harr; rentabilite&nbsp;: rompu.</p>
+        </div>
+        <div class="vm e2">
+          <div class="vm-era"><b>Vague IA</b><span>2025&ndash;26</span></div>
+          <div class="gauge"><div class="ticks"></div><div class="norme"></div><div class="needle"></div></div>
+          <div class="vm-ends"><span>valo liee aux profits</span><span>hors echelle</span></div>
+          <p class="vm-note">Beaucoup d'acteurs IA <b>brulent du cash</b> et ne degagent pas de benefices, tout en affichant des valorisations record. Meme signal qu'en 2000.</p>
+        </div>
+      </div>
+      <p class="valcaption">Lecture : &times;8 EBITDA est un repere d'ordre de grandeur pour une valorisation &laquo;&nbsp;raisonnable&nbsp;&raquo;, pas une regle absolue. L'aiguille &laquo;&nbsp;hors echelle&nbsp;&raquo; illustre la deconnexion entre prix et profits &mdash; observee en 2000, partiellement rejouee aujourd'hui.</p>
+    </div>
+
+    <p class="valhead" style="margin-top:34px">Mais voici ce qui n'existait pas en 2000&nbsp;: sous l'emballement, des revenus deja factures.</p>
+    <div class="ai-grid">
+      <div class="ai-card">
+        <div class="k">Nvidia — Data Center · T1 ex. 2027</div>
+        <div class="v">75 <em>Md$</em></div>
+        <p>Sur 81,6 Md$ de chiffre d'affaires trimestriel. Ce n'est pas une promesse : c'est facture.</p>
+      </div>
+      <div class="ai-card">
+        <div class="k">Nvidia — capitalisation · 24 juin 2026</div>
+        <div class="v">~4,82 <em>T$</em></div>
+        <p>Environ 4,824 billions de dollars. Une echelle sans equivalent en 2000.</p>
+      </div>
+      <div class="ai-card">
+        <div class="k">Capex IA attendu en 2026</div>
+        <div class="v">~600&ndash;635 <em>Md$</em></div>
+        <p>Microsoft, Amazon, Alphabet et Meta cumules. Des bilans qui peuvent payer.</p>
+      </div>
+    </div>
+
+    <!-- terminal : ou est l'Europe -->
+    <div class="ai-terminal">
+      C:\Europe\IA&gt; analyse_position.exe<br>
+      <span class="dim"># Part de la valeur mondiale des deals VC IA — 2025</span><br>
+      Etats-Unis ........ <span class="ok">75 %</span><br>
+      UE27 .............. <span class="warn">6 %</span><br>
+      Chine ............. 5 %<br>
+      Royaume-Uni ....... 5 %<br>
+      <span class="dim"># Modeles IA notables — Stanford HAI, 2024</span><br>
+      Etats-Unis ........ <span class="ok">40 modeles</span><br>
+      Chine ............. 15 modeles<br>
+      Europe ............ <span class="warn">3 modeles</span><br>
+      C:\Europe\IA&gt; <span class="cursor"></span>
+    </div>
+
+    <div class="ai-strength">
+      <div class="str-box">
+        <h4>&#9650; La ou l'Europe est forte</h4>
+        <div class="chips"><span class="chip">ASML</span><span class="chip">Mistral</span><span class="chip">Hugging Face</span><span class="chip">Recherche</span></div>
+      </div>
+      <div class="str-box weak">
+        <h4>&#9660; La ou l'Europe est faible</h4>
+        <div class="chips"><span class="chip">Cloud</span><span class="chip">Compute</span><span class="chip">GPU</span><span class="chip">Capital de scale-up</span><span class="chip">Hyperscalers</span></div>
+      </div>
+    </div>
+
+    <div class="body-copy" style="max-width:840px">
+      <p>La question n'est donc pas de savoir <strong>s'il y aura une bulle IA</strong>. Les bulles font partie du cycle. La vraie question est ailleurs&nbsp;: <strong>que restera-t-il a l'Europe une fois la vague passee</strong> &mdash; assez de prise sur ses propres outils pour <strong>choisir</strong> la suite, plutot que de la subir&nbsp;?</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 — CONCLUSION : ECRAN DE FIN
+     ============================================================ -->
+<section class="section endscreen" data-screen-label="Fin du dossier">
+  <div class="inner">
+    <div class="end-eyebrow">// FIN DU DOSSIER &mdash; ou debut de la boucle&nbsp;?</div>
+
+    <!-- programme qui s'execute (rempli par JS) -->
+    <div class="reboot" id="reboot">
+      <div class="rb-bar"><span>scenario.exe</span><span>C:\Europe\</span></div>
+      <div class="rb-body" id="rbBody"></div>
+    </div>
+
+    <h2 class="end-title">L'Europe n'a pas seulement perdu des <em>entreprises</em>.</h2>
+    <p class="end-engage">En 2000, elle a garde ses talents mais perdu le nerf&nbsp;: la capacite a financer le temps long, a coter, a garder ses champions. Vingt-six ans plus tard, le decor a change. Face a l'IA, l'Europe ne part plus d'une page blanche &mdash; elle part deja <b>dependante</b> d'infrastructures, de plateformes et d'ecosystemes construits ailleurs.</p>
+    <p class="end-engage">Et une dependance, ca se constate souvent trop tard&nbsp;: un jour un service ferme &mdash; comme l'arret de <b>Fable</b> et de ses fonctions IA pour les lecteurs europeens &mdash; et l'on decouvre qu'il n'existe pas d'equivalent local pour prendre le relais. <em>Plus une dependance dure, plus elle devient difficile a defaire.</em></p>
+    <p class="end-engage soft">La vraie question n'est peut-etre plus de savoir si l'Europe sait encore <em>innover</em>. Mais si elle peut encore <em>choisir</em>.</p>
+
+    <!-- boite de dialogue Windows -->
+    <div class="save-dialog win">
+      <div class="titlebar"><span>ambition.dat</span><span class="tb-btns"><span>&times;</span></span></div>
+      <div class="save-body">
+        <div class="save-row">
+          <div class="save-ico">?</div>
+          <p><b>Enregistrer l'ambition&nbsp;?</b>Le dossier &laquo;&nbsp;Quand l'Europe possedait Internet&nbsp;&raquo; va se fermer. Voulez-vous enregistrer les modifications apportees a <i>ambition.dat</i>&nbsp;?</p>
+        </div>
+        <div class="save-progress" id="saveProgress"><i id="saveBar"></i></div>
+        <div class="save-status" id="saveStatus"></div>
+        <div class="save-actions">
+          <button class="btn3d primary" id="saveYes" type="button">Oui</button>
+          <button class="btn3d" id="saveNo" type="button">Non</button>
+          <button class="btn3d" id="saveCancel" type="button">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 — SOURCES & NOTES EDITORIALES
+     ============================================================ -->
+<section class="section alt" data-screen-label="Sources">
+  <div class="inner">
+    <div class="sources win">
+      <div class="titlebar"><span>sources_et_notes.txt — Bloc-notes</span><span class="tb-btns"><span>_</span><span>&#9633;</span><span>&times;</span></span></div>
+      <div class="sources-body">
+        <h3>Sources &amp; notes editoriales</h3>
+        <p class="intro">Toutes les donnees chiffrees de cette page proviennent des sources ci-dessous. Aucune donnee n'a ete inventee ; les traces de graphiques sont schematiques entre points documentes.</p>
+        <div class="src-cols">
+          <div class="src-item"><b>Nasdaq Composite</b>Niveaux de marche (5&nbsp;048,62 le 10 mars 2000 ; 1&nbsp;114,11 le 9 octobre 2002 ; &minus;77,9&nbsp;%) — donnees de marche Nasdaq.</div>
+          <div class="src-item"><b>NEMAX All Share</b>8&nbsp;583 le 10 mars 2000 ; 349,02 debut octobre 2002 — donnees historiques Bundesbank.</div>
+          <div class="src-item"><b>Licences 3G</b>Total europeen &gt; 100 Md&euro; ; Allemagne 50,8 Md&euro; (OCDE) ; Royaume-Uni 22,5 Md&pound; (UK Debt Management Office, encheres 3G).</div>
+          <div class="src-item"><b>Dettes telecom 2002</b>France Telecom : 68,019 Md&euro; de dette nette fin 2002 ; Deutsche Telekom : 61,1 Md&euro; — rapports annuels 2002.</div>
+          <div class="src-item"><b>Telecom — rachats au sommet</b>France Telecom &rarr; Orange (mobile UK, 2000, ~40 Md&euro;) ; Deutsche Telekom &rarr; VoiceStream (US, 2001, ~35&ndash;50 Md$ selon le perimetre cash/titres/dette) — presse de l'epoque, ordres de grandeur. Spectre 3G et reseaux ensuite reutilises comme socle de l'internet mobile.</div>
+          <div class="src-item"><b>Venture capital</b>US ~105 Md$ (2000), 41 Md$ (2001), 21,2 Md$ (2002) ; Europe &gt;19,6 Md&euro; (2000), ~3,5 Md&euro; (2010) vs 11,8 Md$ US — OCDE, EVCA/NVCA (series non strictement comparables).</div>
+          <div class="src-item"><b>Scale-up gap</b>Scale-ups europeennes ~la moitie du capital de leurs equivalents Silicon Valley — EIB, FMI, Commission europeenne, rapport Draghi.</div>
+          <div class="src-item"><b>Cas d'entreprises</b>World Online, Lastminute.com, Boo.com, iFrance — chiffres d'IPO, valorisations, liquidation et rachat tels que rapportes par la presse de l'epoque.</div>
+          <div class="src-item"><b>IA &amp; infrastructure</b>Nvidia : revenus Data Center (75 Md$ sur 81,6 Md$, T1 ex. 2027) et capitalisation ~4,824 T$ (24 juin 2026) — Nvidia, Reuters. Capex hyperscalers 2026 ~600&ndash;635 Md$ — Reuters. ASML annual results.</div>
+          <div class="src-item"><b>Position IA</b>Part des deals VC IA 2025 (US 75 %, UE27 6 %, Chine 5 %, UK 5 %) ; modeles notables 2024 (US 40, Chine 15, Europe 3) — Stanford HAI AI Index.</div>
+          <div class="src-item"><b>Dependance &mdash; exemple Fable</b>L'arret de fonctions / du service Fable pour les utilisateurs europeens est cite comme <i>illustration</i> du theme &laquo;&nbsp;un service disparait, sans equivalent local&nbsp;&raquo;. A verifier et dater precisement avant publication.</div>
+        </div>
+        <div class="src-quote">
+          <div class="src-item"><b>Crash &mdash; lecture de reference</b>John Cassidy, &laquo;&nbsp;Dot.con: The Greatest Story Ever Sold&nbsp;&raquo; (HarperCollins, 2002) : recit detaille de la montee et de l'eclatement de la bulle Internet, cite ici pour l'explication du crash.</div>
+          <div class="src-item"><b>Valorisations &amp; EBITDA</b>Le repere &laquo;&nbsp;&times;8 EBITDA&nbsp;&raquo; est un ordre de grandeur usuel (multiples EV/EBITDA), employe ici a titre illustratif. Constat d'entreprises non rentables a forte valorisation : largement documente pour la bulle .com (2000) et rapporte pour plusieurs acteurs de l'IA (2025&ndash;26).</div>
+          <div class="src-item"><b>Citations &amp; recits</b>Marc Simoncini, &laquo;&nbsp;Une vie choisie&nbsp;&raquo; (Grasset, 2018) pour la citation et le parcours (iFrance cede a Vivendi en 2000 ; ruine en 2003 lors de la chute de l'action Vivendi). Xavier Niel / Worldnet : historique de Worldnet (FAI 1994, cede en mai 2000 a Kaptech / futur Neuf Telecom). A traiter avec source, date et contexte lors de la publication.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATUS BAR Y2K + FOOTER ============ -->
+<div class="statusbar">
+  <span class="sb-cell">Pret</span>
+  <span class="sb-cell">Visiteurs depuis mars 2000 : <span class="counter" id="hitCounter"><b>0</b><b>0</b><b>2</b><b>5</b><b>9</b><b>1</b></span></span>
+  <span class="sb-marquee"><span class="run">&#9733; Miradouro Archives &mdash; Dossier &laquo; Quand l'Europe possedait Internet &raquo; &middot; La bulle n'a pas tue les idees, elle a tue la tolerance au temps long &middot; 2000 &rarr; 2026, le meme film ? &middot; Best viewed with an open mind &#9733;</span></span>
+  <span class="sb-cell">800 &times; 600</span>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div><strong>Miradouro</strong><br>Dossier : Quand l'Europe possedait Internet &middot; Partie 3 / 3.</div>
+  <div class="nxt">
+    <a href="internet-exe-europe-fr.html">&larr; Partie 1 : Internet.exe</a>
+    <a href="internet-exe-europe-part-2-fr.html">&larr; Partie 2 : L'atlas des geants</a>
+    <a href="../index.html">Retour au blog</a>
+  </div>
+  <span class="bestview"><span class="blink">&#9656;</span> Best viewed in Internet Explorer 5 &middot; 1024&times;768</span>
+</footer>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* ---------- TICKER (donnees fournies uniquement) ---------- */
+(function(){
+  const items = [
+    {nm:"WORLD ONLINE", cls:"up", v:"43 \u20AC · IPO 17.03"},
+    {nm:"LASTMINUTE.COM", cls:"up", v:"380 p · IPO 14.03"},
+    {nm:"VALO. WO", cls:"up", v:"12 Md\u20AC"},
+    {nm:"LASTMINUTE J+1", cls:"up", v:"768 M\u00A3"},
+    {nm:"BOO.COM", cls:"dn", v:"-135 M$ · liquid. 18.05"},
+    {nm:"IFRANCE \u2192 VIVENDI", cls:"up", v:"~150-182 M\u20AC"},
+    {nm:"NASDAQ COMP.", cls:"up", v:"5 048,62 · 10.03.2000"},
+    {nm:"NEMAX ALL SHARE", cls:"up", v:"8 583 · 10.03.2000"}
+  ];
+  const one = items.map(i=>'<span class="tk"><span class="nm">'+i.nm+'</span> <span class="'+i.cls+'"></span><span class="v">'+i.v+'</span></span>').join('');
+  document.getElementById('tickerTrack').innerHTML = one + one;
+})();
+
+/* ---------- FENETRES DRAGGABLES + CLOSE (desktop) ---------- */
+(function(){
+  const canDrag = window.matchMedia('(min-width:1025px)').matches;
+  document.querySelectorAll('.drag').forEach(win=>{
+    // close buttons
+    win.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',e=>{
+      e.stopPropagation(); win.style.display='none';
+    }));
+    if(!canDrag) return;
+    const handle = win.querySelector('[data-drag]');
+    if(!handle) return;
+    let sx,sy,ox,oy,dragging=false;
+    handle.addEventListener('pointerdown',e=>{
+      if(e.target.hasAttribute('data-close')) return;
+      dragging=true; win.style.zIndex=50;
+      const r=win.getBoundingClientRect();
+      win.style.left=r.left+'px'; win.style.top=r.top+'px';
+      win.style.right='auto';
+      sx=e.clientX; sy=e.clientY; ox=r.left; oy=r.top;
+      handle.setPointerCapture(e.pointerId);
+    });
+    handle.addEventListener('pointermove',e=>{
+      if(!dragging) return;
+      win.style.left=(ox+e.clientX-sx)+'px';
+      win.style.top=(oy+e.clientY-sy)+'px';
+    });
+    handle.addEventListener('pointerup',e=>{dragging=false;});
+  });
+  // popups : auto-disparition rapide (3 s)
+  function autoHide(el,delay){ if(!el) return; setTimeout(()=>{ el.classList.add('hide'); setTimeout(()=>{ el.style.display='none'; },600); }, delay); }
+  autoHide(document.getElementById('popWO'), 3000);
+  const crashA=document.getElementById('crashAlert');
+  setTimeout(()=>{ if(crashA){ crashA.style.display='block'; autoHide(crashA, 3000); } }, 3600);
+})();
+
+/* ---------- TELE CRT : changement de chaine ---------- */
+(function(){
+  const frame=document.getElementById('tvFrame');
+  const stat=document.getElementById('crtStatic');
+  const lab=document.getElementById('chLabel');
+  const btnFR=document.getElementById('btnFR'), btnEN=document.getElementById('btnEN');
+  const poster=document.getElementById('tvPoster');
+  const SRC={
+    fr:{id:"EU7whDUJYyU",ch:"CH\u00A003 · FR",label:"version francaise"},
+    en:{id:"FtqZbfdtUAQ",ch:"CH\u00A007 · EN",label:"english version"}
+  };
+  let cur="fr";
+  function load(key,auto){
+    frame.src="https://www.youtube-nocookie.com/embed/"+SRC[key].id+"?rel=0&modestbranding=1"+(auto?"&autoplay=1":"");
+    lab.textContent=SRC[key].ch;
+    if(poster) poster.style.display='none';
+  }
+  function tune(key){
+    if(key===cur && poster && poster.style.display==='none') return;
+    cur=key;
+    stat.classList.add('on');
+    btnFR.classList.toggle('active', key==='fr');
+    btnEN.classList.toggle('active', key==='en');
+    setTimeout(()=>load(key,true),360);
+    setTimeout(()=>stat.classList.remove('on'),760);
+  }
+  if(poster) poster.addEventListener('click',()=>{ load(cur,true); });
+  btnFR.addEventListener('click',()=>tune('fr'));
+  btnEN.addEventListener('click',()=>tune('en'));
+})();
+
+/* ---------- LECTEURS : play / pause / seek (horloge simulee, pret pour audio reel) ---------- */
+(function(){
+  function fmt(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  let active=null; // un seul lecteur a la fois
+  document.querySelectorAll('.winamp').forEach(w=>{
+    const dur=parseInt(w.getAttribute('data-dur'),10)||180;
+    const playBtn=w.querySelector('[data-play]');
+    const timeEl=w.querySelector('[data-time]');
+    const fill=w.querySelector('[data-fill]');
+    const knob=w.querySelector('[data-knob]');
+    const seek=w.querySelector('[data-seek]');
+    let t=0, playing=false, raf=null, last=0;
+    function paint(){
+      const p=Math.min(1,t/dur);
+      fill.style.width=(p*100)+'%';
+      if(knob) knob.style.left=(p*100)+'%';
+      timeEl.textContent=fmt(t);
+    }
+    function tick(now){
+      if(!playing) return;
+      if(!last) last=now;
+      t += (now-last)/1000; last=now;
+      if(t>=dur){ t=dur; paint(); stop(); return; }
+      paint(); raf=requestAnimationFrame(tick);
+    }
+    function play(){
+      if(active && active!==stop) active();
+      active=stop;
+      playing=true; last=0; w.classList.add('playing');
+      playBtn.innerHTML='&#10073;&#10073;';
+      raf=requestAnimationFrame(tick);
+    }
+    function stop(){
+      playing=false; w.classList.remove('playing');
+      playBtn.innerHTML='&#9658;';
+      if(raf) cancelAnimationFrame(raf);
+      if(active===stop) active=null;
+    }
+    playBtn.addEventListener('click',()=>{ playing ? stop() : play(); });
+    seek.addEventListener('click',e=>{
+      const r=seek.getBoundingClientRect();
+      t=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width))*dur;
+      paint();
+    });
+    paint();
+  });
+})();
+
+/* ---------- SCENARIO.EXE : programme qui s'execute (avec tension) ---------- */
+(function(){
+  const body=document.getElementById('rbBody');
+  if(!body) return;
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // sequence : {head}, {task,spin,res,cls,sub}, {final}
+  const seq=[
+    {head:'&gt; RUN scenario_2000.exe'},
+    {task:'euphorie .com', spin:380, res:'OK', cls:'ok'},
+    {task:'krach Nasdaq / NEMAX', spin:520, res:'OK', cls:'ok'},
+    {task:'gueule de bois telecom', spin:460, res:'OK', cls:'ok'},
+    {task:'talents conserves', spin:420, res:'OK', cls:'ok'},
+    {task:'capacite a financer le temps long', spin:900, res:'PERDU', cls:'lost'},
+    {head:'&gt; LOAD scenario_2026.exe', mt:true, wait:520},
+    {task:'euphorie IA', spin:420, res:'OK', cls:'ok'},
+    {task:'infrastructure solvable', spin:560, res:'PRESENTE', cls:'ok'},
+    {task:'recherche d\u2019un equivalent europeen', spin:760, res:'...', cls:'spin', keep:true},
+    {task:'tentative 1/3', spin:520, res:'echec', cls:'miss', sub:true},
+    {task:'tentative 2/3', spin:560, res:'echec', cls:'miss', sub:true},
+    {task:'ex. alternative a Fable (IA, lecteurs)', spin:680, res:'INTROUVABLE', cls:'miss', sub:true},
+    {task:'niveau de dependance', spin:640, res:'CROISSANT', cls:'pend'},
+    {task:'capacite a choisir', spin:900, res:'[ A DECIDER ]', cls:'pend'},
+    {final:'&gt; La boucle n\u2019est pas une fatalite. Mais <em>chaque dependance est plus dure a defaire que la precedente.</em>'}
+  ];
+  const SPIN=['\u2839','\u2838','\u283c','\u2834','\u2826','\u2807','\u280f','\u2819'];
+  function sleep(ms){return new Promise(r=>setTimeout(r,reduce?Math.min(ms,120):ms));}
+
+  async function run(){
+    for(const step of seq){
+      const line=document.createElement('div');
+      line.className='rb-line'+(step.sub?' sub':'');
+      if(step.head){
+        line.classList.add('rb-head'); if(step.mt) line.classList.add('mt');
+        line.innerHTML=step.head;
+        body.appendChild(line); requestAnimationFrame(()=>line.classList.add('show'));
+        await sleep(step.wait||300); continue;
+      }
+      if(step.final){
+        line.classList.remove('rb-line'); line.className='rb-final';
+        line.innerHTML=step.final+'<span class="cursor"></span>';
+        body.appendChild(line);
+        requestAnimationFrame(()=>{ line.style.transition='opacity .5s ease'; line.style.opacity=0; line.style.opacity=1; });
+        continue;
+      }
+      const task=document.createElement('span'); task.className='rb-task';
+      task.innerHTML='<span class="dim">'+step.task+'</span>';
+      const res=document.createElement('span'); res.className='rb-res spin'; res.textContent=SPIN[0];
+      line.appendChild(task); line.appendChild(res);
+      body.appendChild(line);
+      requestAnimationFrame(()=>line.classList.add('show'));
+      // spinner
+      let i=0; const iv=setInterval(()=>{ res.textContent=SPIN[(++i)%SPIN.length]; }, reduce?999999:90);
+      await sleep(step.spin);
+      clearInterval(iv);
+      res.className='rb-res '+step.cls;
+      res.textContent=step.res;
+      await sleep(reduce?60:170);
+    }
+  }
+  let started=false;
+  new IntersectionObserver((es,o)=>{
+    es.forEach(e=>{ if(e.isIntersecting && !started){ started=true; run(); o.disconnect(); }});
+  },{threshold:.3}).observe(document.getElementById('reboot'));
+})();
+
+/* ---------- GRAPHIQUE 1 : NASDAQ (vedette) + NEMAX ---------- */
+(function(){
+  const svg=document.getElementById('chart1');
+  const stage=document.getElementById('chart1stage');
+  const tip=document.getElementById('tip1');
+  if(!svg) return;
+  const NS="http://www.w3.org/2000/svg";
+  const W=920,H=460,m={t:34,r:40,b:50,l:56};
+  const pw=W-m.l-m.r, ph=H-m.t-m.b;
+  const X=t=>m.l+t*pw;
+  const Y=v=>m.t+(1-v/110)*ph;
+  function el(n,a){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;}
+
+  // gradient aire NASDAQ
+  const defs=el('defs',{});
+  const lg=el('linearGradient',{id:'ndqfill',x1:0,y1:0,x2:0,y2:1});
+  lg.appendChild(el('stop',{offset:'0%','stop-color':'#7dffa8','stop-opacity':'0.30'}));
+  lg.appendChild(el('stop',{offset:'100%','stop-color':'#7dffa8','stop-opacity':'0'}));
+  defs.appendChild(lg); svg.appendChild(defs);
+
+  // grille + axes
+  const axis=el('g',{class:'axis'});
+  [0,25,50,75,100].forEach(v=>{
+    axis.appendChild(el('line',{x1:m.l,y1:Y(v),x2:W-m.r,y2:Y(v),class:v===0?'base':''}));
+    const tx=el('text',{x:m.l-10,y:Y(v)+4,'text-anchor':'end'}); tx.textContent=v; axis.appendChild(tx);
+  });
+  [['mars 2000',0],['oct. 2002',1]].forEach(([t,p])=>{
+    const tx=el('text',{x:X(p),y:H-24,'text-anchor':p===0?'start':'end'}); tx.textContent=t; axis.appendChild(tx);
+  });
+  const yl=el('text',{x:m.l-10,y:m.t-13,'text-anchor':'start'}); yl.textContent='indice (base 100)'; axis.appendChild(yl);
+  svg.appendChild(axis);
+
+  function curve(endV,bend){const x0=X(0),y0=Y(100),x1=X(1),y1=Y(endV);return `M${x0},${y0} C${X(0.40)},${Y(bend)} ${X(0.63)},${Y(endV+12)} ${x1},${y1}`;}
+
+  // NEMAX (secondaire, cuivre)
+  const nemax=el('path',{d:curve(4.07,58),class:'grad-line',stroke:'#C97A5E','stroke-width':2.4,opacity:0.85});
+  svg.appendChild(nemax); nemax.style.setProperty('--len',nemax.getTotalLength());
+
+  // NASDAQ : aire + ligne phosphore (vedette)
+  const ndqD=curve(22.07,70);
+  const area=el('path',{d:ndqD+` L${X(1)},${Y(0)} L${X(0)},${Y(0)} Z`,fill:'url(#ndqfill)'});
+  area.style.opacity=0; area.style.transition='opacity 1.1s ease .6s';
+  svg.appendChild(area);
+  const ndq=el('path',{d:ndqD,class:'grad-line',stroke:'#7dffa8','stroke-width':3.4});
+  svg.appendChild(ndq); ndq.style.setProperty('--len',ndq.getTotalLength());
+
+  // points : sommet partage + deux creux
+  const pts=[
+    {x:X(0),y:Y(100),c:'#fff',name:'Sommet',main:'Base 100 \u2014 10 mars 2000',sub:'NASDAQ 5 048,62 \u00b7 NEMAX 8 583'},
+    {x:X(1),y:Y(22.07),c:'#7dffa8',name:'NASDAQ \u2014 creux',main:'22 \u00b7 1 114,11 (9 oct. 2002)',sub:'\u2212 77,9 %'},
+    {x:X(1),y:Y(4.07),c:'#C97A5E',name:'NEMAX \u2014 creux',main:'4 \u00b7 349,02 (oct. 2002)',sub:'\u2212 95,9 %'}
+  ];
+  pts.forEach(p=>{
+    const g=el('g',{class:'dot'});
+    g.appendChild(el('circle',{cx:p.x,cy:p.y,r:6,fill:p.c,stroke:'#0a0d0a','stroke-width':2}));
+    svg.appendChild(g);
+    const hit=el('circle',{cx:p.x,cy:p.y,r:18,fill:'transparent',style:'cursor:pointer'});
+    hit.addEventListener('mouseenter',()=>showTip(p.x,p.y,p.name,p.main,p.sub));
+    hit.addEventListener('mouseleave',hideTip);
+    svg.appendChild(hit);
+  });
+
+  // gros readout des chutes
+  const r1=el('text',{x:X(1)-8,y:Y(22.07)-14,class:'dotlabel','text-anchor':'end',fill:'#7dffa8'}); r1.textContent='NASDAQ \u2212 77,9 %'; svg.appendChild(r1);
+  const r2=el('text',{x:X(1)-8,y:Y(4.07)+20,class:'dotlabel','text-anchor':'end',fill:'#C97A5E'}); r2.textContent='NEMAX \u2212 95,9 %'; svg.appendChild(r2);
+
+  function showTip(px,py,title,main,sub){
+    const r=svg.getBoundingClientRect();
+    tip.innerHTML='<b>'+title+'</b>'+main+(sub?'<br>'+sub:'');
+    tip.style.left=(px/W*r.width)+'px';
+    tip.style.top=(py/H*r.height)+'px';
+    tip.classList.add('show');
+  }
+  function hideTip(){tip.classList.remove('show');}
+
+  new IntersectionObserver((es,o)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ stage.classList.add('drawn'); area.style.opacity=1; o.disconnect(); }});
+  },{threshold:.3}).observe(stage);
+})();
+
+/* ---------- GRAPHIQUE 2 : VC US vs Europe (barres) ---------- */
+(function(){
+  const svg=document.getElementById('chart2');
+  const stage=document.getElementById('chart2stage');
+  const tip=document.getElementById('tip2');
+  const NS="http://www.w3.org/2000/svg";
+  const W=920,H=440,m={t:30,r:24,b:64,l:54};
+  const pw=W-m.l-m.r, ph=H-m.t-m.b;
+  const MAX=110; // echelle (Md), couvre ~105
+  const Y=v=>m.t+(1-v/MAX)*ph;
+  function el(n,a){const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;}
+
+  const axis=el('g',{class:'axis'});
+  [0,25,50,75,100].forEach(v=>{
+    axis.appendChild(el('line',{x1:m.l,y1:Y(v),x2:W-m.r,y2:Y(v),class:v===0?'base':''}));
+    const tx=el('text',{x:m.l-10,y:Y(v)+4,'text-anchor':'end'}); tx.textContent=v; axis.appendChild(tx);
+  });
+  const yl=el('text',{x:m.l-10,y:m.t-12,'text-anchor':'start'}); yl.textContent='milliards (ordre de grandeur)'; axis.appendChild(yl);
+  svg.appendChild(axis);
+
+  // groupes 2000 / 2010
+  const groups=[
+    {year:'2000', cx:0.28, bars:[
+      {v:105,cur:'~105 Md$',who:'us',color:'#F0DFA8',label:'Etats-Unis'},
+      {v:19.6,cur:'>19,6 Md\u20AC',who:'eu',color:'#C8DAC8',label:'Europe'}
+    ]},
+    {year:'2010', cx:0.70, bars:[
+      {v:11.8,cur:'11,8 Md$',who:'us',color:'#F0DFA8',label:'Etats-Unis'},
+      {v:3.5,cur:'~3,5 Md\u20AC',who:'eu',color:'#C8DAC8',label:'Europe'}
+    ]}
+  ];
+  const bw=70, gap=18;
+  groups.forEach(g=>{
+    const cx=m.l+g.cx*pw;
+    const startX=cx-(bw+gap/2);
+    g.bars.forEach((b,i)=>{
+      const x=startX+i*(bw+gap);
+      const fy=Y(b.v), fh=Y(0)-fy;
+      const rect=el('rect',{x:x,y:Y(0),width:bw,height:0,fill:b.color,class:'bar',rx:2});
+      svg.appendChild(rect);
+      // valeur au-dessus
+      const val=el('text',{x:x+bw/2,y:fy-22,class:'barlabel'}); val.textContent=b.cur; val.style.opacity=0;
+      const who=el('text',{x:x+bw/2,y:fy-8,class:'barcur'}); who.textContent=b.label; who.style.opacity=0;
+      svg.appendChild(val); svg.appendChild(who);
+      // interactions
+      const hit=el('rect',{x:x,y:m.t,width:bw,height:ph,fill:'transparent',style:'cursor:pointer'});
+      hit.addEventListener('mouseenter',()=>{
+        const r=svg.getBoundingClientRect();
+        tip.innerHTML='<b>'+g.year+' · '+b.label+'</b>'+b.cur;
+        tip.style.left=((x+bw/2)/W*r.width)+'px';
+        tip.style.top=(fy/H*r.height)+'px';
+        tip.classList.add('show');
+      });
+      hit.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+      svg.appendChild(hit);
+      b._el={rect,val,who,fy,fh};
+    });
+    // annee
+    const yr=el('text',{x:cx,y:H-30,class:'groupyear'}); yr.textContent=g.year; svg.appendChild(yr);
+  });
+
+  function animate(){
+    groups.forEach(g=>g.bars.forEach((b,i)=>{
+      setTimeout(()=>{
+        b._el.rect.setAttribute('y',b._el.fy);
+        b._el.rect.setAttribute('height',b._el.fh);
+        b._el.val.style.transition='opacity .5s ease .4s'; b._el.val.style.opacity=1;
+        b._el.who.style.transition='opacity .5s ease .4s'; b._el.who.style.opacity=1;
+      }, i*120);
+    }));
+  }
+  new IntersectionObserver((es,o)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ animate(); o.disconnect(); }});
+  },{threshold:.3}).observe(stage);
+})();
+
+/* ---------- CONCLUSION : SAVE AMBITION? (climax symbolique) ---------- */
+(function(){
+  const yes=document.getElementById('saveYes');
+  const no=document.getElementById('saveNo');
+  const cancel=document.getElementById('saveCancel');
+  const prog=document.getElementById('saveProgress');
+  const bar=document.getElementById('saveBar');
+  const stat=document.getElementById('saveStatus');
+  let busy=false;
+  function reset(){ prog.style.display='none'; bar.style.width='0'; stat.innerHTML=''; }
+  function line(txt,color){ stat.style.color=color||'var(--verde2)'; stat.innerHTML=txt; }
+
+  yes.addEventListener('click',()=>{
+    if(busy) return; busy=true;
+    reset(); prog.style.display='block';
+    line('Enregistrement de ambition.dat…');
+    requestAnimationFrame(()=>{ bar.style.width='100%'; });
+    setTimeout(()=>line('Compression du temps long…'), 700);
+    setTimeout(()=>line('Verification des dependances…'), 1300);
+    setTimeout(()=>{
+      prog.style.display='none';
+      line('\u2713 Enregistre. Mais ce n\u2019etait pas un fichier.', 'var(--verde2)');
+    }, 1900);
+    setTimeout(()=>{
+      stat.innerHTML='\u2713 Enregistre. Mais ce n\u2019etait pas un fichier.<br><span style="color:#fff;font-weight:700">C\u2019etait la capacite de choisir.</span>';
+      busy=false;
+    }, 2900);
+  });
+  no.addEventListener('click',()=>{
+    if(busy) return; reset();
+    line('\u2715 Non enregistre. On a deja vu ce film — et on connait la fin.', '#e8a99a');
+  });
+  cancel.addEventListener('click',()=>{ if(busy) return; reset(); line('Rien n\u2019est encore joue. Le dossier reste ouvert.', 'var(--ouro2)'); });
+})();
+
+/* ---------- COMPTEUR DE VALORISATION : aiguilles ---------- */
+(function(){
+  const vm=document.getElementById('valmeter');
+  if(!vm) return;
+  new IntersectionObserver((es,o)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ vm.classList.add('run'); o.disconnect(); }});
+  },{threshold:.4}).observe(vm);
+})();
+</script>
+</body>
+</html>
