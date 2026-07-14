@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La carte cachée des talents tech portugais | Miradouro</title>
+<meta name="description" content="Toutes les plaquettes nearshore citent les « grandes universités portugaises ». Vérification faite : la majorité des diplômés tech vient d'ailleurs. Enquête cartographique, données DGEEC, Eurostat et OCDE.">
+<meta property="og:title" content="La carte cachée des talents tech portugais">
+<meta property="og:description" content="58,1 % des diplômés TIC portugais ne sortent pas des universités. Une enquête cartographique sur le système qui produit vraiment le vivier tech du pays.">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://miradouro-blog.vercel.app/og-image.jpg">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Article",
+  "headline":"La carte cachée des talents tech portugais",
+  "datePublished":"2026-07-14",
+  "author":{"@type":"Person","name":"Jonathan"},
+  "description":"Toutes les plaquettes nearshore citent les grandes universités portugaises. La majorité des diplômés tech vient d'ailleurs.",
+  "image":"https://miradouro-blog.vercel.app/og-image.jpg"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@400;500;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,650;0,9..144,800;1,9..144,300;1,9..144,500;1,9..144,650&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{
+  --creme:#FBF8F2; --areia:#EDE6DA; --rule:#D8CEBC;
+  --ferro:#18140E; --ink2:#6A5C50; --ink3:#9A8C80;
+  --verde:#243D2C; --verde-mid:#2E5038; --verde-light:#C8DAC8;
+  --ouro:#C4973A; --ouro-deep:#9A7526; --pom:#C97A5E; --pom-deep:#A85C42;
+  --f-display:"Fraunces", Georgia, serif;
+  --f-serif:"Cormorant Garamond", Georgia, serif;
+  --f-sans:"Cabinet Grotesk", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--creme);color:var(--ferro);font-family:var(--f-serif);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:1100;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:58px;padding:0 clamp(18px,4vw,56px);background:rgba(36,61,44,.97);border-bottom:2px solid var(--ouro);backdrop-filter:blur(12px)}
+.brand{font-family:var(--f-display);font-weight:800;font-size:18px;color:var(--creme);text-decoration:none}
+.top-right{display:flex;align-items:center;gap:14px}
+.lang-btn{border:1px solid rgba(251,248,242,.35);background:transparent;color:var(--verde-light);padding:7px 11px;cursor:pointer;font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.14em}
+.lang-btn.active{background:var(--ouro);border-color:var(--ouro);color:var(--ferro)}
+.hero{min-height:calc(92vh - 58px);display:grid;align-items:end;padding:clamp(58px,8vw,112px) clamp(22px,7vw,96px);background:radial-gradient(circle at 22% 24%,rgba(201,122,94,.16),transparent 34%),radial-gradient(circle at 80% 72%,rgba(196,151,58,.13),transparent 38%),linear-gradient(145deg,var(--verde) 0%,#1b2f22 58%,var(--ferro) 100%);color:var(--creme)}
+.kicker{font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro);margin-bottom:22px}
+h1{max-width:14ch;margin:0;font-family:var(--f-display);font-size:clamp(42px,8vw,104px);line-height:.93;letter-spacing:-.045em;font-weight:650}
+h1 em{font-weight:300;font-style:italic;color:#EDB89A}
+.hero-deck{max-width:760px;margin:28px 0 0;color:rgba(251,248,241,.76);font-size:clamp(19px,2.2vw,28px);line-height:1.48;font-style:italic}
+.byline{margin-top:30px;padding-top:16px;border-top:1px solid rgba(251,248,241,.18);color:rgba(251,248,241,.6);font-family:var(--f-sans);font-size:11px;font-weight:700;letter-spacing:.08em}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);background:var(--pom);color:var(--creme)}
+.kpi{padding:26px 20px;border-right:1px solid rgba(251,248,242,.22);text-align:center}
+.kpi:last-child{border-right:0}
+.kpi strong{display:block;font-family:var(--f-display);font-size:clamp(26px,3.6vw,46px);line-height:.95}
+.kpi span{display:block;margin-top:8px;color:rgba(251,248,242,.78);font-family:var(--f-sans);font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.kpi small{display:block;margin-top:5px;color:rgba(251,248,242,.55);font-size:12px;font-style:italic}
+.wrap{width:min(1080px,100%);margin:0 auto;padding:0 clamp(22px,5vw,56px)}
+.section{padding:clamp(64px,8vw,108px) 0;border-bottom:1px solid var(--rule)}
+.section-label{font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--pom);margin-bottom:14px}
+h2{max-width:900px;margin:0 0 20px;font-family:var(--f-display);font-size:clamp(30px,4.8vw,60px);line-height:1.02;letter-spacing:-.038em;font-weight:650}
+.lead{max-width:800px;margin:0;color:var(--ink2);font-size:clamp(19px,2vw,25px);line-height:1.58;font-style:italic}
+.article{max-width:780px;margin-top:38px}
+.article p{margin:0 0 24px;color:var(--ink2);font-size:20px;line-height:1.85}
+.article strong{color:var(--ferro);font-weight:600}
+.article .op{color:var(--ferro)}
+.aside-note{max-width:780px;border-left:3px solid var(--ouro);background:var(--areia);padding:22px 26px;margin:34px 0}
+.aside-note h3{margin:0 0 10px;color:var(--ouro-deep);font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.aside-note p{margin:0;color:var(--ink2);font-size:18px;line-height:1.6;font-style:italic}
+.quote{margin:54px 0 0;padding:30px 0;border-top:2px solid var(--ferro);border-bottom:1px solid var(--rule);font-family:var(--f-display);font-size:clamp(28px,4.4vw,56px);line-height:1.08;letter-spacing:-.035em;max-width:980px}
+.quote em{color:var(--pom-deep);font-weight:300}
+.chart-panel{margin-top:44px;border:1px solid var(--rule);background:var(--areia);padding:clamp(18px,3vw,34px)}
+.chart-title{margin-bottom:6px;font-family:var(--f-display);font-size:clamp(21px,2.6vw,30px);letter-spacing:-.02em}
+.chart-sub{margin:0 0 18px;color:var(--ink2);font-size:15px;font-style:italic;line-height:1.45}
+.chart-wrap{position:relative;background:var(--creme);border:1px solid var(--rule);padding:14px}
+.chart-note{margin-top:10px;color:var(--ink3);font-family:var(--f-sans);font-size:10.5px;line-height:1.5}
+.ladder{margin-top:44px;border:1px solid var(--rule);background:var(--areia);padding:clamp(18px,3vw,34px)}
+.ladder-scale{position:relative;height:560px;margin-top:18px;background:linear-gradient(180deg,var(--creme),var(--areia))}
+.ladder-line{position:absolute;left:0;right:0;border-top:1px dashed var(--rule)}
+.ladder-line span{position:absolute;left:8px;top:-16px;font-family:var(--f-sans);font-size:9.5px;font-weight:800;letter-spacing:.1em;color:var(--ink3)}
+.lad-item{position:absolute;display:flex;align-items:center;gap:8px;font-family:var(--f-sans);font-size:clamp(10px,1.3vw,12.5px);font-weight:700;letter-spacing:.02em;white-space:nowrap}
+.lad-item i{width:11px;height:11px;border-radius:50%;flex:0 0 auto}
+.lad-ref{color:var(--ink3)} .lad-ref i{background:var(--ink3)}
+.lad-pt{color:var(--verde)} .lad-pt i{background:var(--verde)}
+.lad-eng{color:var(--pom-deep)} .lad-eng i{background:var(--pom-deep);border-radius:0}
+.split{margin-top:48px;display:grid;grid-template-columns:41.9fr 58.1fr;gap:2px;min-height:280px}
+.split>div{display:grid;place-content:center;text-align:center;padding:34px 16px;color:var(--creme)}
+.split .u{background:var(--verde)} .split .p{background:var(--ouro)}
+.split strong{font-family:var(--f-display);font-size:clamp(40px,7vw,84px);line-height:.9;display:block}
+.split span{display:block;margin-top:10px;font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+.split small{display:block;margin-top:6px;font-size:14px;font-style:italic;opacity:.75}
+.schools{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:44px}
+.school{background:var(--creme);padding:26px 24px;min-height:190px}
+.school h3{margin:0 0 4px;font-family:var(--f-display);font-size:24px;letter-spacing:-.02em}
+.school .loc{margin:0 0 12px;color:var(--pom-deep);font-family:var(--f-sans);font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.school p{margin:0;color:var(--ink2);font-size:16.5px;line-height:1.6}
+.dark{background:var(--ferro);color:var(--creme);border-bottom:0}
+.dark .lead,.dark .article p{color:rgba(251,248,242,.7)}
+.dark .article strong{color:var(--creme)}
+.dark .section-label{color:var(--ouro)}
+/* ---- Scrolly map ---- */
+.scrolly{position:relative;background:var(--creme)}
+.scrolly-inner{display:grid;grid-template-columns:minmax(300px,4fr) 6fr;gap:0;align-items:start}
+.steps{padding:10vh clamp(18px,3vw,42px) 40vh}
+.step{margin:0 0 68vh;padding:24px 26px;background:rgba(251,248,242,.97);border:1px solid var(--rule);border-left:3px solid var(--ouro);box-shadow:0 10px 28px rgba(24,20,14,.07);opacity:.35;transition:opacity .3s ease}
+.step.active{opacity:1}
+.step:last-child{margin-bottom:18vh}
+.step h3{margin:0 0 10px;font-family:var(--f-display);font-size:clamp(20px,2.3vw,27px);letter-spacing:-.02em;line-height:1.05}
+.step p{margin:0;color:var(--ink2);font-size:16.5px;line-height:1.62}
+.step .n{display:block;margin-bottom:8px;color:var(--pom);font-family:var(--f-sans);font-size:9.5px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.mapbox{position:sticky;top:58px;height:calc(100vh - 58px)}
+#map{position:absolute;inset:0}
+.map-veil:after{content:"";position:absolute;inset:0;z-index:410;pointer-events:none;background:linear-gradient(180deg,rgba(251,248,241,.03),rgba(251,248,241,.20));mix-blend-mode:multiply}
+.leaflet-tile{filter:grayscale(1) sepia(.22) saturate(.68) contrast(.93) brightness(1.04)}
+.leaflet-control-attribution{background:rgba(251,248,241,.78)!important;color:rgba(85,74,64,.7)!important;font-size:9px}
+.map-legend{position:absolute;z-index:900;left:14px;bottom:26px;background:rgba(251,248,242,.95);border:1px solid var(--rule);padding:12px 14px;font-family:var(--f-sans);font-size:10.5px;font-weight:700;letter-spacing:.03em;color:var(--ink2);max-width:240px}
+.map-legend .li{display:flex;align-items:center;gap:8px;margin:4px 0}
+.map-legend i{width:12px;height:12px;border-radius:50%;flex:0 0 auto;border:1.5px solid rgba(24,20,14,.35)}
+.map-legend .sq{border-radius:2px}
+.map-legend em{display:block;margin-top:8px;font-family:var(--f-serif);font-style:italic;font-weight:400;font-size:11.5px;color:var(--ink3);line-height:1.4}
+.leaflet-popup-content-wrapper{border-radius:0;border:1px solid var(--rule);background:rgba(251,248,241,.97)}
+.leaflet-popup-content{margin:12px 14px;font-family:var(--f-sans);font-size:12px;line-height:1.5;color:var(--ink2)}
+.leaflet-popup-content b{display:block;font-size:13px;color:var(--ferro);margin-bottom:3px}
+.leaflet-popup-content .warn{display:block;margin-top:6px;font-style:italic;color:var(--ink3);font-size:10.5px}
+.tablebox{margin:44px 0 0}
+details{border:1px solid var(--rule);background:var(--areia)}
+summary{cursor:pointer;padding:16px 22px;font-family:var(--f-sans);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--verde)}
+.tbl{width:100%;border-collapse:collapse;font-family:var(--f-sans);font-size:12px;background:var(--creme)}
+.tbl th{position:sticky;top:0;background:var(--verde);color:var(--creme);text-align:left;padding:8px 10px;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.tbl td{padding:7px 10px;border-bottom:1px solid var(--rule);color:var(--ink2)}
+.tbl-scroll{max-height:420px;overflow:auto}
+.sources{padding:40px 0 80px}
+.sources h3{font-family:var(--f-sans);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--pom);margin:0 0 14px}
+.sources p{font-size:13px;color:var(--ink3);font-style:italic;line-height:1.9;max-width:860px;margin:0}
+.foot{display:flex;justify-content:space-between;gap:20px;padding:26px clamp(22px,5vw,56px);background:var(--verde);color:var(--verde-light);font-family:var(--f-sans);font-size:11px;font-weight:700;letter-spacing:.1em}
+.foot a{color:var(--creme);text-decoration-color:var(--ouro)}
+@media (max-width:900px){
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .kpi:nth-child(2){border-right:0}
+  .scrolly-inner{grid-template-columns:1fr}
+  .mapbox{position:sticky;top:58px;height:52vh;order:-1}
+  .steps{padding:6vh 18px 20vh}
+  .step{margin-bottom:46vh;opacity:1}
+  .ladder-scale{height:640px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .step{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="../index.html">Miradouro</a>
+  <div class="top-right">
+    <button class="lang-btn" id="btnFR" onclick="setLang('fr')">FR</button>
+    <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="kicker" data-fr="Dossier talents · Partie 1" data-en="Talent dossier · Part 1">Dossier talents · Partie 1</div>
+    <h1 data-fr="La carte <em>cachée</em> des talents tech portugais" data-en="The <em>hidden</em> map of Portuguese tech talent">La carte <em>cachée</em> des talents tech portugais</h1>
+    <p class="hero-deck" data-fr="Toutes les présentations nearshore répètent que le Portugal a « de grandes universités ». C'est vrai. C'est aussi la moitié de l'histoire — et pas celle qui produit la majorité des diplômés." data-en="Every nearshore deck repeats that Portugal has “great universities”. It's true. It's also half the story — and not the half that produces most of the graduates.">Toutes les présentations nearshore répètent que le Portugal a « de grandes universités ». C'est vrai. C'est aussi la moitié de l'histoire — et pas celle qui produit la majorité des diplômés.</p>
+    <div class="byline" data-fr="Par Jonathan · Lisbonne · Juillet 2026 · Données DGEEC, Eurostat, OCDE, QS/THE/ARWU" data-en="By Jonathan · Lisbon · July 2026 · Data: DGEEC, Eurostat, OECD, QS/THE/ARWU">Par Jonathan · Lisbonne · Juillet 2026 · Données DGEEC, Eurostat, OCDE, QS/THE/ARWU</div>
+  </div>
+</section>
+
+<div class="kpis">
+  <div class="kpi"><strong>3 838</strong><span data-fr="Diplômés TIC 2024/25" data-en="ICT graduates 2024/25">Diplômés TIC 2024/25</span><small>DGEEC</small></div>
+  <div class="kpi"><strong>+108 %</strong><span data-fr="En six ans (2018/19 → 2024/25)" data-en="In six years (2018/19 → 2024/25)">En six ans (2018/19 → 2024/25)</span><small data-fr="calcul sur série DGEEC" data-en="derived from DGEEC series">calcul sur série DGEEC</small></div>
+  <div class="kpi"><strong>58,1 %</strong><span data-fr="Issus des polytechniques" data-en="From polytechnics">Issus des polytechniques</span><small>DGEEC 2024/25</small></div>
+  <div class="kpi"><strong>58,8 %</strong><span data-fr="Des actifs formés en TIC sans diplôme du supérieur" data-en="Of ICT-educated workers without a tertiary degree">Des actifs formés en TIC sans diplôme du supérieur</span><small>Eurostat</small></div>
+</div>
+
+<!-- S1 -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="01 · La phrase" data-en="01 · The line">01 · La phrase</div>
+    <h2 data-fr="La phrase que personne ne vérifie" data-en="The line nobody checks">La phrase que personne ne vérifie</h2>
+    <p class="lead" data-fr="Fuseau horaire européen, anglais courant, coûts compétitifs, grandes universités. Les trois premiers arguments se mesurent en une mission. Le quatrième circule de slide en slide sans que personne ne le vérifie jamais." data-en="European time zone, fluent English, competitive costs, great universities. The first three can be measured in a single project. The fourth travels from slide to slide without anyone ever checking it.">Fuseau horaire européen, anglais courant, coûts compétitifs, grandes universités. Les trois premiers arguments se mesurent en une mission. Le quatrième circule de slide en slide sans que personne ne le vérifie jamais.</p>
+    <div class="article">
+      <p data-fr="Je travaille dans ce marché. J'ai lu cette phrase des dizaines de fois, je l'ai probablement prononcée moi-même. Un jour, j'ai voulu faire l'exercice sérieusement : combien de diplômés, formés où, et « excellentes » par rapport à quoi ? Ce dossier est la réponse — avec les chiffres publics, leurs limites affichées, et une carte qui ne ressemble pas à celle des plaquettes." data-en="I work in this market. I've read that line dozens of times and probably said it myself. One day I decided to do the exercise properly: how many graduates, trained where, and “excellent” compared to what? This dossier is the answer — using public data, with its limits shown, and a map that looks nothing like the one in the sales decks.">Je travaille dans ce marché. J'ai lu cette phrase des dizaines de fois, je l'ai probablement prononcée moi-même. Un jour, j'ai voulu faire l'exercice sérieusement : combien de diplômés, formés où, et « excellentes » par rapport à quoi ? Ce dossier est la réponse — avec les chiffres publics, leurs limites affichées, et une carte qui ne ressemble pas à celle des plaquettes.</p>
+      <p data-fr="Réponse courte, avant la longue : oui, les universités sont sérieuses, et elles montent. Mais si vous vous arrêtez là, vous ratez l'essentiel — <strong>la majorité du vivier tech portugais ne sort pas des universités que citent les présentations.</strong>" data-en="Short answer before the long one: yes, the universities are serious, and they are climbing. But if you stop there you miss the point — <strong>the majority of Portugal's tech pipeline does not come from the universities the decks cite.</strong>">Réponse courte, avant la longue : oui, les universités sont sérieuses, et elles montent. Mais si vous vous arrêtez là, vous ratez l'essentiel — <strong>la majorité du vivier tech portugais ne sort pas des universités que citent les présentations.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- S2+S3 -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="02 · Les classements" data-en="02 · The rankings">02 · Les classements</div>
+    <h2 data-fr="Ce qu'un classement mesure — et ce qu'il ne mesure pas" data-en="What a ranking measures — and what it doesn't">Ce qu'un classement mesure — et ce qu'il ne mesure pas</h2>
+    <p class="lead" data-fr="QS, THE et ARWU mesurent la recherche, les citations, la réputation, l'internationalisation. Ils ne mesurent pas la qualité d'un cours ni l'employabilité d'un diplômé. Une banque qui cherche cent développeurs ne recrute pas un classement de Shanghai." data-en="QS, THE and ARWU measure research, citations, reputation, internationalisation. They do not measure teaching quality or a graduate's employability. A bank looking for a hundred developers doesn't hire a Shanghai ranking.">QS, THE et ARWU mesurent la recherche, les citations, la réputation, l'internationalisation. Ils ne mesurent pas la qualité d'un cours ni l'employabilité d'un diplômé. Une banque qui cherche cent développeurs ne recrute pas un classement de Shanghai.</p>
+    <div class="article">
+      <p data-fr="Cela posé, regardons honnêtement où se situe le Portugal. Aucune université portugaise n'appartient au premier cercle européen — celui de Paris-Saclay, PSL ou de la Sorbonne dans les classements de recherche. Lisbonne (237<sup>e</sup> au QS 2027) et Porto (255<sup>e</sup>) tiennent un deuxième cercle solide. Et le détail que la plaquette ne donne jamais : <strong>leur position en ingénierie est nettement meilleure que leur rang général</strong> — 166<sup>e</sup> et 191<sup>e</sup> mondiales en Engineering &amp; Technology (QS 2026)." data-en="With that said, let's look honestly at where Portugal stands. No Portuguese university belongs to Europe's first circle — the one occupied by Paris-Saclay, PSL or Sorbonne in research rankings. Lisbon (237th in QS 2027) and Porto (255th) hold a solid second circle. And the detail the sales deck never gives you: <strong>their engineering position is markedly better than their overall rank</strong> — 166th and 191st worldwide in Engineering &amp; Technology (QS 2026).">Cela posé, regardons honnêtement où se situe le Portugal. Aucune université portugaise n'appartient au premier cercle européen — celui de Paris-Saclay, PSL ou de la Sorbonne dans les classements de recherche. Lisbonne (237<sup>e</sup> au QS 2027) et Porto (255<sup>e</sup>) tiennent un deuxième cercle solide. Et le détail que la plaquette ne donne jamais : <strong>leur position en ingénierie est nettement meilleure que leur rang général</strong> — 166<sup>e</sup> et 191<sup>e</sup> mondiales en Engineering &amp; Technology (QS 2026).</p>
+    </div>
+    <div class="ladder">
+      <div class="chart-title" data-fr="La profondeur, pas le podium" data-en="Depth, not podium">La profondeur, pas le podium</div>
+      <p class="chart-sub" data-fr="Rangs QS 2027 (classement général). Les carrés corail : rang en ingénierie &amp; technologie, QS 2026. Plus haut = mieux classé." data-en="QS 2027 ranks (overall). Coral squares: Engineering &amp; Technology rank, QS 2026. Higher = better ranked.">Rangs QS 2027 (classement général). Les carrés corail : rang en ingénierie &amp; technologie, QS 2026. Plus haut = mieux classé.</p>
+      <div class="ladder-scale" id="ladder"></div>
+      <p class="chart-note" data-fr="Sources : QS World University Rankings 2027 ; QS Subject 2026. Références françaises affichées pour l'échelle, pas pour un duel. Un rang mesure la visibilité académique, pas la qualité pédagogique." data-en="Sources: QS World University Rankings 2027; QS Subject 2026. French references shown for scale, not for a duel. A rank measures academic visibility, not teaching quality.">Sources : QS World University Rankings 2027 ; QS Subject 2026. Références françaises affichées pour l'échelle, pas pour un duel. Un rang mesure la visibilité académique, pas la qualité pédagogique.</p>
+    </div>
+    <div class="aside-note">
+      <h3 data-fr="Ce que je constate sur le terrain" data-en="What I see in the field">Ce que je constate sur le terrain</h3>
+      <p data-fr="Les recruteurs que j'interroge dans la banque — des équipes habituées à puiser dans les meilleures écoles françaises — ne remettent jamais en cause le niveau académique des candidats portugais. Leur réserve, quand elle existe, porte sur autre chose : moins de stages longs qu'en France, une entrée sur le marché dès la licence. Un format différent, pas un niveau inférieur. Je le donne pour ce que c'est : des conversations, pas une statistique." data-en="The recruiters I talk to in banking — teams used to hiring from the top French schools — never question the academic level of Portuguese candidates. Their reservation, when there is one, is about something else: fewer long internships than in France, and market entry straight after the bachelor's. A different format, not a lower level. I offer it for what it is: conversations, not a statistic.">Les recruteurs que j'interroge dans la banque — des équipes habituées à puiser dans les meilleures écoles françaises — ne remettent jamais en cause le niveau académique des candidats portugais. Leur réserve, quand elle existe, porte sur autre chose : moins de stages longs qu'en France, une entrée sur le marché dès la licence. Un format différent, pas un niveau inférieur. Je le donne pour ce que c'est : des conversations, pas une statistique.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S4 -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="03 · La trajectoire" data-en="03 · The trajectory">03 · La trajectoire</div>
+    <h2 data-fr="Dix ans de remontée, sans faire la une" data-en="Ten years of climbing, without headlines">Dix ans de remontée, sans faire la une</h2>
+    <p class="lead" data-fr="Le rang d'une année ne dit pas grand-chose. La pente d'une décennie, si. Et toutes les trajectoires portugaises vont dans le même sens." data-en="A single year's rank says little. A decade's slope says a lot. And every Portuguese trajectory points the same way.">Le rang d'une année ne dit pas grand-chose. La pente d'une décennie, si. Et toutes les trajectoires portugaises vont dans le même sens.</p>
+    <div class="chart-panel">
+      <div class="chart-title" data-fr="Six universités, une seule direction" data-en="Six universities, one direction">Six universités, une seule direction</div>
+      <p class="chart-sub" data-fr="Rang QS (axe inversé : plus haut = mieux classé), points d'ancrage 2017–2027." data-en="QS rank (inverted axis: higher = better), anchor points 2017–2027.">Rang QS (axe inversé : plus haut = mieux classé), points d'ancrage 2017–2027.</p>
+      <div class="chart-wrap"><canvas id="chTraj" height="330"></canvas></div>
+      <p class="chart-note" data-fr="Source : profils historiques QS. Points d'ancrage vérifiés ; les tranches (ex. 451-460) sont représentées par leur centre. Une remontée de rang peut refléter publications, réputation, internationalisation ou changements de méthodologie — pas mécaniquement une meilleure pédagogie." data-en="Source: QS historical profiles. Verified anchor points; bands (e.g. 451-460) plotted at their midpoint. A rising rank can reflect publications, reputation, internationalisation or methodology changes — not automatically better teaching.">Source : profils historiques QS. Points d'ancrage vérifiés ; les tranches (ex. 451-460) sont représentées par leur centre. Une remontée de rang peut refléter publications, réputation, internationalisation ou changements de méthodologie — pas mécaniquement une meilleure pédagogie.</p>
+    </div>
+    <div class="article">
+      <p data-fr="Lisbonne est passée de la 330<sup>e</sup> place (2017) à la 237<sup>e</sup> (2027). Porto de la 323<sup>e</sup> à la 255<sup>e</sup>. Coimbra a gagné plus de cent places, Aveiro et Minho suivent la même pente. Ce n'est pas une explosion — c'est une remontée lente, continue, de tout un système à la fois. Rapportée à l'histoire courte de ce système (l'université portugaise moderne n'a vraiment qu'un demi-siècle, reconstruite après 1974 par une génération de docteurs formés à l'étranger), la question n'est pas « pourquoi pas de top 100 » mais « comment sont-ils déjà là »." data-en="Lisbon went from 330th (2017) to 237th (2027). Porto from 323rd to 255th. Coimbra gained more than a hundred places; Aveiro and Minho follow the same slope. It's not an explosion — it's a slow, continuous climb of an entire system at once. Set against this system's short history (modern Portuguese universities are really only half a century old, rebuilt after 1974 by a generation of PhDs trained abroad), the question isn't “why no top 100” but “how are they already here”.">Lisbonne est passée de la 330<sup>e</sup> place (2017) à la 237<sup>e</sup> (2027). Porto de la 323<sup>e</sup> à la 255<sup>e</sup>. Coimbra a gagné plus de cent places, Aveiro et Minho suivent la même pente. Ce n'est pas une explosion — c'est une remontée lente, continue, de tout un système à la fois. Rapportée à l'histoire courte de ce système (l'université portugaise moderne n'a vraiment qu'un demi-siècle, reconstruite après 1974 par une génération de docteurs formés à l'étranger), la question n'est pas « pourquoi pas de top 100 » mais « comment sont-ils déjà là ».</p>
+    </div>
+    <div class="aside-note">
+      <h3 data-fr="L'aparté Carcavelos" data-en="The Carcavelos aside">L'aparté Carcavelos</h3>
+      <p data-fr="Au sommet du système, l'internationalisation va très loin : à NOVA SBE (4<sup>e</sup> mondiale au FT Masters in Management 2025) et Católica-Lisbon (30<sup>e</sup>), la majorité des étudiants de master sont étrangers et tout s'enseigne en anglais. J'ai connu beaucoup d'Allemands venus faire l'intégralité de leur master à Carcavelos, dans des promotions presque sans Portugais — les étudiants hors UE, Brésiliens en tête, payant des frais majorés. C'est un cas extrême, pas la moyenne du système. Mais il dit quelque chose : l'élite universitaire portugaise recrute déjà à l'échelle européenne." data-en="At the top of the system, internationalisation goes very far: at NOVA SBE (4th worldwide in the FT Masters in Management 2025) and Católica-Lisbon (30th), most master's students are foreign and everything is taught in English. I've known many Germans who came to do their entire master's at Carcavelos, in cohorts with hardly any Portuguese — non-EU students, Brazilians first among them, paying higher fees. It's an extreme case, not the system's average. But it says something: Portugal's academic elite already recruits at European scale.">Au sommet du système, l'internationalisation va très loin : à NOVA SBE (4<sup>e</sup> mondiale au FT Masters in Management 2025) et Católica-Lisbon (30<sup>e</sup>), la majorité des étudiants de master sont étrangers et tout s'enseigne en anglais. J'ai connu beaucoup d'Allemands venus faire l'intégralité de leur master à Carcavelos, dans des promotions presque sans Portugais — les étudiants hors UE, Brésiliens en tête, payant des frais majorés. C'est un cas extrême, pas la moyenne du système. Mais il dit quelque chose : l'élite universitaire portugaise recrute déjà à l'échelle européenne.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S5 -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="04 · Le volume" data-en="04 · The volume">04 · Le volume</div>
+    <h2 data-fr="Deux fois plus de diplômés en six ans — et toujours peu spécialisé" data-en="Twice as many graduates in six years — and still under-specialised">Deux fois plus de diplômés en six ans — et toujours peu spécialisé</h2>
+    <p class="lead" data-fr="En 2018/19, le Portugal diplômait 1 841 personnes en TIC. En 2024/25 : 3 838. Plus du double, environ 13 % de croissance par an. Peu de systèmes européens ont accéléré à ce rythme." data-en="In 2018/19, Portugal graduated 1,841 people in ICT. In 2024/25: 3,838. More than double, roughly 13% growth per year. Few European systems have accelerated at that pace.">En 2018/19, le Portugal diplômait 1 841 personnes en TIC. En 2024/25 : 3 838. Plus du double, environ 13 % de croissance par an. Peu de systèmes européens ont accéléré à ce rythme.</p>
+    <div class="chart-panel">
+      <div class="chart-title" data-fr="Le doublement" data-en="The doubling">Le doublement</div>
+      <p class="chart-sub" data-fr="Diplômés TIC (domaine ISCED-F F06, tous niveaux du supérieur), Portugal." data-en="ICT graduates (ISCED-F field F06, all tertiary levels), Portugal.">Diplômés TIC (domaine ISCED-F F06, tous niveaux du supérieur), Portugal.</p>
+      <div class="chart-wrap"><canvas id="chGrowth" height="300"></canvas></div>
+      <p class="chart-note" data-fr="Source : DGEEC, Estatísticas da Educação. La série démarre en 2018/19 : le point 2016/17 (1 479) existe mais une rupture de datation autour de 2017/18 impose de le traiter à part." data-en="Source: DGEEC, Estatísticas da Educação. The series starts in 2018/19: the 2016/17 point (1,479) exists but a dating break around 2017/18 requires treating it separately.">Source : DGEEC, Estatísticas da Educação. La série démarre en 2018/19 : le point 2016/17 (1 479) existe mais une rupture de datation autour de 2017/18 impose de le traiter à part.</p>
+    </div>
+    <div class="article">
+      <p data-fr="Voilà pour l'effort, il est réel. Maintenant le contexte qui fâche : rapportés à l'ensemble des diplômés du pays, <strong>les TIC ne pèsent que 3,29 % au Portugal</strong> — contre 4,98 % de moyenne européenne, 6,23 % en Allemagne, 7,14 % en Roumanie, 9,42 % en Estonie. Les deux phrases sont vraies en même temps : le Portugal accélère plus vite que presque tout le monde, et il reste l'un des pays d'Europe qui orientent la plus faible part de leur enseignement supérieur vers le numérique. C'est exactement le genre de nuance qu'une plaquette ne portera jamais." data-en="So much for the effort — it's real. Now the uncomfortable context: as a share of all the country's graduates, <strong>ICT accounts for only 3.29% in Portugal</strong> — against an EU average of 4.98%, 6.23% in Germany, 7.14% in Romania, 9.42% in Estonia. Both sentences are true at once: Portugal is accelerating faster than almost everyone, and it remains one of the European countries directing the smallest share of its higher education towards digital fields. Exactly the kind of nuance a sales deck will never carry.">Voilà pour l'effort, il est réel. Maintenant le contexte qui fâche : rapportés à l'ensemble des diplômés du pays, <strong>les TIC ne pèsent que 3,29 % au Portugal</strong> — contre 4,98 % de moyenne européenne, 6,23 % en Allemagne, 7,14 % en Roumanie, 9,42 % en Estonie. Les deux phrases sont vraies en même temps : le Portugal accélère plus vite que presque tout le monde, et il reste l'un des pays d'Europe qui orientent la plus faible part de leur enseignement supérieur vers le numérique. C'est exactement le genre de nuance qu'une plaquette ne portera jamais.</p>
+    </div>
+    <div class="chart-panel">
+      <div class="chart-title" data-fr="La part des TIC dans les diplômes, Europe 2024" data-en="ICT share of all graduates, Europe 2024">La part des TIC dans les diplômes, Europe 2024</div>
+      <p class="chart-sub" data-fr="Diplômés F06 en % de tous les diplômés du supérieur." data-en="F06 graduates as % of all tertiary graduates.">Diplômés F06 en % de tous les diplômés du supérieur.</p>
+      <div class="chart-wrap"><canvas id="chEurope" height="380"></canvas></div>
+      <p class="chart-note" data-fr="Source : Eurostat, educ_uoe_grad02, domaine F06, tous niveaux tertiaires, 2024. Irlande et Tchéquie : données 2023 ; l'Irlande présente une sous-couverture d'établissements privés." data-en="Source: Eurostat, educ_uoe_grad02, field F06, all tertiary levels, 2024. Ireland and Czechia: 2023 data; Ireland under-covers some private institutions.">Source : Eurostat, educ_uoe_grad02, domaine F06, tous niveaux tertiaires, 2024. Irlande et Tchéquie : données 2023 ; l'Irlande présente une sous-couverture d'établissements privés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S6 -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="section-label" data-fr="05 · Le retournement" data-en="05 · The reversal">05 · Le retournement</div>
+    <h2 data-fr="La majorité ne vient pas des universités" data-en="The majority doesn't come from the universities">La majorité ne vient pas des universités</h2>
+    <p class="lead" data-fr="Reprenez les 3 838 diplômés TIC de 2024/25, et demandez-vous d'où ils sortent. Pas des institutions du chapitre précédent, pour la plupart." data-en="Take the 3,838 ICT graduates of 2024/25 and ask where they actually come from. Mostly not from the institutions of the previous chapter.">Reprenez les 3 838 diplômés TIC de 2024/25, et demandez-vous d'où ils sortent. Pas des institutions du chapitre précédent, pour la plupart.</p>
+    <div class="split">
+      <div class="u"><strong>41,9 %</strong><span data-fr="Universités" data-en="Universities">Universités</span><small data-fr="1 610 diplômés" data-en="1,610 graduates">1 610 diplômés</small></div>
+      <div class="p"><strong>58,1 %</strong><span data-fr="Polytechniques" data-en="Polytechnics">Polytechniques</span><small data-fr="2 228 diplômés" data-en="2,228 graduates">2 228 diplômés</small></div>
+    </div>
+    <div class="article">
+      <p data-fr="En 2024/25, <strong>2 228 des 3 838 diplômés TIC portugais sont sortis de l'enseignement polytechnique</strong> — Porto, Leiria, Coimbra, Setúbal, Barcelos, Bragança, Viana do Castelo, Viseu. Des établissements qu'aucun classement mondial ne regarde, qu'aucune plaquette ne cite, et qui forment les développeurs, administrateurs systèmes et techniciens que les entreprises recrutent réellement. Le public domine massivement l'ensemble : 82,1 % des diplômés." data-en="In 2024/25, <strong>2,228 of Portugal's 3,838 ICT graduates came out of the polytechnic system</strong> — Porto, Leiria, Coimbra, Setúbal, Barcelos, Bragança, Viana do Castelo, Viseu. Institutions no world ranking looks at, no sales deck cites, and which train the developers, sysadmins and technicians companies actually hire. The public sector overwhelmingly dominates: 82.1% of graduates.">En 2024/25, <strong>2 228 des 3 838 diplômés TIC portugais sont sortis de l'enseignement polytechnique</strong> — Porto, Leiria, Coimbra, Setúbal, Barcelos, Bragança, Viana do Castelo, Viseu. Des établissements qu'aucun classement mondial ne regarde, qu'aucune plaquette ne cite, et qui forment les développeurs, administrateurs systèmes et techniciens que les entreprises recrutent réellement. Le public domine massivement l'ensemble : 82,1 % des diplômés.</p>
+    </div>
+    <div class="quote" data-fr="Les grandes universités donnent au Portugal sa crédibilité. <em>Les polytechniques lui donnent son volume.</em>" data-en="The great universities give Portugal its credibility. <em>The polytechnics give it its volume.</em>">Les grandes universités donnent au Portugal sa crédibilité. <em>Les polytechniques lui donnent son volume.</em></div>
+    <div class="aside-note" style="border-left-color:var(--ouro);background:rgba(251,248,242,.06)">
+      <h3 data-fr="Ce que ce chiffre ne dit pas" data-en="What this number doesn't say">Ce que ce chiffre ne dit pas</h3>
+      <p style="color:rgba(251,248,242,.72)" data-fr="Il ne dit pas que les polytechniques sont « meilleurs » ni « moins bons » : les deux systèmes remplissent des fonctions différentes — recherche et profondeur académique d'un côté, professionnalisation et maillage territorial de l'autre. Il dit qu'une carte du vivier limitée aux universités classées rate plus de la moitié du sujet." data-en="It doesn't say polytechnics are “better” or “worse”: the two systems serve different functions — research and academic depth on one side, professionalisation and territorial coverage on the other. It says a talent map limited to ranked universities misses more than half the picture.">Il ne dit pas que les polytechniques sont « meilleurs » ni « moins bons » : les deux systèmes remplissent des fonctions différentes — recherche et profondeur académique d'un côté, professionnalisation et maillage territorial de l'autre. Il dit qu'une carte du vivier limitée aux universités classées rate plus de la moitié du sujet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S7 : troisième couche -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="06 · La couche invisible" data-en="06 · The invisible layer">06 · La couche invisible</div>
+    <h2 data-fr="Et puis il y a ceux que les statistiques de diplômes ne voient pas" data-en="And then there are those the degree statistics never see">Et puis il y a ceux que les statistiques de diplômes ne voient pas</h2>
+    <p class="lead" data-fr="Tout ce qui précède compte des diplômes. Or une partie du vivier tech portugais n'en délivre pas — et elle est officiellement mesurable, par la bande." data-en="Everything above counts degrees. Yet part of Portugal's tech pipeline doesn't issue any — and it is officially measurable, sideways.">Tout ce qui précède compte des diplômes. Or une partie du vivier tech portugais n'en délivre pas — et elle est officiellement mesurable, par la bande.</p>
+    <div class="article">
+      <p data-fr="La donnée qui révèle cette couche est chez Eurostat : <strong>58,8 % des personnes en emploi au Portugal ayant une formation TIC n'ont pas de diplôme du supérieur</strong> — l'une des parts les plus élevées d'Europe, quand la France est à 3,4 %, le Danemark à 2,3 %. Formations professionnelles secondaires, reconversions, autodidactes, écoles hors système : au Portugal, le chemin sans diplôme universitaire vers un métier tech n'est pas une exception, c'est presque la norme statistique. Et cette part de diplômés du supérieur progresse vite (+15,7 points depuis 2015) — les deux mondes convergent, mais lentement." data-en="The number that reveals this layer sits at Eurostat: <strong>58.8% of employed people in Portugal with an ICT education do not hold a tertiary degree</strong> — one of the highest shares in Europe, while France is at 3.4% and Denmark at 2.3%. Vocational secondary tracks, career changers, self-taught developers, schools outside the system: in Portugal, the non-university path into tech is not an exception, it is almost the statistical norm. And the tertiary share is rising fast (+15.7 points since 2015) — the two worlds are converging, but slowly.">La donnée qui révèle cette couche est chez Eurostat : <strong>58,8 % des personnes en emploi au Portugal ayant une formation TIC n'ont pas de diplôme du supérieur</strong> — l'une des parts les plus élevées d'Europe, quand la France est à 3,4 %, le Danemark à 2,3 %. Formations professionnelles secondaires, reconversions, autodidactes, écoles hors système : au Portugal, le chemin sans diplôme universitaire vers un métier tech n'est pas une exception, c'est presque la norme statistique. Et cette part de diplômés du supérieur progresse vite (+15,7 points depuis 2015) — les deux mondes convergent, mais lentement.</p>
+      <p data-fr="La partie la plus visible de cette couche, ce sont les écoles de code. Elles ne délivrent aucun grade académique, n'apparaissent dans aucune série DGEEC — et se sont installées exactement là où on les attend, et parfois là où on ne les attend pas :" data-en="The most visible part of this layer is the coding schools. They grant no academic degree, appear in no DGEEC series — and set up exactly where you'd expect them, and sometimes where you wouldn't:">La partie la plus visible de cette couche, ce sont les écoles de code. Elles ne délivrent aucun grade académique, n'apparaissent dans aucune série DGEEC — et se sont installées exactement là où on les attend, et parfois là où on ne les attend pas :</p>
+    </div>
+    <div class="schools">
+      <div class="school">
+        <h3>42 Lisboa</h3>
+        <p class="loc" data-fr="Beato, Lisbonne · depuis 2020" data-en="Beato, Lisbon · since 2020">Beato, Lisbonne · depuis 2020</p>
+        <p data-fr="Gratuite, sans professeurs ni diplôme, ouverte 24h/24. Installée depuis 2024 dans la Factory Lisbon du Hub Criativo do Beato — 1 200 m², capacité 800 étudiants, au milieu des startups de l'est lisboète." data-en="Free, no teachers, no degree, open 24/7. Since 2024 housed in Factory Lisbon at the Hub Criativo do Beato — 1,200 m², capacity for 800 students, surrounded by the startups of eastern Lisbon.">Gratuite, sans professeurs ni diplôme, ouverte 24h/24. Installée depuis 2024 dans la Factory Lisbon du Hub Criativo do Beato — 1 200 m², capacité 800 étudiants, au milieu des startups de l'est lisboète.</p>
+      </div>
+      <div class="school">
+        <h3>42 Porto</h3>
+        <p class="loc" data-fr="Aliados, Porto · depuis 2022" data-en="Aliados, Porto · since 2022">Aliados, Porto · depuis 2022</p>
+        <p data-fr="Même modèle, installée dans le Palácio dos Correios sur l'Avenida dos Aliados. Les deux campus 42 comptaient déjà plus de 700 étudiants cumulés fin 2022." data-en="Same model, housed in the Palácio dos Correios on Avenida dos Aliados. The two 42 campuses already counted more than 700 students combined by late 2022.">Même modèle, installée dans le Palácio dos Correios sur l'Avenida dos Aliados. Les deux campus 42 comptaient déjà plus de 700 étudiants cumulés fin 2022.</p>
+      </div>
+      <div class="school">
+        <h3>Academia de Código</h3>
+        <p class="loc" data-fr="Lisbonne · Porto · Fundão · Terceira · depuis 2015" data-en="Lisbon · Porto · Fundão · Terceira · since 2015">Lisbonne · Porto · Fundão · Terceira · depuis 2015</p>
+        <p data-fr="Le pionnier portugais du bootcamp (14 semaines, Code for All). Son implantation raconte le pays mieux qu'un rapport : Lisbonne et Porto, mais aussi le Fundão, dans l'intérieur, et l'île Terceira, aux Açores." data-en="Portugal's bootcamp pioneer (14 weeks, Code for All). Its footprint tells the country's story better than any report: Lisbon and Porto, but also Fundão, inland, and Terceira island, in the Azores.">Le pionnier portugais du bootcamp (14 semaines, Code for All). Son implantation raconte le pays mieux qu'un rapport : Lisbonne et Porto, mais aussi le Fundão, dans l'intérieur, et l'île Terceira, aux Açores.</p>
+      </div>
+      <div class="school">
+        <h3 data-fr="Le Wagon &amp; Ironhack" data-en="Le Wagon &amp; Ironhack">Le Wagon &amp; Ironhack</h3>
+        <p class="loc" data-fr="Lisbonne · réseaux internationaux" data-en="Lisbon · international networks">Lisbonne · réseaux internationaux</p>
+        <p data-fr="Les deux grands réseaux internationaux de bootcamps opèrent à Lisbonne (Le Wagon revendique plus de 1 000 alumni locaux). Leurs taux d'insertion sont auto-déclarés — nous ne les reprenons pas ici." data-en="Both major international bootcamp networks operate in Lisbon (Le Wagon claims 1,000+ local alumni). Their placement rates are self-reported — we do not repeat them here.">Les deux grands réseaux internationaux de bootcamps opèrent à Lisbonne (Le Wagon revendique plus de 1 000 alumni locaux). Leurs taux d'insertion sont auto-déclarés — nous ne les reprenons pas ici.</p>
+      </div>
+    </div>
+    <div class="aside-note">
+      <h3 data-fr="Ce que cette couche ne permet pas de dire" data-en="What this layer doesn't allow us to say">Ce que cette couche ne permet pas de dire</h3>
+      <p data-fr="Personne — pas même l'État — ne sait mesurer précisément combien de personnes ces écoles ajoutent chaque année au vivier. Leurs chiffres de diplômés et d'insertion sont commerciaux et invérifiables ; nous les traitons comme tels. Ce qu'on peut dire : le vivier tech portugais réel est plus large que les 3 838 diplômés officiels, et sa part non universitaire est structurelle, pas anecdotique." data-en="Nobody — not even the state — can precisely measure how many people these schools add to the pipeline each year. Their graduation and placement figures are commercial and unverifiable; we treat them accordingly. What we can say: Portugal's real tech pipeline is wider than the 3,838 official graduates, and its non-university share is structural, not anecdotal.">Personne — pas même l'État — ne sait mesurer précisément combien de personnes ces écoles ajoutent chaque année au vivier. Leurs chiffres de diplômés et d'insertion sont commerciaux et invérifiables ; nous les traitons comme tels. Ce qu'on peut dire : le vivier tech portugais réel est plus large que les 3 838 diplômés officiels, et sa part non universitaire est structurelle, pas anecdotique.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S8 : LA CARTE -->
+<section class="scrolly" id="scrolly">
+  <div class="wrap" style="padding-top:clamp(64px,8vw,108px)">
+    <div class="section-label" data-fr="07 · La carte" data-en="07 · The map">07 · La carte</div>
+    <h2 data-fr="Où le Portugal fabrique ses talents" data-en="Where Portugal makes its talent">Où le Portugal fabrique ses talents</h2>
+    <p class="lead" data-fr="Chaque cercle est un établissement ; sa surface, le nombre de diplômés de cursus numériques identifiés dans InfoCursos (2020/21–2021/22). C'est un proxy éditorial, pas le total officiel F06 — les limites sont détaillées sous la carte. Faites défiler." data-en="Each circle is an institution; its area, the number of graduates from digital programmes identified in InfoCursos (2020/21–2021/22). It's an editorial proxy, not the official F06 total — limits are detailed below the map. Scroll on.">Chaque cercle est un établissement ; sa surface, le nombre de diplômés de cursus numériques identifiés dans InfoCursos (2020/21–2021/22). C'est un proxy éditorial, pas le total officiel F06 — les limites sont détaillées sous la carte. Faites défiler.</p>
+  </div>
+  <div class="scrolly-inner">
+    <div class="steps" id="steps">
+      <div class="step" data-step="0">
+        <span class="n" data-fr="Étape 1 / 8" data-en="Step 1 / 8">Étape 1 / 8</span>
+        <h3 data-fr="La carte de la plaquette" data-en="The sales-deck map">La carte de la plaquette</h3>
+        <p data-fr="Voici le Portugal tel que le raconte le nearshore : Lisbonne, Porto, et six noms d'universités classées. Ce n'est pas faux. C'est incomplet." data-en="Here is Portugal as nearshore tells it: Lisbon, Porto, and six ranked university names. Not wrong. Incomplete.">Voici le Portugal tel que le raconte le nearshore : Lisbonne, Porto, et six noms d'universités classées. Ce n'est pas faux. C'est incomplet.</p>
+      </div>
+      <div class="step" data-step="1">
+        <span class="n" data-fr="Étape 2 / 8" data-en="Step 2 / 8">Étape 2 / 8</span>
+        <h3 data-fr="Le système réel s'allume" data-en="The real system lights up">Le système réel s'allume</h3>
+        <p data-fr="Ajoutons tous les établissements où InfoCursos identifie des cursus numériques : près de cinquante points, dont une majorité de polytechniques (en or). La carte cesse de ressembler à la plaquette." data-en="Now add every institution where InfoCursos identifies digital programmes: nearly fifty points, a majority of them polytechnics (in gold). The map stops looking like the deck.">Ajoutons tous les établissements où InfoCursos identifie des cursus numériques : près de cinquante points, dont une majorité de polytechniques (en or). La carte cesse de ressembler à la plaquette.</p>
+      </div>
+      <div class="step" data-step="2">
+        <span class="n" data-fr="Étape 3 / 8" data-en="Step 3 / 8">Étape 3 / 8</span>
+        <h3 data-fr="Lisbonne, capitale dense" data-en="Lisbon, dense capital">Lisbonne, capitale dense</h3>
+        <p data-fr="La Grande Lisbonne concentre le plus gros pôle (Universidade de Lisboa, ISCTE, IP Lisboa…) et s'étend vers Setúbal et Almada. Un tiers des étudiants du supérieur portugais, tous domaines confondus, étudient ici." data-en="Greater Lisbon holds the biggest cluster (Universidade de Lisboa, ISCTE, IP Lisboa…) and stretches towards Setúbal and Almada. A third of all Portuguese higher-education students study here.">La Grande Lisbonne concentre le plus gros pôle (Universidade de Lisboa, ISCTE, IP Lisboa…) et s'étend vers Setúbal et Almada. Un tiers des étudiants du supérieur portugais, tous domaines confondus, étudient ici.</p>
+      </div>
+      <div class="step" data-step="3">
+        <span class="n" data-fr="Étape 4 / 8" data-en="Step 4 / 8">Étape 4 / 8</span>
+        <h3 data-fr="Le Nord, l'autre tiers" data-en="The North, the other third">Le Nord, l'autre tiers</h3>
+        <p data-fr="Porto et son polytechnique (le plus gros producteur non universitaire du prototype : 926 diplômés sur la période), Braga et le Minho, Barcelos, Guimarães, Viana do Castelo. Le Norte pèse autant que Lisbonne dans les effectifs étudiants du pays." data-en="Porto and its polytechnic (the prototype's biggest non-university producer: 926 graduates over the period), Braga and Minho, Barcelos, Guimarães, Viana do Castelo. The Norte weighs as much as Lisbon in the country's student numbers.">Porto et son polytechnique (le plus gros producteur non universitaire du prototype : 926 diplômés sur la période), Braga et le Minho, Barcelos, Guimarães, Viana do Castelo. Le Norte pèse autant que Lisbonne dans les effectifs étudiants du pays.</p>
+      </div>
+      <div class="step" data-step="4">
+        <span class="n" data-fr="Étape 5 / 8" data-en="Step 5 / 8">Étape 5 / 8</span>
+        <h3 data-fr="Le corridor du Centre — et l'intérieur" data-en="The Centre corridor — and the interior">Le corridor du Centre — et l'intérieur</h3>
+        <p data-fr="Aveiro, Coimbra (université + polytechnique), Leiria : entre Porto et Lisbonne, la formation dessine un corridor presque continu. Et à l'intérieur, Bragança, Vila Real, Viseu, Covilhã, Guarda, Castelo Branco, Tomar jouent un rôle disproportionné par rapport à leur taille — l'hypothèse la plus intéressante de cette carte." data-en="Aveiro, Coimbra (university + polytechnic), Leiria: between Porto and Lisbon, training draws an almost continuous corridor. And inland, Bragança, Vila Real, Viseu, Covilhã, Guarda, Castelo Branco, Tomar play a role out of proportion to their size — this map's most interesting hypothesis.">Aveiro, Coimbra (université + polytechnique), Leiria : entre Porto et Lisbonne, la formation dessine un corridor presque continu. Et à l'intérieur, Bragança, Vila Real, Viseu, Covilhã, Guarda, Castelo Branco, Tomar jouent un rôle disproportionné par rapport à leur taille — l'hypothèse la plus intéressante de cette carte.</p>
+      </div>
+      <div class="step" data-step="5">
+        <span class="n" data-fr="Étape 6 / 8" data-en="Step 6 / 8">Étape 6 / 8</span>
+        <h3 data-fr="Les îles aussi" data-en="The islands too">Les îles aussi</h3>
+        <p data-fr="Madère (181 diplômés sur la période du prototype) et les Açores forment aussi — jusqu'à un bootcamp installé sur l'île Terceira. Le système est plus archipélagique que le récit." data-en="Madeira (181 graduates over the prototype period) and the Azores train people too — down to a bootcamp on Terceira island. The system is more archipelagic than the story.">Madère (181 diplômés sur la période du prototype) et les Açores forment aussi — jusqu'à un bootcamp installé sur l'île Terceira. Le système est plus archipélagique que le récit.</p>
+      </div>
+      <div class="step" data-step="6">
+        <span class="n" data-fr="Étape 7 / 8" data-en="Step 7 / 8">Étape 7 / 8</span>
+        <h3 data-fr="La couche sans diplômes" data-en="The degree-less layer">La couche sans diplômes</h3>
+        <p data-fr="En corail, les écoles de code : 42 au Beato et sur les Aliados, Academia de Código de Lisbonne au Fundão et à Terceira, Le Wagon, Ironhack. Invisibles des statistiques de diplômes, bien réelles sur la carte." data-en="In coral, the coding schools: 42 at Beato and on the Aliados, Academia de Código from Lisbon to Fundão and Terceira, Le Wagon, Ironhack. Invisible in degree statistics, very real on the map.">En corail, les écoles de code : 42 au Beato et sur les Aliados, Academia de Código de Lisbonne au Fundão et à Terceira, Le Wagon, Ironhack. Invisibles des statistiques de diplômes, bien réelles sur la carte.</p>
+      </div>
+      <div class="step" data-step="7">
+        <span class="n" data-fr="Étape 8 / 8" data-en="Step 8 / 8">Étape 8 / 8</span>
+        <h3 data-fr="Former partout, employer à six endroits" data-en="Train everywhere, employ in six places">Former partout, employer à six endroits</h3>
+        <p data-fr="Les halos corail : les six bassins qui concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP — logiciel, data centers, gaming). La formation est plus polycentrique que l'emploi. C'est une hypothèse cartographique, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste." data-en="The coral halos: the six basins that concentrated 92% of digital-economy employment in 2021 (AICEP scope — software, data centres, gaming). Training is more polycentric than employment. A cartographic hypothesis, not a measured flow: no public data tracks graduates from campus to first job.">Les halos corail : les six bassins qui concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP — logiciel, data centers, gaming). La formation est plus polycentrique que l'emploi. C'est une hypothèse cartographique, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste.</p>
+      </div>
+    </div>
+    <div class="mapbox map-veil">
+      <div id="map"></div>
+      <div class="map-legend" id="legend">
+        <div class="li"><i style="background:var(--verde)"></i><span data-fr="Université" data-en="University">Université</span></div>
+        <div class="li"><i style="background:var(--ouro)"></i><span data-fr="Polytechnique" data-en="Polytechnic">Polytechnique</span></div>
+        <div class="li"><i style="background:var(--creme);border-color:var(--verde)"></i><span data-fr="Privé (centre clair)" data-en="Private (light centre)">Privé (centre clair)</span></div>
+        <div class="li"><i class="sq" style="background:var(--pom)"></i><span data-fr="École de code (hors stats officielles)" data-en="Coding school (outside official stats)">École de code (hors stats officielles)</span></div>
+        <em data-fr="Surface = diplômés, cursus numériques InfoCursos 2020/21–21/22. Proxy éditorial." data-en="Area = graduates, InfoCursos digital programmes 2020/21–21/22. Editorial proxy.">Surface = diplômés, cursus numériques InfoCursos 2020/21–21/22. Proxy éditorial.</em>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S9 conclusion -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-label" data-fr="08 · Conclusion" data-en="08 · Conclusion">08 · Conclusion</div>
+    <h2 data-fr="Un pays plus polycentrique que son récit" data-en="A country more polycentric than its story">Un pays plus polycentrique que son récit</h2>
+    <div class="article">
+      <p data-fr="Alors, « de grandes universités » ? Oui — deux pôles de recherche reconnus, meilleurs en ingénierie qu'en rang général, et dix ans de progression continue que personne ne cite jamais. Mais le Portugal ne possède pas le système universitaire le plus puissant d'Europe, et ce n'est pas là que se joue son avantage. <strong>Il a construit un réseau de formation plus vaste, plus distribué et plus productif que ne le laisse penser le récit nearshore</strong> : des universités qui donnent la crédibilité, des polytechniques qui donnent le volume, et une couche entière — professionnelle, autodidacte, écoles de code — que les statistiques de diplômes ne voient même pas." data-en="So — “great universities”? Yes: two recognised research hubs, better in engineering than their overall rank, and ten years of steady climbing nobody ever mentions. But Portugal does not have Europe's most powerful university system, and that's not where its advantage lies. <strong>It has built a training network wider, more distributed and more productive than the nearshore story suggests</strong>: universities that provide credibility, polytechnics that provide volume, and an entire layer — vocational, self-taught, coding schools — that degree statistics don't even see.">Alors, « de grandes universités » ? Oui — deux pôles de recherche reconnus, meilleurs en ingénierie qu'en rang général, et dix ans de progression continue que personne ne cite jamais. Mais le Portugal ne possède pas le système universitaire le plus puissant d'Europe, et ce n'est pas là que se joue son avantage. <strong>Il a construit un réseau de formation plus vaste, plus distribué et plus productif que ne le laisse penser le récit nearshore</strong> : des universités qui donnent la crédibilité, des polytechniques qui donnent le volume, et une couche entière — professionnelle, autodidacte, écoles de code — que les statistiques de diplômes ne voient même pas.</p>
+      <p data-fr="La carte, elle, montre un pays qui forme sur un territoire bien plus large que celui où il emploie — corridor littoral presque continu de Braga à Setúbal, pôles intérieurs obstinés, îles comprises, face à six bassins d'emploi. Ce décalage restera une hypothèse tant que personne ne suivra les diplômés de leur campus à leur premier contrat. Mais il pose la vraie question stratégique, pour l'État comme pour les entreprises qui recrutent ici." data-en="The map, for its part, shows a country that trains across a far wider territory than the one where it employs — an almost continuous coastal corridor from Braga to Setúbal, stubborn inland hubs, islands included, facing six employment basins. That gap will remain a hypothesis as long as nobody tracks graduates from campus to first contract. But it raises the real strategic question, for the state and for the companies hiring here.">La carte, elle, montre un pays qui forme sur un territoire bien plus large que celui où il emploie — corridor littoral presque continu de Braga à Setúbal, pôles intérieurs obstinés, îles comprises, face à six bassins d'emploi. Ce décalage restera une hypothèse tant que personne ne suivra les diplômés de leur campus à leur premier contrat. Mais il pose la vraie question stratégique, pour l'État comme pour les entreprises qui recrutent ici.</p>
+      <p data-fr="Et il reste une énigme, la plus dérangeante : si le Portugal forme aujourd'hui deux fois plus de diplômés TIC qu'il y a six ans — plus tout ce que cette carte ajoute — <strong>pourquoi les entreprises n'arrivent-elles toujours pas à recruter ?</strong> La tension du recrutement TIC portugais reste parmi les plus fortes de l'OCDE. C'est l'objet de la seconde partie de ce dossier." data-en="And one riddle remains, the most uncomfortable one: if Portugal now graduates twice as many ICT students as six years ago — plus everything this map adds — <strong>why do companies still struggle to hire?</strong> Portuguese ICT recruitment tightness remains among the highest in the OECD. That is the subject of part two of this dossier.">Et il reste une énigme, la plus dérangeante : si le Portugal forme aujourd'hui deux fois plus de diplômés TIC qu'il y a six ans — plus tout ce que cette carte ajoute — <strong>pourquoi les entreprises n'arrivent-elles toujours pas à recruter ?</strong> La tension du recrutement TIC portugais reste parmi les plus fortes de l'OCDE. C'est l'objet de la seconde partie de ce dossier.</p>
+    </div>
+    <div class="tablebox">
+      <details>
+        <summary data-fr="Voir les données de la carte (49 établissements)" data-en="View the map data (49 institutions)">Voir les données de la carte (49 établissements)</summary>
+        <div class="tbl-scroll"><table class="tbl" id="dataTable"></table></div>
+      </details>
+    </div>
+    <div class="sources">
+      <h3 data-fr="Sources &amp; méthode" data-en="Sources &amp; method">Sources &amp; méthode</h3>
+      <p>DGEEC, Estatísticas da Educação (diplomados 2018/19–2024/25 ; répartition université/polytechnique 2024/25) · InfoCursos 2024 (prototype cartographique : filtre lexical sur les intitulés de cursus, périodes 2020/21–2021/22 — proxy éditorial, jamais additionné au total F06) · Eurostat educ_uoe_grad02 (part TIC 2024) &amp; ICT specialists in employment (58,8 %) · OCDE Job Creation and Local Economic Development 2024 (tension) · AICEP Digital Industry Report (emploi 2021, périmètre promotionnel) · QS 2027, THE 2026, ARWU 2025, QS Subject 2026 · Financial Times Masters in Management 2025 · 42 Lisboa/Porto, Beato Innovation District, Code for All, Le Wagon (données institutionnelles) · INE (population 2024). Les coordonnées des écoles de code sont approximatives (ville/quartier). Toute donnée de niveau « proxy » est signalée comme telle dans le texte et les infobulles.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Miradouro · <span data-fr="Dossier talents, partie 1" data-en="Talent dossier, part 1">Dossier talents, partie 1</span></span>
+  <a href="../index.html" data-fr="← Retour au miradouro" data-en="← Back to the miradouro">← Retour au miradouro</a>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const DEFAULT_LANG='fr';
+const REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ============ DATA (gel 13/07/2026 — voir sources) ============ */
+/* name, city, lat, lon, grads(InfoCursos period), courses, system u/p/m, private? */
+const CAMPUS=[
+["Universidade de Lisboa","Lisboa",38.7527,-9.1584,1532,12,"u",0],
+["Instituto Politécnico do Porto","Porto",41.178,-8.608,926,9,"p",0],
+["ISCTE - Instituto Universitário de Lisboa","Lisboa",38.7478,-9.153,658,12,"u",0],
+["Universidade do Porto","Porto",41.1784,-8.5983,454,9,"u",0],
+["Universidade de Coimbra","Coimbra",40.2033,-8.4103,450,5,"u",0],
+["Instituto Politécnico de Leiria","Leiria",39.7343,-8.82,439,10,"p",0],
+["Universidade do Minho","Braga",41.561,-8.3972,406,7,"u",0],
+["Instituto Politécnico de Coimbra","Coimbra",40.1927,-8.4111,405,10,"p",0],
+["Instituto Politécnico de Setúbal","Setúbal",38.5224,-8.8395,337,8,"p",0],
+["Instituto Politécnico do Cávado e do Ave","Barcelos",41.538,-8.628,322,10,"p",0],
+["Universidade de Aveiro","Aveiro",40.6303,-8.6575,318,10,"m",0],
+["Instituto Politécnico de Lisboa","Lisboa",38.7562,-9.116,266,3,"p",0],
+["Instituto Politécnico de Bragança","Bragança",41.796,-6.768,253,6,"p",0],
+["Instituto Politécnico de Viana do Castelo","Viana do Castelo",41.6944,-8.8462,189,5,"p",0],
+["Instituto Politécnico de Viseu","Viseu",40.6566,-7.9117,183,8,"p",0],
+["Universidade da Madeira","Funchal",32.6597,-16.924,181,3,"m",0],
+["Universidade da Beira Interior","Covilhã",40.278,-7.509,179,4,"u",0],
+["Universidade de Trás-os-Montes e Alto Douro","Vila Real",41.2873,-7.7392,175,5,"u",0],
+["Universidade Lusófona","Lisboa",38.757,-9.153,134,6,"u",1],
+["Universidade Autónoma de Lisboa","Lisboa",38.7276,-9.1448,133,3,"u",1],
+["Universidade do Algarve","Faro",37.0438,-7.9715,130,4,"m",0],
+["Instituto Politécnico de Castelo Branco","Castelo Branco",39.82,-7.492,122,6,"p",0],
+["ISTEC Lisboa","Lisboa",38.738,-9.142,111,7,"p",1],
+["Instituto Superior Politécnico Gaya","Vila Nova de Gaia",41.124,-8.611,103,4,"p",1],
+["Universidade de Évora","Évora",38.5725,-7.9072,101,2,"u",0],
+["Instituto Politécnico de Tomar","Tomar",39.601,-8.41,98,6,"p",0],
+["Instituto Politécnico de Beja","Beja",38.018,-7.874,94,4,"p",0],
+["Universidade Nova de Lisboa (FCT)","Almada",38.6602,-9.205,91,6,"u",0],
+["Instituto Politécnico da Maia","Maia",41.234,-8.622,91,3,"p",1],
+["Universidade Fernando Pessoa","Porto",41.173,-8.602,84,1,"u",1],
+["Instituto Politécnico da Guarda","Guarda",40.538,-7.267,67,5,"p",0],
+["Instituto Politécnico de Santarém","Santarém",39.236,-8.686,62,4,"p",0],
+["Universidade Lusíada","Lisboa",38.697,-9.199,59,2,"u",1],
+["Universidade da Maia","Maia",41.235,-8.621,51,1,"u",1],
+["Universidade Europeia","Lisboa",38.76,-9.191,42,5,"u",1],
+["ISLA Gaia","Vila Nova de Gaia",41.126,-8.605,40,4,"p",1],
+["Universidade dos Açores","Ponta Delgada",37.746,-25.663,33,2,"u",0],
+["Universidade Aberta","Lisboa",38.72,-9.153,33,3,"u",0],
+["Instituto Politécnico de Portalegre","Portalegre",39.29,-7.43,33,5,"p",0],
+["ISLA Santarém","Santarém",39.237,-8.685,28,4,"p",1],
+["Escola Superior Náutica Infante D. Henrique","Oeiras",38.699,-9.313,21,2,"p",0],
+["Escola Superior de Tecnologias de Fafe","Fafe",41.45,-8.172,20,1,"p",1],
+["Instituto Superior Manuel Teixeira Gomes","Portimão",37.137,-8.539,20,2,"u",1],
+["Instituto Politécnico da Lusofonia","Lisboa",38.75,-9.15,17,6,"p",1],
+["ISTEC Porto","Porto",41.157,-8.629,17,4,"p",1],
+["Atlântica - Instituto Universitário","Oeiras",38.736,-9.326,10,1,"u",1],
+["Instituto Politécnico Jean Piaget do Sul","Almada",38.635,-9.191,10,3,"p",1],
+["Universidade Portucalense","Porto",41.176,-8.605,9,3,"u",1],
+["Instituto Superior Miguel Torga","Coimbra",40.211,-8.425,8,1,"u",1]
+];
+/* Écoles de code : coordonnées approximatives (quartier/ville), hors statistiques de diplômes */
+const CODE_SCHOOLS=[
+["42 Lisboa","Beato, Lisboa",38.7331,-9.1023,"Factory Lisbon · Hub Criativo do Beato · capacité 800 · gratuite","Factory Lisbon · Hub Criativo do Beato · capacity 800 · free"],
+["42 Porto","Aliados, Porto",41.1496,-8.6109,"Palácio dos Correios · depuis 2022 · gratuite","Palácio dos Correios · since 2022 · free"],
+["Academia de Código","Alcântara, Lisboa",38.7052,-9.1786,"Bootcamp 14 semaines · Code for All · depuis 2015","14-week bootcamp · Code for All · since 2015"],
+["Academia de Código","Porto",41.15,-8.62,"Campus Porto","Porto campus"],
+["Academia de Código","Fundão",40.1383,-7.5014,"Un bootcamp dans l'intérieur du pays","A bootcamp in the country's interior"],
+["Academia de Código","Terceira, Açores",38.6551,-27.2172,"Campus insulaire, Angra do Heroísmo","Island campus, Angra do Heroísmo"],
+["Le Wagon","Lisboa",38.717,-9.135,"1 000+ alumni revendiqués à Lisbonne","1,000+ claimed alumni in Lisbon"],
+["Ironhack","Lisboa",38.726,-9.148,"Bootcamps web, UX, data, cyber","Web, UX, data, cyber bootcamps"]
+];
+const EMPLOY_BASINS=[["Lisboa",38.74,-9.15],["Porto",41.16,-8.61],["Braga",41.55,-8.42],["Aveiro",40.64,-8.65],["Coimbra",40.2,-8.41],["Setúbal",38.53,-8.89]];
+const RANKED=["Universidade de Lisboa","Universidade do Porto","Universidade de Coimbra","Universidade Nova de Lisboa (FCT)","Universidade de Aveiro","Universidade do Minho"];
+const SERIES={labels:["2018/19","2019/20","2020/21","2021/22","2022/23","2023/24","2024/25"],values:[1841,2200,2292,2268,2777,3334,3838]};
+const EUROPE=[["Estonie","Estonia",9.42],["Finlande","Finland",9.20],["Irlande*","Ireland*",8.38],["Suède","Sweden",7.66],["Roumanie","Romania",7.14],["Espagne","Spain",6.30],["Allemagne","Germany",6.23],["Danemark","Denmark",5.79],["Tchéquie*","Czechia*",5.63],["Pologne","Poland",5.11],["UE-27","EU-27",4.98],["Pays-Bas","Netherlands",4.82],["France","France",4.02],["Portugal","Portugal",3.29],["Italie","Italy",1.62]];
+const TRAJ=[
+ {n:"Lisboa",pts:{2017:330,2024:266,2026:230,2027:237},c:"#243D2C"},
+ {n:"Porto",pts:{2017:323,2024:253,2026:237,2027:255},c:"#2E5038"},
+ {n:"Coimbra",pts:{2017:455,2027:342},c:"#C4973A"},
+ {n:"Aveiro",pts:{2018:525,2027:425},c:"#9A7526"},
+ {n:"Minho",pts:{2018:675,2027:572},c:"#C97A5E"},
+ {n:"NOVA",pts:{2027:337},c:"#A85C42"}
+];
+const LADDER=[
+ {n:"PSL (Paris)",r:34,t:"ref"},{n:"IP Paris",r:43,t:"ref"},{n:"Sorbonne",r:73,t:"ref"},
+ {n:"ULisboa — ingénierie",r:166,t:"eng"},{n:"UPorto — ingénierie",r:191,t:"eng"},
+ {n:"ULisboa",r:237,t:"pt"},{n:"UPorto",r:255,t:"pt"},{n:"NOVA",r:337,t:"pt"},
+ {n:"Coimbra",r:342,t:"pt"},{n:"Aveiro",r:425,t:"pt"},{n:"Minho",r:572,t:"pt"}
+];
+
+/* ============ LANG ============ */
+function setLang(l){
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-fr]').forEach(el=>{const v=el.getAttribute('data-'+l);if(v!=null)el.innerHTML=v;});
+  document.getElementById('btnFR').classList.toggle('active',l==='fr');
+  document.getElementById('btnEN').classList.toggle('active',l==='en');
+  window.__lang=l;buildTable(l);
+}
+
+/* ============ LADDER ============ */
+(function(){
+  const box=document.getElementById('ladder');
+  const min=0,max=650;
+  [0,100,200,300,400,500,600].forEach(r=>{
+    const d=document.createElement('div');d.className='ladder-line';d.style.top=(r-min)/(max-min)*100+'%';
+    d.innerHTML='<span>'+r+'</span>';box.appendChild(d);
+  });
+  const lanes={ref:'4%',eng:'36%',pt:'64%'};
+  LADDER.forEach(it=>{
+    const d=document.createElement('div');d.className='lad-item lad-'+it.t;
+    d.style.top='calc('+((it.r-min)/(max-min)*100)+'% - 7px)';d.style.left=lanes[it.t];
+    d.innerHTML='<i></i>'+it.n+' · '+it.r;box.appendChild(d);
+  });
+})();
+
+/* ============ CHARTS ============ */
+Chart.defaults.font.family="'Cabinet Grotesk',system-ui,sans-serif";
+Chart.defaults.color="#6A5C50";
+const ANIM=REDUCED?false:{duration:700};
+new Chart(document.getElementById('chTraj'),{type:'line',data:{
+  labels:[2017,2018,2024,2026,2027],
+  datasets:TRAJ.map(t=>({label:t.n,data:[2017,2018,2024,2026,2027].map(y=>t.pts[y]??null),borderColor:t.c,backgroundColor:t.c,spanGaps:true,tension:0,pointRadius:4,borderWidth:2.2}))
+},options:{animation:ANIM,responsive:true,maintainAspectRatio:false,scales:{y:{reverse:true,min:0,max:700,title:{display:true,text:'Rang QS'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom',labels:{boxWidth:10,boxHeight:10}}}}});
+new Chart(document.getElementById('chGrowth'),{type:'bar',data:{labels:SERIES.labels,datasets:[{data:SERIES.values,backgroundColor:SERIES.labels.map((_,i)=>i===SERIES.labels.length-1?'#C97A5E':'#243D2C'),borderRadius:0}]},
+options:{animation:ANIM,responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:true}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y.toLocaleString('fr-FR')+' diplômés TIC'}}}}});
+new Chart(document.getElementById('chEurope'),{type:'bar',data:{labels:EUROPE.map(e=>e[0]),datasets:[{data:EUROPE.map(e=>e[2]),backgroundColor:EUROPE.map(e=>e[0]==='Portugal'?'#C97A5E':(e[0]==='UE-27'?'#9A8C80':'#243D2C'))}]},
+options:{animation:ANIM,indexAxis:'y',responsive:true,maintainAspectRatio:false,scales:{x:{beginAtZero:true,ticks:{callback:v=>v+' %'}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+' % des diplômés'}}}}});
+
+/* ============ MAP ============ */
+const map=L.map('map',{zoomControl:false,scrollWheelZoom:false,dragging:!L.Browser.mobile,attributionControl:true});
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",{maxZoom:19,attribution:"&copy; OpenStreetMap &copy; CARTO"}).addTo(map);
+map.setView([39.6,-8.6],7);
+const rScale=g=>Math.max(5,Math.sqrt(g)*1.05);
+const layerRanked=L.layerGroup(),layerAll=L.layerGroup(),layerSchools=L.layerGroup(),layerEmploy=L.layerGroup();
+function popupHtml(c){
+  const l=window.__lang||'fr';
+  const sys=c[6]==='u'?(l==='fr'?'Université':'University'):c[6]==='p'?(l==='fr'?'Polytechnique':'Polytechnic'):(l==='fr'?'Université + polytechnique':'University + polytechnic');
+  const nat=c[7]?(l==='fr'?'privé':'private'):(l==='fr'?'public':'public');
+  return '<b>'+c[0]+'</b>'+c[1]+' · '+sys+' · '+nat+'<br>'+c[4].toLocaleString('fr-FR')+(l==='fr'?' diplômés · ':' graduates · ')+c[5]+(l==='fr'?' cursus · 2020/21–21/22':' programmes · 2020/21–21/22')+'<span class="warn">'+(l==='fr'?'Proxy lexical InfoCursos 2024 — pas le total officiel F06.':'InfoCursos 2024 lexical proxy — not the official F06 total.')+'</span>';
+}
+CAMPUS.forEach(c=>{
+  const uni=c[6]==='u'||c[6]==='m';
+  const color=c[6]==='p'?'#C4973A':(c[6]==='m'?'#7C8A4E':'#243D2C');
+  const m=L.circleMarker([c[2],c[3]],{radius:rScale(c[4]),color:color,weight:c[7]?2.5:1.5,fillColor:c[7]?'#FBF8F2':color,fillOpacity:c[7]?.55:.62}).bindPopup(popupHtml(c));
+  layerAll.addLayer(m);
+  if(RANKED.includes(c[0])){
+    const m2=L.circleMarker([c[2],c[3]],{radius:rScale(c[4]),color:'#243D2C',weight:1.5,fillColor:'#243D2C',fillOpacity:.62}).bindPopup(popupHtml(c));
+    layerRanked.addLayer(m2);
+  }
+});
+CODE_SCHOOLS.forEach(s=>{
+  const ic=L.divIcon({className:'',html:'<div style="width:13px;height:13px;background:#C97A5E;border:2px solid #FBF8F2;box-shadow:0 2px 6px rgba(24,20,14,.3);transform:rotate(45deg)"></div>',iconSize:[13,13],iconAnchor:[7,7]});
+  const m=L.marker([s[2],s[3]],{icon:ic}).bindPopup('<b>'+s[0]+'</b>'+s[1]+'<br><span class="warn">'+((window.__lang||'fr')==='fr'?s[4]+' · Coordonnée approximative · hors statistiques de diplômes':s[5]+' · Approximate location · outside degree statistics')+'</span>');
+  layerSchools.addLayer(m);
+});
+EMPLOY_BASINS.forEach(b=>{
+  layerEmploy.addLayer(L.circle([b[1],b[2]],{radius:26000,color:'#C97A5E',weight:1,fillColor:'#C97A5E',fillOpacity:.16}));
+});
+const VIEWS=[
+  {c:[39.6,-8.6],z:7,layers:[layerRanked]},
+  {c:[39.6,-8.6],z:7,layers:[layerAll]},
+  {c:[38.68,-9.05],z:10,layers:[layerAll]},
+  {c:[41.35,-8.5],z:9,layers:[layerAll]},
+  {c:[40.15,-8.2],z:8,layers:[layerAll]},
+  {c:[36.2,-17.5],z:6,layers:[layerAll]},
+  {c:[39.6,-8.6],z:7,layers:[layerAll,layerSchools]},
+  {c:[39.6,-8.6],z:7,layers:[layerAll,layerSchools,layerEmploy]}
+];
+let current=-1;
+function goStep(i){
+  if(i===current)return;current=i;
+  const v=VIEWS[i];
+  [layerRanked,layerAll,layerSchools,layerEmploy].forEach(l=>map.removeLayer(l));
+  v.layers.forEach(l=>l.addTo(map));
+  if(REDUCED){map.setView(v.c,v.z,{animate:false});}
+  else{map.flyTo(v.c,v.z,{duration:1.1});}
+}
+goStep(0);
+const steps=[...document.querySelectorAll('.step')];
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      steps.forEach(s=>s.classList.remove('active'));
+      e.target.classList.add('active');
+      goStep(+e.target.dataset.step);
+    }
+  });
+},{threshold:.5});
+steps.forEach(s=>io.observe(s));
+
+/* ============ TABLE ============ */
+function buildTable(l){
+  const t=document.getElementById('dataTable');
+  const h=l==='fr'?['Établissement','Ville','Diplômés (période)','Cursus','Système','Nature']:['Institution','City','Graduates (period)','Programmes','System','Nature'];
+  const sysN={u:l==='fr'?'Université':'University',p:l==='fr'?'Polytechnique':'Polytechnic',m:l==='fr'?'Mixte':'Mixed'};
+  t.innerHTML='<thead><tr>'+h.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+
+    CAMPUS.map(c=>'<tr><td>'+c[0]+'</td><td>'+c[1]+'</td><td>'+c[4]+'</td><td>'+c[5]+'</td><td>'+sysN[c[6]]+'</td><td>'+(c[7]?(l==='fr'?'Privé':'Private'):'Public')+'</td></tr>').join('')+'</tbody>';
+}
+setLang(DEFAULT_LANG);
+</script>
+</body>
+</html>
