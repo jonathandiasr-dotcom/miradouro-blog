@@ -59,6 +59,10 @@ Chaque logo garde son repli typographique automatique si l'image ne charge pas.
   - Au-delà du rang ~700, QS publie des tranches (ex. « 901-950 ») plutôt qu'un rang exact : ces tranches sont affichées telles quelles, sans inventer une précision qui n'existe pas dans la source.
   - Le classement comparatif des 32 pays (celui qui vivait avant dans le panneau) n'a pas disparu : il est déplacé dans un tableau dépliable sous la carte (« Voir le tableau des 32 pays »), pour garder un accès textuel complet aux chiffres sans dépendre uniquement du clic pays par pays sur la carte.
 
+## Retouches après relecture (itération 4)
+
+- **Bassins d'emploi à taille hiérarchisée (étape 8)** : les six halos étaient tous au même rayon. Passés à trois paliers : Lisbonne (premier pôle) le plus grand, Porto (second pôle) au milieu, les quatre autres bassins à taille de base identique entre eux. Aucune part précise par bassin n'est publiée dans la source AICEP (seul le total 92 % l'est) : le texte de l'étape 8 explique maintenant cette hiérarchie à trois paliers plutôt que de laisser deviner un pourcentage inventé.
+
 ## Points restant à valider éditorialement
 
 - Statut exact des certifications 42 Lisboa / 42 Porto auprès de leurs sources officielles (la formulation actuelle est volontairement prudente).

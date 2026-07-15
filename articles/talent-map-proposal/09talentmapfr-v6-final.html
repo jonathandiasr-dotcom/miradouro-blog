@@ -647,7 +647,7 @@ summary{cursor:pointer;padding:16px 22px;font-family:var(--f-sans);font-size:11p
       <div class="step" data-step="7">
         <span class="n" data-fr="Étape 8 / 8" data-en="Step 8 / 8">Étape 8 / 8</span>
         <h3 data-fr="Là où se concentre le besoin" data-en="Where the need concentrates">Là où se concentre le besoin</h3>
-        <p data-fr="On efface tout le reste pour ne garder que l'essentiel : les six bassins d'emploi. Ils concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP : logiciel, data centers, gaming). C'est là qu'est la demande, alors que la formation, elle, est répartie sur tout le pays. Un repère d'emploi, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste." data-en="We strip everything else away to keep only the essential: the six employment basins. They concentrated 92% of digital-economy employment in 2021 (AICEP scope: software, data centres, gaming). This is where demand sits, while training is spread across the whole country. An employment marker, not a measured flow: no public data tracks graduates from campus to first job.">On efface tout le reste pour ne garder que l'essentiel : les six bassins d'emploi. Ils concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP : logiciel, data centers, gaming). C'est là qu'est la demande, alors que la formation, elle, est répartie sur tout le pays. Un repère d'emploi, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste.</p>
+        <p data-fr="On efface tout le reste pour ne garder que l'essentiel : les six bassins d'emploi. Ils concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP : logiciel, data centers, gaming). Lisbonne, premier pôle, et Porto, second, ressortent plus grands ; le halo des quatre autres bassins reste à taille égale, faute de répartition précise publiée entre eux. C'est là qu'est la demande, alors que la formation, elle, est répartie sur tout le pays. Un repère d'emploi, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste." data-en="We strip everything else away to keep only the essential: the six employment basins. They concentrated 92% of digital-economy employment in 2021 (AICEP scope: software, data centres, gaming). Lisbon, the top hub, and Porto, the second, appear larger; the other four basins share an equal halo size, since no precise breakdown between them is published. This is where demand sits, while training is spread across the whole country. An employment marker, not a measured flow: no public data tracks graduates from campus to first job.">On efface tout le reste pour ne garder que l'essentiel : les six bassins d'emploi. Ils concentraient 92 % de l'emploi du numérique en 2021 (périmètre AICEP : logiciel, data centers, gaming). Lisbonne, premier pôle, et Porto, second, ressortent plus grands ; le halo des quatre autres bassins reste à taille égale, faute de répartition précise publiée entre eux. C'est là qu'est la demande, alors que la formation, elle, est répartie sur tout le pays. Un repère d'emploi, pas un flux mesuré : aucune donnée publique ne suit les diplômés de leur campus à leur premier poste.</p>
       </div>
     </div>
     <div class="mapbox map-veil">
@@ -774,7 +774,9 @@ const CODE_SCHOOLS=[
 ["Le Wagon","Lisboa",38.717,-9.135,"1 000+ alumni revendiqués à Lisbonne","1,000+ claimed alumni in Lisbon"],
 ["Ironhack","Lisboa",38.726,-9.148,"Bootcamps web, UX, data, cyber","Web, UX, data, cyber bootcamps"]
 ];
-const EMPLOY_BASINS=[["Lisboa",38.74,-9.15],["Porto",41.16,-8.61],["Braga",41.55,-8.42],["Aveiro",40.64,-8.65],["Coimbra",40.2,-8.41],["Setúbal",38.53,-8.89]];
+/* Rayon par palier : Lisbonne (premier pôle), Porto (second), les quatre autres bassins (taille de base).
+   Pas de part exacte par bassin dans la source AICEP (seul le total 92 % est publié) : trois paliers, pas un pourcentage inventé. */
+const EMPLOY_BASINS=[["Lisboa",38.74,-9.15,42000],["Porto",41.16,-8.61,33000],["Braga",41.55,-8.42,23000],["Aveiro",40.64,-8.65,23000],["Coimbra",40.2,-8.41,23000],["Setúbal",38.53,-8.89,23000]];
 const RANKED=["Universidade de Lisboa","Universidade do Porto","Universidade de Coimbra","Universidade Nova de Lisboa (FCT)","Universidade de Aveiro","Universidade do Minho"];
 const CITY_LABELS=[["Lisboa",38.744,-9.16,0],["Porto",41.162,-8.615,0],["Coimbra",40.205,-8.418,0],["Braga",41.556,-8.4,0],["Leiria",39.742,-8.81,0],["Aveiro",40.633,-8.653,0],["Setúbal",38.53,-8.885,0],["Bragança",41.8,-6.76,1],["Vila Real",41.29,-7.74,1],["Viseu",40.66,-7.91,1],["Covilhã",40.28,-7.5,1],["Évora",38.57,-7.9,1],["Faro",37.02,-7.93,1],["Funchal",32.66,-16.92,1],["Ponta Delgada",37.75,-25.66,1]];
 const SERIES={labels:["2018/19","2019/20","2020/21","2021/22","2022/23","2023/24","2024/25"],values:[1841,2200,2292,2268,2777,3334,3838]};
@@ -1012,7 +1014,7 @@ CODE_HUBS.forEach(h=>{
   layerSchools.addLayer(m);
 });
 window.__updateCodeHubs=l=>codeHubMarkers.forEach(([m,h])=>m.setIcon(codeHubIcon(h,l)));
-EMPLOY_BASINS.forEach(b=>{layerEmploy.addLayer(L.circle([b[1],b[2]],{radius:28000,color:'#A85C42',weight:2,fillColor:'#C97A5E',fillOpacity:.32}));});
+EMPLOY_BASINS.forEach(b=>{layerEmploy.addLayer(L.circle([b[1],b[2]],{radius:b[3],color:'#A85C42',weight:2,fillColor:'#C97A5E',fillOpacity:.32}));});
 CITY_LABELS.forEach(cl=>{
   const ic=L.divIcon({className:'city-label',html:'<span>'+cl[0]+'</span>',iconSize:[0,0],iconAnchor:[-14,-4]});
   const m=L.marker([cl[1],cl[2]],{icon:ic,interactive:false,zIndexOffset:-100});
