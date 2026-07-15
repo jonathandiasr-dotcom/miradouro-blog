@@ -41,6 +41,15 @@ Tous les actifs du package de travail sont désormais inclus localement, avec de
 
 Chaque logo garde son repli typographique automatique si l'image ne charge pas.
 
+## Retouches après relecture (itération 2)
+
+- **Palette de la carte européenne** : l'ancien dégradé continu écrasait tout le monde dans une bande étroite (à cause de l'outlier Luxembourg). Remplacé par une échelle séquentielle discrète à 6 classes de densité croissante (vert clair → vert profond), avec des seuils lisibles par mode (densité et nombre brut). Les meilleurs et les moins denses se distinguent maintenant nettement. Légende passée en pastilles étagées.
+- **Portugal, fin du surlignage corail** : le Portugal prend désormais sa vraie couleur de densité comme tous les autres (on peut donc lire où il se situe), et reste repérable par un fin cerclage noir + son code « PT ». Le corail est réservé à la carte du Portugal (bassins d'emploi), plus à la carte européenne.
+- **Panneau latéral** : le classement montre maintenant le nombre d'universités par pays (ex. « 6 univ. ») en valeur principale, la densité en second. Plus concret et plus granulaire.
+- **Lisibilité des étiquettes** : sur les pays aux teintes les plus foncées, le code pays passe en clair automatiquement.
+- **Trajectoire (question 2027 vs 2026)** : le millésime « 2027 » est conservé car c'est le nom réel de l'édition QS publiée à la mi-2026 (QS nomme chaque édition avec l'année suivante), donc la plus récente à la date de l'article. Une note l'explique désormais dans le pied de section, pour lever la même interrogation chez le lecteur. Aucune donnée modifiée.
+- **Carte du Portugal, étape 8 simplifiée** : on efface les campus et écoles pour ne garder que les six bassins d'emploi, rendus plus visibles (contour et remplissage renforcés). Le texte est recentré sur « là où se concentre le besoin ».
+
 ## Points restant à valider éditorialement
 
 - Statut exact des certifications 42 Lisboa / 42 Porto auprès de leurs sources officielles (la formulation actuelle est volontairement prudente).
