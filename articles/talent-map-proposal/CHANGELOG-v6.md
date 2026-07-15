@@ -6,11 +6,15 @@ Fichier livré : `09talentmapfr-v6-final.html` (FR + EN, autonome, mêmes chemin
 
 1. **Tirets cadratins** : zéro occurrence de `—` restante (FR et EN). Reformulations par virgule, deux-points ou phrase coupée (titres S2/S3, leads, conclusion S8).
 2. **Ouverture éditoriale** : hero réécrit dans la voix de l'auteur (croyance jamais vérifiée + diversité des profils observée en recrutement). « Le point de départ » énonce désormais les quatre arguments (fuseau, anglais, coûts, universités) comme hypothèses à tester. Suppression de « Pas pour démonter la phrase, elle est largement vraie » et de la conclusion annoncée en dur dès l'intro (remplacée par une annonce prudente, sans chiffre ni verdict).
-3. **Carte européenne QS** :
-   - fond GISCO plus présent (opacité 0,55 → 0,75) ;
-   - tooltip/title/aria de chaque pays : nombre brut, population, densité calculée et seuil actif, dans les deux langues ;
+3. **Carte européenne QS, refonte complète** : la v6 initiale ne faisait que retoucher l'opacité d'une texture de fond, ce qui ne répondait pas à la consigne (grille de carrés type cartogramme, pas la vraie géographie). Reconstruction depuis zéro :
+   - la carte est maintenant un vrai SVG interactif avec le tracé réel de chaque pays (32 tracés extraits directement du fichier GISCO fourni, `fill-rule: evenodd` corrigé pour un rendu propre des pays à îles multiples) ; le viewBox a été recalculé pour cadrer exactement l'UE-27 + Royaume-Uni + AELE sans rien couper ;
+   - les pays hors périmètre (Russie, Turquie, Ukraine, Maghreb...) restent visibles en gris neutre pour situer l'ensemble, sans être interactifs ;
+   - le Portugal ressort par sa couleur corail et son contour, à sa taille géographique réelle : il est repérable immédiatement sans dominer artificiellement la carte (fini l'effet « toutes les tuiles ont la même taille ») ;
+   - chaque pays a un code à deux lettres directement sur sa forme (identifiable sans survol) ; les trois micro-États (Luxembourg, Liechtenstein, Malte) gardent leur forme colorée et une zone de clic agrandie mais sans code inline, illisible à cette échelle : ils restent nommés dans le classement toujours visible à droite ;
+   - au survol, au focus clavier et au toucher, chaque pays affiche nombre brut, population et densité calculée (`<title>` natif + `aria-label` + panneau de détail) ;
    - légende recalculée à chaque filtre (0 → max affiché, avec unité selon le mode) ;
-   - nouveau paragraphe : pointe d'excellence ≠ qualité moyenne, ruissellement non automatique.
+   - clic, clavier (Entrée/Espace) et liste de classement testés un par un après la refonte ;
+   - nouveau paragraphe éditorial : pointe d'excellence ≠ qualité moyenne, ruissellement non automatique.
 4. **Anglais** : ajout mesuré, rattaché à l'indice EF déjà cité : le frein linguistique d'un recrutement international ne vient pas nécessairement du Portugal (France #38, Espagne #36), présenté comme mesure d'environnement, pas jugement individuel.
 5. **Trajectoire QS + logos** : sens de lecture explicité (« plus une université avance vers la gauche, mieux elle est classée »). Médaillons logo ajoutés (36 px, `object-fit: contain`, conteneur commun) avec repli typographique automatique si l'image manque : ULisboa (typographique par principe, aucun actif fourni), UPorto, UC, UA, UM, NOVA. Le nom et les valeurs restent en texte HTML.
 6. **Universités / polytechniques** : encadré explicatif ajouté en tête de la section 05 (distinction historique, frontière atténuée, diplômes reconnus, recherche possible) + rappel d'une phrase dans la légende de la carte portugaise.
@@ -21,8 +25,9 @@ Fichier livré : `09talentmapfr-v6-final.html` (FR + EN, autonome, mêmes chemin
 ## Vérifié
 
 - 0 `—` ; 181 paires `data-fr`/`data-en` équilibrées ; aucune donnée modifiée.
-- Aucune erreur JS (syntaxe validée + rendu headless) ; aucun défilement horizontal à 375 px ni 1440 px.
-- Bascule FR/EN testée : tuiles, aria-labels et légende recalculés.
+- Aucune erreur JS (syntaxe validée + rendu headless) ; aucun défilement horizontal testé à 375, 768, 1024 et 1440 px.
+- Bascule FR/EN testée : carte, aria-labels et légende recalculés.
+- Carte européenne : interactions (clic sur un pays, clavier, clic sur un micro-État via sa zone agrandie, clic depuis le classement) testées individuellement, capture d'écran comparée avant/après aux trois largeurs.
 - Replis typographiques des logos testés en l'absence des fichiers.
 
 ## Actifs (package intégré)
