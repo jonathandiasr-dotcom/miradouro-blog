@@ -25,19 +25,16 @@ Fichier livré : `09talentmapfr-v6-final.html` (FR + EN, autonome, mêmes chemin
 - Bascule FR/EN testée : tuiles, aria-labels et légende recalculés.
 - Replis typographiques des logos testés en l'absence des fichiers.
 
-## Actifs à déposer avant publication (non fournis dans cette session)
+## Actifs (package intégré)
 
-À placer à côté du HTML, sinon les replis typographiques s'affichent (le fichier reste fonctionnel) :
+Tous les actifs du package de travail sont désormais inclus localement, avec deux conversions réalisées :
 
-- `assets/talent-map/europe-svg/CNTR_RG_20M_2024_3035.svg` (fond de la carte européenne)
-- `assets/talent-map/carcavelos-campus.jpg`
-- `assets/university-logos/universidade-porto.svg` ← à convertir localement depuis `originals/universidade-porto.eps`
-- `assets/university-logos/universidade-coimbra.png` ← version nettoyée (ne pas publier le WebP au damier)
-- `assets/university-logos/originals/universidade-aveiro.png`
-- `assets/university-logos/originals/universidade-minho.gif`
-- `assets/university-logos/originals/nova-universidade-lisboa.png`
+- `assets/university-logos/universidade-porto.png` ← converti depuis `universidade-porto.eps` via Ghostscript (variante positive du lockup uniquement ; l'EPS contenait aussi la variante négative). L'EPS source n'est pas republié (non affichable par un navigateur).
+- `assets/university-logos/universidade-coimbra.png` ← nettoyé depuis le WebP au damier : luminance convertie en transparence, encre noire d'origine préservée, plus aucun damier. Le WebP d'origine reste dans `originals/` comme source, il n'est référencé nulle part.
+- Fond Europe GISCO, photo Carcavelos, logos Aveiro/Minho/NOVA : repris tels quels du package. Católica et ISCTE restent disponibles dans les actifs mais ne sont pas encore utilisés dans l'article.
+- ULisboa : médaillon typographique conservé, aucun actif officiel fourni (règle du README).
 
-`assets/talent-map/chart.umd.min.js` est inclus ici.
+Chaque logo garde son repli typographique automatique si l'image ne charge pas.
 
 ## Points restant à valider éditorialement
 
