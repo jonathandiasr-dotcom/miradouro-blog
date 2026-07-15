@@ -595,6 +595,24 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
 
+    <!-- N°09 : Qui forme les talents tech portugais -->
+    <div id="card-09" class="art-card sr" data-theme="talent">
+      <div class="art-card-top">
+        <span class="art-tag tag-o" data-fr="Talent & Éducation" data-en="Talent & Education">Talent & Éducation</span>
+        <span class="art-num">09</span>
+      </div>
+      <h3 class="art-title" data-fr="Qui forme les talents tech <em>portugais</em> ?" data-en="Who trains Portugal's tech <em>talent</em>?">Qui forme les talents tech <em>portugais</em> ?</h3>
+      <p class="art-intro" data-fr="Les universités donnent au Portugal sa crédibilité. Mais 58,1 % des diplômés TIC viennent des polytechniques, et une couche entière du vivier échappe aux statistiques de diplômes." data-en="Universities give Portugal its credibility. But 58.1% of ICT graduates come from polytechnics, and a whole layer of the pipeline never shows up in degree statistics.">Les universités donnent au Portugal sa crédibilité. Mais 58,1 % des diplômés TIC viennent des polytechniques, et une couche entière du vivier échappe aux statistiques de diplômes.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">58,1<sup>%</sup></div>
+        <div class="art-stat-l" data-fr="Des diplômés TIC 2024/25<br>viennent des polytechniques" data-en="Of 2024/25 ICT graduates<br>come from polytechnics">Des diplômés TIC 2024/25<br>viennent des polytechniques</div>
+      </div>
+      <div class="art-foot">
+        <span class="art-time">Juillet 2026 · 15 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
+      </div>
+    </div>
+
     <!-- N°07 : Internet.exe Europe -->
     <!-- N°08 : Le crash qui a changé l'Europe -->
     <div id="card-08" class="art-card sr" data-theme="infrastructure">
@@ -891,6 +909,7 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
+  'card-09':    { fr: 'articles/09-talent-map-fr.html', en: 'articles/09-talent-map-en.html' },
   'card-08':    { fr: 'articles/internet-exe-europe-part-3-fr.html', en: 'articles/internet-exe-europe-part-3-en.html' },
   'card-07':    { fr: 'articles/internet-exe-europe-part-2-fr.html', en: 'articles/internet-exe-europe-part-2-en.html' },
   'card-06':    { fr: 'articles/06-soft-power-portugal-fr.html', en: 'articles/06-soft-power-portugal-en.html' },
