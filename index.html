@@ -447,16 +447,16 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       <!-- Colonne 1 : stat signal -->
       <div class="hero-signal">
         <div class="hero-signal-kicker" data-fr="Signal du moment" data-en="Current signal">Signal du moment</div>
-        <div class="hero-signal-number" id="hero-stat-num">9 700</div>
-        <div class="hero-signal-label" id="hero-stat-label" data-fr="Employés BNP Paribas au Portugal - 4e employeur privé du pays." data-en="BNP Paribas employees in Portugal - 4th largest private employer.">Employés BNP Paribas au Portugal - 4e employeur privé du pays.</div>
+        <div class="hero-signal-number" id="hero-stat-num">58,1 %</div>
+        <div class="hero-signal-label" id="hero-stat-label" data-fr="Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées." data-en="Of 2024/25 ICT graduates come from Portugal's polytechnics, not its ranked universities.">Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées.</div>
       </div>
 
       <!-- Colonne 2 : article en avant -->
       <div class="hero-featured">
-        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Dossier · Internet.exe · final" data-en="Dossier · Internet.exe · final">Dossier · Internet.exe · final</div>
-        <div class="hero-featured-title" id="hero-title" data-fr="Quand l'Europe possédait Internet" data-en="When Europe owned the Internet">Quand l'Europe possédait Internet</div>
-        <div class="hero-featured-intro" id="hero-intro" data-fr="Première étape : une journée sur le web avant les plateformes. Même gestes, autres marques, autre géographie." data-en="Step one: a day on the web before the platforms. Same gestures, different brands, different geography.">Première étape : une journée sur le web avant les plateformes. Même gestes, autres marques, autre géographie.</div>
-        <a id="link-hero" href="articles/internet-exe-europe-part-3-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Nouveau · Dossier talents" data-en="New · Talent dossier">Nouveau · Dossier talents</div>
+        <div class="hero-featured-title" id="hero-title" data-fr="Qui forme les talents tech portugais ?" data-en="Who trains Portugal's tech talent?">Qui forme les talents tech portugais ?</div>
+        <div class="hero-featured-intro" id="hero-intro" data-fr="On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais." data-en="Everyone says Portugal has good universities. But most of its tech pipeline is trained elsewhere, in institutions almost nobody talks about.">On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais.</div>
+        <a id="link-hero" href="articles/09-talent-map-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
 
     </div>
@@ -936,7 +936,7 @@ function applyArticleLinks(lang) {
     el.style.cursor = 'none';
   });
   const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-08'][lang] || ARTICLE_LINKS['card-08'].fr;
+  if(hero) hero.href = ARTICLE_LINKS['card-09'][lang] || ARTICLE_LINKS['card-09'].fr;
   document.querySelectorAll('.map-link').forEach(link => {
     link.href = (lang === 'en')
       ? 'miradouro-map-en.html'
@@ -975,17 +975,17 @@ const THEME_DATA = {
     theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
   },
   infrastructure: {
-    stat_num: '2000',
-    stat_label_fr: 'Windows 2000 comme mémoire de l\'Internet européen : usages locaux, marques fortes, plateformes perdues.',
-    stat_label_en: 'Windows 2000 as memory of the European Internet: local habits, strong brands, lost platforms.',
-    kicker_fr: 'Dossier · Internet.exe · final', kicker_en: 'Dossier · Internet.exe · final',
-  title_fr: 'Le crash qui a changé l\'Europe',
-  title_en: 'The crash that changed Europe',
-    intro_fr: 'De l\'euphorie .com au krach : pourquoi l\'Europe a gardé les idées, mais perdu une partie du temps long.',
-    intro_en: 'From .com euphoria to the crash: why Europe kept the ideas, but lost part of the long game.',
-    link_fr: 'articles/internet-exe-europe-part-3-fr.html',
-    link_en: 'articles/internet-exe-europe-part-3-en.html',
-    theme_label_fr: '- Infrastructure & Cloud', theme_label_en: '- Infrastructure & Cloud',
+    stat_num: '58,1 %',
+    stat_label_fr: 'Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées.',
+    stat_label_en: 'Of 2024/25 ICT graduates come from Portugal\'s polytechnics, not its ranked universities.',
+    kicker_fr: 'Nouveau · Dossier talents', kicker_en: 'New · Talent dossier',
+  title_fr: 'Qui forme les talents tech portugais ?',
+  title_en: 'Who trains Portugal\'s tech talent?',
+    intro_fr: 'On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais.',
+    intro_en: 'Everyone says Portugal has good universities. But most of its tech pipeline is trained elsewhere, in institutions almost nobody talks about.',
+    link_fr: 'articles/09-talent-map-fr.html',
+    link_en: 'articles/09-talent-map-en.html',
+    theme_label_fr: '- Talent & Éducation', theme_label_en: '- Talent & Education',
   },
   talent: {
     stat_num: '38%',
