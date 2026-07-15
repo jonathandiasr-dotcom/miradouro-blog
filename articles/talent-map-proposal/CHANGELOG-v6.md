@@ -50,6 +50,15 @@ Chaque logo garde son repli typographique automatique si l'image ne charge pas.
 - **Trajectoire (question 2027 vs 2026)** : le millésime « 2027 » est conservé car c'est le nom réel de l'édition QS publiée à la mi-2026 (QS nomme chaque édition avec l'année suivante), donc la plus récente à la date de l'article. Une note l'explique désormais dans le pied de section, pour lever la même interrogation chez le lecteur. Aucune donnée modifiée.
 - **Carte du Portugal, étape 8 simplifiée** : on efface les campus et écoles pour ne garder que les six bassins d'emploi, rendus plus visibles (contour et remplissage renforcés). Le texte est recentré sur « là où se concentre le besoin ».
 
+## Retouches après relecture (itération 3)
+
+- **Retrait de l'Afrique du Nord sur la carte européenne** : le Maroc, l'Algérie et la Tunisie tombaient partiellement dans le cadrage et formaient une large bande grise ininterrompue sous l'Europe, qui écrasait la lecture. Retirés de la couche de contexte.
+- **Bug de mise en page corrigé au passage** : le cadre de la carte s'étirait d'environ 450 px de vide sous la carte pour s'aligner sur la hauteur du panneau latéral (`align-items:stretch` hérité de l'ancienne grille à taille fixe). En creusant, la vraie cause était une collision de nom de classe : mon `<span class="steps">` de légende récupérait par erreur un style CSS global `.steps` déjà utilisé ailleurs sur la page (le conteneur des étapes de la carte du Portugal, avec un padding en `vh`). Renommé, et la grille passe en `align-items:start`.
+- **Noms d'universités par pays, données réelles** : à partir du fichier QS World University Rankings 2027 officiel que tu as fourni (1 504 établissements), extraction et vérification des 352 établissements des 32 pays du dossier, jusqu'au rang 1000. Les compteurs recalculés depuis ce fichier (top 250 / top 500 / top 1000) correspondent exactement, pays par pays, aux chiffres déjà publiés dans l'article : aucune donnée modifiée, seulement complétée avec de vrais noms sourcés.
+  - Le panneau latéral affiche maintenant, pour le pays sélectionné, la liste de ses établissements classés (nom + rang), filtrée par le seuil actif (250/500/1000). État vide explicite si le pays n'a aucun établissement au seuil choisi.
+  - Au-delà du rang ~700, QS publie des tranches (ex. « 901-950 ») plutôt qu'un rang exact : ces tranches sont affichées telles quelles, sans inventer une précision qui n'existe pas dans la source.
+  - Le classement comparatif des 32 pays (celui qui vivait avant dans le panneau) n'a pas disparu : il est déplacé dans un tableau dépliable sous la carte (« Voir le tableau des 32 pays »), pour garder un accès textuel complet aux chiffres sans dépendre uniquement du clic pays par pays sur la carte.
+
 ## Points restant à valider éditorialement
 
 - Statut exact des certifications 42 Lisboa / 42 Porto auprès de leurs sources officielles (la formulation actuelle est volontairement prudente).
