@@ -1,0 +1,34 @@
+<!-- @dsCard group="Components" viewport="700x400" name="Content — cards, stats, offers, quotes" subtitle="Flat cards, key figures, expertise blocks, onde bullets, badges, accordion" -->
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Content components</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:24px;background:var(--mrt-beige)}.lbl{font:700 11px/1 var(--font-core);letter-spacing:.08em;text-transform:uppercase;color:var(--mrt-gold);margin-bottom:10px}.grp{margin-bottom:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.row{display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Card, StatBlock, ExpertiseCard, WaveBullet, Quote, Badge, Accordion, SectionHeader } = window.MeritisDesignSystem_198a6a;
+function Demo(){return (<div>
+<div className="grp"><div className="lbl">Chiffres clés &amp; badges</div><div className="row">
+<StatBlock value="+900" label="Collaborateurs" />
+<StatBlock value="98 M€" label="CA en 2025" />
+<StatBlock value="NPS 63" label="Satisfaction client" tone="gold" />
+<span style={{display:'flex',gap:8,alignSelf:'center'}}><Badge tone="gold">CDI</Badge><Badge tone="soft" uppercase>Actualité</Badge><Badge tone="blue">Paris</Badge><Badge tone="outline">Consultant</Badge></span>
+</div></div>
+<div className="grp"><div className="lbl">Cartes &amp; offres</div><div className="grid">
+<Card tone="light" hoverable><ExpertiseCard icon="cloud" title="Cloud &amp; DevOps" items={["Audit organisationnel DevOps","Diagnostic d'architectures techniques","Pilotage des chaînes de delivery"]} /></Card>
+<Card tone="dark"><ExpertiseCard tone="dark" icon="database" title="Data &amp; IA" items={["Audit Data","Architecture Data Platform","Pilotage et implémentation"]} /></Card>
+</div></div>
+<div className="grp"><div className="lbl">Listes onde · citation · accordéon</div><div className="grid">
+<div><ul style={{margin:0,padding:0,display:'flex',flexDirection:'column',gap:10}}>
+<WaveBullet>Présentation générale</WaveBullet>
+<WaveBullet shape="pleine" color="gold">Finance &amp; Innovation</WaveBullet>
+<WaveBullet shape="pleine" color="blue">Cloud &amp; DevOps</WaveBullet>
+</ul>
+<Accordion style={{marginTop:16}} defaultOpen={0} items={[{icon:'user-check',title:'Expertise sélectionnée',body:"Chaque mission mobilise des profils validés sur vos enjeux spécifiques."},{title:'Un pilotage en continu',body:"Un suivi régulier, des indicateurs partagés, un référent dédié."}]} /></div>
+<Quote author="Sébastien VIDEMENT" role="Président-fondateur">Chaque projet est avant tout une aventure humaine.</Quote>
+</div></div>
+</div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

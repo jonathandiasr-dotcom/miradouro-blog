@@ -1,0 +1,39 @@
+<!-- @dsCard group="Components" viewport="700x340" name="Core — buttons, links, waves" subtitle="CTA skins, icon buttons, text links, logo and onde motif" -->
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Core components</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:24px;background:var(--mrt-beige)}.row{display:flex;flex-wrap:wrap;align-items:center;gap:14px}.lbl{font:700 11px/1 var(--font-core);letter-spacing:.08em;text-transform:uppercase;color:var(--mrt-gold);margin-bottom:10px}.grp{margin-bottom:20px}.dark{background:var(--mrt-blue);padding:16px;border-radius:8px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { Button, IconButton, TextLink, Wave, Logo } = window.MeritisDesignSystem_198a6a;
+function Demo(){return (<div>
+<div className="grp"><div className="lbl">Boutons — fond clair</div><div className="row">
+<Button variant="primary">Nous contacter</Button>
+<Button variant="gold">Nous rejoindre</Button>
+<Button variant="outline">Nous contacter</Button>
+<Button variant="outline-gold">Nous rejoindre</Button>
+<Button variant="primary" icon="download">Télécharger</Button>
+<Button variant="gold" icon="send">Envoyer</Button>
+<Button variant="primary" disabled>Indisponible</Button>
+</div></div>
+<div className="grp"><div className="lbl">Tailles &amp; fond foncé</div><div className="row">
+<Button size="sm">Petit</Button><Button size="md">Moyen</Button><Button size="lg">Grand</Button>
+<span className="dark row"><Button variant="on-dark">Nous rejoindre</Button><TextLink tone="on-dark">Lire les conditions</TextLink></span>
+</div></div>
+<div className="grp"><div className="lbl">Boutons minimalistes · liens · onde · logo</div><div className="row">
+<IconButton icon="house" variant="gold" label="Accueil" />
+<IconButton icon="message-square" variant="gold" label="Contact" />
+<IconButton icon="chevron-left" variant="blue" label="Précédent" />
+<IconButton icon="chevron-right" variant="blue" label="Suivant" />
+<TextLink href="#">Lire les conditions</TextLink>
+<TextLink tone="gold" icon="arrow-right">En savoir plus</TextLink>
+<Wave shape="arcs" color="blue" size={56} />
+<Wave shape="pleine" color="gold" size={56} rotate={90} />
+<Logo lockup="secondaire" height={26} />
+</div></div>
+</div>);}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

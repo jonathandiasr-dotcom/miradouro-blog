@@ -1,0 +1,81 @@
+/* Meritis colours — charte graphique 2025, p.7. Hex values are canonical; do not tint or shade them. */
+:root{
+  /* Palette principale (privileged on every support) */
+  --mrt-blue:#005B6A;        /* bleu marine — primary brand colour */
+  --mrt-gold:#E0B55F;        /* doré — accent, subtitles, CTA */
+  --mrt-graphite:#3B3B3B;    /* gris foncé */
+  --mrt-grey-100:#F3F3F3;    /* gris clair */
+  --mrt-beige:#FBF9F2;       /* beige — the default page ground */
+
+  /* Palette secondaire (limited use: charts, slide nuances, low-contrast fixes) */
+  --mrt-blue-deep:#0B3941;
+  --mrt-gold-deep:#B6934C;
+  --mrt-grey-200:#D9D9D9;
+  --mrt-sky:#9DCDF0;
+  --mrt-teal:#6CA2AA;
+
+  --mrt-white:#FFFFFF;
+  --mrt-black:#000000;       /* logo wordmark only */
+
+  /* Alpha derivations — the only permitted transparency (charte p.13: white 10% over waves) */
+  --mrt-white-10:rgb(255 255 255 / .10);
+  --mrt-white-16:rgb(255 255 255 / .16);
+  --mrt-blue-08:rgb(0 91 106 / .08);
+  --mrt-blue-16:rgb(0 91 106 / .16);
+  --mrt-gold-12:rgb(224 181 95 / .12);
+
+  /* ---- Semantic aliases ---- */
+  --surface-page:var(--mrt-beige);
+  --surface-card:var(--mrt-white);
+  --surface-muted:var(--mrt-grey-100);
+  --surface-dark:var(--mrt-blue);
+  --surface-darker:var(--mrt-blue-deep);
+  --surface-gold:var(--mrt-gold);
+
+  --text-title:var(--mrt-blue);        /* titles on light grounds */
+  --text-subtitle:var(--mrt-gold);     /* sous-titres — always doré on light */
+  --text-body:var(--mrt-blue);         /* texte courant on beige */
+  --text-body-alt:var(--mrt-graphite); /* low-contrast fallback (charte p.10) */
+  --text-muted:var(--mrt-teal);
+  --text-on-dark:var(--mrt-beige);
+  --text-subtitle-on-dark:var(--mrt-gold);
+  --text-on-gold:var(--mrt-beige);
+  --text-subtitle-on-gold:var(--mrt-blue);
+
+  --border-subtle:var(--mrt-grey-200);
+  --border-strong:var(--mrt-blue);
+  --border-on-dark:var(--mrt-white-16);
+
+  --link:var(--mrt-blue);
+  --link-hover:var(--mrt-gold-deep);
+  --link-on-dark:var(--mrt-gold);
+  --focus-ring:var(--mrt-gold);
+
+  --chart-1:var(--mrt-blue);
+  --chart-2:var(--mrt-teal);
+  --chart-3:var(--mrt-sky);
+  --chart-4:var(--mrt-gold);
+  --chart-5:var(--mrt-graphite);
+  --chart-6:var(--mrt-grey-200);
+}
+/* Dark ground scope: apply to any bleu-marine section so nested components flip automatically. */
+.mrt-on-dark{
+  --surface-card:var(--mrt-blue-deep);
+  --text-title:var(--mrt-beige);
+  --text-subtitle:var(--mrt-gold);
+  --text-body:var(--mrt-beige);
+  --text-body-alt:var(--mrt-grey-100);
+  --border-subtle:var(--mrt-white-16);
+  --link:var(--mrt-gold);
+  --link-hover:var(--mrt-beige);
+}
+/* Gold ground scope */
+.mrt-on-gold{
+  --surface-card:var(--mrt-gold);
+  --text-title:var(--mrt-beige);
+  --text-subtitle:var(--mrt-blue);
+  --text-body:var(--mrt-beige);
+  --border-subtle:var(--mrt-white-16);
+  --link:var(--mrt-blue);
+  --link-hover:var(--mrt-beige);
+}

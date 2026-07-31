@@ -1,0 +1,24 @@
+/* Aptos — Microsoft's Aptos family, the sole Meritis typeface (charte graphique 2025, p.8).
+   Licence: see assets/fonts/ (Microsoft Aptos Fonts EULA). Download: microsoft.com/en-us/download/details.aspx?id=106087 */
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Light.ttf") format("truetype");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Light-Italic.ttf") format("truetype");font-weight:300;font-style:italic;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-SemiBold.ttf") format("truetype");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Bold-Italic.ttf") format("truetype");font-weight:700;font-style:italic;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-ExtraBold.ttf") format("truetype");font-weight:800;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Black.ttf") format("truetype");font-weight:900;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos";src:url("../assets/fonts/Aptos-Black-Italic.ttf") format("truetype");font-weight:900;font-style:italic;font-display:swap}
+/* Aptos Display — tighter, for very large display type only */
+@font-face{font-family:"Aptos Display";src:url("../assets/fonts/Aptos-Display.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos Display";src:url("../assets/fonts/Aptos-Display-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+/* Aptos Narrow — condensed, for dense tables / labels */
+@font-face{font-family:"Aptos Narrow";src:url("../assets/fonts/Aptos-Narrow.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos Narrow";src:url("../assets/fonts/Aptos-Narrow-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+/* Aptos Serif — editorial pull-quotes only; not part of the core charte */
+@font-face{font-family:"Aptos Serif";src:url("../assets/fonts/Aptos-Serif.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos Serif";src:url("../assets/fonts/Aptos-Serif-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}
+/* Aptos Mono — code samples on the blog */
+@font-face{font-family:"Aptos Mono";src:url("../assets/fonts/Aptos-Mono.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Aptos Mono";src:url("../assets/fonts/Aptos-Mono-Bold.ttf") format("truetype");font-weight:700;font-style:normal;font-display:swap}

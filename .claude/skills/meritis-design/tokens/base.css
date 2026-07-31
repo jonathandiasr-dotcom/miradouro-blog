@@ -1,0 +1,21 @@
+/* Base — minimal resets and the brand's default text/link behaviour. */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-core);font-size:var(--text-md);line-height:var(--leading-body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{margin:0;font-weight:var(--weight-black);color:var(--text-title);line-height:var(--leading-heading);text-wrap:balance}
+p{margin:0;text-wrap:pretty}
+img{max-width:100%;display:block}
+a{color:var(--link);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px;transition:color var(--dur-fast) var(--ease-standard)}
+a:hover{color:var(--link-hover)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--focus-ring);outline-offset:2px}
+ul,ol{margin:0;padding-left:1.15em}
+button{font-family:inherit}
+::selection{background:var(--mrt-gold-12);color:var(--text-title)}
+
+/* Wave utilities — the one decorative element of the brand. Never rotate off 90° increments. */
+.mrt-onde{background-repeat:no-repeat;background-size:contain;pointer-events:none}
+.mrt-onde--r90{transform:rotate(90deg)}
+.mrt-onde--r180{transform:rotate(180deg)}
+.mrt-onde--r270{transform:rotate(270deg)}
+/* Photography treatment */
+.mrt-photo-bw{filter:var(--filter-photo-bw)}

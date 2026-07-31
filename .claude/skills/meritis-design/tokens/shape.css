@@ -1,0 +1,38 @@
+/* Shape & depth — the brand is flat. Geometry does the work, not shadow.
+   The only curved motif is the quarter-circle "onde": a 100% radius on one corner. */
+:root{
+  --radius-none:0;
+  --radius-xs:2px;
+  --radius-sm:4px;      /* buttons, fields, chips */
+  --radius-md:8px;
+  --radius-lg:16px;     /* cards */
+  --radius-xl:24px;     /* large panels (charte p.16 asset-kit blocks) */
+  --radius-pill:999px;
+  --radius-quarter:100% 0 0 0; /* @kind radius */  /* onde pleine, top-left anchored */
+
+  --border-hairline:1px;
+  --border-medium:2px;
+  --border-accent:4px;
+
+  /* Elevation is reserved for floating UI (menus, modals, sticky header). Cards stay flat. */
+  --shadow-none:none;
+  --shadow-sm:0 1px 2px rgb(11 57 65 / .06);
+  --shadow-md:0 6px 20px rgb(11 57 65 / .08);
+  --shadow-lg:0 18px 48px rgb(11 57 65 / .14);
+  --ring-focus:0 0 0 3px rgb(224 181 95 / .55);
+
+  /* Wave assets, referenced as backgrounds */
+  --onde-arcs-blue:url("../assets/waves/onde-arcs-bleue.png"); /* @kind other */
+  --onde-arcs-gold:url("../assets/waves/onde-arcs-doree.png"); /* @kind other */
+  --onde-arcs-beige:url("../assets/waves/onde-arcs-beige.png"); /* @kind other */
+  --onde-arcs-light:url("../assets/waves/onde-arcs-claire.png"); /* @kind other */
+  --onde-arcs-grey:url("../assets/waves/onde-arcs-grise.png"); /* @kind other */
+  --onde-pleine-blue:url("../assets/waves/onde-pleine-bleue.png"); /* @kind other */
+  --onde-pleine-gold:url("../assets/waves/onde-pleine-doree.png"); /* @kind other */
+  --onde-pleine-beige:url("../assets/waves/onde-pleine-beige.png"); /* @kind other */
+  --onde-pleine-light:url("../assets/waves/onde-pleine-claire.png"); /* @kind other */
+  --onde-pleine-grey:url("../assets/waves/onde-pleine-grise.png"); /* @kind other */
+
+  /* Photography treatment: contrasted black & white with a warm filter (charte p.12) */
+  --filter-photo-bw:grayscale(1) contrast(1.12) brightness(1.02) sepia(.16); /* @kind other */
+}

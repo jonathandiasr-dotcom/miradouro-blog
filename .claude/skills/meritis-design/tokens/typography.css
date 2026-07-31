@@ -1,0 +1,60 @@
+/* Meritis typography — charte graphique 2025, p.8-11.
+   One family: Aptos. Hierarchy comes from weight + case, never from a second typeface.
+   Ratio system: TITRE PRINCIPAL = X · Titres secondaires = 2/3 X · Sous-titre = 2/3 X · Texte courant = X/2. */
+:root{
+  --font-core:"Aptos","Segoe UI",system-ui,sans-serif;
+  --font-display:"Aptos Display","Aptos",system-ui,sans-serif;
+  --font-narrow:"Aptos Narrow","Aptos",system-ui,sans-serif;
+  --font-serif:"Aptos Serif",Georgia,serif;
+  --font-mono:"Aptos Mono",ui-monospace,SFMono-Regular,monospace;
+
+  --weight-light:300;
+  --weight-regular:400;
+  --weight-semibold:600;
+  --weight-bold:700;
+  --weight-black:900;
+
+  /* Web / UI scale */
+  --text-2xs:12px;
+  --text-xs:13px;
+  --text-sm:15px;
+  --text-md:17px;   /* texte courant, web */
+  --text-lg:20px;
+  --text-xl:24px;   /* sous-titre */
+  --text-2xl:32px;  /* titres secondaires */
+  --text-3xl:44px;
+  --text-4xl:56px;  /* titre principal, web */
+  --text-5xl:72px;  /* hero display */
+
+  /* Slide scale — authored at 1920×1080 (X = 52pt = 69px) */
+  --slide-x:69px;
+  --slide-title:69px;         /* BLACK + MAJUSCULES */
+  --slide-heading:46px;       /* Black + minuscules */
+  --slide-subtitle:46px;      /* Bold + minuscules, doré */
+  --slide-body:35px;          /* Regular + minuscules */
+  --slide-caption:24px;
+
+  /* Line heights — leading of a title equals its own X height band; keep body airy */
+  --leading-title:1.0; /* @kind other */
+  --leading-heading:1.1; /* @kind other */
+  --leading-subtitle:1.25; /* @kind other */
+  --leading-body:1.5; /* @kind other */
+  --leading-loose:1.65; /* @kind other */
+
+  --tracking-title:-0.01em; /* @kind other */   /* Black caps sit tight */
+  --tracking-eyebrow:0.08em; /* @kind other */  /* small caps labels */
+  --tracking-body:0; /* @kind other */
+
+  /* Copy limits (charte p.11): titles ≤ 2 lines, lines ≤ ~70 characters, never justified */
+  --measure-body:68ch; /* @kind other */
+  --measure-title:24ch; /* @kind other */
+}
+
+/* Type roles — apply as classes when not using a component. */
+.mrt-title{font-family:var(--font-core);font-weight:var(--weight-black);text-transform:uppercase;font-size:var(--text-4xl);line-height:var(--leading-title);letter-spacing:var(--tracking-title);color:var(--text-title);max-width:var(--measure-title);text-wrap:balance}
+.mrt-heading{font-family:var(--font-core);font-weight:var(--weight-black);font-size:var(--text-2xl);line-height:var(--leading-heading);color:var(--text-title);text-wrap:balance}
+.mrt-subtitle{font-family:var(--font-core);font-weight:var(--weight-bold);font-size:var(--text-xl);line-height:var(--leading-subtitle);color:var(--text-subtitle)}
+.mrt-eyebrow{font-family:var(--font-core);font-weight:var(--weight-bold);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-eyebrow);color:var(--text-subtitle)}
+.mrt-body{font-family:var(--font-core);font-weight:var(--weight-regular);font-size:var(--text-md);line-height:var(--leading-body);color:var(--text-body);max-width:var(--measure-body);text-align:left;text-wrap:pretty}
+.mrt-body-lg{font-family:var(--font-core);font-weight:var(--weight-regular);font-size:var(--text-lg);line-height:var(--leading-loose);color:var(--text-body);max-width:var(--measure-body);text-wrap:pretty}
+.mrt-caption{font-family:var(--font-core);font-weight:var(--weight-regular);font-size:var(--text-sm);line-height:var(--leading-body);color:var(--text-body-alt)}

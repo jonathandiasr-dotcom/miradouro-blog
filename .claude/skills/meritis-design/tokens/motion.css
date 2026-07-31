@@ -1,0 +1,16 @@
+/* Motion — sober and short. No bounce, no spring, no parallax. Fades and small translations only. */
+:root{
+  --ease-standard:cubic-bezier(.4,0,.2,1); /* @kind other */
+  --ease-out:cubic-bezier(0,0,.2,1); /* @kind other */
+  --ease-in:cubic-bezier(.4,0,1,1); /* @kind other */
+  --dur-instant:90ms; /* @kind other */
+  --dur-fast:160ms; /* @kind other */
+  --dur-base:240ms; /* @kind other */
+  --dur-slow:400ms; /* @kind other */
+  --dur-reveal:600ms; /* @kind other */   /* section fade-up on scroll */
+  --lift-hover:-1px; /* @kind other */
+  --press-scale:.985; /* @kind other */
+}
+@media (prefers-reduced-motion:reduce){
+  :root{--dur-instant:0ms; /* @kind other */--dur-fast:0ms; /* @kind other */--dur-base:0ms; /* @kind other */--dur-slow:0ms; /* @kind other */--dur-reveal:0ms; /* @kind other */--lift-hover:0;--press-scale:1}
+}

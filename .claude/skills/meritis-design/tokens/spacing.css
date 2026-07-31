@@ -1,0 +1,30 @@
+/* Spacing — 4px base, doubling ladder. The "zone de sécurité" around a title equals X (its own size). */
+:root{
+  --space-0:0;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:24px;
+  --space-6:32px;
+  --space-7:48px;
+  --space-8:64px;
+  --space-9:96px;
+  --space-10:128px;
+
+  --gap-inline:12px;      /* between chips, buttons, nav items */
+  --gap-stack:16px;       /* between a subtitle and its body */
+  --gap-block:32px;       /* between content blocks inside a section */
+  --gap-section:96px;     /* between page sections */
+
+  --pad-card:32px;
+  --pad-card-sm:20px;
+  --pad-button-y:14px;
+  --pad-button-x:28px;
+  --pad-field-y:12px;
+  --pad-field-x:16px;
+
+  --container-max:1240px;
+  --container-gutter:32px;
+  --slide-margin:96px;    /* safe margin on a 1920×1080 slide */
+}
