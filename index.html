@@ -447,16 +447,16 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
       <!-- Colonne 1 : stat signal -->
       <div class="hero-signal">
         <div class="hero-signal-kicker" data-fr="Signal du moment" data-en="Current signal">Signal du moment</div>
-        <div class="hero-signal-number" id="hero-stat-num">58,1 %</div>
-        <div class="hero-signal-label" id="hero-stat-label" data-fr="Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées." data-en="Of 2024/25 ICT graduates come from Portugal's polytechnics, not its ranked universities.">Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées.</div>
+        <div class="hero-signal-number" id="hero-stat-num">3</div>
+        <div class="hero-signal-label" id="hero-stat-label" data-fr="Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique." data-en="Major cables now connect Portugal directly to the Americas and Africa.">Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique.</div>
       </div>
 
       <!-- Colonne 2 : article en avant -->
       <div class="hero-featured">
-        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Nouveau · Dossier talents" data-en="New · Talent dossier">Nouveau · Dossier talents</div>
-        <div class="hero-featured-title" id="hero-title" data-fr="Qui forme les talents tech portugais ?" data-en="Who trains Portugal's tech talent?">Qui forme les talents tech portugais ?</div>
-        <div class="hero-featured-intro" id="hero-intro" data-fr="On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais." data-en="Everyone says Portugal has good universities. But most of its tech pipeline is trained elsewhere, in institutions almost nobody talks about.">On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais.</div>
-        <a id="link-hero" href="articles/09-talent-map-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
+        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Nouveau · Atlas atlantique" data-en="New · Atlantic atlas">Nouveau · Atlas atlantique</div>
+        <div class="hero-featured-title" id="hero-title" data-fr="Et si le bout de l'Europe devenait son entrée ?" data-en="What if the edge of Europe became its gateway?">Et si le bout de l'Europe devenait son entrée ?</div>
+        <div class="hero-featured-intro" id="hero-intro" data-fr="Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?" data-en="Cables, electricity, Sines: can Portugal turn its geography into digital power?">Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?</div>
+        <a id="link-hero" href="articles/portugal-interface-atlantique-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
       </div>
 
     </div>
@@ -478,7 +478,7 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
     <span class="articles-theme-active" id="theme-label" data-fr="- Infrastructure & Plateformes" data-en="- Infrastructure & Platforms">- Infrastructure & Plateformes</span>
-    <span class="articles-count" id="articles-count" data-fr="07 articles · + HS" data-en="07 articles · + special">07 articles · + HS</span>
+    <span class="articles-count" id="articles-count" data-fr="10 articles · + HS" data-en="10 articles · + special">10 articles · + HS</span>
   </div>
 
   <!-- Filtres thématiques -->
@@ -558,6 +558,24 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
+
+    <!-- N°10 : Le Portugal, interface atlantique -->
+    <div id="card-10" class="art-card sr" data-theme="infrastructure">
+      <div class="art-card-top">
+        <span class="art-tag tag-g" data-fr="Infrastructure · Cartographie" data-en="Infrastructure · Cartography">Infrastructure · Cartographie</span>
+        <span class="art-num">10</span>
+      </div>
+      <h3 class="art-title" data-fr="Et si le bout de l'Europe devenait <em>son entrée ?</em>" data-en="What if the edge of Europe became <em>its gateway?</em>">Et si le bout de l'Europe devenait <em>son entrée ?</em></h3>
+      <p class="art-intro" data-fr="Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ? Une hypothèse racontée par les cartes." data-en="Cables, electricity, Sines: can Portugal turn its geography into digital power? A hypothesis told through maps.">Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ? Une hypothèse racontée par les cartes.</p>
+      <div class="art-stat-inline">
+        <div class="art-stat-n">3</div>
+        <div class="art-stat-l" data-fr="liaisons directes vers<br>trois continents" data-en="direct links to<br>three continents">liaisons directes vers<br>trois continents</div>
+      </div>
+      <div class="art-foot">
+        <span class="art-time" data-fr="Août 2026 · 12 min" data-en="August 2026 · 12 min">Août 2026 · 12 min</span>
+        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
+      </div>
+    </div>
 
     <!-- N°09 : Qui forme les talents tech portugais -->
     <div id="card-09" class="art-card sr" data-theme="talent">
@@ -909,6 +927,7 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
+  'card-10':    { fr: 'articles/portugal-interface-atlantique-fr.html', en: 'articles/portugal-atlantic-interface-en.html' },
   'card-09':    { fr: 'articles/09-talent-map-fr.html', en: 'articles/09-talent-map-en.html' },
   'card-08':    { fr: 'articles/internet-exe-europe-part-3-fr.html', en: 'articles/internet-exe-europe-part-3-en.html' },
   'card-07':    { fr: 'articles/internet-exe-europe-part-2-fr.html', en: 'articles/internet-exe-europe-part-2-en.html' },
@@ -936,7 +955,7 @@ function applyArticleLinks(lang) {
     el.style.cursor = 'none';
   });
   const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-09'][lang] || ARTICLE_LINKS['card-09'].fr;
+  if(hero) hero.href = ARTICLE_LINKS['card-10'][lang] || ARTICLE_LINKS['card-10'].fr;
   document.querySelectorAll('.map-link').forEach(link => {
     link.href = (lang === 'en')
       ? 'miradouro-map-en.html'
@@ -975,17 +994,17 @@ const THEME_DATA = {
     theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
   },
   infrastructure: {
-    stat_num: '58,1 %',
-    stat_label_fr: 'Des diplômés TIC 2024/25 sortent des polytechniques portugais, pas des universités classées.',
-    stat_label_en: 'Of 2024/25 ICT graduates come from Portugal\'s polytechnics, not its ranked universities.',
-    kicker_fr: 'Nouveau · Dossier talents', kicker_en: 'New · Talent dossier',
-  title_fr: 'Qui forme les talents tech portugais ?',
-  title_en: 'Who trains Portugal\'s tech talent?',
-    intro_fr: 'On répète que le Portugal a de bonnes universités. Mais la majorité du vivier tech se forme ailleurs, dans des établissements dont on ne parle presque jamais.',
-    intro_en: 'Everyone says Portugal has good universities. But most of its tech pipeline is trained elsewhere, in institutions almost nobody talks about.',
-    link_fr: 'articles/09-talent-map-fr.html',
-    link_en: 'articles/09-talent-map-en.html',
-    theme_label_fr: '- Talent & Éducation', theme_label_en: '- Talent & Education',
+    stat_num: '3',
+    stat_label_fr: 'Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique.',
+    stat_label_en: 'Major cables now connect Portugal directly to the Americas and Africa.',
+    kicker_fr: 'Nouveau · Atlas atlantique', kicker_en: 'New · Atlantic atlas',
+    title_fr: 'Et si le bout de l\'Europe devenait son entrée ?',
+    title_en: 'What if the edge of Europe became its gateway?',
+    intro_fr: 'Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?',
+    intro_en: 'Cables, electricity, Sines: can Portugal turn its geography into digital power?',
+    link_fr: 'articles/portugal-interface-atlantique-fr.html',
+    link_en: 'articles/portugal-atlantic-interface-en.html',
+    theme_label_fr: '- Infrastructure & Territoires', theme_label_en: '- Infrastructure & Territory',
   },
   talent: {
     stat_num: '38%',
