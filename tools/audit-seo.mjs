@@ -74,5 +74,12 @@ if (sitemap.includes("<priority>") || sitemap.includes("<changefreq>")) warnings
 const robots = fs.readFileSync(path.join(root, "robots.txt"), "utf8");
 if (!robots.includes(`Sitemap: ${baseUrl}/sitemap.xml`)) errors.push("robots.txt: incorrect sitemap URL");
 
+const vercelConfig = JSON.parse(fs.readFileSync(path.join(root, "vercel.json"), "utf8"));
+const legacyNoIndex = vercelConfig.headers?.some((rule) =>
+  rule.has?.some((condition) => condition.type === "host" && condition.value === "miradouro-blog.vercel.app")
+  && rule.headers?.some((header) => header.key.toLowerCase() === "x-robots-tag" && header.value.toLowerCase().includes("noindex"))
+);
+if (!legacyNoIndex) errors.push("vercel.json: legacy Vercel domain is not protected with X-Robots-Tag: noindex");
+
 console.log(JSON.stringify({ pages: publicFiles.length, errors, warnings }, null, 2));
 if (errors.length) process.exitCode = 1;
