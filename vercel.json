@@ -1,0 +1,31 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "miradouro-blog.vercel.app"
+        }
+      ],
+      "destination": "https://miradouro.blog/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/articles/articles/ai-music-fr.html",
+      "destination": "/articles/ai-music-fr.html",
+      "permanent": true
+    },
+    {
+      "source": "/articles/articles/ai-music-en.html",
+      "destination": "/articles/ai-music-en.html",
+      "permanent": true
+    }
+  ]
+}

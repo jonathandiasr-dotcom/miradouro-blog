@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Miradouro — image de partage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; }
+    body {
+      position: relative;
+      padding: 58px 68px 54px;
+      color: #fbf8f2;
+      background: #243d2c;
+      font-family: Inter, system-ui, sans-serif;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .23;
+      background-image:
+        linear-gradient(45deg, transparent 47%, rgba(251,248,242,.13) 48%, rgba(251,248,242,.13) 52%, transparent 53%),
+        linear-gradient(-45deg, transparent 47%, rgba(251,248,242,.13) 48%, rgba(251,248,242,.13) 52%, transparent 53%);
+      background-size: 72px 72px;
+    }
+    .frame { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; }
+    .top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 28px; border-bottom: 1px solid rgba(251,248,242,.28); }
+    .brand { font: 700 26px/1 Fraunces, Georgia, serif; letter-spacing: .035em; text-transform: uppercase; }
+    .brand em { color: #edb89a; font-weight: 300; }
+    .tag { color: #f0dfa8; font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+    .main { display: flex; flex: 1; align-items: center; }
+    h1 { width: 900px; margin: 0; font: 700 76px/.98 Fraunces, Georgia, serif; letter-spacing: -.045em; }
+    h1 em { color: #edb89a; font: 500 italic 84px/.9 "Cormorant Garamond", Georgia, serif; }
+    .bottom { display: flex; align-items: flex-end; justify-content: space-between; color: rgba(251,248,242,.72); font-size: 14px; }
+    .promise { max-width: 620px; font: 500 italic 23px/1.35 "Cormorant Garamond", Georgia, serif; }
+    .url { color: #fbf8f2; font-weight: 700; letter-spacing: .08em; }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="brand">Mira<em>douro</em></div>
+      <div class="tag">Tech · Europe · Lisbonne</div>
+    </div>
+    <div class="main">
+      <h1>La tech européenne,<br><em>depuis Lisbonne.</em></h1>
+    </div>
+    <div class="bottom">
+      <div class="promise">Sources, données, hypothèses — un regard de terrain sur les infrastructures, les talents et les choix numériques européens.</div>
+      <div class="url">MIRADOURO.BLOG</div>
+    </div>
+  </div>
+</body>
+</html>
