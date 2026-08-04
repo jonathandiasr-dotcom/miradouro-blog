@@ -35,6 +35,11 @@
       "permanent": true
     },
     {
+      "source": "/favicon.ico",
+      "destination": "/assets/favicon.svg",
+      "permanent": true
+    },
+    {
       "source": "/articles/articles/ai-music-fr.html",
       "destination": "/articles/ai-music-fr.html",
       "permanent": true

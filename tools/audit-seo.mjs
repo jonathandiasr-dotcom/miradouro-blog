@@ -24,13 +24,16 @@ for (const relative of publicFiles) {
   const description = descriptions[0]?.match(/content=(['"])([\s\S]*?)\1/i)?.[2] ?? "";
   const hreflangCount = tags(html, "link").filter((tag) => /rel=["']alternate["']/i.test(tag) && /hreflang=/i.test(tag)).length;
   const ogImages = tags(html, "meta").filter((tag) => /property=["']og:image["']/i.test(tag));
+  const favicons = tags(html, "link").filter((tag) => /rel=["']icon["']/i.test(tag));
   const jsonScripts = [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
+  const parsedSchemas = [];
 
   if (h1Count !== 1) errors.push(`${relative}: expected 1 h1, found ${h1Count}`);
   if (canonicalTags.length !== 1) errors.push(`${relative}: expected 1 canonical, found ${canonicalTags.length}`);
   if (!canonical.startsWith(`${baseUrl}/`)) errors.push(`${relative}: canonical is not on ${baseUrl}`);
   if (descriptions.length !== 1 || !description.trim()) errors.push(`${relative}: missing or duplicate description`);
   if (ogImages.length !== 1 || !ogImages[0].includes(`${baseUrl}/assets/og-default.png`)) errors.push(`${relative}: missing or incorrect og:image`);
+  if (favicons.length !== 1 || !favicons[0].includes(`${baseUrl}/assets/favicon.svg`)) errors.push(`${relative}: missing or incorrect favicon`);
   if (description.length < 80 || description.length > 180) warnings.push(`${relative}: description length ${description.length}`);
   if (relative !== "index.html" && hreflangCount !== 3) errors.push(`${relative}: expected 3 hreflang links, found ${hreflangCount}`);
   if (relative.startsWith("articles/") && (html.match(/class=["']seo-related__link["']/gi) ?? []).length !== 3) {
@@ -38,7 +41,21 @@ for (const relative of publicFiles) {
   }
   if (jsonScripts.length !== 1) errors.push(`${relative}: expected 1 JSON-LD block, found ${jsonScripts.length}`);
   for (const script of jsonScripts) {
-    try { JSON.parse(script[1]); } catch (error) { errors.push(`${relative}: invalid JSON-LD (${error.message})`); }
+    try { parsedSchemas.push(JSON.parse(script[1])); } catch (error) { errors.push(`${relative}: invalid JSON-LD (${error.message})`); }
+  }
+  const schemaNodes = parsedSchemas.flatMap((schema) => schema["@graph"] ?? [schema]);
+  if (relative.startsWith("articles/")) {
+    const article = schemaNodes.find((node) => node["@type"] === "BlogPosting");
+    const breadcrumb = schemaNodes.find((node) => node["@type"] === "BreadcrumbList");
+    if (!article) errors.push(`${relative}: missing BlogPosting schema`);
+    if (!breadcrumb || breadcrumb.itemListElement?.length !== 3) errors.push(`${relative}: missing complete BreadcrumbList schema`);
+    if (!article?.author?.url || !article?.author?.sameAs?.length) errors.push(`${relative}: incomplete author entity`);
+    if (!article?.articleSection || !article?.keywords?.length) errors.push(`${relative}: missing semantic article classification`);
+    if (!article?.wordCount || article.wordCount < 200) errors.push(`${relative}: invalid schema word count`);
+  }
+  if (relative === "index.html") {
+    if (!schemaNodes.some((node) => node["@type"] === "Person")) errors.push("index.html: missing Person entity");
+    if (!schemaNodes.some((node) => node["@type"] === "Organization")) errors.push("index.html: missing Organization entity");
   }
   if (html.includes("https://miradouro-blog.vercel.app") || html.includes("https://miradouro.pt")) {
     errors.push(`${relative}: legacy domain reference remains`);
@@ -80,6 +97,15 @@ const legacyNoIndex = vercelConfig.headers?.some((rule) =>
   && rule.headers?.some((header) => header.key.toLowerCase() === "x-robots-tag" && header.value.toLowerCase().includes("noindex"))
 );
 if (!legacyNoIndex) errors.push("vercel.json: legacy Vercel domain is not protected with X-Robots-Tag: noindex");
+
+if (!fs.existsSync(path.join(root, "assets/favicon.svg"))) errors.push("assets/favicon.svg: file is missing");
+for (const discoveryFile of ["llms.txt", "sitemap.md"]) {
+  const discovery = fs.readFileSync(path.join(root, discoveryFile), "utf8");
+  for (const relative of publicFiles) {
+    if (relative === "index.html") continue;
+    if (!discovery.includes(`${baseUrl}/${relative}`)) errors.push(`${discoveryFile}: missing ${relative}`);
+  }
+}
 
 console.log(JSON.stringify({ pages: publicFiles.length, errors, warnings }, null, 2));
 if (errors.length) process.exitCode = 1;

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Miradouro</title>
+  <rect width="64" height="64" rx="14" fill="#243d2c"/>
+  <path d="M14 46V18h8l10 16 10-16h8v28h-8V31L32 46 22 31v15z" fill="#fbf8f2"/>
+  <circle cx="50" cy="15" r="5" fill="#c97a5e"/>
+</svg>

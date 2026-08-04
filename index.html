@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Miradouro - Tech européenne, IA et nearshore depuis Lisbonne</title>
+<link rel="icon" href="https://miradouro.blog/assets/favicon.svg" type="image/svg+xml">
 <meta name="description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
 <meta name="author" content="Jonathan Dias">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -37,6 +38,34 @@
       ]
     },
     {
+      "@type": "Organization",
+      "@id": "https://miradouro.blog/#organization",
+      "name": "Miradouro",
+      "url": "https://miradouro.blog/",
+      "logo": "https://miradouro.blog/assets/favicon.svg"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://miradouro.blog/#jonathan-dias",
+      "name": "Jonathan Dias",
+      "url": "https://miradouro.blog/#about",
+      "jobTitle": "Agency Lead",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Meritis Portugal"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jonathandiasreis/"
+      ],
+      "knowsAbout": [
+        "European technology",
+        "Portugal",
+        "nearshore",
+        "cloud computing",
+        "digital sovereignty"
+      ]
+    },
+    {
       "@type": "Blog",
       "@id": "https://miradouro.blog/#blog",
       "name": "Miradouro",
@@ -47,9 +76,10 @@
         "en"
       ],
       "author": {
-        "@type": "Person",
-        "name": "Jonathan Dias",
-        "sameAs": "https://www.linkedin.com/in/jonathandiasreis/"
+        "@id": "https://miradouro.blog/#jonathan-dias"
+      },
+      "publisher": {
+        "@id": "https://miradouro.blog/#organization"
       },
       "image": "https://miradouro.blog/assets/og-default.png"
     }
@@ -57,12 +87,14 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Cabinet+Grotesk:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 /*========================================
   RESET & ROOT
 ========================================*/
+@font-face { font-family:'Fraunces'; font-style:normal; font-weight:100 900; font-display:swap; src:url('assets/fonts/fraunces-latin.woff2') format('woff2'); }
+@font-face { font-family:'Fraunces'; font-style:italic; font-weight:100 900; font-display:swap; src:url('assets/fonts/fraunces-latin-italic.woff2') format('woff2'); }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --pom: #C97A5E; --pom-d: #A85C42; --pom-l: #EDB89A;
@@ -82,6 +114,7 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--f3); background: var(--creme); color: var(--ferro); -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none; }
 a { color: inherit; text-decoration: none; }
+.articles, .about, .newsletter, footer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
 
 /*========================================
   CURSOR
@@ -101,7 +134,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .nav-right a { font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff; opacity: .6; transition: opacity .2s; }
 .nav-right a:hover { opacity: 1; }
 .lang-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .08em; padding: 6px 11px; cursor: pointer; background: transparent; border: none; color: rgba(255,255,255,.32); transition: all .2s; text-transform: uppercase; }
-.lang-btn.active { background: var(--pom); color: #fff; }
+.lang-btn.active { background: var(--pom-d); color: #fff; }
 
 /*========================================
   HERO - nouvelle architecture
@@ -202,12 +235,12 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 /* Header avec filtre thématique actif */
 .articles-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: clamp(28px,4vw,48px); }
 .articles-title { font-family: var(--f1); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--ferro); letter-spacing: -.03em; }
-.articles-theme-active { font-family: var(--f2); font-size: clamp(22px,2.8vw,34px); font-style: italic; font-weight: 300; color: var(--pom); }
-.articles-count { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; margin-left: auto; }
+.articles-theme-active { font-family: var(--f2); font-size: clamp(22px,2.8vw,34px); font-style: italic; font-weight: 300; color: var(--pom-d); }
+.articles-count { font-size: 10px; font-weight: 700; color: var(--ink2); letter-spacing: .1em; margin-left: auto; }
 
 /* Filtre thématique en ligne */
 .theme-filters { display: flex; gap: 4px; margin-bottom: clamp(32px,4vw,52px); flex-wrap: wrap; }
-.filter-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 7px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink3); cursor: none; transition: all .2s; }
+.filter-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 7px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink2); cursor: none; transition: all .2s; }
 .filter-btn.active { background: var(--verde); color: var(--creme); border-color: var(--verde); }
 .filter-btn:hover:not(.active) { border-color: var(--ferro); color: var(--ferro); }
 
@@ -295,20 +328,20 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; di
 .about { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
 .about-dark { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
 .about-dark::before { content: 'M'; font-family: var(--f1); font-size: 360px; font-weight: 900; color: rgba(255,255,255,.02); position: absolute; right: -60px; bottom: -80px; line-height: 1; pointer-events: none; }
-.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.68); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
 .about-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
 .about-title { font-family: var(--f1); font-size: clamp(24px,3.2vw,42px); font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 18px; }
 .about-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.about-body { font-family: var(--f2); font-size: 14px; color: rgba(255,255,255,.55); line-height: 1.72; margin-bottom: 10px; }
-.about-body.small { font-size: 12px; color: rgba(255,255,255,.36); font-style: italic; margin-bottom: 22px; }
+.about-body { font-family: var(--f2); font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.72; margin-bottom: 10px; }
+.about-body.small { font-size: 12px; color: rgba(255,255,255,.66); font-style: italic; margin-bottom: 22px; }
 .about-flags { display: flex; gap: 5px; margin-bottom: 20px; }
 .flag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.1); }
-.flag-code { font-size: .54rem; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.32); text-transform: uppercase; }
+.flag-code { font-size: .54rem; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.68); text-transform: uppercase; }
 .about-ctas { display: flex; flex-direction: column; }
 .about-cta { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: gap .2s; }
 .about-cta:hover { gap: 15px; }
 .cta-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); }
-.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.28); }
+.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.68); }
 .cta-arrow { font-size: .8rem; color: rgba(255,255,255,.24); margin-left: auto; }
 
 .about-light { background: var(--areia); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--rule); }
@@ -347,13 +380,13 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.07); }
 .footer-brand { font-family: var(--f1); font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 6px; }
 .footer-brand em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.footer-sub { font-size: 10px; color: rgba(255,255,255,.28); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
-.footer-tagline { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.35); line-height: 1.6; max-width: 280px; }
-.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; }
+.footer-sub { font-size: 10px; color: rgba(255,255,255,.68); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
+.footer-tagline { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.68); line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.68); margin-bottom: 14px; }
 .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.48); margin-bottom: 9px; transition: color .2s; }
 .footer-col a:hover { color: #fff; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
-.footer-copy { font-size: 10px; color: rgba(255,255,255,.2); }
+.footer-copy { font-size: 10px; color: rgba(255,255,255,.68); }
 
 /*========================================
   ANIMATIONS
@@ -432,9 +465,9 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
   <style>@keyframes cookieSlide{to{transform:translateY(0)}}</style>
   <p style="font-family:var(--f2);font-size:.88rem;font-style:italic;color:rgba(251,248,242,.62);line-height:1.5">
     Ici, on ne prend pas de cookies. Par contre on offre des pastéis. <span style="font-style:normal">:)</span>
-    <span style="font-size:.72rem;color:rgba(251,248,242,.35);margin-left:8px">Analytics minimalistes, aucune revente.</span>
+    <span style="font-size:.72rem;color:rgba(251,248,242,.68);margin-left:8px">Analytics minimalistes, aucune revente.</span>
   </p>
-  <button onclick="closeCookie()" style="font-family:var(--f3);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;background:var(--pom);color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0">OK merci</button>
+  <button onclick="closeCookie()" style="font-family:var(--f3);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;background:var(--pom-d);color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0">OK merci</button>
 </div>
 
 <!-- NAV -->

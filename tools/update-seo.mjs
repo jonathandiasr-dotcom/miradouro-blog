@@ -31,6 +31,21 @@ const descriptionOverrides = {
   "articles/internet-exe-europe-part-3-fr.html": "Comment la bulle Internet de 2000 a changé l'ambition technologique européenne, et ce que l'essor actuel de l'IA rejoue sans répéter le même scénario.",
 };
 
+const articleMetadata = {
+  "articles/01-scissor-effect-fr.html": { section: "Nearshore & économie", keywords: ["nearshore Portugal", "coûts IT", "salaires tech", "Lisbonne", "Paris"] },
+  "articles/02-immigration-fr.html": { section: "Immigration & talent", keywords: ["immigration Portugal", "talents tech", "Lisbonne", "emploi technologique"] },
+  "articles/06-soft-power-portugal-fr.html": { section: "Culture & attractivité", keywords: ["Lisbonne tech", "soft power Portugal", "attractivité", "mobilité européenne"] },
+  "articles/09-talent-map-fr.html": { section: "Talent & éducation", keywords: ["universités Portugal", "talents tech", "formation informatique", "polytechniques"] },
+  "articles/ai-music-fr.html": { section: "IA & société", keywords: ["musique générée par IA", "intelligence artificielle", "Deezer", "Suno"] },
+  "articles/internet-exe-europe-fr.html": { section: "Histoire de la tech", keywords: ["Internet européen", "Nokia", "Caramail", "Dailymotion", "plateformes"] },
+  "articles/internet-exe-europe-part-2-fr.html": { section: "Souveraineté numérique", keywords: ["plateformes européennes", "souveraineté numérique", "Skype", "OVHcloud"] },
+  "articles/internet-exe-europe-part-3-fr.html": { section: "Capital & innovation", keywords: ["bulle Internet", "NASDAQ", "Europe tech", "intelligence artificielle"] },
+  "articles/miradouro-cloud-FR.html": { section: "Cloud & compétences", keywords: ["compétences cloud", "salaires cloud", "Portugal", "Europe"] },
+  "articles/miradouro-sovereignty-fr.html": { section: "Souveraineté numérique", keywords: ["cloud européen", "souveraineté numérique", "AWS", "Azure", "GCP"] },
+  "articles/miradouro_banques_portugal_FR_FINAL_V3.html": { section: "Finance & géographie", keywords: ["banques françaises Portugal", "fintech", "Lisbonne", "Porto", "BNP Paribas"] },
+  "articles/portugal-interface-atlantique-fr.html": { section: "Infrastructure & cartographie", keywords: ["Sines", "câbles sous-marins", "data centers", "Portugal", "Atlantique"] },
+};
+
 const pairByFile = new Map();
 for (const [fr, en] of pairs) {
   pairByFile.set(fr, { fr, en });
@@ -116,6 +131,7 @@ function cleanSeoFromHead(head) {
   head = head.replace(/<link\b[^>]*>/gi, (tag) => {
     if (/\brel=["']canonical["']/i.test(tag)) return "";
     if (/\brel=["']alternate["']/i.test(tag) && /\bhreflang=/i.test(tag)) return "";
+    if (/\brel=["'](?:icon|shortcut icon|apple-touch-icon)["']/i.test(tag)) return "";
     return tag;
   });
   return head.replace(/\n{3,}/g, "\n\n");
@@ -138,8 +154,13 @@ function injectSeo(relative, kind = "article") {
   const canonical = `${baseUrl}/${relative.replace(/\\/g, "/")}`;
   const locale = lang === "fr" ? "fr_FR" : "en_GB";
   const pair = pairByFile.get(relative);
+  const taxonomy = pair ? articleMetadata[pair.fr] : null;
   const published = extractDate(sourceHtml, "datePublished");
   const modified = extractDate(sourceHtml, "dateModified");
+  const bodyText = plainText(sourceHtml
+    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[\s\S]*?<\/style>/gi, " "));
+  const wordCount = bodyText ? bodyText.split(/\s+/).length : 0;
 
   const schema = kind === "map"
     ? {
@@ -151,21 +172,45 @@ function injectSeo(relative, kind = "article") {
         inLanguage: lang,
         applicationCategory: "LifestyleApplication",
         image: defaultImage,
-        author: { "@type": "Person", name: "Jonathan Dias", sameAs: "https://www.linkedin.com/in/jonathandiasreis/" },
+        author: { "@type": "Person", name: "Jonathan Dias", url: `${baseUrl}/#about`, sameAs: "https://www.linkedin.com/in/jonathandiasreis/" },
       }
     : {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline,
-        description,
-        url: canonical,
-        mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
-        inLanguage: lang,
-        author: { "@type": "Person", name: "Jonathan Dias", sameAs: "https://www.linkedin.com/in/jonathandiasreis/" },
-        publisher: { "@type": "Organization", name: "Miradouro", url: baseUrl },
-        image: [defaultImage],
-        ...(published ? { datePublished: published } : {}),
-        ...(modified ? { dateModified: modified } : {}),
+        "@graph": [
+          {
+            "@type": "BlogPosting",
+            "@id": `${canonical}#article`,
+            headline,
+            description,
+            url: canonical,
+            mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+            isPartOf: { "@type": "Blog", "@id": `${baseUrl}/#blog`, name: "Miradouro" },
+            inLanguage: lang,
+            author: {
+              "@type": "Person",
+              "@id": `${baseUrl}/#jonathan-dias`,
+              name: "Jonathan Dias",
+              url: `${baseUrl}/#about`,
+              jobTitle: "Agency Lead",
+              sameAs: ["https://www.linkedin.com/in/jonathandiasreis/"]
+            },
+            publisher: { "@type": "Organization", "@id": `${baseUrl}/#organization`, name: "Miradouro", url: baseUrl },
+            image: [defaultImage],
+            wordCount,
+            ...(taxonomy ? { articleSection: taxonomy.section, keywords: taxonomy.keywords } : {}),
+            ...(published ? { datePublished: published } : {}),
+            ...(modified ? { dateModified: modified } : {}),
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": `${canonical}#breadcrumb`,
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Miradouro", item: `${baseUrl}/` },
+              { "@type": "ListItem", position: 2, name: lang === "fr" ? "Analyses" : "Analysis", item: `${baseUrl}/#articles` },
+              { "@type": "ListItem", position: 3, name: headline, item: canonical },
+            ],
+          },
+        ],
       };
 
   const alternateLinks = pair
@@ -177,6 +222,7 @@ function injectSeo(relative, kind = "article") {
     : "";
 
   const block = [
+    `<link rel="icon" href="${baseUrl}/assets/favicon.svg" type="image/svg+xml">`,
     `<meta name="description" content="${attribute(description)}">`,
     `<meta name="author" content="Jonathan Dias">`,
     `<meta name="robots" content="index, follow, max-image-preview:large">`,
@@ -241,6 +287,17 @@ function updateHome() {
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "WebSite", "@id": `${baseUrl}/#website`, name: "Miradouro", url: `${baseUrl}/`, inLanguage: ["fr", "en"] },
+      { "@type": "Organization", "@id": `${baseUrl}/#organization`, name: "Miradouro", url: `${baseUrl}/`, logo: `${baseUrl}/assets/favicon.svg` },
+      {
+        "@type": "Person",
+        "@id": `${baseUrl}/#jonathan-dias`,
+        name: "Jonathan Dias",
+        url: `${baseUrl}/#about`,
+        jobTitle: "Agency Lead",
+        worksFor: { "@type": "Organization", name: "Meritis Portugal" },
+        sameAs: ["https://www.linkedin.com/in/jonathandiasreis/"],
+        knowsAbout: ["European technology", "Portugal", "nearshore", "cloud computing", "digital sovereignty"],
+      },
       {
         "@type": "Blog",
         "@id": `${baseUrl}/#blog`,
@@ -248,12 +305,14 @@ function updateHome() {
         description,
         url: `${baseUrl}/`,
         inLanguage: ["fr", "en"],
-        author: { "@type": "Person", name: "Jonathan Dias", sameAs: "https://www.linkedin.com/in/jonathandiasreis/" },
+        author: { "@id": `${baseUrl}/#jonathan-dias` },
+        publisher: { "@id": `${baseUrl}/#organization` },
         image: defaultImage,
       },
     ],
   };
   const block = [
+    `<link rel="icon" href="${baseUrl}/assets/favicon.svg" type="image/svg+xml">`,
     `<meta name="description" content="${attribute(description)}">`,
     `<meta name="author" content="Jonathan Dias">`,
     `<meta name="robots" content="index, follow, max-image-preview:large">`,
@@ -310,6 +369,26 @@ function buildSitemap() {
   write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${baseUrl}/sitemap.xml\n`);
 }
 
+function buildDiscoveryDocs() {
+  const rows = pairs.map(([fr, en]) => {
+    const frHtml = read(fr);
+    const enHtml = read(en);
+    return {
+      fr,
+      en,
+      frTitle: headlineFromTitle(plainText(extractTagContent(frHtml, "title"))),
+      enTitle: headlineFromTitle(plainText(extractTagContent(enHtml, "title"))),
+      frDescription: extractMeta(frHtml, "name", "description"),
+      enDescription: extractMeta(enHtml, "name", "description"),
+    };
+  });
+  const frLinks = rows.map((row) => `- [${row.frTitle}](${baseUrl}/${row.fr}): ${row.frDescription}`).join("\n");
+  const enLinks = rows.map((row) => `- [${row.enTitle}](${baseUrl}/${row.en}): ${row.enDescription}`).join("\n");
+  const intro = "Miradouro est un blog indépendant d’analyses sourcées sur la technologie européenne, le Portugal, le nearshore, le cloud, les talents et la souveraineté numérique, écrit depuis Lisbonne par Jonathan Dias.";
+  write("llms.txt", `# Miradouro\n\n> ${intro}\n\n## Auteur et méthode\n\nJonathan Dias travaille dans le conseil technologique à Lisbonne. Les articles distinguent données, observations de terrain et hypothèses, et affichent leurs sources et limites. Profil : ${baseUrl}/#about\n\n## Articles en français\n\n${frLinks}\n\n## Articles in English\n\n${enLinks}\n\n## Projets\n\n- [Miradouro Map](${baseUrl}/miradouro-map.html): carte interactive de l’infrastructure culturelle de Lisbonne.\n- [Miradouro Map — English](${baseUrl}/miradouro-map-en.html): interactive map of Lisbon's cultural infrastructure.\n\n## Informations techniques\n\n- Domaine canonique : ${baseUrl}/\n- Sitemap XML : ${baseUrl}/sitemap.xml\n- Contact et newsletter : ${baseUrl}/#newsletter\n`);
+  write("sitemap.md", `# Miradouro — plan du site\n\n${intro}\n\n## Accueil et projets\n\n- [Accueil](${baseUrl}/)\n- [À propos de Jonathan Dias](${baseUrl}/#about)\n- [Miradouro Map](${baseUrl}/miradouro-map.html)\n- [Miradouro Map — English](${baseUrl}/miradouro-map-en.html)\n\n## Analyses en français\n\n${frLinks}\n\n## Analysis in English\n\n${enLinks}\n`);
+}
+
 updateHome();
 for (const [fr, en] of pairs) {
   injectSeo(fr, "article");
@@ -339,4 +418,5 @@ for (const relative of noIndexFiles) {
 }
 
 buildSitemap();
+buildDiscoveryDocs();
 console.log(`SEO metadata updated for ${pairs.length * 2 + 3} public pages.`);
