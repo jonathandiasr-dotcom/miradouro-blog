@@ -258,7 +258,7 @@ function injectSeo(relative, kind = "article") {
 }
 
 function injectRelated(html, relative, lang) {
-  html = html.replace(/\s*<nav\b[^>]*class=["']seo-related["'][\s\S]*?<\/nav>\s*/gi, "\n");
+  html = html.replace(/\s*<(?:nav|section)\b[^>]*class=["']seo-related["'][\s\S]*?<\/(?:nav|section)>\s*/gi, "\n");
   const pairIndex = pairs.findIndex(([fr, en]) => relative === fr || relative === en);
   if (pairIndex < 0) return html;
   const suggestions = relatedPairIndexes[pairIndex].map((targetIndex) => {
@@ -270,10 +270,10 @@ function injectRelated(html, relative, lang) {
   const heading = lang === "fr" ? "À lire ensuite" : "Read next";
   const eyebrow = lang === "fr" ? "Continuer sur Miradouro" : "Continue on Miradouro";
   const links = suggestions.map(({ href, label }) => `      <a class="seo-related__link" href="${href}"><span>${label}</span><span class="seo-related__arrow" aria-hidden="true">→</span></a>`).join("\n");
-  const nav = `\n<nav class="seo-related" aria-label="${heading}">\n  <div class="seo-related__inner">\n    <p class="seo-related__eyebrow">${eyebrow}</p>\n    <h2 class="seo-related__title">${heading}</h2>\n    <div class="seo-related__grid">\n${links}\n    </div>\n  </div>\n</nav>\n`;
+  const related = `\n<section class="seo-related" aria-label="${heading}">\n  <div class="seo-related__inner">\n    <p class="seo-related__eyebrow">${eyebrow}</p>\n    <h2 class="seo-related__title">${heading}</h2>\n    <div class="seo-related__grid">\n${links}\n    </div>\n  </div>\n</section>\n`;
   const footerIndex = html.search(/<footer\b/i);
-  if (footerIndex >= 0) return `${html.slice(0, footerIndex)}${nav}${html.slice(footerIndex)}`;
-  return html.replace(/<\/body>/i, `${nav}</body>`);
+  if (footerIndex >= 0) return `${html.slice(0, footerIndex)}${related}${html.slice(footerIndex)}`;
+  return html.replace(/<\/body>/i, `${related}</body>`);
 }
 
 function updateHome() {

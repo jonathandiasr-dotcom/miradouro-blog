@@ -47,8 +47,16 @@ for (const relative of publicFiles) {
     if ((sharedHeader.match(/hreflang=["'](?:fr|en)["']/gi) ?? []).length !== 2) errors.push(`${relative}: shared language switch is incomplete`);
     if ((sharedHeader.match(/aria-current=["']page["']/gi) ?? []).length !== 1) errors.push(`${relative}: shared language switch has no unique active language`);
   }
-  if (relative.startsWith("articles/") && (html.match(/class=["']seo-related__link["']/gi) ?? []).length !== 3) {
-    errors.push(`${relative}: expected 3 related article links`);
+  if (relative.startsWith("articles/")) {
+    if ((html.match(/class=["']seo-related__link["']/gi) ?? []).length !== 3) {
+      errors.push(`${relative}: expected 3 related article links`);
+    }
+    if ((html.match(/<section\b[^>]*class=["'][^"']*\bseo-related\b[^"']*["']/gi) ?? []).length !== 1) {
+      errors.push(`${relative}: related articles must use one non-navigation section`);
+    }
+    if (/<nav\b[^>]*class=["'][^"']*\bseo-related\b/i.test(html)) {
+      errors.push(`${relative}: related articles must not inherit legacy nav positioning`);
+    }
   }
   if (jsonScripts.length !== 1) errors.push(`${relative}: expected 1 JSON-LD block, found ${jsonScripts.length}`);
   for (const script of jsonScripts) {
