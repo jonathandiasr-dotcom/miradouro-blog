@@ -67,7 +67,7 @@
       "image": [
         "https://miradouro.blog/assets/og-default.png"
       ],
-      "wordCount": 3277,
+      "wordCount": 3286,
       "articleSection": "Culture & attractivité",
       "keywords": [
         "Lisbonne tech",
@@ -1111,10 +1111,22 @@ footer b{
 
 
 
-
 <link rel="stylesheet" href="../assets/seo-related.css">
+<link rel="stylesheet" href="../assets/site-header.css">
 </head>
 <body>
+<header class="mira-site-header">
+  <a class="mira-site-logo" href="/" aria-label="Miradouro — accueil">Mira<em>douro</em></a>
+  <nav class="mira-site-nav" aria-label="Navigation principale">
+    <a href="/#articles">Analyses</a>
+    <a href="/miradouro-map.html">La carte</a>
+    <a href="/#about">À propos</a>
+  </nav>
+  <div class="mira-site-lang" aria-label="Choisir la langue">
+    <a href="06-soft-power-portugal-fr.html" hreflang="fr" lang="fr" aria-current="page">FR</a>
+    <a href="06-soft-power-portugal-en.html" hreflang="en" lang="en">EN</a>
+  </div>
+</header>
 <script>
 (function(){
   var l = localStorage.getItem('mira_lang');
@@ -1124,7 +1136,7 @@ function setArticleLang(l){
   localStorage.setItem('mira_lang', l);
 }
 </script>
-<nav class="top">
+<nav class="top" data-mira-native-header>
   <a class="brand" href="/">MIRADOURO</a>
   <div class="nav">
     <a href="#observation">Observation</a>

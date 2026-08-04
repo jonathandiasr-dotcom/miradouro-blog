@@ -36,6 +36,17 @@ for (const relative of publicFiles) {
   if (favicons.length !== 1 || !favicons[0].includes(`${baseUrl}/assets/favicon.svg`)) errors.push(`${relative}: missing or incorrect favicon`);
   if (description.length < 80 || description.length > 180) warnings.push(`${relative}: description length ${description.length}`);
   if (relative !== "index.html" && hreflangCount !== 3) errors.push(`${relative}: expected 3 hreflang links, found ${hreflangCount}`);
+  if (relative !== "index.html") {
+    const sharedHeaders = html.match(/<header\b[^>]*class=["'][^"']*\bmira-site-header\b[^"']*["'][\s\S]*?<\/header>/gi) ?? [];
+    const sharedStyles = tags(html, "link").filter((tag) => /assets\/site-header\.css/i.test(tag));
+    if (sharedHeaders.length !== 1) errors.push(`${relative}: expected one shared Miradouro header, found ${sharedHeaders.length}`);
+    if (sharedStyles.length !== 1) errors.push(`${relative}: expected one shared header stylesheet, found ${sharedStyles.length}`);
+    if ((html.match(/data-mira-native-header/gi) ?? []).length !== 1) errors.push(`${relative}: native header was not uniquely retired`);
+    const sharedHeader = sharedHeaders[0] ?? "";
+    if ((sharedHeader.match(/class=["']mira-site-logo["']/gi) ?? []).length !== 1) errors.push(`${relative}: shared wordmark is missing`);
+    if ((sharedHeader.match(/hreflang=["'](?:fr|en)["']/gi) ?? []).length !== 2) errors.push(`${relative}: shared language switch is incomplete`);
+    if ((sharedHeader.match(/aria-current=["']page["']/gi) ?? []).length !== 1) errors.push(`${relative}: shared language switch has no unique active language`);
+  }
   if (relative.startsWith("articles/") && (html.match(/class=["']seo-related__link["']/gi) ?? []).length !== 3) {
     errors.push(`${relative}: expected 3 related article links`);
   }
@@ -56,6 +67,9 @@ for (const relative of publicFiles) {
   if (relative === "index.html") {
     if (!schemaNodes.some((node) => node["@type"] === "Person")) errors.push("index.html: missing Person entity");
     if (!schemaNodes.some((node) => node["@type"] === "Organization")) errors.push("index.html: missing Organization entity");
+    if ((html.match(/<header\b[^>]*class=["'][^"']*\bmira-site-header\b/gi) ?? []).length !== 1) errors.push("index.html: missing shared Miradouro header");
+    if (tags(html, "link").filter((tag) => /assets\/site-header\.css/i.test(tag)).length !== 1) errors.push("index.html: missing shared header stylesheet");
+    if ((html.match(/<button\b[^>]*id=["']btn(?:FR|EN)["']/gi) ?? []).length !== 2) errors.push("index.html: homepage language switch is incomplete");
   }
   if (html.includes("https://miradouro-blog.vercel.app") || html.includes("https://miradouro.pt")) {
     errors.push(`${relative}: legacy domain reference remains`);
@@ -99,6 +113,7 @@ const legacyNoIndex = vercelConfig.headers?.some((rule) =>
 if (!legacyNoIndex) errors.push("vercel.json: legacy Vercel domain is not protected with X-Robots-Tag: noindex");
 
 if (!fs.existsSync(path.join(root, "assets/favicon.svg"))) errors.push("assets/favicon.svg: file is missing");
+if (!fs.existsSync(path.join(root, "assets/site-header.css"))) errors.push("assets/site-header.css: file is missing");
 for (const discoveryFile of ["llms.txt", "sitemap.md"]) {
   const discovery = fs.readFileSync(path.join(root, discoveryFile), "utf8");
   for (const relative of publicFiles) {

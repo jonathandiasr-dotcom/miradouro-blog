@@ -66,7 +66,7 @@
       "image": [
         "https://miradouro.blog/assets/og-default.png"
       ],
-      "wordCount": 1015,
+      "wordCount": 1023,
       "articleSection": "Histoire de la tech",
       "keywords": [
         "Internet européen",
@@ -195,8 +195,8 @@
 
 
 
-
 <link rel="stylesheet" href="../assets/seo-related.css">
+<link rel="stylesheet" href="../assets/site-header.css">
 </head>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
@@ -209,12 +209,24 @@
 </svg>
 </template>
 <body>
+<header class="mira-site-header">
+  <a class="mira-site-logo" href="/" aria-label="Miradouro — home">Mira<em>douro</em></a>
+  <nav class="mira-site-nav" aria-label="Main navigation">
+    <a href="/#articles">Analysis</a>
+    <a href="/miradouro-map-en.html">The map</a>
+    <a href="/#about">About</a>
+  </nav>
+  <div class="mira-site-lang" aria-label="Choose language">
+    <a href="internet-exe-europe-fr.html" hreflang="fr" lang="fr">FR</a>
+    <a href="internet-exe-europe-en.html" hreflang="en" lang="en" aria-current="page">EN</a>
+  </div>
+</header>
 <div class="noise"></div>
 <div class="flash" id="flash"></div>
 
 <button class="modem-mute" id="modemMute" title="Mute the modem sound">🔇 mute</button>
 
-<nav class="nav">
+<nav class="nav" data-mira-native-header>
   <a class="brand" href="../index.html#articles">Mira<em>douro</em></a>
   <div class="nav-right"><a href="#dossier">The dossier</a><a href="#journee">Part 1</a><a href="#suite">Next</a><a class="lang" href="internet-exe-europe-fr.html">FR</a></div>
 </nav>

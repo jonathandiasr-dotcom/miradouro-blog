@@ -1,0 +1,17 @@
+@font-face{font-family:Fraunces;src:url("fonts/fraunces-latin.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:Fraunces;src:url("fonts/fraunces-latin-italic.woff2") format("woff2");font-style:italic;font-weight:100 900;font-display:swap}
+[data-mira-native-header]{display:none!important}
+.mira-site-header{position:fixed;z-index:9000;inset:0 0 auto;height:58px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 clamp(20px,4vw,58px);color:#fbf8f2;background:rgba(36,61,44,.96);border-bottom:1px solid rgba(255,255,255,.13);box-shadow:0 8px 24px rgba(24,20,14,.08);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.mira-site-header,.mira-site-header *{box-sizing:border-box}
+.mira-site-header a{color:inherit;text-decoration:none}
+.mira-site-logo{flex:0 0 auto;font:700 18px/1 Fraunces,Georgia,serif;letter-spacing:.04em;text-transform:uppercase}
+.mira-site-logo em{color:inherit;font-style:italic;font-weight:300}
+.mira-site-nav{position:static;inset:auto;height:auto;display:flex;align-items:center;justify-content:flex-end;gap:clamp(18px,2.4vw,34px);margin-left:auto;padding:0;mix-blend-mode:normal}
+.mira-site-nav a{font:700 9px/1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.15em;text-transform:uppercase;color:rgba(251,248,242,.72);transition:color .2s}
+.mira-site-nav a:hover,.mira-site-nav a:focus-visible{color:#fff}
+.mira-site-lang{display:flex;align-items:center;gap:4px;padding-left:2px;font:800 9px/1 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.08em}
+.mira-site-lang a,.mira-site-lang button{display:grid;place-items:center;min-width:34px;height:26px;padding:0 10px;border:0;background:transparent;color:rgba(251,248,242,.56);font:inherit;letter-spacing:inherit;text-decoration:none;cursor:pointer;transition:background .2s,color .2s}
+.mira-site-lang a:hover,.mira-site-lang a:focus-visible,.mira-site-lang button:hover,.mira-site-lang button:focus-visible{color:#fff}
+.mira-site-lang a[aria-current="page"],.mira-site-lang button.active{background:#a85c42;color:#fff}
+@media(max-width:720px){.mira-site-header{height:54px;gap:14px;padding-inline:16px}.mira-site-logo{font-size:16px}.mira-site-nav{display:none}.mira-site-lang{margin-left:auto}.mira-site-lang a,.mira-site-lang button{min-width:36px;height:28px;font-size:10px}}
+@media(prefers-reduced-motion:reduce){.mira-site-header *{transition:none!important}}

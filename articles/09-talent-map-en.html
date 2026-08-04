@@ -67,7 +67,7 @@
       "image": [
         "https://miradouro.blog/assets/og-default.png"
       ],
-      "wordCount": 5727,
+      "wordCount": 5735,
       "articleSection": "Talent & éducation",
       "keywords": [
         "universités Portugal",
@@ -352,12 +352,23 @@ summary{cursor:pointer;padding:16px 22px;font-family:var(--f-sans);font-size:11p
 }
 </style>
 
-
 <link rel="stylesheet" href="../assets/seo-related.css">
+<link rel="stylesheet" href="../assets/site-header.css">
 </head>
 <body>
-
-<header class="top">
+<header class="mira-site-header">
+  <a class="mira-site-logo" href="/" aria-label="Miradouro — home">Mira<em>douro</em></a>
+  <nav class="mira-site-nav" aria-label="Main navigation">
+    <a href="/#articles">Analysis</a>
+    <a href="/miradouro-map-en.html">The map</a>
+    <a href="/#about">About</a>
+  </nav>
+  <div class="mira-site-lang" aria-label="Choose language">
+    <a href="09-talent-map-fr.html" hreflang="fr" lang="fr">FR</a>
+    <a href="09-talent-map-en.html" hreflang="en" lang="en" aria-current="page">EN</a>
+  </div>
+</header>
+<header class="top" data-mira-native-header>
   <a class="brand" href="../index.html">Miradouro</a>
   <div class="top-right">
     <button class="lang-btn" id="btnFR" onclick="setLang('fr')">FR</button>

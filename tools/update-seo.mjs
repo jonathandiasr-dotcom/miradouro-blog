@@ -369,6 +369,48 @@ function buildSitemap() {
   write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${baseUrl}/sitemap.xml\n`);
 }
 
+function injectSiteHeader(relative) {
+  let html = read(relative);
+  const lang = html.match(/<html\b[^>]*\blang=["']([^"']+)["']/i)?.[1]?.toLowerCase().startsWith("en") ? "en" : "fr";
+  const pair = pairByFile.get(relative);
+  if (!pair) throw new Error(`Missing language pair for shared header: ${relative}`);
+
+  html = html.replace(/\s*<header\b[^>]*class=["'][^"']*\bmira-site-header\b[^"']*["'][\s\S]*?<\/header>\s*/gi, "\n");
+  html = html.replace(/<link\b[^>]*href=["'][^"']*assets\/site-header\.css["'][^>]*>\s*/gi, "");
+  html = html.replace(/\sdata-mira-native-header(?:=["'][^"']*["'])?/gi, "");
+
+  const bodyIndex = html.search(/<body\b[^>]*>/i);
+  if (bodyIndex < 0) throw new Error(`Missing body in ${relative}`);
+  const bodyOpen = html.match(/<body\b[^>]*>/i)[0];
+  const afterBodyIndex = bodyIndex + bodyOpen.length;
+  const beforeBody = html.slice(0, afterBodyIndex);
+  let afterBody = html.slice(afterBodyIndex);
+  const nativeHeaderPattern = /<(nav)\b([^>]*)>|<(header)\b([^>]*\bclass=["'][^"']*\btop\b[^"']*["'][^>]*)>/i;
+  if (!nativeHeaderPattern.test(afterBody)) throw new Error(`Could not identify native header in ${relative}`);
+  afterBody = afterBody.replace(nativeHeaderPattern, (tag) => tag.replace(/>$/, " data-mira-native-header>"));
+
+  const frHref = path.basename(pair.fr);
+  const enHref = path.basename(pair.en);
+  const currentFr = lang === "fr" ? ' aria-current="page"' : "";
+  const currentEn = lang === "en" ? ' aria-current="page"' : "";
+  const header = `
+<header class="mira-site-header">
+  <a class="mira-site-logo" href="/" aria-label="Miradouro — ${lang === "fr" ? "accueil" : "home"}">Mira<em>douro</em></a>
+  <nav class="mira-site-nav" aria-label="${lang === "fr" ? "Navigation principale" : "Main navigation"}">
+    <a href="/#articles">${lang === "fr" ? "Analyses" : "Analysis"}</a>
+    <a href="/${lang === "fr" ? "miradouro-map.html" : "miradouro-map-en.html"}">${lang === "fr" ? "La carte" : "The map"}</a>
+    <a href="/#about">${lang === "fr" ? "À propos" : "About"}</a>
+  </nav>
+  <div class="mira-site-lang" aria-label="${lang === "fr" ? "Choisir la langue" : "Choose language"}">
+    <a href="${frHref}" hreflang="fr" lang="fr"${currentFr}>FR</a>
+    <a href="${enHref}" hreflang="en" lang="en"${currentEn}>EN</a>
+  </div>
+</header>`;
+  html = `${beforeBody}${header}${afterBody}`;
+  html = html.replace(/<\/head>/i, `<link rel="stylesheet" href="${relative.startsWith("articles/") ? "../" : ""}assets/site-header.css">\n</head>`);
+  write(relative, html);
+}
+
 function buildDiscoveryDocs() {
   const rows = pairs.map(([fr, en]) => {
     const frHtml = read(fr);
@@ -393,12 +435,16 @@ updateHome();
 for (const [fr, en] of pairs) {
   injectSeo(fr, "article");
   injectSeo(en, "article");
+  injectSiteHeader(fr);
+  injectSiteHeader(en);
 }
 
 pairByFile.set("miradouro-map.html", { fr: "miradouro-map.html", en: "miradouro-map-en.html" });
 pairByFile.set("miradouro-map-en.html", { fr: "miradouro-map.html", en: "miradouro-map-en.html" });
 injectSeo("miradouro-map.html", "map");
 injectSeo("miradouro-map-en.html", "map");
+injectSiteHeader("miradouro-map.html");
+injectSiteHeader("miradouro-map-en.html");
 
 const noIndexFiles = [
   "merci.html",

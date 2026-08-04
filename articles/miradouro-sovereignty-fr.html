@@ -67,7 +67,7 @@
       "image": [
         "https://miradouro.blog/assets/og-default.png"
       ],
-      "wordCount": 5039,
+      "wordCount": 5048,
       "articleSection": "Souveraineté numérique",
       "keywords": [
         "cloud européen",
@@ -307,11 +307,23 @@ p strong { color: var(--ferro); font-weight: 600; }
 
 
 
-
 <link rel="stylesheet" href="../assets/seo-related.css">
+<link rel="stylesheet" href="../assets/site-header.css">
 </head>
 
 <body>
+<header class="mira-site-header">
+  <a class="mira-site-logo" href="/" aria-label="Miradouro — accueil">Mira<em>douro</em></a>
+  <nav class="mira-site-nav" aria-label="Navigation principale">
+    <a href="/#articles">Analyses</a>
+    <a href="/miradouro-map.html">La carte</a>
+    <a href="/#about">À propos</a>
+  </nav>
+  <div class="mira-site-lang" aria-label="Choisir la langue">
+    <a href="miradouro-sovereignty-fr.html" hreflang="fr" lang="fr" aria-current="page">FR</a>
+    <a href="miradouro-sovereignty-en.html" hreflang="en" lang="en">EN</a>
+  </div>
+</header>
 <script>
 (function(){
   // Redirect if user had previously chosen EN
@@ -325,7 +337,7 @@ function switchLang(l){
 </script>
 <div id="progress-bar"></div>
 
-<nav>
+<nav data-mira-native-header>
   <a href="../index.html" class="nav-logo">MIRADOURO</a>
   <ul class="nav-links">
     <li><a href="../index.html#articles">Articles</a></li>
