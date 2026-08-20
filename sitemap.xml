@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://miradouro.blog/</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-20</lastmod>
   </url>
   <url>
     <loc>https://miradouro.blog/miradouro-map.html</loc>
@@ -185,5 +185,19 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/portugal-interface-atlantique-fr.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/portugal-atlantic-interface-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/portugal-interface-atlantique-fr.html"/>
+  </url>
+  <url>
+    <loc>https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/after-money-elon-musk-en-v5.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html"/>
+  </url>
+  <url>
+    <loc>https://miradouro.blog/articles/after-money-elon-musk-en-v5.html</loc>
+    <lastmod>2026-08-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/after-money-elon-musk-en-v5.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html"/>
   </url>
 </urlset>
