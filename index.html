@@ -1,1222 +1,497 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miradouro - Tech européenne, IA et nearshore depuis Lisbonne</title>
-<link rel="icon" href="https://miradouro.blog/assets/favicon.svg" type="image/svg+xml">
-<meta name="description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
-<meta name="author" content="Jonathan Dias">
-<meta name="robots" content="index, follow, max-image-preview:large">
-<link rel="canonical" href="https://miradouro.blog/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Miradouro">
-<meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://miradouro.blog/">
-<meta property="og:title" content="Miradouro - Tech européenne, IA et nearshore depuis Lisbonne">
-<meta property="og:description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
-<meta property="og:image" content="https://miradouro.blog/assets/og-default.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Miradouro — la tech européenne depuis Lisbonne">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Miradouro - Tech européenne, IA et nearshore depuis Lisbonne">
-<meta name="twitter:description" content="Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.">
-<meta name="twitter:image" content="https://miradouro.blog/assets/og-default.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://miradouro.blog/#website",
-      "name": "Miradouro",
-      "url": "https://miradouro.blog/",
-      "inLanguage": [
-        "fr",
-        "en"
-      ]
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://miradouro.blog/#organization",
-      "name": "Miradouro",
-      "url": "https://miradouro.blog/",
-      "logo": "https://miradouro.blog/assets/favicon.svg"
-    },
-    {
-      "@type": "Person",
-      "@id": "https://miradouro.blog/#jonathan-dias",
-      "name": "Jonathan Dias",
-      "url": "https://miradouro.blog/#about",
-      "jobTitle": "Agency Lead",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Meritis Portugal"
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Miradouro analyse la tech européenne depuis Lisbonne : cloud, IA, câbles sous-marins, talents et entreprises au Portugal et en Europe.">
+  <title>Miradouro | Tech européenne et Portugal depuis Lisbonne</title>
+  <link rel="canonical" href="https://miradouro.blog/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Miradouro">
+  <meta property="og:title" content="Miradouro | Tech européenne et Portugal depuis Lisbonne">
+  <meta property="og:description" content="Infrastructures numériques, talents, entreprises et transformations technologiques du Portugal et de l’Europe.">
+  <meta property="og:url" content="https://miradouro.blog/">
+  <meta property="og:image" content="https://miradouro.blog/assets/editorial/apres-argent-musk-cover.png">
+  <meta property="og:image:width" content="1536">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Elon Musk face à une pointeuse industrielle et à un robot dans un atelier">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Miradouro | Tech européenne et Portugal depuis Lisbonne">
+  <meta name="twitter:description" content="Infrastructures numériques, talents, entreprises et transformations technologiques du Portugal et de l’Europe.">
+  <meta name="twitter:image" content="https://miradouro.blog/assets/editorial/apres-argent-musk-cover.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/editorial/apres-argent-musk-cover.webp" as="image" type="image/webp" fetchpriority="high">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://miradouro.blog/#website",
+        "url": "https://miradouro.blog/",
+        "name": "Miradouro",
+        "description": "Analyses sur la tech européenne, le Portugal et Lisbonne.",
+        "inLanguage": "fr-FR",
+        "publisher": {"@id": "https://miradouro.blog/#jonathan-dias"}
       },
-      "sameAs": [
-        "https://www.linkedin.com/in/jonathandiasreis/"
-      ],
-      "knowsAbout": [
-        "European technology",
-        "Portugal",
-        "nearshore",
-        "cloud computing",
-        "digital sovereignty"
-      ]
-    },
-    {
-      "@type": "Blog",
-      "@id": "https://miradouro.blog/#blog",
-      "name": "Miradouro",
-      "description": "Analyses sourcées sur la tech européenne : nearshore Portugal, IA, géopolitique numérique. Un regard de l'intérieur, depuis Lisbonne. Par Jonathan.",
-      "url": "https://miradouro.blog/",
-      "inLanguage": [
-        "fr",
-        "en"
-      ],
-      "author": {
-        "@id": "https://miradouro.blog/#jonathan-dias"
+      {
+        "@type": "Blog",
+        "@id": "https://miradouro.blog/#blog",
+        "url": "https://miradouro.blog/",
+        "name": "Miradouro",
+        "description": "Infrastructures numériques, talents, entreprises et transformations technologiques du Portugal et de l’Europe.",
+        "inLanguage": "fr-FR",
+        "author": {"@id": "https://miradouro.blog/#jonathan-dias"},
+        "keywords": ["tech européenne", "Portugal", "Lisbonne", "cloud", "IA", "câbles sous-marins", "talents tech"]
       },
-      "publisher": {
-        "@id": "https://miradouro.blog/#organization"
+      {
+        "@type": "Person",
+        "@id": "https://miradouro.blog/#jonathan-dias",
+        "name": "Jonathan Dias",
+        "url": "https://www.linkedin.com/in/jonathandiasreis/",
+        "jobTitle": "Professionnel du conseil technologique et de la finance"
       },
-      "image": "https://miradouro.blog/assets/og-default.png"
-    }
-  ]
-}
-</script>
-
-<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/fraunces-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
-<style>
-/*========================================
-  RESET & ROOT
-========================================*/
-@font-face { font-family:'Fraunces'; font-style:normal; font-weight:100 900; font-display:swap; src:url('assets/fonts/fraunces-latin.woff2') format('woff2'); }
-@font-face { font-family:'Fraunces'; font-style:italic; font-weight:100 900; font-display:swap; src:url('assets/fonts/fraunces-latin-italic.woff2') format('woff2'); }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --pom: #C97A5E; --pom-d: #A85C42; --pom-l: #EDB89A;
-  --pom-t: #FBF3EC; --pom-g: #F7EDE4;
-  --verde: #243D2C; --verde-m: #2E5038; --verde-l: #C8DAC8; --verde-g: #EDF3EE;
-  --ouro: #C4973A; --ouro-l: #F0DFA8;
-  --ferro: #18140E; --ferro-m: #3A3028;
-  --creme: #FBF8F2; --areia: #EDE6DA; --rule: #D8CEBC;
-  --ink2: #6A5C50; --ink3: #9A8C80;
-  --f1: 'Fraunces', Georgia, serif;
-  --f2: 'Cormorant Garant', Georgia, serif;
-  --f3: 'Cabinet Grotesk', system-ui, sans-serif;
-  /* Accent thématique - change par JS */
-  --accent: var(--pom);
-  --accent-d: var(--pom-d);
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--f3); background: var(--creme); color: var(--ferro); -webkit-font-smoothing: antialiased; overflow-x: hidden; cursor: none; }
-a { color: inherit; text-decoration: none; }
-.articles, .about, .newsletter, footer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
-
-/*========================================
-  CURSOR
-========================================*/
-.cursor { position: fixed; width: 10px; height: 10px; background: var(--pom); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s; mix-blend-mode: multiply; }
-.cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--pom); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .35s cubic-bezier(.17,.67,.35,1.2), height .35s cubic-bezier(.17,.67,.35,1.2), transform .08s linear, opacity .2s; opacity: .5; }
-body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 56px; height: 56px; opacity: .3; }
-body:has(a:hover) .cursor { width: 6px; height: 6px; }
-
-/*========================================
-  NAV
-========================================*/
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 500; height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(20px,4vw,56px); mix-blend-mode: difference; }
-.nav-wordmark { font-family: var(--f1); font-size: 18px; font-weight: 700; letter-spacing: .04em; color: #fff; text-transform: uppercase; }
-.nav-wordmark em { font-style: italic; font-weight: 300; }
-.nav-right { display: flex; align-items: center; gap: 28px; }
-.nav-right a { font-family: var(--f3); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff; opacity: .6; transition: opacity .2s; }
-.nav-right a:hover { opacity: 1; }
-.lang-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .08em; padding: 6px 11px; cursor: pointer; background: transparent; border: none; color: rgba(255,255,255,.32); transition: all .2s; text-transform: uppercase; }
-.lang-btn.active { background: var(--pom-d); color: #fff; }
-
-/*========================================
-  HERO - nouvelle architecture
-========================================*/
-.hero { min-height: 100vh; background: var(--verde); position: relative; display: flex; flex-direction: column; overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: -50%; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E"); background-size: 200px 200px; opacity: .6; pointer-events: none; z-index: 1; }
-.hero-pattern { position: absolute; inset: 0; z-index: 0; }
-.hero-content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 clamp(24px,5vw,72px) clamp(40px,6vh,80px); }
-.hero-title-line { display: flex; align-items: baseline; overflow: hidden; }
-.word-mira { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 800; color: var(--creme); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .1s forwards; }
-.word-douro { font-family: var(--f1); font-size: clamp(88px,16vw,200px); font-weight: 300; font-style: italic; color: var(--pom-l); letter-spacing: -.04em; line-height: .88; display: inline-block; transform: translateY(110%); animation: slideUp 1s cubic-bezier(.16,1,.3,1) .2s forwards; }
-.hero-rule { width: 100%; height: 1px; background: rgba(255,255,255,.1); margin: 24px 0; transform: scaleX(0); transform-origin: left; animation: expandX .8s cubic-bezier(.16,1,.3,1) .7s forwards; }
-
-/* Hero deck - phrase éditoriale entre titre et colonnes */
-.hero-deck { opacity: 0; animation: fadeUp .7s ease .75s forwards; margin-bottom: 28px; display: flex; align-items: baseline; gap: 12px; }
-.hero-deck-text { font-family: var(--f2); font-size: clamp(14px,1.6vw,18px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.5); line-height: 1.5; max-width: 680px; }
-.hero-deck-text strong { font-style: normal; font-weight: 600; color: rgba(255,255,255,.82); }
-
-/* Hero bottom: 3 colonnes - stat signal | article mis en avant | thème actif */
-.hero-bottom { display: grid; grid-template-columns: minmax(260px,.9fr) minmax(320px,1.1fr); gap: 0; opacity: 0; animation: fadeUp .7s ease .9s forwards; max-width: 980px; }
-
-/* Colonne 1 : signal stat */
-.hero-signal { padding-right: 48px; border-right: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; }
-.hero-signal-kicker { font-size: 8px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ouro); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
-.hero-signal-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--ouro); }
-.hero-signal-number { font-family: var(--f1); font-size: clamp(52px,7vw,88px); font-weight: 800; color: #fff; line-height: .9; letter-spacing: -.04em; margin-bottom: 12px; transition: opacity .4s; }
-.hero-signal-label { font-family: var(--f2); font-size: clamp(13px,1.4vw,16px); font-style: italic; font-weight: 300; color: rgba(255,255,255,.55); line-height: 1.5; max-width: 260px; }
-
-/* Colonne 2 : article en avant */
-.hero-featured { padding: 0 0 0 40px; display: flex; flex-direction: column; justify-content: center; }
-.hero-featured-kicker { font-size: 8px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--pom-l); margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
-.hero-featured-kicker::before { content: ''; display: block; width: 20px; height: 1px; background: var(--pom-l); }
-.hero-featured-title { font-family: var(--f2); font-size: clamp(16px,1.8vw,22px); font-weight: 600; color: rgba(255,255,255,.88); line-height: 1.25; margin-bottom: 14px; }
-.hero-featured-intro { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.65; margin-bottom: 20px; }
-.hero-read { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-l); display: inline-flex; align-items: center; gap: 8px; transition: gap .2s; cursor: none; }
-.hero-read::after { content: '→'; font-size: 12px; }
-.hero-read:hover { gap: 12px; }
-
-/*========================================
-  BANDE EDITORIALE - sous le hero
-========================================*/
-.promesse { background: var(--pom); padding: clamp(36px,4vw,56px) clamp(24px,5vw,72px); position: relative; overflow: hidden; }
-.promesse::after { content: ''; position: absolute; bottom: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255,255,255,.06) 0%, transparent 70%); pointer-events: none; }
-.promesse-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.promesse-label::before { content: ''; display: block; width: 24px; height: 1px; background: rgba(255,255,255,.4); }
-.promesse-text { font-family: var(--f1); font-size: clamp(22px,3.5vw,44px); font-weight: 500; font-style: italic; color: #fff; line-height: 1.18; letter-spacing: -.025em; max-width: 800px; }
-.promesse-text em { font-style: normal; font-weight: 800; color: var(--ferro); background: var(--ouro); padding: 0 8px; }
-
-/*========================================
-  MIRADOURO MAP
-========================================*/
-.map-feature { background: var(--areia); padding: clamp(42px,6vw,76px) clamp(24px,5vw,72px); }
-.map-feature-card { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(280px,.85fr); min-height: 340px; border: 1px solid var(--rule); background: var(--creme); overflow: hidden; transition: box-shadow .3s ease, transform .3s ease; }
-.map-feature-card:hover { box-shadow: 0 12px 42px rgba(24,20,14,.12); transform: translateY(-3px); }
-.map-feature-visual { min-height: 340px; background: var(--verde); position: relative; overflow: hidden; }
-.map-feature-visual svg { width: 100%; height: 100%; opacity: .82; }
-.map-feature-stamp { position: absolute; left: 28px; bottom: 24px; color: var(--ouro-l); border: 1px solid rgba(240,223,168,.62); padding: 7px 12px; font-size: 8px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
-.map-feature-content { padding: clamp(28px,4vw,48px); display: flex; flex-direction: column; justify-content: center; }
-.map-feature-kicker { color: var(--pom-d); font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; }
-.map-feature-title { font-family: var(--f1); font-size: clamp(34px,4.6vw,62px); font-weight: 700; line-height: .98; letter-spacing: -.045em; margin-bottom: 18px; }
-.map-feature-title em { color: var(--pom-d); font-weight: 300; }
-.map-feature-copy { color: var(--ink2); font-family: var(--f2); font-size: 17px; font-style: italic; line-height: 1.65; margin-bottom: 24px; max-width: 500px; }
-.map-feature-cta { align-items: center; color: var(--pom-d); display: inline-flex; font-size: 9px; font-weight: 800; gap: 8px; letter-spacing: .18em; text-transform: uppercase; transition: gap .2s; }
-.map-feature-cta::after { content: '→'; font-size: 13px; }
-.map-feature-card:hover .map-feature-cta { gap: 13px; }
-.articles .map-feature { padding: 0; margin: clamp(26px,4vw,48px) 0 clamp(44px,6vw,72px); }
-.articles .map-feature-card { min-height: 260px; }
-.articles .map-feature-visual { min-height: 260px; }
-
-/*========================================
-  DOSSIER INTERNET.EXE
-========================================*/
-.dossier-feature { background: var(--ferro); color: var(--creme); margin-bottom: clamp(44px,6vw,72px); border: 1px solid rgba(240,223,168,.28); display: grid; grid-template-columns: minmax(0,1.05fr) minmax(320px,.95fr); overflow: hidden; position: relative; }
-.dossier-feature::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(251,248,242,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(251,248,242,.035) 1px, transparent 1px); background-size: 44px 44px; pointer-events: none; }
-.dossier-feature-main { position: relative; z-index: 1; padding: clamp(32px,5vw,58px); background: radial-gradient(circle at 12% 10%, rgba(237,184,154,.18), transparent 34%), linear-gradient(145deg,#183022,#243D2C 68%,#16271d); }
-.dossier-feature-kicker { color: var(--ouro-l); font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 16px; }
-.dossier-feature-title { color: #fff; font-family: var(--f1); font-size: clamp(34px,5vw,68px); font-weight: 800; letter-spacing: -.045em; line-height: .96; margin-bottom: 18px; }
-.dossier-feature-title em { color: var(--pom-l); font-style: italic; font-weight: 300; }
-.dossier-feature-copy { color: rgba(251,248,242,.78); font-family: var(--f2); font-size: clamp(17px,1.7vw,22px); font-style: italic; line-height: 1.55; max-width: 680px; margin-bottom: 26px; }
-.dossier-feature-cta { align-items: center; background: var(--pom); color: #fff; display: inline-flex; font-size: 9px; font-weight: 800; gap: 9px; letter-spacing: .18em; padding: 13px 16px; text-transform: uppercase; }
-.dossier-feature-cta::after { content: '→'; font-size: 13px; }
-.dossier-steps { position: relative; z-index: 1; background: var(--creme); color: var(--ferro); display: grid; grid-template-columns: 1fr; gap: 1px; }
-.dossier-step { background: var(--creme); border-bottom: 1px solid var(--rule); padding: 22px 24px; display: grid; grid-template-columns: 64px 1fr; gap: 18px; align-items: start; }
-.dossier-step-link { cursor: none; text-decoration: none; transition: background .2s ease, transform .2s ease; }
-.dossier-step-link:hover { background: #fff; transform: translateX(4px); }
-.dossier-step-num { color: var(--pom-d); font-family: var(--f1); font-size: 34px; font-weight: 800; letter-spacing: -.04em; line-height: .9; }
-.dossier-step-title { color: var(--ferro); font-family: var(--f1); font-size: clamp(19px,2vw,27px); font-weight: 650; letter-spacing: -.025em; line-height: 1.05; margin-bottom: 8px; }
-.dossier-step-copy { color: var(--ink2); font-family: var(--f2); font-size: 15px; font-style: italic; line-height: 1.55; }
-.dossier-step.active { background: var(--pom-g); }
-.dossier-step.active .dossier-step-num { color: var(--verde); }
-.dossier-step-status { color: var(--ouro); display: block; font-family: var(--f3); font-size: 8px; font-style: normal; font-weight: 800; letter-spacing: .16em; margin-top: 11px; text-transform: uppercase; }
-
-/*========================================
-  SECTION ARTICLES - hiérarchie repensée
-========================================*/
-.articles { display: flex; flex-direction: column; padding: clamp(48px,6vw,80px) clamp(24px,5vw,72px); background: var(--creme); }
-
-/* Header avec filtre thématique actif */
-.articles-header { display: flex; align-items: baseline; gap: 20px; margin-bottom: clamp(28px,4vw,48px); }
-.articles-title { font-family: var(--f1); font-size: clamp(28px,3.5vw,44px); font-weight: 700; color: var(--ferro); letter-spacing: -.03em; }
-.articles-theme-active { font-family: var(--f2); font-size: clamp(22px,2.8vw,34px); font-style: italic; font-weight: 300; color: var(--pom-d); }
-.articles-count { font-size: 10px; font-weight: 700; color: var(--ink2); letter-spacing: .1em; margin-left: auto; }
-
-/* Filtre thématique en ligne */
-.theme-filters { display: flex; gap: 4px; margin-bottom: clamp(32px,4vw,52px); flex-wrap: wrap; }
-.filter-btn { font-family: var(--f3); font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; padding: 7px 16px; border: 1px solid var(--rule); background: transparent; color: var(--ink2); cursor: none; transition: all .2s; }
-.filter-btn.active { background: var(--verde); color: var(--creme); border-color: var(--verde); }
-.filter-btn:hover:not(.active) { border-color: var(--ferro); color: var(--ferro); }
-
-/* NIVEAU 1 : article phare - pleine largeur, traitement éditorial fort */
-.article-phare { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--rule); margin-bottom: 1px; cursor: none; position: relative; overflow: hidden; transition: box-shadow .3s; }
-.article-phare:hover { box-shadow: 0 8px 40px rgba(24,20,14,.1); }
-.article-phare::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--pom); transform: scaleX(0); transform-origin: left; transition: transform .4s ease; }
-.article-phare:hover::before { transform: scaleX(1); }
-
-.phare-visual { background: var(--verde); min-height: 360px; display: flex; align-items: flex-end; justify-content: flex-start; position: relative; overflow: hidden; padding: 40px; }
-.phare-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; opacity: .12; }
-.phare-ghost { font-family: var(--f1); font-size: 200px; font-weight: 900; color: rgba(255,255,255,.04); line-height: 1; position: absolute; bottom: -30px; right: 10px; letter-spacing: -.08em; pointer-events: none; }
-.phare-badge { font-size: 8px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); border: 1px solid var(--ouro); padding: 5px 12px; position: relative; z-index: 1; font-family: var(--f3); }
-
-/* Stat visible dans la visual */
-.phare-stat { position: absolute; top: 40px; left: 40px; z-index: 2; }
-.phare-stat-num { font-family: var(--f1); font-size: 48px; font-weight: 800; color: rgba(255,255,255,.9); line-height: .9; letter-spacing: -.04em; }
-.phare-stat-label { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.4; margin-top: 6px; max-width: 160px; }
-
-.phare-content { background: var(--creme); padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; transition: background .2s; }
-.article-phare:hover .phare-content { background: var(--pom-g); }
-
-.phare-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-.phare-tag { font-size: 8px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; background: var(--pom); color: #fff; padding: 3px 9px; font-family: var(--f3); }
-.phare-num { font-size: 10px; font-weight: 700; color: var(--ink3); letter-spacing: .1em; font-family: var(--f3); }
-.phare-dot { width: 3px; height: 3px; background: var(--rule); border-radius: 50%; }
-.phare-date { font-size: 10px; color: var(--ink3); letter-spacing: .06em; font-family: var(--f3); }
-
-.phare-title { font-family: var(--f1); font-size: clamp(28px,3.5vw,48px); font-weight: 700; color: var(--ferro); line-height: 1.02; letter-spacing: -.03em; margin-bottom: 20px; }
-.phare-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
-.phare-intro { font-family: var(--f2); font-size: 15px; font-style: italic; font-weight: 300; color: var(--ink2); line-height: 1.75; flex: 1; margin-bottom: 28px; }
-
-/* Données clés inline dans l'article phare */
-.phare-data-strip { display: flex; gap: 24px; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 24px; }
-.phare-data-item { display: flex; flex-direction: column; gap: 3px; }
-.phare-data-val { font-family: var(--f1); font-size: 20px; font-weight: 800; color: var(--ferro); letter-spacing: -.02em; }
-.phare-data-lab { font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink3); }
-
-.phare-footer { display: flex; align-items: center; justify-content: space-between; }
-.phare-author { font-size: 10px; font-weight: 500; color: var(--ink2); font-family: var(--f3); }
-.phare-cta { font-size: 9px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--pom-d); display: flex; align-items: center; gap: 6px; transition: gap .2s; font-family: var(--f3); }
-.phare-cta::after { content: '→'; font-size: 13px; }
-.article-phare:hover .phare-cta { gap: 10px; }
-
-/* NIVEAU 2 : analyses - grille 3 colonnes, données visibles */
-.analyses-label { display: flex; align-items: center; gap: 16px; margin: clamp(28px,4vw,48px) 0 20px; }
-.analyses-label-text { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--ink3); }
-.analyses-label-rule { flex: 1; height: 1px; background: var(--rule); }
-
-.analyses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
-
-.art-card { background: var(--creme); padding: 28px 24px 22px; position: relative; cursor: none; transition: background .2s; }
-.art-card:hover { background: var(--pom-g); }
-
-.art-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
-.art-tag { font-size: 7px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; padding: 3px 8px; font-family: var(--f3); }
-.tag-v { color: var(--verde); background: var(--verde-g); }
-.tag-p { color: var(--pom-d); background: rgba(201,122,94,.1); }
-.tag-o { color: #7a5a10; background: var(--ouro-l); }
-.tag-g { color: #1a3a4a; background: #d4eaf5; }
-.art-num { font-size: 10px; font-weight: 700; color: var(--rule); letter-spacing: .06em; font-family: var(--f3); }
-
-.art-title { font-family: var(--f1); font-size: clamp(17px,1.9vw,23px); font-weight: 600; color: var(--ferro); line-height: 1.12; letter-spacing: -.02em; margin-bottom: 10px; }
-.art-title em { font-style: italic; font-weight: 400; color: var(--pom-d); }
-.art-intro { font-family: var(--f2); font-size: 13px; font-style: italic; color: var(--ink2); line-height: 1.65; margin-bottom: 16px; }
-
-/* Stat inline visible sans cliquer */
-.art-stat-inline { display: flex; align-items: baseline; gap: 8px; padding: 10px 0; border-top: 1px solid var(--rule); margin-bottom: 14px; }
-.art-stat-n { font-family: var(--f1); font-size: 22px; font-weight: 800; color: var(--ferro); letter-spacing: -.02em; }
-.art-stat-l { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--ink3); line-height: 1.3; }
-
-.art-foot { display: flex; align-items: center; justify-content: space-between; }
-.art-time { font-size: 9px; color: var(--ink3); font-family: var(--f3); }
-.art-arrow { font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--pom-d); opacity: 0; transition: opacity .2s, transform .2s; transform: translateX(-4px); font-family: var(--f3); }
-.art-card:hover .art-arrow { opacity: 1; transform: none; }
-
-/* Card "à venir" */
-.art-card.soon { background: var(--areia); opacity: .6; cursor: default; }
-.art-card.soon:hover { background: var(--areia); opacity: .7; }
-.soon-pill { font-size: 7px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: var(--ink3); border: 1px dashed var(--rule); padding: 2px 7px; width: fit-content; margin-bottom: 12px; font-family: var(--f3); }
-
-/*========================================
-  ABOUT - condensé
-========================================*/
-.about { display: grid; grid-template-columns: 1fr 1fr; min-height: 420px; }
-.about-dark { background: var(--ferro); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-.about-dark::before { content: 'M'; font-family: var(--f1); font-size: 360px; font-weight: 900; color: rgba(255,255,255,.02); position: absolute; right: -60px; bottom: -80px; line-height: 1; pointer-events: none; }
-.about-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.68); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.about-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
-.about-title { font-family: var(--f1); font-size: clamp(24px,3.2vw,42px); font-weight: 700; color: #fff; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 18px; }
-.about-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.about-body { font-family: var(--f2); font-size: 14px; color: rgba(255,255,255,.72); line-height: 1.72; margin-bottom: 10px; }
-.about-body.small { font-size: 12px; color: rgba(255,255,255,.66); font-style: italic; margin-bottom: 22px; }
-.about-flags { display: flex; gap: 5px; margin-bottom: 20px; }
-.flag-chip { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border: 1px solid rgba(255,255,255,.1); }
-.flag-code { font-size: .54rem; font-weight: 700; letter-spacing: .1em; color: rgba(255,255,255,.68); text-transform: uppercase; }
-.about-ctas { display: flex; flex-direction: column; }
-.about-cta { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.07); transition: gap .2s; }
-.about-cta:hover { gap: 15px; }
-.cta-label { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.65); }
-.cta-sub { font-family: var(--f2); font-size: 11px; font-style: italic; color: rgba(255,255,255,.68); }
-.cta-arrow { font-size: .8rem; color: rgba(255,255,255,.24); margin-left: auto; }
-
-.about-light { background: var(--areia); padding: clamp(40px,5vw,64px) clamp(24px,5vw,56px); display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--rule); }
-.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 20px; margin-bottom: 36px; }
-.stat { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
-.stat.on { opacity: 1; transform: none; }
-.stat-val { font-family: var(--f1); font-size: clamp(32px,4.5vw,52px); font-weight: 800; color: var(--ferro); line-height: 1; letter-spacing: -.04em; margin-bottom: 6px; }
-.stat-val sup { font-size: .45em; font-weight: 600; vertical-align: super; }
-.stat-label { font-size: 10px; color: var(--ink2); line-height: 1.4; }
-.about-pull { font-family: var(--f2); font-size: clamp(15px,1.8vw,20px); font-style: italic; font-weight: 300; color: var(--ferro); line-height: 1.55; padding-left: 18px; border-left: 3px solid var(--pom); }
-.about-pull cite { display: block; font-size: 10px; font-style: normal; font-weight: 700; color: var(--ink3); letter-spacing: .1em; text-transform: uppercase; margin-top: 12px; font-family: var(--f3); }
-
-/*========================================
-  NEWSLETTER
-========================================*/
-.newsletter { background: var(--verde); padding: clamp(48px,6vw,72px) clamp(24px,5vw,72px); }
-.nl-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.nl-label { font-size: 9px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-.nl-label::before { content: ''; display: block; width: 20px; height: 1px; background: currentColor; }
-.nl-title { font-family: var(--f1); font-size: clamp(24px,3.5vw,42px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -.03em; margin-bottom: 14px; }
-.nl-title em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.nl-sub { font-family: var(--f2); font-size: 15px; font-style: italic; color: rgba(255,255,255,.42); line-height: 1.6; }
-.nl-form { display: flex; flex-direction: column; gap: 12px; }
-.nl-field { display: flex; }
-.nl-input { flex: 1; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.15); border-right: none; padding: 14px 18px; font-family: var(--f3); font-size: 13px; color: #fff; outline: none; transition: border-color .2s; }
-.nl-input::placeholder { color: rgba(255,255,255,.28); }
-.nl-input:focus { border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.1); }
-.nl-btn { background: var(--pom); color: #fff; border: none; padding: 14px 24px; font-family: var(--f3); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: background .2s; white-space: nowrap; }
-.nl-btn:hover { background: var(--pom-d); }
-.nl-promise { font-size: 10px; color: rgba(255,255,255,.28); font-style: italic; }
-
-/*========================================
-  FOOTER
-========================================*/
-footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,72px) clamp(20px,2.5vw,32px); }
-.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid rgba(255,255,255,.07); }
-.footer-brand { font-family: var(--f1); font-size: 28px; font-weight: 800; color: #fff; letter-spacing: -.02em; margin-bottom: 6px; }
-.footer-brand em { font-style: italic; font-weight: 300; color: var(--pom-l); }
-.footer-sub { font-size: 10px; color: rgba(255,255,255,.68); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px; }
-.footer-tagline { font-family: var(--f2); font-size: 13px; font-style: italic; color: rgba(255,255,255,.68); line-height: 1.6; max-width: 280px; }
-.footer-col h4 { font-size: 9px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.68); margin-bottom: 14px; }
-.footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.48); margin-bottom: 9px; transition: color .2s; }
-.footer-col a:hover { color: #fff; }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; }
-.footer-copy { font-size: 10px; color: rgba(255,255,255,.68); }
-
-/*========================================
-  ANIMATIONS
-========================================*/
-@keyframes slideUp { to { transform: translateY(0); } }
-@keyframes expandX { to { transform: scaleX(1); } }
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { to { opacity: 1; } }
-@keyframes scrollAnim { 0% { top: -100%; } 100% { top: 100%; } }
-.sr { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
-.sr.on { opacity: 1; transform: none; }
-
-/*========================================
-  RESPONSIVE
-========================================*/
-@media(max-width:1100px) {
-  .hero-bottom { grid-template-columns: 1fr 1fr; }
-  .analyses-grid { grid-template-columns: 1fr 1fr; }
-}
-@media(max-width:900px) {
-  nav { mix-blend-mode: normal; background: rgba(36,61,44,.97); padding: 0 20px; }
-  .nav-wordmark { color: var(--creme); }
-  .nav-right a:not(.lang-btn):not(#btnFR):not(#btnEN) { display: none; }
-  .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
-  .hero-signal { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.08); padding-bottom: 24px; }
-  .hero-featured { padding: 24px 0 0; border-right: none; }
-  .hero-deck { margin-bottom: 20px; }
-  .article-phare { grid-template-columns: 1fr; }
-  .phare-visual { min-height: 180px; }
-  .phare-content { padding: 28px 20px; }
-  .dossier-feature { grid-template-columns: 1fr; }
-  .map-feature-card { grid-template-columns: 1fr; }
-  .map-feature-visual { min-height: 220px; }
-  .analyses-grid { grid-template-columns: 1fr; }
-  .about { grid-template-columns: 1fr; }
-  .about-light { border-left: none; border-top: 1px solid var(--rule); }
-  .nl-inner { grid-template-columns: 1fr; gap: 28px; }
-  .nl-field { flex-direction: column; }
-  .nl-input { border-right: 1px solid rgba(255,255,255,.15); border-bottom: none; }
-  .footer-top { grid-template-columns: 1fr; gap: 24px; }
-  .articles-header { flex-wrap: wrap; }
-  .theme-filters { gap: 3px; }
-}
-@media(max-width:620px) {
-  .word-mira, .word-douro { font-size: 13vw; }
-  .stats-grid { grid-template-columns: 1fr; }
-  .phare-data-strip { gap: 14px; flex-wrap: wrap; }
-  nav, .hero-content, .promesse, .map-feature, .articles, .about-dark, .about-light, .newsletter, footer { padding-left: 20px; padding-right: 20px; }
-  .map-feature-content { padding: 24px 18px; }
-  .map-feature-visual { min-height: 180px; }
-  .articles .map-feature { margin-bottom: 38px; }
-  .articles .map-feature-card { min-height: 0; }
-  .articles .map-feature-visual { min-height: 138px; max-height: 138px; }
-  .articles .map-feature-stamp { left: 18px; bottom: 14px; padding: 6px 10px; }
-  .articles .map-feature-content { padding: 18px 16px 20px; }
-  .articles .map-feature-kicker { margin-bottom: 10px; }
-  .articles .map-feature-title { margin-bottom: 10px; font-size: 34px; }
-  .articles .map-feature-copy {
-    display: -webkit-box;
-    margin-bottom: 14px;
-    overflow: hidden;
-    font-size: 15px;
-    line-height: 1.45;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+      {
+        "@type": "ItemList",
+        "name": "Analyses récentes de Miradouro",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "url": "https://miradouro.blog/articles/apres-argent-elon-musk-fr.html"},
+          {"@type": "ListItem", "position": 2, "url": "https://miradouro.blog/articles/portugal-interface-atlantique-fr.html"},
+          {"@type": "ListItem", "position": 3, "url": "https://miradouro.blog/articles/09-talent-map-fr.html"}
+        ]
+      }
+    ]
   }
-}
-</style>
-<link rel="stylesheet" href="assets/site-header.css">
+  </script>
+  <style>
+    @font-face{font-family:Fraunces;src:url("assets/fonts/fraunces-latin.woff2") format("woff2");font-style:normal;font-weight:100 900;font-display:swap}
+    :root{
+      --ink:#18140e;
+      --green:#243d2c;
+      --green-2:#31523b;
+      --rust:#a85c42;
+      --coral:#c97a5e;
+      --gold:#c4973a;
+      --paper:#fbf8f2;
+      --sand:#ede6da;
+      --line:#cfc4b1;
+      --muted:#6b5d50;
+      --serif:Fraunces,Georgia,serif;
+      --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    img{max-width:100%}
+    .shell{width:min(100% - 48px,1280px);margin-inline:auto}
+    .eyebrow{font:760 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+    .arrow{transition:transform .2s ease}
+    a:hover .arrow{transform:translate(3px,-3px)}
+    .skip{position:absolute;left:-999px;top:8px;padding:10px 14px;background:var(--green);color:#fff;z-index:100}
+    .skip:focus{left:8px}
+
+    .header{position:sticky;top:0;z-index:30;background:rgba(251,248,242,.94);border-bottom:1px solid var(--green);backdrop-filter:blur(10px)}
+    .header-row{height:64px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:42px}
+    .logo{font:650 22px/1 var(--serif);letter-spacing:.03em;text-transform:uppercase}
+    .logo-mark{color:var(--rust);font-weight:320}
+    .nav{justify-self:center;display:flex;align-items:center;gap:28px}
+    .nav a{font-size:13px;font-weight:650}
+    .nav a:hover{color:var(--rust)}
+    .language{display:flex;align-items:center;border:1px solid var(--green)}
+    .language button{border:0;background:transparent;padding:7px 9px;cursor:pointer;font-size:11px;font-weight:800;letter-spacing:.08em}
+    .language button.active{background:var(--green);color:var(--paper)}
+
+    .hero-intro{padding:clamp(42px,6vw,76px) 0 32px;border-bottom:1px solid var(--line);background:
+      linear-gradient(rgba(36,61,44,.045) 1px,transparent 1px) 0 0/100% 38px,
+      var(--paper)}
+    .hero-intro-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);gap:clamp(42px,7vw,100px);align-items:end}
+    h1{max-width:820px;margin:12px 0 0;font:430 clamp(52px,6.2vw,84px)/.92 var(--serif);letter-spacing:-.055em}
+    .intro-copy{margin:0;color:var(--green);font:380 clamp(19px,1.7vw,23px)/1.48 var(--serif)}
+    .topic-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+    .topic-links a{padding:7px 10px;border:1px solid var(--line);background:rgba(251,248,242,.78);font-size:11px;font-weight:750}
+    .topic-links a:hover{border-color:var(--rust);color:var(--rust)}
+
+    .lead{padding:30px 0 52px;background:var(--sand)}
+    .lead-card{display:grid;grid-template-columns:minmax(350px,.76fr) minmax(0,1.24fr);border:1px solid var(--green);background:var(--paper)}
+    .lead-copy{display:flex;flex-direction:column;padding:clamp(30px,4vw,54px);border-right:1px solid var(--green)}
+    .lead-kicker{display:flex;align-items:center;gap:10px;color:var(--rust)}
+    .lead-kicker:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--rust);box-shadow:0 0 0 5px rgba(168,92,66,.13)}
+    .lead h2{margin:26px 0 18px;font:430 clamp(38px,4.4vw,61px)/.94 var(--serif);letter-spacing:-.047em}
+    .lead-deck{margin:0;color:var(--green);font:390 clamp(18px,1.65vw,22px)/1.46 var(--serif)}
+    .lead-context{margin:18px 0 0;color:var(--muted);font-size:14px;line-height:1.62}
+    .lead-bottom{margin-top:auto;padding-top:32px}
+    .lead-meta{display:flex;flex-wrap:wrap;gap:8px 18px;padding:14px 0;border-top:1px solid var(--line);color:var(--muted);font-size:11px;font-weight:760;letter-spacing:.08em;text-transform:uppercase}
+    .text-link{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:15px;padding:14px 0;border-top:1px solid var(--green);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .text-link:hover{color:var(--rust)}
+    .lead-visual{position:relative;display:flex;min-width:0;background:#d7d0c5}
+    .tape{display:none}
+    .lead-figure{display:grid;grid-template-rows:1fr auto;width:100%;margin:0;background:var(--paper)}
+    .lead-figure picture{display:flex;min-height:0}
+    .lead-figure img{display:block;width:100%;height:100%;min-height:460px;object-fit:cover;background:#d7d0c5}
+    .lead-figure figcaption{display:flex;justify-content:space-between;gap:20px;padding:13px 16px;color:var(--muted);font-size:11px;line-height:1.35;border-top:1px solid var(--line)}
+    .lead-figure figcaption span:first-child{max-width:560px}
+    .coordinates{white-space:nowrap;font-weight:800;letter-spacing:.06em}
+
+    .focus{background:var(--green);color:var(--paper);border-bottom:1px solid var(--ink)}
+    .focus-row{min-height:45px;display:flex;align-items:center;justify-content:center;gap:10px 28px;flex-wrap:wrap}
+    .focus-row span{font-size:11px;font-weight:760;letter-spacing:.08em;text-transform:uppercase}
+    .focus-row span:before{content:"•";margin-right:10px;color:var(--coral)}
+
+    .section{padding:clamp(70px,8vw,108px) 0}
+    .section-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:50px;align-items:end;margin-bottom:28px}
+    .section-head h2{margin:10px 0 0;font:430 clamp(43px,5vw,68px)/.94 var(--serif);letter-spacing:-.045em}
+    .section-head p{margin:0;color:var(--muted);font:380 18px/1.5 var(--serif)}
+    .stories{border-top:1px solid var(--ink)}
+    .story{position:relative;display:grid;grid-template-columns:74px minmax(0,1fr) minmax(180px,250px);gap:28px;align-items:center;padding:28px 4px;border-bottom:1px solid var(--ink)}
+    .story:before{content:"";position:absolute;left:0;top:-1px;bottom:-1px;width:0;background:var(--rust);transition:width .18s ease}
+    .story:hover{background:rgba(237,230,218,.48)}
+    .story:hover:before{width:5px}
+    .story-number{color:var(--rust);font:440 42px/1 var(--serif)}
+    .story h3{margin:0 0 9px;font:420 clamp(27px,3vw,39px)/1 var(--serif);letter-spacing:-.035em}
+    .story p{max-width:720px;margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+    .story-meta{text-align:right;color:var(--muted);font-size:11px;font-weight:760;letter-spacing:.07em;text-transform:uppercase}
+    .story-meta .arrow{display:block;margin-top:12px;color:var(--rust);font-size:20px}
+    .archive{display:flex;align-items:center;justify-content:space-between;padding:19px 4px;border-bottom:1px solid var(--ink);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .archive:hover{color:var(--rust)}
+
+    .dossier{padding:clamp(66px,8vw,102px) 0;background:var(--green);color:var(--paper)}
+    .dossier-grid{display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:clamp(48px,7vw,96px)}
+    .dossier h2{margin:18px 0;font:420 clamp(45px,5.3vw,70px)/.92 var(--serif);letter-spacing:-.047em}
+    .dossier-intro p{margin:0;color:rgba(251,248,242,.69);font:350 18px/1.55 var(--serif)}
+    .episodes{border-top:1px solid rgba(251,248,242,.34)}
+    .episode{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:20px;align-items:center;padding:24px 0;border-bottom:1px solid rgba(251,248,242,.34)}
+    .episode-no{color:var(--gold);font:450 28px/1 var(--serif)}
+    .episode h3{margin:0 0 6px;font:400 clamp(24px,2.7vw,34px)/1.06 var(--serif)}
+    .episode p{margin:0;color:rgba(251,248,242,.58);font-size:12px}
+    .episode:hover h3{color:#edc87e}
+
+    .map{padding:clamp(70px,8vw,108px) 0;background:var(--gold)}
+    .map-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(340px,.82fr);gap:clamp(36px,6vw,78px);align-items:center}
+    .map-figure{position:relative;margin:0;padding:10px 10px 48px;background:var(--paper);box-shadow:0 18px 40px rgba(24,20,14,.2)}
+    .map-figure img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}
+    .map-figure figcaption{position:absolute;left:14px;right:14px;bottom:12px;display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:11px}
+    .map-copy h2{margin:14px 0 22px;font:430 clamp(44px,5.5vw,72px)/.92 var(--serif);letter-spacing:-.05em}
+    .map-copy p{margin:0;font:380 19px/1.52 var(--serif)}
+    .map-copy .text-link{margin-top:28px}
+
+    .about{padding:clamp(68px,8vw,106px) 0;background:var(--ink);color:var(--paper)}
+    .about-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.64fr);gap:clamp(50px,8vw,110px)}
+    .about h2{margin:15px 0 24px;font:420 clamp(43px,5.5vw,72px)/.94 var(--serif);letter-spacing:-.047em}
+    .about-copy{max-width:760px;margin:0;color:rgba(251,248,242,.72);font:350 19px/1.58 var(--serif)}
+    .profile{align-self:end;border-top:1px solid rgba(251,248,242,.3)}
+    .profile-row{padding:15px 0;border-bottom:1px solid rgba(251,248,242,.3)}
+    .profile-row span{display:block;color:rgba(251,248,242,.5);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .profile-row strong{display:block;margin-top:5px;font:390 19px/1.35 var(--serif)}
+    .profile a:hover{color:var(--coral)}
+
+    .newsletter{padding:clamp(58px,7vw,90px) 0;background:var(--coral);color:var(--paper)}
+    .newsletter-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.9fr);gap:65px;align-items:end}
+    .newsletter h2{margin:12px 0 0;font:430 clamp(43px,5vw,66px)/.94 var(--serif);letter-spacing:-.045em}
+    .newsletter p{margin:12px 0 0;color:rgba(251,248,242,.8);font-size:12px;line-height:1.45}
+    .newsletter-form{display:flex;border-bottom:1px solid var(--paper)}
+    .newsletter-form input{flex:1;min-width:0;padding:15px 0;border:0;outline:0;background:transparent;color:#fff;font:380 18px var(--serif)}
+    .newsletter-form input::placeholder{color:rgba(255,255,255,.72)}
+    .newsletter-form button{border:0;background:var(--green);color:#fff;padding:14px 18px;cursor:pointer;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .newsletter-form button:hover{background:var(--ink)}
+
+    .footer{padding:28px 0;background:var(--green);color:rgba(251,248,242,.66)}
+    .footer-row{display:flex;justify-content:space-between;gap:20px;font-size:10px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+    .footer a:hover{color:#fff}
+
+    @media(max-width:980px){
+      .hero-intro-grid,.section-head,.dossier-grid,.map-grid,.about-grid,.newsletter-grid{grid-template-columns:1fr}
+      .hero-intro-grid{gap:25px}
+      .lead-card{grid-template-columns:1fr}
+      .lead-copy{border-right:0;border-bottom:1px solid var(--green)}
+      .lead-bottom{margin-top:22px}
+      .story{grid-template-columns:62px minmax(0,1fr)}
+      .story-meta{grid-column:2;text-align:left}
+      .story-meta .arrow{display:inline;margin:0 0 0 12px}
+      .section-head{gap:18px}
+      .map-copy{max-width:700px}
+      .newsletter-grid{gap:35px}
+    }
+    @media(max-width:720px){
+      .shell{width:min(100% - 28px,1280px)}
+      .header-row{height:58px;grid-template-columns:1fr auto;gap:18px}
+      .nav{display:none}
+      .hero-intro{padding-top:38px}
+      h1{font-size:49px}
+      .lead{padding-top:14px}
+      .lead-copy{padding:29px 20px}
+      .lead h2{font-size:39px}
+      .lead-figure figcaption,.map-figure figcaption{display:block}
+      .coordinates{display:block;margin-top:4px}
+      .focus-row{justify-content:flex-start;padding:10px 0}
+      .story{grid-template-columns:44px minmax(0,1fr);gap:14px;padding:23px 0}
+      .story-number{font-size:31px}
+      .story h3{font-size:28px}
+      .dossier-grid{gap:36px}
+      .episode{grid-template-columns:35px minmax(0,1fr)}
+      .episode .arrow{display:none}
+      .map-figure{padding-bottom:58px}
+      .footer-row{flex-direction:column}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.arrow,.story:before{transition:none}}
+  </style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="ring"></div>
-
-<!-- COOKIE BANNER -->
-<div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:8000;background:var(--ferro);border-top:2px solid var(--pom);padding:14px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);animation:cookieSlide .5s .8s ease forwards">
-  <style>@keyframes cookieSlide{to{transform:translateY(0)}}</style>
-  <p style="font-family:var(--f2);font-size:.88rem;font-style:italic;color:rgba(251,248,242,.62);line-height:1.5">
-    Ici, on ne prend pas de cookies. Par contre on offre des pastéis. <span style="font-style:normal">:)</span>
-    <span style="font-size:.72rem;color:rgba(251,248,242,.68);margin-left:8px">Analytics minimalistes, aucune revente.</span>
-  </p>
-  <button onclick="closeCookie()" style="font-family:var(--f3);font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;background:var(--pom-d);color:#fff;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0">OK merci</button>
-</div>
-
-<!-- NAV -->
-<header class="mira-site-header">
-  <a class="mira-site-logo" href="/" aria-label="Miradouro — accueil">Mira<em>douro</em></a>
-  <nav class="mira-site-nav" aria-label="Navigation principale">
-    <a href="#articles" data-fr="Analyses" data-en="Analysis">Analyses</a>
-    <a href="miradouro-map.html" data-fr="La carte" data-en="The map">La carte</a>
-    <a href="#about" data-fr="À propos" data-en="About">À propos</a>
-  </nav>
-  <div class="mira-site-lang" aria-label="Choisir la langue">
-    <button type="button" onclick="setLang('fr')" id="btnFR" class="active">FR</button>
-    <button type="button" onclick="setLang('en')" id="btnEN">EN</button>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-pattern">
-    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <pattern id="azulejo" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-          <line x1="80" y1="0" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-          <line x1="0" y1="80" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-          <line x1="80" y1="80" x2="40" y2="40" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
-          <rect x="8" y="8" width="64" height="64" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="0.5"/>
-          <circle cx="40" cy="40" r="10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.5"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#azulejo)"/>
-    </svg>
-  </div>
-
-  <div class="hero-content">
-    <div style="overflow:hidden;margin-bottom:2px;">
-      <h1 class="hero-title-line">
-        <span class="word-mira">MIRA</span><span class="word-douro">DOURO</span>
-      </h1>
-    </div>
-    <div class="hero-rule"></div>
-    <div class="hero-deck">
-      <p class="hero-deck-text">
-        <span data-fr="Un blog de terrain sur la <strong>tech européenne</strong> - sources, données, hypothèses. Depuis Lisbonne." data-en="A field blog on <strong>European tech</strong> - sources, data, working hypotheses. From Lisbon.">Un blog de terrain sur la <strong>tech européenne</strong> - sources, données, hypothèses. Depuis Lisbonne.</span>
-      </p>
-    </div>
-    <div class="hero-bottom">
-
-      <!-- Colonne 1 : stat signal -->
-      <div class="hero-signal">
-        <div class="hero-signal-kicker" data-fr="Signal du moment" data-en="Current signal">Signal du moment</div>
-        <div class="hero-signal-number" id="hero-stat-num">3</div>
-        <div class="hero-signal-label" id="hero-stat-label" data-fr="Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique." data-en="Major cables now connect Portugal directly to the Americas and Africa.">Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique.</div>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="header">
+    <div class="shell header-row">
+      <a class="logo" href="#top" aria-label="Miradouro, accueil">Mira<span class="logo-mark">douro</span></a>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="analyses.html" data-fr="Analyses" data-en="Analysis">Analyses</a>
+        <a href="#dossier" data-fr="Dossier" data-en="Series">Dossier</a>
+        <a href="#map">Map</a>
+        <a href="#about" data-fr="À propos" data-en="About">À propos</a>
+      </nav>
+      <div class="language" aria-label="Langue">
+        <button id="fr" class="active" type="button" aria-pressed="true">FR</button>
+        <button id="en" type="button" aria-pressed="false">EN</button>
       </div>
-
-      <!-- Colonne 2 : article en avant -->
-      <div class="hero-featured">
-        <div class="hero-featured-kicker" id="hero-kicker" data-fr="Nouveau · Atlas atlantique" data-en="New · Atlantic atlas">Nouveau · Atlas atlantique</div>
-        <div class="hero-featured-title" id="hero-title" data-fr="Et si le bout de l'Europe devenait son entrée ?" data-en="What if the edge of Europe became its gateway?">Et si le bout de l'Europe devenait son entrée ?</div>
-        <div class="hero-featured-intro" id="hero-intro" data-fr="Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?" data-en="Cables, electricity, Sines: can Portugal turn its geography into digital power?">Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?</div>
-        <a id="link-hero" href="articles/portugal-interface-atlantique-fr.html" class="hero-read" data-fr="Lire maintenant" data-en="Read now">Lire maintenant</a>
-      </div>
-
     </div>
-  </div>
-</section>
+  </header>
 
-<!-- PROMESSE -->
-<div class="promesse">
-  <div class="promesse-label sr" data-fr="La ligne éditoriale" data-en="Editorial line">La ligne éditoriale</div>
-  <p class="promesse-text sr">
-    <span data-fr="La tech européenne a beaucoup d'experts. Miradouro a un <em>point de vue</em>." data-en="European tech has plenty of experts. Miradouro has a <em>point of view</em>.">La tech européenne a beaucoup d'experts. Miradouro a un <em>point de vue</em>.</span>
-  </p>
-</div>
-
-<!-- ARTICLES -->
-<section class="articles" id="articles">
-
-  <!-- En-tête avec thème actif -->
-  <div class="articles-header">
-    <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <span class="articles-theme-active" id="theme-label" data-fr="- Infrastructure & Plateformes" data-en="- Infrastructure & Platforms">- Infrastructure & Plateformes</span>
-    <span class="articles-count" id="articles-count" data-fr="10 articles · + HS" data-en="10 articles · + special">10 articles · + HS</span>
-  </div>
-
-  <!-- Filtres thématiques -->
-  <div class="theme-filters">
-    <button class="filter-btn" data-filter="all" onclick="filterArticles('all')" data-fr="Tout" data-en="All">Tout</button>
-    <button class="filter-btn" data-filter="finance" onclick="filterArticles('finance')" data-fr="Finance" data-en="Finance">Finance</button>
-    <button class="filter-btn" data-filter="culture" onclick="filterArticles('culture')" data-fr="Culture" data-en="Culture">Culture</button>
-    <button class="filter-btn" data-filter="infrastructure" onclick="filterArticles('infrastructure')" data-fr="Infrastructure" data-en="Infrastructure">Infrastructure</button>
-    <button class="filter-btn" data-filter="talent" onclick="filterArticles('talent')" data-fr="Talent" data-en="Talent">Talent</button>
-    <button class="filter-btn" data-filter="ai" onclick="filterArticles('ai')" data-fr="IA & Société" data-en="AI & Society">IA & Société</button>
-  </div>
-
-  <!-- NIVEAU 1 : Article phare -->
-  <a href="articles/06-soft-power-portugal-fr.html" id="card-06" class="article-phare sr" data-theme="culture">
-    <div class="phare-visual">
-      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-        <defs><pattern id="az2" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
-          <line x1="60" y1="0" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
-          <line x1="0" y1="60" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
-          <line x1="60" y1="60" x2="30" y2="30" stroke="white" stroke-width="0.6"/>
-          <rect x="6" y="6" width="48" height="48" fill="none" stroke="white" stroke-width="0.4"/>
-        </pattern></defs>
-        <rect width="400" height="400" fill="url(#az2)"/>
-      </svg>
-      <span class="phare-ghost">N°06</span>
-      <!-- Stat visible dans la visual -->
-      <div class="phare-stat">
-        <div class="phare-stat-num">36,1M</div>
-        <div class="phare-stat-label">Passagers à l'aéroport de Lisbonne</div>
-      </div>
-      <div class="phare-badge" data-fr="Essai de terrain" data-en="Field essay">Essai de terrain</div>
-    </div>
-    <div class="phare-content">
-      <div>
-        <div class="phare-meta">
-          <span class="phare-tag" data-fr="Nouveau" data-en="New">Nouveau</span>
-          <span class="phare-dot"></span>
-          <span class="phare-num">N°06</span>
-          <span class="phare-dot"></span>
-          <span class="phare-date">Mai 2026</span>
+  <main id="main">
+    <section class="hero-intro" id="top" aria-labelledby="page-title">
+      <div class="shell hero-intro-grid">
+        <div>
+          <div class="eyebrow" data-fr="Miradouro · média indépendant" data-en="Miradouro · independent publication">Miradouro · média indépendant</div>
+          <h1 id="page-title" data-fr="La tech européenne, vue depuis le Portugal." data-en="European tech, viewed from Portugal.">La tech européenne, vue depuis le Portugal.</h1>
         </div>
-        <h2 class="phare-title" data-fr="Lisbonne, ou le <em>paradoxe portugais</em>" data-en="Lisbon and the <em>Portuguese paradox</em>">Lisbonne, ou le <em>paradoxe portugais</em></h2>
-        <p class="phare-intro" data-fr="Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie." data-en="Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.">Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre aujourd'hui une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.</p>
-        <!-- Données clés inline -->
-        <div class="phare-data-strip">
-          <div class="phare-data-item">
-            <div class="phare-data-val">36,1M</div>
-            <div class="phare-data-lab">Passagers LIS</div>
+        <div>
+          <p class="intro-copy" data-fr="Miradouro analyse les infrastructures numériques, les talents et les entreprises qui transforment le Portugal et l’Europe." data-en="Miradouro analyses the digital infrastructure, talent and companies reshaping Portugal and Europe.">Miradouro analyse les infrastructures numériques, les talents et les entreprises qui transforment le Portugal et l’Europe.</p>
+          <nav class="topic-links" aria-label="Sujets suivis">
+            <a class="localized" data-fr-href="articles/miradouro-cloud-FR.html" data-en-href="articles/miradouro-cloud-EN.html" href="articles/miradouro-cloud-FR.html">Cloud</a>
+            <a class="localized" data-fr-href="articles/ai-music-fr.html" data-en-href="articles/ai-music-en.html" href="articles/ai-music-fr.html">IA</a>
+            <a class="localized" data-fr-href="articles/09-talent-map-fr.html" data-en-href="articles/09-talent-map-en.html" href="articles/09-talent-map-fr.html" data-fr="Talents tech" data-en="Tech talent">Talents tech</a>
+            <a class="localized" data-fr-href="articles/portugal-interface-atlantique-fr.html" data-en-href="articles/portugal-atlantic-interface-en.html" href="articles/portugal-interface-atlantique-fr.html" data-fr="Infrastructures" data-en="Infrastructure">Infrastructures</a>
+            <a class="localized" data-fr-href="articles/miradouro-sovereignty-fr.html" data-en-href="articles/miradouro-sovereignty-en.html" href="articles/miradouro-sovereignty-fr.html" data-fr="Souveraineté numérique" data-en="Digital sovereignty">Souveraineté numérique</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="lead" aria-labelledby="lead-title">
+      <article class="shell lead-card">
+        <div class="lead-copy">
+          <div>
+            <div class="lead-kicker eyebrow" data-fr="À la une · Économie et IA" data-en="Featured · Economics and AI">À la une · Économie et IA</div>
+            <h2 id="lead-title" data-fr="Après l’argent : combien d’heures vaut encore le monde ?" data-en="After money: how many hours is the world still worth?">Après l’argent : combien d’heures vaut encore le monde ?</h2>
+            <p class="lead-deck" data-fr="Elon Musk imagine un monde où les machines produisent assez pour rendre le travail facultatif et l’argent moins utile." data-en="Elon Musk imagines a world where machines produce enough to make work optional and money less useful.">Elon Musk imagine un monde où les machines produisent assez pour rendre le travail facultatif et l’argent moins utile.</p>
+            <p class="lead-context" data-fr="Mais l’abondance ne fait pas disparaître le logement, l’énergie, la propriété, le pouvoir ou notre besoin d’être utile. L’article mesure ce que le progrès rend réellement moins cher — en heures de vie." data-en="But abundance does not erase housing, energy, ownership, power or our need to feel useful. The article measures what progress really makes cheaper—in hours of life.">Mais l’abondance ne fait pas disparaître le logement, l’énergie, la propriété, le pouvoir ou notre besoin d’être utile. L’article mesure ce que le progrès rend réellement moins cher — en heures de vie.</p>
           </div>
-          <div class="phare-data-item">
-            <div class="phare-data-val">29,0M</div>
-            <div class="phare-data-lab">Touristes non-résidents</div>
-          </div>
-          <div class="phare-data-item">
-            <div class="phare-data-val">72K</div>
-            <div class="phare-data-lab">Participants Erasmus+</div>
-          </div>
-          <div class="phare-data-item">
-            <div class="phare-data-val">#7</div>
-            <div class="phare-data-lab">Global Peace Index</div>
+          <div class="lead-bottom">
+            <div class="lead-meta"><span data-fr="Nouvelle analyse" data-en="New analysis">Nouvelle analyse</span><span data-fr="11 min de lecture" data-en="11 min read">11 min de lecture</span><span data-fr="Économie · IA" data-en="Economics · AI">Économie · IA</span></div>
+            <a class="text-link localized" data-fr-href="articles/apres-argent-elon-musk-fr.html" data-en-href="articles/apres-argent-elon-musk-fr.html" href="articles/apres-argent-elon-musk-fr.html">
+              <span data-fr="Lire l’analyse sur Musk, le travail et l’après-argent" data-en="Read the French analysis on Musk, work and a post-money world">Lire l’analyse sur Musk, le travail et l’après-argent</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="phare-footer">
-        <span class="phare-author">Jonathan · Miradouro</span>
-        <span class="phare-cta" data-fr="Lire l'essai" data-en="Read the essay">Lire l'essai</span>
+        <div class="lead-visual">
+          <figure class="lead-figure">
+            <picture>
+              <source srcset="assets/editorial/apres-argent-musk-cover.webp" type="image/webp">
+              <img src="assets/editorial/apres-argent-musk-cover.png" width="1536" height="1024" fetchpriority="high" decoding="async" alt="Elon Musk assis dans un atelier face à une ancienne pointeuse industrielle, une clé au premier plan et un robot au travail en arrière-plan">
+            </picture>
+            <figcaption>
+              <span data-fr="Temps de travail, automatisation et rareté : une mise en scène éditoriale de l’hypothèse défendue par Elon Musk." data-en="Working time, automation and scarcity: an editorial interpretation of Elon Musk’s hypothesis.">Temps de travail, automatisation et rareté : une mise en scène éditoriale de l’hypothèse défendue par Elon Musk.</span>
+              <span class="coordinates">MIRADOURO · AOÛT 2026</span>
+            </figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <div class="focus" aria-label="Thèmes de l’analyse à la une">
+      <div class="shell focus-row">
+        <span data-fr="Temps de travail" data-en="Working time">Temps de travail</span>
+        <span data-fr="Automatisation" data-en="Automation">Automatisation</span>
+        <span data-fr="Rareté" data-en="Scarcity">Rareté</span>
+        <span data-fr="Abondance" data-en="Abundance">Abondance</span>
       </div>
     </div>
-  </a>
 
-  <!-- Séparateur niveau 2 -->
-  <div class="analyses-label sr">
-    <span class="analyses-label-text" data-fr="Analyses" data-en="Analysis">Analyses</span>
-    <div class="analyses-label-rule"></div>
-  </div>
+    <section class="section" id="analyses" aria-labelledby="analyses-title">
+      <div class="shell">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow" data-fr="Analyses récentes" data-en="Recent analysis">Analyses récentes</div>
+            <h2 id="analyses-title" data-fr="Les dernières analyses" data-en="Latest analysis">Les dernières analyses</h2>
+          </div>
+          <p data-fr="Des articles longs, des chiffres lisibles et un point de vue situé au Portugal." data-en="Long-form articles, readable data and a point of view grounded in Portugal.">Des articles longs, des chiffres lisibles et un point de vue situé au Portugal.</p>
+        </div>
+        <div class="stories">
+          <a class="story localized" data-fr-href="articles/portugal-interface-atlantique-fr.html" data-en-href="articles/portugal-atlantic-interface-en.html" href="articles/portugal-interface-atlantique-fr.html">
+            <span class="story-number">10</span>
+            <div>
+              <h3 data-fr="Sines : une porte numérique pour l’Europe ?" data-en="Sines: a digital gateway for Europe?">Sines : une porte numérique pour l’Europe ?</h3>
+              <p data-fr="Câbles sous-marins, data centers et énergie replacent le Portugal sur la carte numérique européenne." data-en="Subsea cables, data centres and energy are repositioning Portugal on Europe’s digital map.">Câbles sous-marins, data centers et énergie replacent le Portugal sur la carte numérique européenne.</p>
+            </div>
+            <div class="story-meta"><span data-fr="Infrastructures · 12 min" data-en="Infrastructure · 12 min">Infrastructures · 12 min</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="story localized" data-fr-href="articles/09-talent-map-fr.html" data-en-href="articles/09-talent-map-en.html" href="articles/09-talent-map-fr.html">
+            <span class="story-number">09</span>
+            <div>
+              <h3 data-fr="Qui forme les talents tech portugais ?" data-en="Who trains Portugal’s tech talent?">Qui forme les talents tech portugais ?</h3>
+              <p data-fr="Les polytechniques forment 58,1 % des diplômés TIC du pays. Une cartographie du vivier technologique portugais." data-en="Polytechnics train 58.1% of the country’s ICT graduates. A map of Portugal’s technology talent pool.">Les polytechniques forment 58,1 % des diplômés TIC du pays. Une cartographie du vivier technologique portugais.</p>
+            </div>
+            <div class="story-meta"><span data-fr="Talents · 15 min" data-en="Talent · 15 min">Talents · 15 min</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+          <a class="story localized" data-fr-href="articles/internet-exe-europe-part-3-fr.html" data-en-href="articles/internet-exe-europe-part-3-en.html" href="articles/internet-exe-europe-part-3-fr.html">
+            <span class="story-number">08</span>
+            <div>
+              <h3 data-fr="Le crash Internet qui a changé la tech européenne" data-en="The dot-com crash that changed European technology">Le crash Internet qui a changé la tech européenne</h3>
+              <p data-fr="Du NASDAQ aux télécoms : comment l’Europe a perdu une partie de son avance après 2000." data-en="From the NASDAQ to telecoms: how Europe lost part of its lead after 2000.">Du NASDAQ aux télécoms : comment l’Europe a perdu une partie de son avance après 2000.</p>
+            </div>
+            <div class="story-meta"><span data-fr="Histoire · 14 min" data-en="History · 14 min">Histoire · 14 min</span><span class="arrow" aria-hidden="true">↗</span></div>
+          </a>
+        </div>
+        <a class="archive" href="analyses.html">
+          <span data-fr="Voir toutes les analyses Miradouro" data-en="See all Miradouro analysis">Voir toutes les analyses Miradouro</span>
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
 
-  <!-- NIVEAU 2 : grille 3 colonnes -->
-  <div class="analyses-grid" id="cardsGrid">
+    <section class="dossier" id="dossier" aria-labelledby="dossier-title">
+      <div class="shell dossier-grid">
+        <div class="dossier-intro">
+          <div class="eyebrow" style="color:var(--gold)" data-fr="Dossier · 3 parties" data-en="Series · 3 parts">Dossier · 3 parties</div>
+          <h2 id="dossier-title" data-fr="Comment l’Europe a perdu son Internet" data-en="How Europe lost its Internet">Comment l’Europe a perdu son Internet</h2>
+          <p data-fr="Avant Google et Facebook, l’Europe avait ses services, ses usages et ses champions. Trois articles racontent le basculement." data-en="Before Google and Facebook, Europe had its own services, uses and champions. Three articles tell the story of the shift.">Avant Google et Facebook, l’Europe avait ses services, ses usages et ses champions. Trois articles racontent le basculement.</p>
+        </div>
+        <div class="episodes">
+          <a class="episode localized" data-fr-href="articles/internet-exe-europe-fr.html" data-en-href="articles/internet-exe-europe-en.html" href="articles/internet-exe-europe-fr.html">
+            <span class="episode-no">01</span>
+            <div><h3 data-fr="L’Internet européen avant les plateformes" data-en="The European Internet before platforms">L’Internet européen avant les plateformes</h3><p>Nokia · Caramail · SAPO · Skyblog</p></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="episode localized" data-fr-href="articles/internet-exe-europe-part-2-fr.html" data-en-href="articles/internet-exe-europe-part-2-en.html" href="articles/internet-exe-europe-part-2-fr.html">
+            <span class="episode-no">02</span>
+            <div><h3 data-fr="Les entreprises européennes qui dominaient le Web" data-en="The European companies that once led the Web">Les entreprises européennes qui dominaient le Web</h3><p data-fr="Les marques et services que l’on a oubliés" data-en="The brands and services we forgot">Les marques et services que l’on a oubliés</p></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="episode localized" data-fr-href="articles/internet-exe-europe-part-3-fr.html" data-en-href="articles/internet-exe-europe-part-3-en.html" href="articles/internet-exe-europe-part-3-fr.html">
+            <span class="episode-no">03</span>
+            <div><h3 data-fr="Le crash de 2000 et le décrochage européen" data-en="The 2000 crash and Europe’s loss of ground">Le crash de 2000 et le décrochage européen</h3><p>NASDAQ · Télécoms · Financement</p></div>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    <!-- N°10 : Le Portugal, interface atlantique -->
-    <a href="articles/portugal-interface-atlantique-fr.html" id="card-10" class="art-card sr" data-theme="infrastructure">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Infrastructure · Cartographie" data-en="Infrastructure · Cartography">Infrastructure · Cartographie</span>
-        <span class="art-num">10</span>
+    <section class="map" id="map" aria-labelledby="map-title">
+      <div class="shell map-grid">
+        <figure class="map-figure">
+          <picture>
+            <source srcset="assets/editorial/lisbon-cultural-map-field-cover.webp" type="image/webp">
+            <img src="assets/editorial/lisbon-cultural-map-field-cover.png" width="1536" height="1024" loading="lazy" decoding="async" alt="Rue en pente à Lisbonne reliant une librairie, une petite salle culturelle et une galerie par des tracés dessinés sur une carte">
+          </picture>
+          <figcaption>
+            <span data-fr="Lisbonne, entre librairies, salles, galeries, studios et lieux de création." data-en="Lisbon, through bookshops, venues, galleries, studios and creative spaces.">Lisbonne, entre librairies, salles, galeries, studios et lieux de création.</span>
+            <span class="coordinates">MIRADOURO MAP · LISBOA</span>
+          </figcaption>
+        </figure>
+        <div class="map-copy">
+          <div class="eyebrow" data-fr="Carte culturelle de Lisbonne" data-en="Lisbon cultural map">Carte culturelle de Lisbonne</div>
+          <h2 id="map-title" data-fr="Les lieux culturels de Lisbonne sur une seule carte" data-en="Lisbon’s cultural places on one map">Les lieux culturels de Lisbonne sur une seule carte</h2>
+          <p data-fr="Salles de concert, labels, studios, galeries, écoles et bonnes adresses : Miradouro Map est une sélection commentée, pas un annuaire." data-en="Concert venues, labels, studios, galleries, schools and useful addresses: Miradouro Map is a curated selection, not a directory.">Salles de concert, labels, studios, galeries, écoles et bonnes adresses : Miradouro Map est une sélection commentée, pas un annuaire.</p>
+          <a class="text-link localized" data-fr-href="miradouro-map.html" data-en-href="miradouro-map-en.html" href="miradouro-map.html">
+            <span data-fr="Explorer la carte culturelle de Lisbonne" data-en="Explore Lisbon’s cultural map">Explorer la carte culturelle de Lisbonne</span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
       </div>
-      <h3 class="art-title" data-fr="Et si le bout de l'Europe devenait <em>son entrée ?</em>" data-en="What if the edge of Europe became <em>its gateway?</em>">Et si le bout de l'Europe devenait <em>son entrée ?</em></h3>
-      <p class="art-intro" data-fr="Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ? Une hypothèse racontée par les cartes." data-en="Cables, electricity, Sines: can Portugal turn its geography into digital power? A hypothesis told through maps.">Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ? Une hypothèse racontée par les cartes.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">3</div>
-        <div class="art-stat-l" data-fr="liaisons directes vers<br>trois continents" data-en="direct links to<br>three continents">liaisons directes vers<br>trois continents</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time" data-fr="Août 2026 · 12 min" data-en="August 2026 · 12 min">Août 2026 · 12 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
+    </section>
 
-    <!-- N°09 : Qui forme les talents tech portugais -->
-    <a href="articles/09-talent-map-fr.html" id="card-09" class="art-card sr" data-theme="talent">
-      <div class="art-card-top">
-        <span class="art-tag tag-o" data-fr="Talent & Éducation" data-en="Talent & Education">Talent & Éducation</span>
-        <span class="art-num">09</span>
-      </div>
-      <h3 class="art-title" data-fr="Qui forme les talents tech <em>portugais</em> ?" data-en="Who trains Portugal's tech <em>talent</em>?">Qui forme les talents tech <em>portugais</em> ?</h3>
-      <p class="art-intro" data-fr="Les universités donnent au Portugal sa crédibilité. Mais 58,1 % des diplômés TIC viennent des polytechniques, et une couche entière du vivier échappe aux statistiques de diplômes." data-en="Universities give Portugal its credibility. But 58.1% of ICT graduates come from polytechnics, and a whole layer of the pipeline never shows up in degree statistics.">Les universités donnent au Portugal sa crédibilité. Mais 58,1 % des diplômés TIC viennent des polytechniques, et une couche entière du vivier échappe aux statistiques de diplômes.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">58,1<sup>%</sup></div>
-        <div class="art-stat-l" data-fr="Des diplômés TIC 2024/25<br>viennent des polytechniques" data-en="Of 2024/25 ICT graduates<br>come from polytechnics">Des diplômés TIC 2024/25<br>viennent des polytechniques</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">Juillet 2026 · 15 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°07 : Internet.exe Europe -->
-    <!-- N°08 : Le crash qui a changé l'Europe -->
-    <a href="articles/internet-exe-europe-part-3-fr.html" id="card-08" class="art-card sr" data-theme="infrastructure">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Infrastructure · Capital" data-en="Infrastructure · Capital">Infrastructure · Capital</span>
-        <span class="art-num">08</span>
-      </div>
-      <h3 class="art-title" data-fr="Le crash qui a <em>changé l'Europe</em>" data-en="The crash that <em>changed Europe</em>">Le crash qui a <em>changé l'Europe</em></h3>
-      <p class="art-intro" data-fr="Mars 2000 : l'euphorie .com, le krach du NASDAQ, la gueule de bois télécom. Comment l'Europe a gardé les idées, mais perdu une partie du temps long." data-en="March 2000: .com euphoria, the NASDAQ crash, the telecom hangover. How Europe kept the ideas, but lost part of the long game.">Mars 2000 : l'euphorie .com, le krach du NASDAQ, la gueule de bois télécom. Comment l'Europe a gardé les idées, mais perdu une partie du temps long.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">-77,9 %</div>
-        <div class="art-stat-l" data-fr="NASDAQ du sommet au creux<br>mars 2000 → oct. 2002" data-en="NASDAQ peak to trough<br>Mar 2000 → Oct 2002">NASDAQ du sommet au creux<br>mars 2000 → oct. 2002</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">Juin 2026 · 14 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°07 : Internet.exe Europe -->
-    <a href="articles/internet-exe-europe-part-2-fr.html" id="card-07" class="art-card sr" data-theme="infrastructure">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Infrastructure · Plateformes" data-en="Infrastructure · Platforms">Infrastructure · Plateformes</span>
-        <span class="art-num">07</span>
-      </div>
-      <h3 class="art-title" data-fr="Internet.exe Europe - <em>l'autonomie perdue</em>" data-en="Internet.exe Europe - <em>lost autonomy</em>">Internet.exe Europe - <em>l'autonomie perdue</em></h3>
-      <p class="art-intro" data-fr="Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions - et pourquoi cela a basculé." data-en="Before dependency on American platforms, Europe had habits, brands and communities. A vintage map to understand what we had - and why it shifted.">Avant la dépendance aux plateformes américaines, l'Europe avait des usages, des marques et des communautés. Une carte vintage pour comprendre ce que nous avions - et pourquoi cela a basculé.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">2000</div>
-        <div class="art-stat-l" data-fr="Windows 2000 comme mémoire<br>de l'Internet européen" data-en="Windows 2000 as memory<br>of the European Internet">Windows 2000 comme mémoire<br>de l'Internet européen</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">Juin 2026 · 11 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°05 : Finance française -->
-    <a href="articles/miradouro_banques_portugal_FR_FINAL_V3.html" id="card-05" class="art-card sr" data-theme="finance">
-      <div class="art-card-top">
-        <span class="art-tag tag-p" data-fr="Finance & Géographie" data-en="Finance & Geography">Finance & Géographie</span>
-        <span class="art-num">05</span>
-      </div>
-      <h3 class="art-title" data-fr="Comment la finance française <em>transforme le Portugal</em>" data-en="How French finance <em>is transforming Portugal</em>">Comment la finance française <em>transforme le Portugal</em></h3>
-      <p class="art-intro" data-fr="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française participe à une nouvelle géographie européenne de la technologie bancaire." data-en="BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. From Lisbon and Porto, French finance is shaping a new European geography of banking technology.">BNP Paribas, Natixis, Euronext, AXA, Crédit Agricole. Depuis Lisbonne et Porto, la finance française participe à une nouvelle géographie européenne de la technologie bancaire.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">9 700</div>
-        <div class="art-stat-l" data-fr="Employés BNP Paribas<br>au Portugal" data-en="BNP Paribas employees<br>in Portugal">Employés BNP Paribas<br>au Portugal</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">Mai 2026 · 12 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°04 : Cloud -->
-    <a href="articles/miradouro-cloud-FR.html" id="card-04" class="art-card sr" data-theme="infrastructure">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Infrastructure · Cloud" data-en="Infrastructure · Cloud">Infrastructure · Cloud</span>
-        <span class="art-num">04</span>
-      </div>
-      <h3 class="art-title" data-fr="Compétences cloud au Portugal - <em>le vide européen</em>" data-en="Cloud skills in Portugal - <em>the European gap</em>">Compétences cloud au Portugal - <em>le vide européen</em></h3>
-      <p class="art-intro" data-fr="195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise." data-en="195K specialists across Europe. Portugal concentrates 10,700. The UK stands apart. And for senior profiles, salaries start to break from the Portuguese average.">195K spécialistes en Europe. Le Portugal en concentre 10 700. Le Royaume-Uni se détache. Et pour les profils seniors, les salaires commencent à décrocher de la moyenne portugaise.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">€52,5K</div>
-        <div class="art-stat-l" data-fr="Salaire moyen cloud engineer<br>Portugal (ERI 2026)" data-en="Average cloud engineer salary<br>Portugal (ERI 2026)">Salaire moyen cloud engineer<br>Portugal (ERI 2026)</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">Avril 2026 · 12 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°03 : Souveraineté -->
-    <a href="articles/miradouro-sovereignty-fr.html" id="card-03" class="art-card sr" data-theme="infrastructure">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Cloud & Géopolitique" data-en="Cloud & Geopolitics">Cloud & Géopolitique</span>
-        <span class="art-num">03</span>
-      </div>
-      <h3 class="art-title" data-fr="L'Europe ne possède pas son <em>infrastructure</em>" data-en="Europe doesn't own its <em>infrastructure</em>">L'Europe ne possède pas son <em>infrastructure</em></h3>
-      <p class="art-intro" data-fr="70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe." data-en="70% of European cloud in three American hands. 40 AI models in the US, 3 in Europe.">70% du marché cloud européen entre trois mains américaines. 40 modèles IA aux États-Unis, 3 en Europe.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">70%</div>
-        <div class="art-stat-l">Du cloud européen contrôlé<br>par AWS, Azure, GCP</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">2026 · 10 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- HS : IA & Musique -->
-    <a href="articles/ai-music-fr.html" id="card-hs" class="art-card sr" data-theme="ai">
-      <div class="art-card-top">
-        <span class="art-tag tag-p" data-fr="IA & Société" data-en="AI & Society">IA & Société</span>
-        <span class="art-num">HS</span>
-      </div>
-      <h3 class="art-title" data-fr="97% ne font pas la <em>différence</em>" data-en="97% can't tell the <em>difference</em>">97% ne font pas la <em>différence</em></h3>
-      <p class="art-intro" data-fr="34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent - et ne disent pas." data-en="34% of Deezer uploads AI-generated. 7M Suno tracks per day. What the data says.">34% des uploads Deezer générés par IA. 7M morceaux Suno par jour. Ce que les données disent.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">34%</div>
-        <div class="art-stat-l">Des uploads Deezer<br>générés par IA en 2024</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">2025 · 12 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°01 : Ciseaux -->
-    <a href="articles/01-scissor-effect-fr.html" id="card-01" class="art-card sr" data-theme="talent">
-      <div class="art-card-top">
-        <span class="art-tag tag-o" data-fr="Nearshore & Économie" data-en="Nearshore & Economy">Nearshore & Économie</span>
-        <span class="art-num">01</span>
-      </div>
-      <h3 class="art-title" data-fr="L'effet <em>ciseaux</em> - nearshore à un tournant" data-en="The <em>scissor</em> effect - nearshore at a turning point">L'effet <em>ciseaux</em> - nearshore à un tournant</h3>
-      <p class="art-intro" data-fr="Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent." data-en="Lisbon's cost of living is soaring. Senior salaries climbing. Nearshore rates are not.">Les coûts s'envolent. Les salaires progressent. Les tarifs nearshore, eux, stagnent.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">38%</div>
-        <div class="art-stat-l">Écart coût employeur réel<br>Lisbonne vs Paris</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">2025 · 8 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-    <!-- N°02 : Immigration -->
-    <a href="articles/02-immigration-fr.html" id="card-02" class="art-card sr" data-theme="talent">
-      <div class="art-card-top">
-        <span class="art-tag tag-p" data-fr="Immigration & Talent" data-en="Immigration & Talent">Immigration & Talent</span>
-        <span class="art-num">02</span>
-      </div>
-      <h3 class="art-title" data-fr="Pas une fuite des cerveaux - un <em>hub qui aspire</em>" data-en="Not a brain drain - a <em>hub that draws in</em>">Pas une fuite des cerveaux - un <em>hub qui aspire</em></h3>
-      <p class="art-intro" data-fr="1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent." data-en="1.54M foreign residents. Record migration balance. The real question is no longer how many leave.">1,54M de résidents étrangers. Solde migratoire record. La vraie question n'est plus combien partent.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">1,54M</div>
-        <div class="art-stat-l">Résidents étrangers<br>au Portugal fin 2024</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time">2025 · 7 min</span>
-        <span class="art-arrow" data-fr="Lire" data-en="Read">Lire →</span>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- DOSSIER INTERNET.EXE -->
-  <section class="dossier-feature sr" data-theme="infrastructure" aria-label="Dossier Internet.exe Europe">
-    <div class="dossier-feature-main">
-      <div class="dossier-feature-kicker" data-fr="Dossier Miradouro · 3 parties" data-en="Miradouro dossier · 3 parts">Dossier Miradouro · 3 parties</div>
-      <h2 class="dossier-feature-title" data-fr="Quand l'Europe <em>possédait Internet</em>" data-en="When Europe <em>owned the Internet</em>">Quand l'Europe <em>possédait Internet</em></h2>
-        <p class="dossier-feature-copy" data-fr="Une série éditoriale façon Windows 2000 : partir d'une journée de 2004, retrouver les champions européens disparus, puis comprendre comment la bulle a changé l'Europe au moment où il fallait recommencer." data-en="A Windows 2000-style editorial series: start with a day in 2004, recover Europe's vanished champions, then understand how the crash changed Europe exactly when it needed to start again.">Une série éditoriale façon Windows 2000 : partir d'une journée de 2004, retrouver les champions européens disparus, puis comprendre comment la bulle a changé l'Europe au moment où il fallait recommencer.</p>
-      <a class="dossier-feature-cta" id="dossier-feature-link" href="articles/internet-exe-europe-part-3-fr.html" data-fr="Lire la conclusion" data-en="Read the conclusion">Lire la conclusion</a>
-    </div>
-    <div class="dossier-steps">
-      <a class="dossier-step dossier-step-link" id="dossier-step-01-link" href="articles/internet-exe-europe-fr.html">
-        <div class="dossier-step-num">01</div>
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
         <div>
-          <h3 class="dossier-step-title" data-fr="Une journée avant les plateformes" data-en="A day before the platforms">Une journée avant les plateformes</h3>
-          <p class="dossier-step-copy" data-fr="Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires." data-en="Nokia, Caramail, SAPO, Skyblog, Dailymotion: the same gestures, different owners.">Nokia, Caramail, SAPO, Skyblog, Dailymotion : les mêmes gestes, d'autres propriétaires.</p>
-          <span class="dossier-step-status" data-fr="En ligne" data-en="Live">En ligne</span>
+          <div class="eyebrow" style="color:var(--coral)" data-fr="À propos" data-en="About">À propos</div>
+          <h2 id="about-title" data-fr="Pourquoi Miradouro existe" data-en="Why Miradouro exists">Pourquoi Miradouro existe</h2>
+          <p class="about-copy" data-fr="Je m’appelle Jonathan Dias. Je vis à Lisbonne depuis 2016 et je travaille entre conseil technologique et finance. Miradouro part d’une question simple : qu’est-ce que le Portugal raconte des transformations technologiques de l’Europe ? J’écris pour relier les entreprises, les infrastructures et les chiffres que l’on regarde trop souvent séparément." data-en="My name is Jonathan Dias. I have lived in Lisbon since 2016 and work across technology consulting and finance. Miradouro starts from a simple question: what can Portugal tell us about Europe’s technological transformation? I write to connect companies, infrastructure and figures that are too often examined separately.">Je m’appelle Jonathan Dias. Je vis à Lisbonne depuis 2016 et je travaille entre conseil technologique et finance. Miradouro part d’une question simple : qu’est-ce que le Portugal raconte des transformations technologiques de l’Europe ? J’écris pour relier les entreprises, les infrastructures et les chiffres que l’on regarde trop souvent séparément.</p>
         </div>
-      </a>
-      <a class="dossier-step dossier-step-link" id="dossier-step-02-link" href="articles/internet-exe-europe-part-2-fr.html">
-        <div class="dossier-step-num">02</div>
-        <div>
-          <h3 class="dossier-step-title" data-fr="L'atlas des géants disparus" data-en="The atlas of vanished giants">L'atlas des géants disparus</h3>
-          <p class="dossier-step-copy" data-fr="La carte réelle des marques européennes qui tenaient une couche du web." data-en="The real map of European brands that once held a layer of the web.">La carte réelle des marques européennes qui tenaient une couche du web.</p>
-          <span class="dossier-step-status" data-fr="Nouveau · en ligne" data-en="New · live">Nouveau · en ligne</span>
-        </div>
-      </a>
-      <a class="dossier-step dossier-step-link active" id="dossier-step-03-link" href="articles/internet-exe-europe-part-3-fr.html">
-        <div class="dossier-step-num">03</div>
-        <div>
-          <h3 class="dossier-step-title" data-fr="Le crash qui a changé l'Europe" data-en="The crash that changed Europe">Le crash qui a changé l'Europe</h3>
-          <p class="dossier-step-copy" data-fr="De l'euphorie .com au krach : pourquoi l'Europe a gardé les idées, mais perdu une partie du temps long." data-en="From .com euphoria to the crash: why Europe kept the ideas, but lost part of the long game.">De l'euphorie .com au krach : pourquoi l'Europe a gardé les idées, mais perdu une partie du temps long.</p>
-          <span class="dossier-step-status" data-fr="Final · en ligne" data-en="Final · live">Final · en ligne</span>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- MIRADOURO MAP -->
-  <section class="map-feature" id="map">
-    <a class="map-feature-card map-link sr" href="miradouro-map.html">
-      <div class="map-feature-visual">
-        <svg viewBox="0 0 700 380" role="img" aria-label="Carte stylisée de Lisbonne">
-          <rect width="700" height="380" fill="#243D2C"/>
-          <path d="M0 283C96 239 151 302 232 258C315 212 361 284 449 239C521 202 584 209 700 152V380H0Z" fill="#315D75" opacity=".8"/>
-          <g fill="none" stroke="#C8DAC8" stroke-width="1.2" opacity=".42">
-            <path d="M68 62L154 106L221 82L294 139L377 104L453 146L553 93L637 128"/>
-            <path d="M92 198L169 157L246 202L317 164L396 198L474 173L574 207"/>
-            <path d="M154 106L169 157L92 198M221 82L246 202M294 139L317 164M377 104L396 198M453 146L474 173M553 93L574 207"/>
-          </g>
-          <g fill="#C4973A" stroke="#F0DFA8" stroke-width="2">
-            <circle cx="154" cy="106" r="7"/><circle cx="246" cy="202" r="7"/><circle cx="377" cy="104" r="7"/><circle cx="474" cy="173" r="7"/><circle cx="574" cy="207" r="7"/>
-          </g>
-          <g fill="#EDB89A" opacity=".75">
-            <circle cx="317" cy="164" r="5"/><circle cx="92" cy="198" r="5"/><circle cx="553" cy="93" r="5"/>
-          </g>
-        </svg>
-        <span class="map-feature-stamp" data-fr="Explorer Lisbonne" data-en="Explore Lisbon">Explorer Lisbonne</span>
+        <aside class="profile" aria-label="Profil de l’auteur">
+          <div class="profile-row"><span data-fr="Auteur" data-en="Author">Auteur</span><strong>Jonathan Dias</strong></div>
+          <div class="profile-row"><span data-fr="Installé à" data-en="Based in">Installé à</span><strong data-fr="Lisbonne depuis 2016" data-en="Lisbon since 2016">Lisbonne depuis 2016</strong></div>
+          <div class="profile-row"><span data-fr="Parcours" data-en="Background">Parcours</span><strong data-fr="Conseil technologique · finance" data-en="Technology consulting · finance">Conseil technologique · finance</strong></div>
+          <div class="profile-row"><span>LinkedIn</span><strong><a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener noreferrer" data-fr="Voir le profil de Jonathan Dias ↗" data-en="View Jonathan Dias’s profile ↗">Voir le profil de Jonathan Dias ↗</a></strong></div>
+        </aside>
       </div>
-      <div class="map-feature-content">
-        <div class="map-feature-kicker" data-fr="Un projet Miradouro" data-en="A Miradouro project">Un projet Miradouro</div>
-        <h2 class="map-feature-title">Miradouro <em>Map</em></h2>
-        <p class="map-feature-copy" data-fr="Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative." data-en="An interactive map of Lisbon's cultural infrastructure: venues, scenes, studios and spaces shaping the creative city.">Une carte interactive de l'infrastructure culturelle lisboète : lieux, scènes, studios et espaces qui dessinent la ville créative.</p>
-        <span class="map-feature-cta" data-fr="Ouvrir la carte interactive" data-en="Open the interactive map">Ouvrir la carte interactive</span>
-      </div>
-    </a>
-  </section>
-</section>
+    </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-dark">
-    <div class="about-label" data-fr="Qui écrit ici" data-en="About">Qui écrit ici</div>
-    <h2 class="about-title" data-fr="10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em>" data-en="10 years in tech.<br>Lisbon since <em>2016.</em>">10 ans dans la tech.<br>Lisbonne depuis <em>2016.</em></h2>
-    <p class="about-body" data-fr="Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés." data-en="Agency Lead at Meritis Portugal, IT and finance consulting. Before that: Devoteam, Kwanko, Cisco. Clients: Samsung, Vodafone, BNP, Volkswagen across three markets.">Agency Lead chez Meritis Portugal, conseil IT et finance. Avant ça Devoteam, Kwanko, Cisco. Clients : Samsung, Vodafone, BNP, Volkswagen sur trois marchés.</p>
-    <p class="about-body small" data-fr="Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions. Miradouro, c'est l'endroit où je les écris." data-en="I'm not a journalist or analyst. I watch decisions being made from the inside and ask questions. Miradouro is where I write them down.">Je ne suis pas journaliste ni analyste. Je suis quelqu'un qui voit les décisions se prendre de l'intérieur et qui se pose des questions.</p>
-    <div class="about-flags">
-      <div class="flag-chip"><span style="font-size:.9rem">🇫🇷</span><span class="flag-code">FR</span></div>
-      <div class="flag-chip"><span style="font-size:.9rem">🇵🇹</span><span class="flag-code">PT</span></div>
-      <div class="flag-chip"><span style="font-size:.9rem">🇧🇷</span><span class="flag-code">BR</span></div>
-    </div>
-    <div class="about-ctas">
-      <a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener" class="about-cta">
-        <div><div class="cta-label" data-fr="LinkedIn" data-en="LinkedIn">LinkedIn</div></div>
-        <span class="cta-arrow">↗</span>
-      </a>
-      <a href="https://we-are-kombava.com/" target="_blank" rel="noopener" class="about-cta">
+    <section class="newsletter" aria-labelledby="newsletter-title">
+      <div class="shell newsletter-grid">
         <div>
-          <div class="cta-label" data-fr="Kombava - collectif musical, Lisbonne" data-en="Kombava - music collective, Lisbon">Kombava - collectif musical, Lisbonne</div>
-          <div class="cta-sub" data-fr="Deux mondes, même énergie." data-en="Two worlds, same energy.">Deux mondes, même énergie.</div>
+          <div class="eyebrow">Newsletter Miradouro</div>
+          <h2 id="newsletter-title" data-fr="La prochaine analyse, par email" data-en="The next analysis, by email">La prochaine analyse, par email</h2>
         </div>
-        <span class="cta-arrow">↗</span>
-      </a>
-    </div>
-  </div>
-  <div class="about-light">
-    <div class="stats-grid">
-      <div class="stat sr"><div class="stat-val">38<sup>%</sup></div><div class="stat-label" data-fr="Écart coût employeur Lisbonne vs Paris" data-en="Employer cost gap Lisbon vs Paris">Écart coût employeur Lisbonne vs Paris</div></div>
-      <div class="stat sr"><div class="stat-val">1,54<sup>M</sup></div><div class="stat-label" data-fr="Résidents étrangers au Portugal" data-en="Foreign residents in Portugal">Résidents étrangers au Portugal</div></div>
-      <div class="stat sr"><div class="stat-val">×3,1</div><div class="stat-label" data-fr="Hausse immobilier Lisbonne depuis 2015" data-en="Lisbon housing increase since 2015">Hausse immobilier Lisbonne depuis 2015</div></div>
-      <div class="stat sr"><div class="stat-val">70<sup>%</sup></div><div class="stat-label" data-fr="Du cloud européen dans trois mains américaines" data-en="Of European cloud in three American hands">Du cloud européen dans trois mains américaines</div></div>
-    </div>
-    <blockquote class="about-pull sr">
-      <span data-fr="Les données ne donnent pas de réponses. Elles posent de meilleures questions." data-en="Data doesn't give you answers. It helps you ask better questions.">Les données ne donnent pas de réponses. Elles posent de meilleures questions.</span>
-      <cite>Miradouro</cite>
-    </blockquote>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="newsletter" id="newsletter">
-  <div class="nl-inner">
-    <div>
-      <div class="nl-label sr" data-fr="Newsletter" data-en="Newsletter">Newsletter</div>
-      <h3 class="nl-title sr" data-fr="Un article par mois.<br><em>Dès sa parution.</em>" data-en="One article a month.<br><em>As soon as it's out.</em>">Un article par mois.<br><em>Dès sa parution.</em></h3>
-      <p class="nl-sub sr" data-fr="Pas de digest. Uniquement les analyses longues, quand elles sont prêtes." data-en="No digest. Only long-form analysis, when it's ready.">Pas de digest. Uniquement les analyses longues, quand elles sont prêtes.</p>
-    </div>
-    <div class="sr">
-      <form method="POST" action="https://7d45d2c6.sibforms.com/serve/MUIFABFfdjVRSKoTiJpHRS1W5SzQYvldzUZ_vnykXBso2FOoWE8ZvXARMgz5Lx-16aEzcaAsY5hkOexdIR94SDJ32dYzm3EZGEWGIbpLj3DzP8ju2wu5WvPaS7jw1o_29SqfGSEhLhEGszlLZssYq_tSBKNpd7ZfrlxesIHqZUowFW0aedDDQrRcZLZbm4W-IwcgZtMRysq9fVX3ng==" class="nl-form">
-        <input type="hidden" name="locale" value="en">
-        <input type="hidden" name="html_type" value="simple">
-        <input type="text" name="email_address_check" value="" style="display:none">
-        <div class="nl-field">
-          <input type="email" name="EMAIL" placeholder="votre@email.com" required class="nl-input" autocomplete="off">
-          <button type="submit" class="nl-btn" data-fr="S'abonner" data-en="Subscribe">S'abonner</button>
+        <div>
+          <form class="newsletter-form" method="post" action="https://7d45d2c6.sibforms.com/serve/MUIFABFfdjVRSKoTiJpHRS1W5SzQYvldzUZ_vnykXBso2FOoWE8ZvXARMgz5Lx-16aEzcaAsY5hkOexdIR94SDJ32dYzm3EZGEWGIbpLj3DzP8ju2wu5WvPaS7jw1o_29SqfGSEhLhEGszlLZssYq_tSBKNpd7ZfrlxesIHqZUowFW0aedDDQrRcZLZbm4W-IwcgZtMRysq9fVX3ng==">
+            <label class="skip" for="newsletter-email" data-fr="Votre adresse email" data-en="Your email address">Votre adresse email</label>
+            <input id="locale" type="hidden" name="locale" value="fr">
+            <input type="hidden" name="html_type" value="simple">
+            <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+            <input id="newsletter-email" type="email" name="EMAIL" required autocomplete="email" placeholder="votre@email.com">
+            <button type="submit" data-fr="S’abonner" data-en="Subscribe">S’abonner</button>
+          </form>
+          <p data-fr="Un email à chaque nouvelle publication. Désabonnement en un clic." data-en="One email for each new publication. Unsubscribe in one click.">Un email à chaque nouvelle publication. Désabonnement en un clic.</p>
         </div>
-        <p class="nl-promise" data-fr="Pas de spam. Désabonnement en un clic." data-en="No spam. Unsubscribe anytime.">Pas de spam. Désabonnement en un clic.</p>
-      </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-row">
+      <span>Miradouro · Tech européenne depuis Lisbonne</span>
+      <span>© 2026 Jonathan Dias</span>
+      <a href="#top" data-fr="Retour en haut ↑" data-en="Back to top ↑">Retour en haut ↑</a>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-brand">Mira<em>douro</em></div>
-      <div class="footer-sub">Tech · Lisbonne · 2025–2026</div>
-      <p class="footer-tagline" data-fr="Un article par mois. Des données sourcées. Pas de vérités établies." data-en="One article a month. Sourced data. No established truths.">Un article par mois. Des données sourcées. Pas de vérités établies.</p>
-    </div>
-    <div class="footer-col">
-      <h4 data-fr="Navigation" data-en="Navigation">Navigation</h4>
-      <a href="#articles" data-fr="Articles" data-en="Articles">Articles</a>
-      <a class="map-link" href="miradouro-map.html" data-fr="Miradouro Map" data-en="Miradouro Map">Miradouro Map</a>
-      <a href="#about" data-fr="À propos" data-en="About">À propos</a>
-      <a href="#newsletter" data-fr="Newsletter" data-en="Newsletter">Newsletter</a>
-    </div>
-    <div class="footer-col">
-      <h4 data-fr="Liens" data-en="Links">Liens</h4>
-      <a href="https://www.linkedin.com/in/jonathandiasreis/" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://we-are-kombava.com/" target="_blank" rel="noopener">Kombava ↗</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copy">© 2025–2026 Miradouro · Jonathan Dias</span>
-    <span style="font-size:16px">🇵🇹</span>
-  </div>
-</footer>
+  <script>
+    const languageCopy = {
+      fr: {
+        title: "Miradouro | Tech européenne et Portugal depuis Lisbonne",
+        description: "Miradouro analyse la tech européenne depuis Lisbonne : cloud, IA, câbles sous-marins, talents et entreprises au Portugal et en Europe.",
+        email: "votre@email.com"
+      },
+      en: {
+        title: "Miradouro | European tech and Portugal from Lisbon",
+        description: "Miradouro analyses European technology from Lisbon: cloud, AI, subsea cables, talent and companies across Portugal and Europe.",
+        email: "your@email.com"
+      }
+    };
 
-<script>
-/*========================================
-  CURSOR
-========================================*/
-const cur = document.getElementById('cursor');
-const ring = document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
-(function tick(){
-  rx+=(mx-rx)*.12; ry+=(my-ry)*.12;
-  if(cur){cur.style.left=mx+'px';cur.style.top=my+'px';}
-  if(ring){ring.style.left=rx+'px';ring.style.top=ry+'px';}
-  requestAnimationFrame(tick);
-})();
-
-/*========================================
-  SCROLL REVEAL
-========================================*/
-const revealObs = new IntersectionObserver(
-  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); }),
-  { threshold: 0.06 }
-);
-document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
-
-/*========================================
-  ARTICLE LINKS
-========================================*/
-const ARTICLE_LINKS = {
-  'card-10':    { fr: 'articles/portugal-interface-atlantique-fr.html', en: 'articles/portugal-atlantic-interface-en.html' },
-  'card-09':    { fr: 'articles/09-talent-map-fr.html', en: 'articles/09-talent-map-en.html' },
-  'card-08':    { fr: 'articles/internet-exe-europe-part-3-fr.html', en: 'articles/internet-exe-europe-part-3-en.html' },
-  'card-07':    { fr: 'articles/internet-exe-europe-part-2-fr.html', en: 'articles/internet-exe-europe-part-2-en.html' },
-  'card-06':    { fr: 'articles/06-soft-power-portugal-fr.html', en: 'articles/06-soft-power-portugal-en.html' },
-  'card-05':    { fr: 'articles/miradouro_banques_portugal_FR_FINAL_V3.html', en: 'articles/miradouro_banking_portugal_EN_FINAL.html' },
-  'card-04':    { fr: 'articles/miradouro-cloud-FR.html',   en: 'articles/miradouro-cloud-EN.html' },
-  'card-03':    { fr: 'articles/miradouro-sovereignty-fr.html', en: 'articles/miradouro-sovereignty-en.html' },
-  'card-hs':    { fr: 'articles/ai-music-fr.html',          en: 'articles/ai-music-en.html' },
-  'card-01':    { fr: 'articles/01-scissor-effect-fr.html', en: 'articles/01-scissor-effect-en.html' },
-  'card-02':    { fr: 'articles/02-immigration-fr.html',    en: 'articles/02-immigration-en.html' },
-};
-
-const DOSSIER_LINKS = {
-  part1: { fr: 'articles/internet-exe-europe-fr.html', en: 'articles/internet-exe-europe-en.html' },
-  part2: { fr: 'articles/internet-exe-europe-part-2-fr.html', en: 'articles/internet-exe-europe-part-2-en.html' },
-  part3: { fr: 'articles/internet-exe-europe-part-3-fr.html', en: 'articles/internet-exe-europe-part-3-en.html' }
-};
-
-function applyArticleLinks(lang) {
-  Object.entries(ARTICLE_LINKS).forEach(([id, paths]) => {
-    const el = document.getElementById(id);
-    if(!el) return;
-    const url = paths[lang] || paths.fr;
-    el.href = url;
-    el.style.cursor = 'none';
-  });
-  const hero = document.getElementById('link-hero');
-  if(hero) hero.href = ARTICLE_LINKS['card-10'][lang] || ARTICLE_LINKS['card-10'].fr;
-  document.querySelectorAll('.map-link').forEach(link => {
-    link.href = (lang === 'en')
-      ? 'miradouro-map-en.html'
-      : 'miradouro-map.html';
-  });
-}
-
-/*========================================
-  THÈME - données par thème
-========================================*/
-const THEME_DATA = {
-  finance: {
-    stat_num: '9 700',
-    stat_label_fr: 'Employés BNP Paribas au Portugal - 4e employeur privé du pays.',
-    stat_label_en: 'BNP Paribas employees in Portugal - 4th largest private employer.',
-    kicker_fr: 'Article récent · Soft power', kicker_en: 'Recent article · Soft power',
-    title_fr: 'Lisbonne, ou le paradoxe portugais',
-    title_en: 'Lisbon and the Portuguese paradox',
-    intro_fr: 'Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.',
-    intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
-    link_fr: 'articles/06-soft-power-portugal-fr.html',
-    link_en: 'articles/06-soft-power-portugal-en.html',
-    theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
-  },
-  culture: {
-    stat_num: '36,1M',
-    stat_label_fr: 'Passagers à l\'aéroport de Lisbonne en 2025. La ville devient une adresse mondiale.',
-    stat_label_en: 'Passengers at Lisbon airport in 2025. The city is becoming a global address.',
-    kicker_fr: 'Article récent · Soft power', kicker_en: 'Recent article · Soft power',
-    title_fr: 'Lisbonne, ou le paradoxe portugais',
-    title_en: 'Lisbon and the Portuguese paradox',
-    intro_fr: 'Culture, tech, mobilité, langue et diaspora : pourquoi Lisbonne concentre une désirabilité nouvelle.',
-    intro_en: 'Culture, tech, mobility, language and diaspora: why Lisbon now concentrates a new desirability.',
-    link_fr: 'articles/06-soft-power-portugal-fr.html',
-    link_en: 'articles/06-soft-power-portugal-en.html',
-    theme_label_fr: '- Culture & Soft power', theme_label_en: '- Culture & Soft power',
-  },
-  infrastructure: {
-    stat_num: '3',
-    stat_label_fr: 'Grands câbles relient désormais directement le Portugal aux Amériques et à l’Afrique.',
-    stat_label_en: 'Major cables now connect Portugal directly to the Americas and Africa.',
-    kicker_fr: 'Nouveau · Atlas atlantique', kicker_en: 'New · Atlantic atlas',
-    title_fr: 'Et si le bout de l\'Europe devenait son entrée ?',
-    title_en: 'What if the edge of Europe became its gateway?',
-    intro_fr: 'Câbles, électricité, Sines : le Portugal peut-il transformer sa position géographique en puissance numérique ?',
-    intro_en: 'Cables, electricity, Sines: can Portugal turn its geography into digital power?',
-    link_fr: 'articles/portugal-interface-atlantique-fr.html',
-    link_en: 'articles/portugal-atlantic-interface-en.html',
-    theme_label_fr: '- Infrastructure & Territoires', theme_label_en: '- Infrastructure & Territory',
-  },
-  talent: {
-    stat_num: '38%',
-    stat_label_fr: 'Écart de coût employeur réel entre Lisbonne et Paris. L\'avantage nearshore se compresse.',
-    stat_label_en: 'Real employer cost gap between Lisbon and Paris. The nearshore advantage is shrinking.',
-    kicker_fr: 'Article récent · Talent', kicker_en: 'Recent article · Talent',
-    title_fr: 'Pas une fuite des cerveaux - un hub qui aspire',
-    title_en: 'Not a brain drain - a hub that draws in',
-    intro_fr: '1,54M de résidents étrangers. Solde migratoire record. La vraie question n\'est plus combien partent.',
-    intro_en: '1.54M foreign residents. Record migration balance. The real question is no longer how many leave.',
-    link_fr: 'articles/02-immigration-fr.html',
-    link_en: 'articles/02-immigration-en.html',
-    theme_label_fr: '- Talent & Immigration', theme_label_en: '- Talent & Immigration',
-  },
-  ai: {
-    stat_num: '34%',
-    stat_label_fr: 'Des uploads Deezer générés par IA en 2024. 7 millions de morceaux Suno par jour.',
-    stat_label_en: 'Of Deezer uploads AI-generated in 2024. 7 million Suno tracks per day.',
-    kicker_fr: 'Article récent · IA', kicker_en: 'Recent article · AI',
-    title_fr: '97% ne font pas la différence',
-    title_en: '97% can\'t tell the difference',
-    intro_fr: 'Ce que les données disent sur la musique générée par IA - et ce qu\'elles ne disent pas.',
-    intro_en: 'What the data says about AI-generated music - and what it doesn\'t.',
-    link_fr: 'articles/ai-music-fr.html',
-    link_en: 'articles/ai-music-en.html',
-    theme_label_fr: '- IA & Société', theme_label_en: '- AI & Society',
-  }
-};
-
-let currentTheme = 'infrastructure';
-let currentLang = 'fr';
-
-function setTheme(theme) {
-  currentTheme = theme;
-  // Mettre à jour les boutons
-  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-  var btn = document.querySelector('.theme-btn[data-theme="' + theme + '"]');
-  if(btn) btn.classList.add('active');
-  // Mettre à jour le hero signal
-  var d = THEME_DATA[theme];
-  var lang = currentLang;
-  document.getElementById('hero-stat-num').textContent = d.stat_num;
-  // Fonction locale : met à jour data-fr/en ET écrit immédiatement dans la bonne langue
-  function syncEl(id, valFr, valEn) {
-    var el = document.getElementById(id);
-    if(!el) return;
-    el.setAttribute('data-fr', valFr);
-    el.setAttribute('data-en', valEn);
-    el.innerHTML = (lang === 'en') ? valEn : valFr;
-  }
-  syncEl('hero-stat-label', d.stat_label_fr, d.stat_label_en);
-  syncEl('hero-kicker',     d.kicker_fr,     d.kicker_en);
-  syncEl('hero-title',      d.title_fr,      d.title_en);
-  syncEl('hero-intro',      d.intro_fr,      d.intro_en);
-  syncEl('theme-label',     d.theme_label_fr,d.theme_label_en);
-  var heroLink = document.getElementById('link-hero');
-  if(heroLink) heroLink.href = (lang === 'en') ? d.link_en : d.link_fr;
-  var dossierLink = document.getElementById('dossier-feature-link');
-  if(dossierLink) dossierLink.href = DOSSIER_LINKS.part3[lang] || DOSSIER_LINKS.part3.fr;
-  var dossierStep01 = document.getElementById('dossier-step-01-link');
-  if(dossierStep01) dossierStep01.href = DOSSIER_LINKS.part1[lang] || DOSSIER_LINKS.part1.fr;
-  var dossierStep02 = document.getElementById('dossier-step-02-link');
-  if(dossierStep02) dossierStep02.href = DOSSIER_LINKS.part2[lang] || DOSSIER_LINKS.part2.fr;
-  var dossierStep03 = document.getElementById('dossier-step-03-link');
-  if(dossierStep03) dossierStep03.href = DOSSIER_LINKS.part3[lang] || DOSSIER_LINKS.part3.fr;
-  // Filtrer les articles
-  filterArticles(theme);
-}
-
-function applyLangToEl(el, lang) {
-  if(!el) return;
-  const v = el.getAttribute('data-'+lang);
-  if(v !== null) el.innerHTML = v;
-}
-
-function filterArticles(filter) {
-  const cards = document.querySelectorAll('.analyses-grid .art-card, .article-phare');
-  cards.forEach(card => {
-    const theme = card.getAttribute('data-theme');
-    if(filter === 'all' || !filter || theme === filter) {
-      card.style.display = '';
-    } else {
-      card.style.display = 'none';
+    function setLanguage(next) {
+      document.documentElement.lang = next;
+      document.querySelectorAll("[data-fr][data-en]").forEach((element) => {
+        element.textContent = element.dataset[next];
+      });
+      document.querySelectorAll(".localized").forEach((element) => {
+        element.href = element.dataset[next + "Href"];
+      });
+      document.title = languageCopy[next].title;
+      document.querySelector('meta[name="description"]').content = languageCopy[next].description;
+      document.getElementById("newsletter-email").placeholder = languageCopy[next].email;
+      document.getElementById("locale").value = next;
+      ["fr", "en"].forEach((code) => {
+        const button = document.getElementById(code);
+        const active = code === next;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
     }
-  });
-  // Mettre à jour les boutons filtres
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  var activeBtn = document.querySelector('.filter-btn[data-filter="' + filter + '"]') ||
-                    document.querySelector('.filter-btn[data-filter="all"]');
-  if(activeBtn) activeBtn.classList.add('active');
-}
 
-/*========================================
-  LANGUE
-========================================*/
-function setLang(l) {
-  currentLang = l;
-  document.getElementById('btnFR').classList.toggle('active', l==='fr');
-  document.getElementById('btnEN').classList.toggle('active', l==='en');
-  document.querySelectorAll('[data-fr]').forEach(el => {
-    const v = el.getAttribute('data-'+l);
-    if(v !== null) el.innerHTML = v;
-  });
-  document.documentElement.lang = l;
-  localStorage.setItem('mira_lang', l);
-  applyArticleLinks(l);
-  // Mettre à jour le lien hero selon thème actif
-  var d2 = THEME_DATA[currentTheme];
-  if(d2) document.getElementById('link-hero').href = (l === 'en') ? d2.link_en : d2.link_fr;
-  var dossierLink = document.getElementById('dossier-feature-link');
-  if(dossierLink) dossierLink.href = DOSSIER_LINKS.part2[l] || DOSSIER_LINKS.part2.fr;
-  var dossierStep01 = document.getElementById('dossier-step-01-link');
-  if(dossierStep01) dossierStep01.href = DOSSIER_LINKS.part1[l] || DOSSIER_LINKS.part1.fr;
-  var dossierStep02 = document.getElementById('dossier-step-02-link');
-  if(dossierStep02) dossierStep02.href = DOSSIER_LINKS.part2[l] || DOSSIER_LINKS.part2.fr;
-}
-
-/*========================================
-  INIT
-========================================*/
-const savedLang = localStorage.getItem('mira_lang') || 'fr';
-currentLang = savedLang;
-if(savedLang === 'en') setLang('en');
-else { applyArticleLinks('fr'); }
-
-// Filtre par défaut : tout visible
-filterArticles('all');
-document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
-document.querySelector('.filter-btn[data-filter="finance"]')?.classList.remove('active');
-
-/*========================================
-  COOKIE
-========================================*/
-function closeCookie(){
-  const el = document.getElementById('cookieBanner');
-  if(el){ el.style.transition='opacity .3s'; el.style.opacity='0'; setTimeout(()=>el.remove(),300); }
-  try{ localStorage.setItem('mira_cookie','1'); }catch(e){}
-}
-try{ if(localStorage.getItem('mira_cookie')) document.getElementById('cookieBanner').remove(); }catch(e){}
-</script>
+    document.getElementById("fr").addEventListener("click", () => setLanguage("fr"));
+    document.getElementById("en").addEventListener("click", () => setLanguage("en"));
+  </script>
 </body>
 </html>

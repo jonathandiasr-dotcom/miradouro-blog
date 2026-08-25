@@ -5,12 +5,14 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 ## Accueil et projets
 
 - [Accueil](https://miradouro.blog/)
+- [Toutes les analyses](https://miradouro.blog/analyses.html)
 - [À propos de Jonathan Dias](https://miradouro.blog/#about)
 - [Miradouro Map](https://miradouro.blog/miradouro-map.html)
 - [Miradouro Map — English](https://miradouro.blog/miradouro-map-en.html)
 
 ## Analyses en français
 
+- [Après l’argent : combien d’heures vaut encore le monde ?](https://miradouro.blog/articles/apres-argent-elon-musk-fr.html): Elon Musk imagine un monde où les machines rendent le travail facultatif et l’argent moins utile. Une analyse du temps de travail, de l’automatisation et de ce qui restera rare.
 - [L'effet ciseaux, le nearshore portugais à un tournant](https://miradouro.blog/articles/01-scissor-effect-fr.html): Les coûts de vie à Lisbonne s envolent. Les salaires seniors progressent. Les tarifs nearshore stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent.
 - [Portugal tech : pas une fuite des cerveaux, un hub qui aspire](https://miradouro.blog/articles/02-immigration-fr.html): 1,54 million de résidents étrangers. Solde migratoire record. La vraie question : comment capter un écosystème devenu plus international.
 - [Lisbonne, ou le paradoxe portugais](https://miradouro.blog/articles/06-soft-power-portugal-fr.html): Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.

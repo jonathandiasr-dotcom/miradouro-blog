@@ -5,6 +5,10 @@
     <lastmod>2026-08-04</lastmod>
   </url>
   <url>
+    <loc>https://miradouro.blog/analyses.html</loc>
+    <lastmod>2026-08-25</lastmod>
+  </url>
+  <url>
     <loc>https://miradouro.blog/miradouro-map.html</loc>
     <lastmod>2026-08-04</lastmod>
     <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/miradouro-map.html"/>
@@ -185,5 +189,11 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/portugal-interface-atlantique-fr.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/portugal-atlantic-interface-en.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/portugal-interface-atlantique-fr.html"/>
+  </url>
+  <url>
+    <loc>https://miradouro.blog/articles/apres-argent-elon-musk-fr.html</loc>
+    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/apres-argent-elon-musk-fr.html"/>
   </url>
 </urlset>

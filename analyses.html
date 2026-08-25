@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <meta name="description" content="Toutes les analyses de Miradouro sur la tech européenne, le Portugal, les infrastructures numériques, les talents, le cloud et l’IA.">
+  <title>Toutes les analyses | Miradouro</title>
+  <link rel="canonical" href="https://miradouro.blog/analyses.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site-header.css">
+  <style>
+    :root{--ink:#18140e;--green:#243d2c;--rust:#a85c42;--paper:#fbf8f2;--sand:#ede6da;--line:#cfc4b1;--muted:#6b5d50;--serif:Fraunces,Georgia,serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .shell{width:min(100% - 48px,1120px);margin-inline:auto}
+    .skip{position:absolute;left:-999px;top:8px;padding:10px 14px;background:var(--green);color:#fff;z-index:10000}.skip:focus{left:8px}
+    .masthead{padding:clamp(58px,8vw,104px) 0 45px;border-bottom:1px solid var(--ink);background:linear-gradient(rgba(36,61,44,.045) 1px,transparent 1px) 0 0/100% 38px,var(--paper)}
+    .masthead-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(290px,.8fr);gap:clamp(40px,7vw,90px);align-items:end}
+    .eyebrow{font:760 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--rust)}
+    h1{margin:13px 0 0;font:430 clamp(50px,7vw,84px)/.92 var(--serif);letter-spacing:-.055em}
+    .intro{margin:0;color:var(--green);font:380 clamp(18px,1.8vw,22px)/1.5 var(--serif)}
+    .filters{display:flex;flex-wrap:wrap;gap:8px;padding:24px 0 0}
+    .filter{border:1px solid var(--line);background:transparent;padding:8px 11px;color:var(--green);font:750 11px/1 var(--sans);cursor:pointer}
+    .filter:hover,.filter.active{border-color:var(--green);background:var(--green);color:var(--paper)}
+    .archive{padding:24px 0 clamp(76px,9vw,116px)}
+    .stories{border-top:1px solid var(--ink)}
+    .story{position:relative;display:grid;grid-template-columns:74px minmax(0,1fr) minmax(170px,230px);gap:28px;align-items:center;padding:27px 4px;border-bottom:1px solid var(--ink)}
+    .story:before{content:"";position:absolute;left:0;top:-1px;bottom:-1px;width:0;background:var(--rust);transition:width .18s ease}
+    .story:hover{background:rgba(237,230,218,.48)}.story:hover:before{width:5px}
+    .number{color:var(--rust);font:440 39px/1 var(--serif)}
+    h2{margin:0 0 8px;font:420 clamp(26px,3vw,37px)/1 var(--serif);letter-spacing:-.035em}
+    .story p{max-width:700px;margin:0;color:var(--muted);font-size:14px;line-height:1.55}
+    .meta{text-align:right;color:var(--muted);font-size:10px;font-weight:780;letter-spacing:.08em;text-transform:uppercase}.arrow{display:block;margin-top:10px;color:var(--rust);font-size:20px}
+    .story[hidden]{display:none}
+    .footer{padding:28px 0;background:var(--green);color:rgba(251,248,242,.68)}.footer-row{display:flex;justify-content:space-between;gap:20px;font-size:10px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.footer a:hover{color:#fff}
+    @media(max-width:820px){.masthead-grid{grid-template-columns:1fr;gap:22px}.story{grid-template-columns:52px minmax(0,1fr)}.meta{grid-column:2;text-align:left}.arrow{display:inline;margin-left:10px}}
+    @media(max-width:600px){.shell{width:min(100% - 28px,1120px)}.masthead{padding-top:45px}.story{grid-template-columns:37px minmax(0,1fr);gap:13px;padding:22px 0}.number{font-size:29px}h2{font-size:27px}.footer-row{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.story:before{transition:none}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="mira-site-header">
+    <a class="mira-site-logo" href="index.html" aria-label="Miradouro, accueil">Mira<span class="mira-site-logo-accent">douro</span></a>
+    <nav class="mira-site-nav" aria-label="Navigation principale">
+      <a href="analyses.html" aria-current="page" data-fr="Analyses" data-en="Analysis">Analyses</a>
+      <a href="index.html#dossier" data-fr="Dossier" data-en="Series">Dossier</a>
+      <a href="miradouro-map.html">Map</a>
+      <a href="index.html#about" data-fr="À propos" data-en="About">À propos</a>
+    </nav>
+    <div class="mira-site-lang" aria-label="Langue">
+      <button id="fr" class="active" type="button" aria-pressed="true">FR</button>
+      <button id="en" type="button" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="masthead">
+      <div class="shell masthead-grid">
+        <div><div class="eyebrow" data-fr="Archives Miradouro" data-en="Miradouro archive">Archives Miradouro</div><h1 data-fr="Toutes les analyses" data-en="All analysis">Toutes les analyses</h1></div>
+        <p class="intro" data-fr="Tech européenne, Portugal, infrastructures, talents et entreprises : les sujets que Miradouro suit depuis Lisbonne." data-en="European tech, Portugal, infrastructure, talent and companies: the subjects Miradouro follows from Lisbon.">Tech européenne, Portugal, infrastructures, talents et entreprises : les sujets que Miradouro suit depuis Lisbonne.</p>
+      </div>
+      <div class="shell filters" aria-label="Filtrer les analyses">
+        <button class="filter active" type="button" data-filter="all" data-fr="Tout" data-en="All">Tout</button>
+        <button class="filter" type="button" data-filter="portugal">Portugal</button>
+        <button class="filter" type="button" data-filter="infrastructure" data-fr="Infrastructures" data-en="Infrastructure">Infrastructures</button>
+        <button class="filter" type="button" data-filter="talent" data-fr="Talents" data-en="Talent">Talents</button>
+        <button class="filter" type="button" data-filter="ai">IA</button>
+        <button class="filter" type="button" data-filter="europe">Europe</button>
+      </div>
+    </section>
+
+    <section class="archive" aria-label="Liste des analyses">
+      <div class="shell stories">
+        <a class="story localized" data-topic="ai europe" href="articles/apres-argent-elon-musk-fr.html" data-fr-href="articles/apres-argent-elon-musk-fr.html" data-en-href="articles/apres-argent-elon-musk-fr.html">
+          <span class="number">13</span><div><h2 data-fr="Après l’argent : combien d’heures vaut encore le monde ?" data-en="After money: how many hours is the world still worth?">Après l’argent : combien d’heures vaut encore le monde ?</h2><p data-fr="Elon Musk, automatisation, rareté et temps de travail : ce que l’abondance change vraiment." data-en="Elon Musk, automation, scarcity and working time: what abundance really changes.">Elon Musk, automatisation, rareté et temps de travail : ce que l’abondance change vraiment.</p></div><div class="meta"><span data-fr="Économie · IA · FR" data-en="Economics · AI · French">Économie · IA · FR</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal infrastructure europe" href="articles/portugal-interface-atlantique-fr.html" data-fr-href="articles/portugal-interface-atlantique-fr.html" data-en-href="articles/portugal-atlantic-interface-en.html">
+          <span class="number">12</span><div><h2 data-fr="Sines : une porte numérique pour l’Europe ?" data-en="Sines: a digital gateway for Europe?">Sines : une porte numérique pour l’Europe ?</h2><p data-fr="Câbles sous-marins, data centers et énergie replacent le Portugal sur la carte numérique européenne." data-en="Subsea cables, data centres and energy are repositioning Portugal on Europe’s digital map.">Câbles sous-marins, data centers et énergie replacent le Portugal sur la carte numérique européenne.</p></div><div class="meta"><span data-fr="Infrastructures · Portugal" data-en="Infrastructure · Portugal">Infrastructures · Portugal</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal talent" href="articles/09-talent-map-fr.html" data-fr-href="articles/09-talent-map-fr.html" data-en-href="articles/09-talent-map-en.html">
+          <span class="number">11</span><div><h2 data-fr="Qui forme les talents tech portugais ?" data-en="Who trains Portugal’s tech talent?">Qui forme les talents tech portugais ?</h2><p data-fr="Une cartographie du vivier technologique portugais, université par université." data-en="A map of Portugal’s technology talent pool, university by university.">Une cartographie du vivier technologique portugais, université par université.</p></div><div class="meta"><span data-fr="Talents · Portugal" data-en="Talent · Portugal">Talents · Portugal</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="europe" href="articles/internet-exe-europe-part-3-fr.html" data-fr-href="articles/internet-exe-europe-part-3-fr.html" data-en-href="articles/internet-exe-europe-part-3-en.html">
+          <span class="number">10</span><div><h2 data-fr="Le crash qui a changé l’Europe" data-en="The crash that changed Europe">Le crash qui a changé l’Europe</h2><p data-fr="Du NASDAQ aux télécoms : comment l’Europe a perdu une partie de son avance après 2000." data-en="From the NASDAQ to telecoms: how Europe lost part of its lead after 2000.">Du NASDAQ aux télécoms : comment l’Europe a perdu une partie de son avance après 2000.</p></div><div class="meta"><span data-fr="Histoire · Europe" data-en="History · Europe">Histoire · Europe</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="europe" href="articles/internet-exe-europe-part-2-fr.html" data-fr-href="articles/internet-exe-europe-part-2-fr.html" data-en-href="articles/internet-exe-europe-part-2-en.html">
+          <span class="number">09</span><div><h2 data-fr="L’atlas des géants européens disparus" data-en="The atlas of vanished European giants">L’atlas des géants européens disparus</h2><p data-fr="Nokia, Skype, SAPO et les entreprises qui auraient pu changer la trajectoire numérique européenne." data-en="Nokia, Skype, SAPO and the companies that could have changed Europe’s digital path.">Nokia, Skype, SAPO et les entreprises qui auraient pu changer la trajectoire numérique européenne.</p></div><div class="meta"><span data-fr="Entreprises · Europe" data-en="Companies · Europe">Entreprises · Europe</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="europe" href="articles/internet-exe-europe-fr.html" data-fr-href="articles/internet-exe-europe-fr.html" data-en-href="articles/internet-exe-europe-en.html">
+          <span class="number">08</span><div><h2 data-fr="Quand l’Europe possédait Internet" data-en="When Europe owned the Internet">Quand l’Europe possédait Internet</h2><p data-fr="Avant les plateformes américaines, l’Europe avait ses services, ses usages et ses champions." data-en="Before American platforms, Europe had its own services, uses and champions.">Avant les plateformes américaines, l’Europe avait ses services, ses usages et ses champions.</p></div><div class="meta"><span data-fr="Internet · Europe" data-en="Internet · Europe">Internet · Europe</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="talent infrastructure europe" href="articles/miradouro-cloud-FR.html" data-fr-href="articles/miradouro-cloud-FR.html" data-en-href="articles/miradouro-cloud-EN.html">
+          <span class="number">07</span><div><h2 data-fr="Le cloud recrute. Mais qui, où, et à quel prix ?" data-en="Cloud hiring. But who, where, and at what price?">Le cloud recrute. Mais qui, où, et à quel prix ?</h2><p data-fr="Les métiers, les salaires et les lieux où se concentre le marché européen du cloud." data-en="The roles, salaries and locations shaping Europe’s cloud job market.">Les métiers, les salaires et les lieux où se concentre le marché européen du cloud.</p></div><div class="meta"><span data-fr="Cloud · Emploi" data-en="Cloud · Jobs">Cloud · Emploi</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="infrastructure europe" href="articles/miradouro-sovereignty-fr.html" data-fr-href="articles/miradouro-sovereignty-fr.html" data-en-href="articles/miradouro-sovereignty-en.html">
+          <span class="number">06</span><div><h2 data-fr="L’Europe ne possède pas son infrastructure" data-en="Europe doesn’t own its infrastructure">L’Europe ne possède pas son infrastructure</h2><p data-fr="Cloud, plateformes et dépendance : la souveraineté numérique comme résultat de choix concrets." data-en="Cloud, platforms and dependency: digital sovereignty as the result of concrete choices.">Cloud, plateformes et dépendance : la souveraineté numérique comme résultat de choix concrets.</p></div><div class="meta"><span data-fr="Souveraineté · Europe" data-en="Sovereignty · Europe">Souveraineté · Europe</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal europe" href="articles/miradouro_banques_portugal_FR_FINAL_V3.html" data-fr-href="articles/miradouro_banques_portugal_FR_FINAL_V3.html" data-en-href="articles/miradouro_banking_portugal_EN_FINAL.html">
+          <span class="number">05</span><div><h2 data-fr="Comment la finance française transforme le Portugal" data-en="How French finance is reshaping Portugal">Comment la finance française transforme le Portugal</h2><p data-fr="Banques, assurances et capital : les liens économiques entre la France et le Portugal." data-en="Banks, insurance and capital: the economic ties between France and Portugal.">Banques, assurances et capital : les liens économiques entre la France et le Portugal.</p></div><div class="meta"><span data-fr="Finance · Portugal" data-en="Finance · Portugal">Finance · Portugal</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="ai europe" href="articles/ai-music-fr.html" data-fr-href="articles/ai-music-fr.html" data-en-href="articles/ai-music-en.html">
+          <span class="number">04</span><div><h2 data-fr="IA et musique : 97 % ne font pas la différence" data-en="AI and music: 97% can’t tell the difference">IA et musique : 97 % ne font pas la différence</h2><p data-fr="Ce que l’écoute à l’aveugle révèle sur la création musicale à l’ère de l’IA." data-en="What blind listening reveals about music creation in the age of AI.">Ce que l’écoute à l’aveugle révèle sur la création musicale à l’ère de l’IA.</p></div><div class="meta"><span data-fr="IA · Culture" data-en="AI · Culture">IA · Culture</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal talent" href="articles/06-soft-power-portugal-fr.html" data-fr-href="articles/06-soft-power-portugal-fr.html" data-en-href="articles/06-soft-power-portugal-en.html">
+          <span class="number">03</span><div><h2 data-fr="Lisbonne, ou le paradoxe portugais" data-en="Lisbon and the Portuguese paradox">Lisbonne, ou le paradoxe portugais</h2><p data-fr="Une ville attractive, internationale, mais confrontée au coût de son propre succès." data-en="An attractive international city facing the cost of its own success.">Une ville attractive, internationale, mais confrontée au coût de son propre succès.</p></div><div class="meta"><span data-fr="Lisbonne · Talents" data-en="Lisbon · Talent">Lisbonne · Talents</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal talent" href="articles/02-immigration-fr.html" data-fr-href="articles/02-immigration-fr.html" data-en-href="articles/02-immigration-en.html">
+          <span class="number">02</span><div><h2 data-fr="Portugal tech : pas une fuite des cerveaux, un hub qui aspire" data-en="Portugal tech: not a brain drain, a hub that draws in">Portugal tech : pas une fuite des cerveaux, un hub qui aspire</h2><p data-fr="Qui part, qui arrive et comment les flux de talents redessinent l’écosystème portugais." data-en="Who leaves, who arrives and how talent flows are reshaping Portugal’s ecosystem.">Qui part, qui arrive et comment les flux de talents redessinent l’écosystème portugais.</p></div><div class="meta"><span data-fr="Migration · Tech" data-en="Migration · Tech">Migration · Tech</span><span class="arrow">↗</span></div>
+        </a>
+        <a class="story localized" data-topic="portugal talent" href="articles/01-scissor-effect-fr.html" data-fr-href="articles/01-scissor-effect-fr.html" data-en-href="articles/01-scissor-effect-en.html">
+          <span class="number">01</span><div><h2 data-fr="L’effet ciseaux : le nearshore portugais à un tournant" data-en="The scissor effect: Portuguese nearshore at a turning point">L’effet ciseaux : le nearshore portugais à un tournant</h2><p data-fr="Salaires, prix et attractivité : le modèle portugais pris entre deux courbes." data-en="Salaries, prices and attractiveness: the Portuguese model caught between two curves.">Salaires, prix et attractivité : le modèle portugais pris entre deux courbes.</p></div><div class="meta"><span data-fr="Nearshore · Portugal" data-en="Nearshore · Portugal">Nearshore · Portugal</span><span class="arrow">↗</span></div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="shell footer-row"><span>Miradouro · Tech européenne depuis Lisbonne</span><span>© 2026 Jonathan Dias</span><a href="index.html" data-fr="Retour à l’accueil" data-en="Back home">Retour à l’accueil</a></div></footer>
+  <script>
+    const buttons={fr:document.getElementById('fr'),en:document.getElementById('en')};
+    function setLanguage(lang){
+      document.documentElement.lang=lang;document.title=lang==='fr'?'Toutes les analyses | Miradouro':'All analysis | Miradouro';
+      document.querySelectorAll('[data-fr][data-en]').forEach(el=>{el.textContent=el.dataset[lang]});
+      document.querySelectorAll('.localized').forEach(el=>{el.href=el.dataset[lang+'Href']});
+      Object.entries(buttons).forEach(([key,button])=>{const active=key===lang;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active))});
+      try{localStorage.setItem('miradouro-lang',lang)}catch(e){}
+    }
+    buttons.fr.addEventListener('click',()=>setLanguage('fr'));buttons.en.addEventListener('click',()=>setLanguage('en'));
+    document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{const topic=button.dataset.filter;document.querySelectorAll('.filter').forEach(item=>item.classList.toggle('active',item===button));document.querySelectorAll('.story').forEach(story=>{story.hidden=topic!=='all'&&!story.dataset.topic.split(' ').includes(topic)})}));
+    let initial='fr';try{initial=localStorage.getItem('miradouro-lang')==='en'?'en':'fr'}catch(e){}setLanguage(initial);
+  </script>
+</body>
+</html>
