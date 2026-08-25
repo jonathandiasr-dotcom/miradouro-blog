@@ -12,7 +12,7 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 
 ## Analyses en français
 
-- [Après l’argent : combien d’heures vaut encore le monde ?](https://miradouro.blog/articles/apres-argent-elon-musk-fr.html): Elon Musk imagine un monde où les machines rendent le travail facultatif et l’argent moins utile. Une analyse du temps de travail, de l’automatisation et de ce qui restera rare.
+- [Après l’argent : combien d’heures vaut encore le monde ?](https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html): Elon Musk imagine un monde où l’argent compterait à peine. Mais produire, distribuer et décider restent trois problèmes différents, et la rareté ne disparaît pas si facilement.
 - [L'effet ciseaux, le nearshore portugais à un tournant](https://miradouro.blog/articles/01-scissor-effect-fr.html): Les coûts de vie à Lisbonne s envolent. Les salaires seniors progressent. Les tarifs nearshore stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent.
 - [Portugal tech : pas une fuite des cerveaux, un hub qui aspire](https://miradouro.blog/articles/02-immigration-fr.html): 1,54 million de résidents étrangers. Solde migratoire record. La vraie question : comment capter un écosystème devenu plus international.
 - [Lisbonne, ou le paradoxe portugais](https://miradouro.blog/articles/06-soft-power-portugal-fr.html): Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.
@@ -24,10 +24,11 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 - [Le cloud recrute. Mais qui, où, et à quel prix ?](https://miradouro.blog/articles/miradouro-cloud-FR.html): Salaires, compétences et géographie du cloud en Europe : où se situe le Portugal dans un marché dominé par les grands hubs technologiques ?
 - [L'Europe ne possède pas son infrastructure. Et c'est un choix.](https://miradouro.blog/articles/miradouro-sovereignty-fr.html): Cloud, IA, géopolitique : les données documentées d'une dépendance que personne n'a vraiment décidée. De Sines à AWS, de Mistral au CLOUD Act. Une observation depuis Lisbonne.
 - [Comment la finance française transforme le Portugal](https://miradouro.blog/articles/miradouro_banques_portugal_FR_FINAL_V3.html): BNP Paribas, Natixis, KLx, AXA GO et Euronext : comment la finance française contribue à spécialiser le Portugal dans la technologie bancaire.
-- [Le Portugal, interface atlantique ?](https://miradouro.blog/articles/portugal-interface-atlantique-fr.html): Comment le Portugal peut transformer sa façade atlantique, ses câbles et son électricité en puissance numérique, à condition de retenir la valeur.
+- [Sines : une porte numérique pour l’Europe ?](https://miradouro.blog/articles/portugal-interface-atlantique-fr.html): Câbles sous-marins, data centers et énergie : comment le Portugal peut devenir une porte numérique pour l’Europe et retenir la valeur.
 
 ## Analysis in English
 
+- [After money: how many hours is the world still worth?](https://miradouro.blog/articles/after-money-elon-musk-en-v5.html): Elon Musk imagines a world in which money barely matters. But producing, distributing and deciding remain three different problems, and scarcity does not disappear so easily.
 - [The scissor effect, Portuguese nearshore at a turning point](https://miradouro.blog/articles/01-scissor-effect-en.html): Lisbon costs are rising. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.
 - [Portugal tech: not a brain drain, a hub that draws in](https://miradouro.blog/articles/02-immigration-en.html): 1.54 million foreign residents. Record migration balance. The real question: how to work with a talent pool that has become genuinely international.
 - [Lisbon and the Portuguese Paradox](https://miradouro.blog/articles/06-soft-power-portugal-en.html): Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.
@@ -39,4 +40,4 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 - [Cloud hiring. But who, where, and at what price?](https://miradouro.blog/articles/miradouro-cloud-EN.html): Cloud salaries, skills and geography across Europe: where does Portugal stand in a market dominated by the largest technology hubs?
 - [Europe Doesn't Own Its Infrastructure. And That's a Choice.](https://miradouro.blog/articles/miradouro-sovereignty-en.html): Cloud, AI, geopolitics: the documented data behind Europe's digital dependency. From Sines to AWS, from Mistral to the CLOUD Act. An observation from Lisbon.
 - [How French Finance Is Reshaping Portugal](https://miradouro.blog/articles/miradouro_banking_portugal_EN_FINAL.html): BNP Paribas, Natixis, KLx, AXA GO and Euronext: how French finance is helping Portugal build a specialisation in banking technology.
-- [Portugal, an Atlantic interface?](https://miradouro.blog/articles/portugal-atlantic-interface-en.html): How Portugal could turn its Atlantic coast, subsea cables and electricity into digital power, provided it retains the value.
+- [Sines: a digital gateway for Europe?](https://miradouro.blog/articles/portugal-atlantic-interface-en.html): Subsea cables, data centres and energy: how Portugal could become a digital gateway for Europe and retain the value.
