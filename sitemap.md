@@ -10,6 +10,7 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 - [Miradouro Map — English](https://miradouro.blog/miradouro-map-en.html)
 
 ## Analyses en français
+- [Après l’argent : combien d’heures vaut encore le monde ?](https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html): Elon Musk imagine un monde où l’argent ne compterait plus. Mais produire, distribuer et décider sont trois problèmes différents, et la rareté ne disparaît pas si facilement.
 
 - [Juniors et IA : comment apprend-on le métier ?](https://miradouro.blog/articles/12-juniors-ia-fr.html): Moins de demandes de juniors, plus d’outils IA : ce que disent les études sur la façon d’apprendre un métier, et pourquoi tout dépend des questions qu’on pose.
 - [L'effet ciseaux, le nearshore portugais à un tournant](https://miradouro.blog/articles/01-scissor-effect-fr.html): Les coûts de vie à Lisbonne s envolent. Les salaires seniors progressent. Les tarifs nearshore stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent.
@@ -26,6 +27,7 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 - [Le Portugal, interface atlantique ?](https://miradouro.blog/articles/portugal-interface-atlantique-fr.html): Comment le Portugal peut transformer sa façade atlantique, ses câbles et son électricité en puissance numérique, à condition de retenir la valeur.
 
 ## Analysis in English
+- [After money: how many hours is the world still worth?](https://miradouro.blog/articles/after-money-elon-musk-en-v5.html): Elon Musk imagines a world in which money no longer matters. But producing, distributing and deciding are three different problems, and scarcity does not disappear so easily.
 
 - [Juniors and AI: how do you learn the job?](https://miradouro.blog/articles/12-juniors-ai-en.html): Fewer junior roles, more AI tools: what the research says about learning a job with AI, and why it may come down to the questions you ask.
 - [The scissor effect, Portuguese nearshore at a turning point](https://miradouro.blog/articles/01-scissor-effect-en.html): Lisbon costs are rising. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.
