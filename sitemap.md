@@ -11,6 +11,7 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 
 ## Analyses en français
 
+- [Juniors et IA : comment apprend-on le métier ?](https://miradouro.blog/articles/12-juniors-ia-fr.html): Moins de demandes de juniors, plus d’outils IA : ce que disent les études sur la façon d’apprendre un métier, et pourquoi tout dépend des questions qu’on pose.
 - [L'effet ciseaux, le nearshore portugais à un tournant](https://miradouro.blog/articles/01-scissor-effect-fr.html): Les coûts de vie à Lisbonne s envolent. Les salaires seniors progressent. Les tarifs nearshore stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent.
 - [Portugal tech : pas une fuite des cerveaux, un hub qui aspire](https://miradouro.blog/articles/02-immigration-fr.html): 1,54 million de résidents étrangers. Solde migratoire record. La vraie question : comment capter un écosystème devenu plus international.
 - [Lisbonne, ou le paradoxe portugais](https://miradouro.blog/articles/06-soft-power-portugal-fr.html): Le Portugal reste marqué par l'émigration. Mais Lisbonne concentre une désirabilité nouvelle, entre culture, tech, mobilité et idée d'une autre vie.
@@ -26,6 +27,7 @@ Miradouro est un blog indépendant d’analyses sourcées sur la technologie eur
 
 ## Analysis in English
 
+- [Juniors and AI: how do you learn the job?](https://miradouro.blog/articles/12-juniors-ai-en.html): Fewer junior roles, more AI tools: what the research says about learning a job with AI, and why it may come down to the questions you ask.
 - [The scissor effect, Portuguese nearshore at a turning point](https://miradouro.blog/articles/01-scissor-effect-en.html): Lisbon costs are rising. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.
 - [Portugal tech: not a brain drain, a hub that draws in](https://miradouro.blog/articles/02-immigration-en.html): 1.54 million foreign residents. Record migration balance. The real question: how to work with a talent pool that has become genuinely international.
 - [Lisbon and the Portuguese Paradox](https://miradouro.blog/articles/06-soft-power-portugal-en.html): Portugal is still marked by emigration. But Lisbon now concentrates a new desirability, shaped by culture, tech, mobility and the idea of another life.

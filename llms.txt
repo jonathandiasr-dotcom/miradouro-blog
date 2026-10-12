@@ -8,6 +8,7 @@ Jonathan Dias travaille dans le conseil technologique à Lisbonne. Les articles 
 
 ## Articles en français
 
+- [Juniors et IA : comment apprend-on le métier ?](https://miradouro.blog/articles/12-juniors-ia-fr.html): Moins de demandes de juniors, plus d’outils IA : ce que disent les études sur la façon d’apprendre un métier, et pourquoi tout dépend des questions qu’on pose.
 - [Après l’argent : combien d’heures vaut encore le monde ?](https://miradouro.blog/articles/apres-argent-elon-musk-fr-v5.html): Elon Musk imagine un monde où l’argent compterait à peine. Mais produire, distribuer et décider restent trois problèmes différents, et la rareté ne disparaît pas si facilement.
 - [L'effet ciseaux, le nearshore portugais à un tournant](https://miradouro.blog/articles/01-scissor-effect-fr.html): Les coûts de vie à Lisbonne s envolent. Les salaires seniors progressent. Les tarifs nearshore stagnent. Ce que les benchmarks Teamlyzer disent que les RFPs ignorent.
 - [Portugal tech : pas une fuite des cerveaux, un hub qui aspire](https://miradouro.blog/articles/02-immigration-fr.html): 1,54 million de résidents étrangers. Solde migratoire record. La vraie question : comment capter un écosystème devenu plus international.
@@ -24,6 +25,7 @@ Jonathan Dias travaille dans le conseil technologique à Lisbonne. Les articles 
 
 ## Articles in English
 
+- [Juniors and AI: how do you learn the job?](https://miradouro.blog/articles/12-juniors-ai-en.html): Fewer junior roles, more AI tools: what the research says about learning a job with AI, and why it may come down to the questions you ask.
 - [After money: how many hours is the world still worth?](https://miradouro.blog/articles/after-money-elon-musk-en-v5.html): Elon Musk imagines a world in which money barely matters. But producing, distributing and deciding remain three different problems, and scarcity does not disappear so easily.
 - [The scissor effect, Portuguese nearshore at a turning point](https://miradouro.blog/articles/01-scissor-effect-en.html): Lisbon costs are rising. Senior salaries follow. Nearshore rates do not. What Teamlyzer data shows that most RFPs still ignore.
 - [Portugal tech: not a brain drain, a hub that draws in](https://miradouro.blog/articles/02-immigration-en.html): 1.54 million foreign residents. Record migration balance. The real question: how to work with a talent pool that has become genuinely international.
