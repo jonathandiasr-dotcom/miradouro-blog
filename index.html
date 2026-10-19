@@ -528,6 +528,11 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
 .th-ch time{font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--gold);min-width:38px}
 .th-actions{display:flex;flex-wrap:wrap;gap:10px}
 .th-btn{font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:12px 14px;background:transparent;color:var(--creme);border:1px solid rgba(251,248,242,.3);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.th-voice{display:flex;align-items:center;gap:4px;font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,248,242,.6)}
+.th-voice span{margin-right:6px}
+.th-voice button{background:transparent;border:1px solid rgba(251,248,242,.25);color:#FBF8F2;font:inherit;padding:12px 14px;cursor:pointer;transition:background .2s,border-color .2s}
+.th-voice button.on{background:#E8112D;border-color:#E8112D}
+.th-voice button:focus-visible{outline:2px solid #C4973A;outline-offset:2px}
 .th-btn:hover{border-color:#fff}
 .th-btn[disabled]{opacity:.45;cursor:not-allowed}
 .th-close{position:fixed;top:18px;right:20px;z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#fff;font-size:26px;line-height:1;cursor:pointer}
@@ -595,7 +600,7 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
           <video id="edLoop" muted loop playsinline autoplay preload="auto" poster="assets/video/chine-poster.jpg" aria-hidden="true"><source src="assets/video/chine-loop.mp4" type="video/mp4"></video>
           <span class="ed-live" data-fr="Aperçu" data-en="Preview">Aperçu</span>
           <span class="ed-big" aria-hidden="true"><i></i></span>
-          <span class="ed-over"><span class="lab"><span class="sm" data-fr="Le film · 6 min" data-en="The film · 6 min">Le film · 6 min</span><b data-fr="Cliquer pour agrandir" data-en="Click to watch big">Cliquer pour agrandir</b></span><span class="ed-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>6:04</span></span>
+          <span class="ed-over"><span class="lab"><span class="sm" data-fr="Le film · 6 min" data-en="The film · 6 min">Le film · 6 min</span><b data-fr="Cliquer pour agrandir" data-en="Click to watch big">Cliquer pour agrandir</b></span><span class="ed-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>6:18</span></span>
         </span>
         <span class="ed-pcl"><span>Miradouro · HS</span><span>中国 · China</span></span>
       </button>
@@ -617,7 +622,7 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
     <ul class="th-ch" id="thCh"></ul>
     <div class="th-actions">
       <button type="button" class="th-btn" onclick="thFull()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span data-fr="Plein écran" data-en="Full screen">Plein écran</span></button>
-      <button type="button" class="th-btn" disabled data-fr="English voice · soon" data-en="English voice · soon">English voice · soon</button>
+      <div class="th-voice" role="group" aria-label="Voice"><span data-fr="Voix" data-en="Voice">Voix</span><button type="button" id="vFR" onclick="setVoice('fr')">FR</button><button type="button" id="vEN" onclick="setVoice('en')">EN</button></div>
     </div>
   </aside>
 </div>
@@ -1343,16 +1348,25 @@ function filterArticles(filter) {
   function loop(){ph+=0.08;drawFlag('edFlag',ph);drawFlag('edFlag2',ph+1);if(!reduce)setTimeout(function(){requestAnimationFrame(loop)},80)}
   loop();
   var tr=document.getElementById('edTrack');if(tr)tr.innerHTML+=tr.innerHTML;
-  var CH=[[0,'Prologue','Prologue'],[39,'Le départ','The trip'],[61,'Cerveaux et modèles','Brains & models'],[88,'La matière et le verrou','Matter & the lock'],[128,'Le quotidien numérique','Digital daily life'],[172,'Un monde à part','A world apart'],[243,'Leurs entreprises chez nous','They come to us'],[257,'Mon métier : les ESN','My trade: IT services'],[299,'Les limites','The limits'],[331,'Ce qui a marché','What worked']];
+  var CH=[[0,0,'Prologue','Prologue'],[38,38,'Le départ','The trip'],[64,63,'Cerveaux et modèles','Brains & models'],[91,92,'La matière et le verrou','Matter & the lock'],[131,132,'Le quotidien numérique','Digital daily life'],[175,181,'Un monde à part','A world apart'],[248,254,'Leurs entreprises chez nous','They come to us'],[261,267,'Mon métier : les ESN','My trade: IT services'],[311,320,'Les limites','The limits'],[343,357,'Ce qui a marché','What worked']];
+  var SRC={fr:'assets/video/chine-film.mp4',en:'assets/video/chine-film-en.mp4'},voice=null;
   function fmt(t){return Math.floor(t/60)+':'+('0'+Math.floor(t%60)).slice(-2)}
-  window.buildChapters=function(){var ul=document.getElementById('thCh');if(!ul)return;var en=(window.currentLang||document.documentElement.lang)==='en';ul.innerHTML=CH.map(function(c,i){return '<li><button type="button" data-t="'+c[0]+'"><time>'+fmt(c[0])+'</time>'+(en?c[2]:c[1])+'</button></li>'}).join('');
+  function ci(){return voice==='en'?1:0}
+  window.buildChapters=function(){var ul=document.getElementById('thCh');if(!ul)return;var en=(window.currentLang||document.documentElement.lang)==='en',k=ci();ul.innerHTML=CH.map(function(c){return '<li><button type="button" data-t="'+c[k]+'"><time>'+fmt(c[k])+'</time>'+(en?c[3]:c[2])+'</button></li>'}).join('');
     ul.querySelectorAll('button').forEach(function(b){b.onclick=function(){var v=document.getElementById('thVideo');v.currentTime=+b.dataset.t;v.play()}})};
   var v=document.getElementById('thVideo');
-  if(v)v.addEventListener('timeupdate',function(){var t=v.currentTime,bs=document.querySelectorAll('#thCh button'),cur=0;CH.forEach(function(c,i){if(t>=c[0])cur=i});bs.forEach(function(b,i){b.classList.toggle('cur',i===cur)})});
-  window.openTheater=function(){var th=document.getElementById('theater');if(!v.getAttribute('src'))v.src='assets/video/chine-film.mp4';buildChapters();th.classList.add('on');document.body.classList.add('th-open');var l=document.getElementById('edLoop');if(l)l.pause();
+  if(v)v.addEventListener('timeupdate',function(){var t=v.currentTime,k=ci(),bs=document.querySelectorAll('#thCh button'),cur=0;CH.forEach(function(c,i){if(t>=c[k])cur=i});bs.forEach(function(b,i){b.classList.toggle('cur',i===cur)})});
+  window.setVoice=function(l,auto){if(l===voice)return;var t=v.currentTime||0,playing=v.getAttribute('src')&&!v.paused,from=ci(),nt=0;
+    if(voice&&t>0){var i=0;CH.forEach(function(c,j){if(t>=c[from])i=j});nt=CH[i][from===0?1:0]+(t-CH[i][from])}
+    voice=l;document.getElementById('vFR').classList.toggle('on',l==='fr');document.getElementById('vEN').classList.toggle('on',l==='en');
+    buildChapters();if(auto&&!v.getAttribute('src'))return;
+    v.src=SRC[l];if(nt>0)v.addEventListener('loadedmetadata',function f(){v.currentTime=nt;v.removeEventListener('loadedmetadata',f)});
+    if(playing||!auto){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+    if(window.gtag)gtag('event','chine_film_voice',{voice:l})};
+  window.openTheater=function(){var th=document.getElementById('theater');if(!voice)setVoice((window.currentLang||'fr')==='en'?'en':'fr',true);if(!v.getAttribute('src'))v.src=SRC[voice];buildChapters();th.classList.add('on');document.body.classList.add('th-open');var l=document.getElementById('edLoop');if(l)l.pause();
     var p=v.play();if(p&&p.catch)p.catch(function(){});
     if(window.innerWidth<700){try{if(v.requestFullscreen)v.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()}catch(e){}}
-    if(window.gtag)gtag('event','play_chine_film');};
+    if(window.gtag)gtag('event','play_chine_film',{voice:voice});};
   window.closeTheater=function(){var th=document.getElementById('theater');v.pause();th.classList.remove('on');document.body.classList.remove('th-open');var l=document.getElementById('edLoop');if(l)l.play().catch(function(){})};
   window.thFull=function(){var e=document.querySelector('.th-video');if(e.requestFullscreen)e.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()};
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('theater').classList.contains('on'))closeTheater()});
