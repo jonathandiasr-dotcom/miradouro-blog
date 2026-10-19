@@ -1377,7 +1377,7 @@ function filterArticles(filter) {
   function loop(){ph+=0.08;drawFlag('edFlag',ph);drawFlag('edFlag2',ph+1);if(!reduce)setTimeout(function(){requestAnimationFrame(loop)},80)}
   loop();
   var tr=document.getElementById('edTrack');if(tr)tr.innerHTML+=tr.innerHTML;
-  var CH=[[0,0,'Prologue','Prologue'],[38,38,'Le départ','The trip'],[64,63,'Cerveaux et modèles','Brains & models'],[91,92,'La matière et le verrou','Matter & the lock'],[131,132,'Le quotidien numérique','Digital daily life'],[175,181,'Un monde à part','A world apart'],[248,254,'Leurs entreprises chez nous','They come to us'],[261,267,'Mon métier : les ESN','My trade: IT services'],[311,320,'Les limites','The limits'],[343,357,'Ce qui a marché','What worked']];
+  var CH=[[0,0,'Prologue','Prologue'],[38,38,'Le départ','The trip'],[64,63,'Cerveaux et modèles','Brains & models'],[92,92,'La matière et le verrou','Matter & the lock'],[131,132,'Le quotidien numérique','Digital daily life'],[175,182,'Un monde à part','A world apart'],[248,255,'Leurs entreprises chez nous','They come to us'],[262,268,'Mon métier : les ESN','My trade: IT services'],[311,320,'Les limites','The limits'],[343,357,'Ce qui a marché','What worked']];
   var SRC={fr:'assets/video/chine-film.mp4',en:'assets/video/chine-film-en.mp4'},voice=null;
   function fmt(t){return Math.floor(t/60)+':'+('0'+Math.floor(t%60)).slice(-2)}
   function ci(){return voice==='en'?1:0}
