@@ -604,7 +604,7 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
     <div class="ed-stage">
       <button type="button" class="ed-card" onclick="openTheater()" aria-label="Regarder le film La Chine, vue d'ici">
         <span class="ed-screen">
-          <video id="edLoop" muted loop playsinline autoplay preload="auto" poster="assets/video/chine-poster.jpg" aria-hidden="true"><source src="assets/video/chine-loop.mp4" type="video/mp4"></video>
+          <video id="edLoop" muted loop playsinline autoplay preload="auto" poster="assets/video/chine-poster-v2.jpg" aria-hidden="true"><source src="assets/video/chine-loop-v2.mp4" type="video/mp4"></video>
           <span class="ed-live" data-fr="Aperçu" data-en="Preview">Aperçu</span>
           <span class="ed-big" aria-hidden="true"><i></i></span>
           <span class="ed-over"><span class="lab"><span class="sm" data-fr="Le film · 6 min 30" data-en="The film · 7 min">Le film · 6 min 30</span><b data-fr="Cliquer pour agrandir" data-en="Click to watch big">Cliquer pour agrandir</b></span><span class="ed-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span data-fr="6:33" data-en="7:10">6:33</span></span></span>
@@ -622,7 +622,7 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
 <!-- THÉÂTRE VIDÉO -->
 <div class="theater" id="theater" role="dialog" aria-modal="true" aria-label="La Chine, vue d'ici · film">
   <button type="button" class="th-close" onclick="closeTheater()" aria-label="Fermer">×</button>
-  <div class="th-video"><video id="thVideo" controls playsinline preload="none" poster="assets/video/chine-poster.jpg"></video></div>
+  <div class="th-video"><video id="thVideo" controls playsinline preload="none" poster="assets/video/chine-poster-v2.jpg"></video></div>
   <aside class="th-side">
     <div class="th-k" data-fr="Hors-série · Chine" data-en="One-off · China">Hors-série · Chine</div>
     <div class="th-t" data-fr="La Chine, <em>vue d'ici</em>" data-en="China, <em>seen from here</em>">La Chine, <em>vue d'ici</em></div>
@@ -1368,7 +1368,7 @@ function filterArticles(filter) {
 (function(){
   var tr=document.getElementById('edTrack');if(tr)tr.innerHTML+=tr.innerHTML;
   var CH=[[0, 0, "Prologue", "Prologue"], [24, 25, "Leur histoire", "Their history"], [77, 80, "Talents et technologies", "Talent & tech"], [189, 200, "Le mur", "The wall"], [249, 266, "Mon métier", "My trade"], [301, 327, "Les limites", "The limits"], [329, 361, "Et nous ?", "And us?"], [344, 377, "Le voyage", "The trip"]];
-  var SRC={fr:'assets/video/chine-film.mp4',en:'assets/video/chine-film-en.mp4'},voice=null;
+  var SRC={fr:'assets/video/chine-film-fr-v2.mp4',en:'assets/video/chine-film-en-v2.mp4'},voice=null;
   function fmt(t){return Math.floor(t/60)+':'+('0'+Math.floor(t%60)).slice(-2)}
   function ci(){return voice==='en'?1:0}
   window.buildChapters=function(){var ul=document.getElementById('thCh');if(!ul)return;var en=(window.currentLang||document.documentElement.lang)==='en',k=ci();ul.innerHTML=CH.map(function(c){return '<li><button type="button" data-t="'+c[k]+'"><time>'+fmt(c[k])+'</time>'+(en?c[3]:c[2])+'</button></li>'}).join('');
