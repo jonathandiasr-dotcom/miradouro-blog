@@ -1,0 +1,29 @@
+name: Remise en ligne edition Chine
+on:
+  schedule:
+    - cron: "0 11 23 10 *"   # vendredi 23/10 12h Lisbonne (11h UTC)
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Seulement le 23/10/2026
+        id: guard
+        run: |
+          if [ "$(date -u +%Y)" = "2026" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "go=1" >> $GITHUB_OUTPUT; fi
+      - uses: actions/checkout@v4
+        if: steps.guard.outputs.go == '1'
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Remettre l'arbre de la branche edition-speciale-chine sur main
+        if: steps.guard.outputs.go == '1'
+        run: |
+          git config user.name "Jonathan Dias"
+          git config user.email "jonathan.diasr@gmail.com"
+          git fetch origin edition-speciale-chine
+          git read-tree -u --reset origin/edition-speciale-chine
+          git commit -m "Remise en ligne de l'édition Chine (programmée, 23/10 12h Lisbonne)" || echo "rien à faire"
+          git push origin HEAD:main
