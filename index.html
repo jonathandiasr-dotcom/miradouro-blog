@@ -447,107 +447,6 @@ footer { background: var(--ferro); padding: clamp(36px,4vw,56px) clamp(24px,5vw,
     -webkit-line-clamp: 2;
   }
 }
-
-/* ===== ÉDITION SPÉCIALE · CHINE ===== */
-.edition{--cn:#E8112D;--cn-d:#B30C22;--gold:#E7B84A;--ink:#0A0B0E;position:relative;min-height:100vh;min-height:100svh;background:var(--ink);color:var(--creme);overflow:hidden;isolation:isolate;display:flex;flex-direction:column}
-.edition::before{content:'';position:absolute;inset:0;z-index:-2;background:radial-gradient(60% 70% at 78% 45%,rgba(232,17,45,.22),transparent 70%),radial-gradient(40% 50% at 10% 90%,rgba(231,184,74,.10),transparent 70%)}
-.edition::after{content:'';position:absolute;inset:0;z-index:-1;opacity:.35;background-image:radial-gradient(rgba(251,248,242,.09) 1px,transparent 1.2px);background-size:8px 8px;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%)}
-.ed-wrap{flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(32px,5vw,96px);align-items:center;padding:calc(58px + clamp(28px,5vh,64px)) clamp(20px,5vw,80px) clamp(28px,4vh,48px)}
-.ed-copy{max-width:680px}
-.ed-top{display:flex;align-items:center;gap:18px;margin-bottom:clamp(18px,3vh,30px)}
-.ed-flag{width:clamp(96px,9vw,150px);height:auto;display:block;filter:drop-shadow(0 14px 28px rgba(232,17,45,.35))}
-.ed-kicker{font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);line-height:1.7}
-.ed-kicker small{display:block;color:rgba(251,248,242,.5);font-size:10px;letter-spacing:.2em}
-.ed-title{font-family:var(--f1);font-weight:800;font-size:clamp(58px,8.6vw,148px);line-height:.86;letter-spacing:-.045em;margin:0 0 clamp(18px,3vh,30px);display:flex;align-items:flex-end;gap:.18em;flex-wrap:wrap}
-.ed-title .t{display:block}
-.ed-title em{display:block;font-style:italic;font-weight:300;color:var(--pom-l);letter-spacing:-.03em}
-.ed-seal{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;padding:.14em .2em .16em;margin:0 0 .16em .05em;background:var(--cn);color:var(--gold);font-family:"Songti SC","STSong","Noto Serif CJK SC","Source Han Serif SC","Noto Sans CJK SC",serif;font-weight:900;font-size:.34em;line-height:1;letter-spacing:.04em;border-radius:5px;box-shadow:inset 0 0 0 3px var(--cn),inset 0 0 0 5px rgba(231,184,74,.75),0 12px 30px rgba(232,17,45,.35);transform:rotate(-4deg);white-space:nowrap}
-.ed-deck{font-family:var(--f2);font-size:clamp(19px,1.7vw,24px);line-height:1.42;color:rgba(251,248,242,.82);max-width:560px;margin:0 0 clamp(20px,3.4vh,34px)}
-.ed-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(251,248,242,.12);border:1px solid rgba(251,248,242,.12);margin:0 0 clamp(22px,3.6vh,36px);max-width:620px}
-.ed-stat{background:var(--ink);padding:14px 16px}
-.ed-stat b{display:block;font-family:var(--f1);font-weight:700;font-size:clamp(24px,2.4vw,34px);line-height:1;color:var(--gold);letter-spacing:-.02em}
-.ed-stat span{display:block;margin-top:7px;font-family:var(--f3);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(251,248,242,.6);line-height:1.4}
-.ed-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
-.ed-play{position:relative;font-family:var(--f3);font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:19px 30px 19px 24px;background:var(--cn);color:#fff;border:0;border-radius:2px;display:inline-flex;align-items:center;gap:14px;cursor:pointer;box-shadow:0 18px 40px rgba(232,17,45,.35);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .2s}
-.ed-play:hover,.ed-play:focus-visible{background:var(--cn-d);transform:translateY(-2px);box-shadow:0 24px 48px rgba(232,17,45,.45)}
-.ed-play .ic{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center}
-.ed-play .ic::after{content:'';margin-left:3px;border-left:10px solid var(--cn);border-top:6.5px solid transparent;border-bottom:6.5px solid transparent}
-.ed-play small{font-weight:700;opacity:.75;letter-spacing:.12em}
-.ed-hint{font-family:var(--f2);font-style:italic;font-size:17px;color:rgba(251,248,242,.55);display:flex;align-items:center;gap:8px}
-.ed-hint svg{flex:0 0 auto}
-/* stage */
-.ed-stage{position:relative;height:min(calc(100svh - 58px - 150px),780px);aspect-ratio:4/5.55;min-height:480px}
-.ed-card{position:absolute;inset:0;display:block;width:100%;padding:12px 12px 56px;background:var(--creme);border:0;cursor:pointer;text-align:left;box-shadow:0 50px 100px rgba(0,0,0,.7),0 0 0 1px rgba(0,0,0,.2);transform:rotate(-2deg);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s}
-.ed-card:hover,.ed-card:focus-visible{transform:rotate(0) scale(1.02);box-shadow:0 60px 120px rgba(0,0,0,.75),0 0 0 1px rgba(0,0,0,.2)}
-.ed-screen{position:relative;display:block;width:100%;aspect-ratio:4/5;overflow:hidden;background:#07080B}
-.ed-screen>*{z-index:2}.ed-screen video{z-index:0;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
-.ed-screen::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,8,11,.25),rgba(7,8,11,.05) 35%,rgba(7,8,11,.35) 62%,rgba(7,8,11,.94));transition:opacity .4s}
-.ed-card:hover .ed-screen::after{opacity:.6}
-.ed-big{position:absolute;left:50%;top:46%;z-index:2;width:clamp(92px,9vw,124px);height:clamp(92px,9vw,124px);margin:calc(clamp(92px,9vw,124px)/-2) 0 0 calc(clamp(92px,9vw,124px)/-2);border-radius:50%;background:var(--cn);display:grid;place-items:center;box-shadow:0 20px 50px rgba(232,17,45,.5);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.ed-big::before,.ed-big::after{content:'';position:absolute;inset:-14px;border-radius:50%;border:2px solid rgba(232,17,45,.55);animation:edPulse 2.4s ease-out infinite}
-.ed-big::after{animation-delay:1.2s}
-.ed-big i{display:block;margin-left:8px;border-left:30px solid #fff;border-top:19px solid transparent;border-bottom:19px solid transparent}
-.ed-card:hover .ed-big{transform:scale(1.1)}
-@keyframes edPulse{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.5);opacity:0}}
-.ed-over{z-index:2;position:absolute;left:18px;right:18px;bottom:16px;z-index:2;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#fff}
-.ed-over .lab{font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
-.ed-over .lab b{display:block;font-family:var(--f1);font-size:clamp(20px,1.8vw,26px);letter-spacing:-.01em;text-transform:none;font-weight:700;margin-top:4px}
-.ed-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;background:rgba(7,8,11,.72);border:1px solid rgba(255,255,255,.22);font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.1em;backdrop-filter:blur(6px)}
-.ed-live{position:absolute;left:16px;top:14px;z-index:2;display:flex;align-items:center;gap:8px;font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:rgba(7,8,11,.6);padding:7px 10px;backdrop-filter:blur(6px)}
-.ed-live::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--cn);animation:edBlink 1.2s steps(2) infinite}
-@keyframes edBlink{50%{opacity:.2}}
-.ed-pcl{position:absolute;left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--verde)}
-.ed-stamp{position:absolute;right:-26px;top:-26px;z-index:3;width:104px;height:104px;border-radius:50%;background:var(--pom);color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--f1);font-style:italic;font-weight:700;font-size:15px;line-height:1.1;transform:rotate(12deg);box-shadow:0 14px 30px rgba(0,0,0,.4),inset 0 0 0 4px var(--pom),inset 0 0 0 6px rgba(255,255,255,.55);pointer-events:none}
-.ed-stamp small{display:block;font-family:var(--f3);font-style:normal;font-size:8px;letter-spacing:.18em;font-weight:800;margin-bottom:3px}
-.ed-pflag{position:absolute;left:-100px;top:38%;z-index:3;width:220px;transform:rotate(-9deg);pointer-events:none;filter:drop-shadow(0 12px 22px rgba(0,0,0,.5))}
-.ed-pflag img{display:block;width:100%;height:auto}
-/* ticker */
-.ed-ticker{position:relative;border-top:1px solid rgba(251,248,242,.12);background:rgba(10,11,14,.85);overflow:hidden;white-space:nowrap}
-.ed-track{display:inline-flex;gap:0;animation:edMarq 48s linear infinite;padding:14px 0}
-.ed-track span{font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,248,242,.62);padding:0 22px;position:relative}
-.ed-track span b{color:var(--gold);font-weight:800}
-.ed-track span::after{content:'';position:absolute;right:-3px;top:50%;width:6px;height:6px;margin-top:-3px;background:var(--cn)}
-@keyframes edMarq{to{transform:translateX(-50%)}}
-.ed-down{position:absolute;right:clamp(20px,5vw,80px);bottom:62px;font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,248,242,.5);text-decoration:none;display:flex;align-items:center;gap:8px}
-.ed-down:hover{color:#fff}
-/* theater */
-.theater{position:fixed;inset:0;z-index:12000;display:none;background:rgba(5,6,8,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);cursor:auto}
-.theater.on{display:grid;grid-template-columns:auto minmax(260px,340px);gap:clamp(20px,3vw,48px);align-items:center;justify-content:center;padding:clamp(16px,3vh,32px) clamp(16px,3vw,48px);animation:thIn .35s ease}
-@keyframes thIn{from{opacity:0}to{opacity:1}}
-.th-video{height:min(calc(100vh - 64px),1350px);aspect-ratio:4/5;background:#000;box-shadow:0 40px 120px rgba(0,0,0,.8);animation:thZoom .45s cubic-bezier(.16,1,.3,1)}
-@keyframes thZoom{from{transform:scale(.92);opacity:.4}to{transform:none;opacity:1}}
-.th-video video{display:block;width:100%;height:100%;background:#000}
-.th-side{color:var(--creme);max-height:calc(100vh - 64px);overflow:auto}
-.th-k{font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.th-t{font-family:var(--f1);font-weight:800;font-size:34px;line-height:1;letter-spacing:-.03em;margin-bottom:22px}
-.th-t em{font-weight:300;color:var(--pom-l)}
-.th-ch{list-style:none;margin:0 0 22px;padding:0;border-top:1px solid rgba(251,248,242,.12)}
-.th-ch button{width:100%;display:flex;gap:14px;align-items:baseline;padding:10px 2px;background:none;border:0;border-bottom:1px solid rgba(251,248,242,.12);color:rgba(251,248,242,.78);font-family:var(--f2);font-size:18px;text-align:left;cursor:pointer;transition:color .2s,padding .2s}
-.th-ch button:hover,.th-ch button.cur{color:#fff;padding-left:8px}
-.th-ch button.cur{box-shadow:inset 3px 0 0 #E8112D}
-.th-ch time{font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.1em;color:var(--gold);min-width:38px}
-.th-actions{display:flex;flex-wrap:wrap;gap:10px}
-.th-btn{font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;padding:12px 14px;background:transparent;color:var(--creme);border:1px solid rgba(251,248,242,.3);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
-.th-voice{display:flex;align-items:center;gap:4px;font-family:var(--f3);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,248,242,.6)}
-.th-voice span{margin-right:6px}
-.th-voice button{background:transparent;border:1px solid rgba(251,248,242,.25);color:#FBF8F2;font:inherit;padding:12px 14px;cursor:pointer;transition:background .2s,border-color .2s}
-.th-voice button.on{background:#E8112D;border-color:#E8112D}
-.th-voice button:focus-visible{outline:2px solid #C4973A;outline-offset:2px}
-.ed-voice{margin-left:4px}
-.ed-page{display:inline-block;margin-top:18px;font-family:var(--f3);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ouro);text-decoration:none;border-bottom:1px solid rgba(196,151,58,.4);padding-bottom:3px}
-.ed-page:hover{color:#fff;border-color:#fff}
-a.th-btn{text-decoration:none}
-.art-card-cn{border-top:3px solid #E8112D}
-.th-btn:hover{border-color:#fff}
-.th-btn[disabled]{opacity:.45;cursor:not-allowed}
-.th-close{position:fixed;top:18px;right:20px;z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.4);color:#fff;font-size:26px;line-height:1;cursor:pointer}
-.th-close:hover{background:#E8112D;border-color:#E8112D}
-body.th-open{overflow:hidden;cursor:auto}
-body.th-open .cursor,body.th-open .cursor-ring{display:none}
-@media(max-width:1000px){.ed-pflag{display:none!important}.ed-over .sm{display:none}.ed-over .lab b{font-size:20px}.ed-wrap{grid-template-columns:1fr;padding-top:calc(54px + 24px)}.ed-stage{order:-1;justify-self:center;height:auto;width:min(86vw,440px);min-height:0}.ed-card{position:relative}.ed-pflag{left:-14px;width:110px}.ed-stamp{right:-10px;top:-18px;width:84px;height:84px;font-size:13px}.ed-down{display:none}
-.theater.on{grid-template-columns:1fr;align-content:start;overflow:auto;padding:64px 0 24px}.th-video{height:auto;width:100vw;max-height:none}.th-side{padding:20px;max-height:none}}
-@media(max-width:560px){.ed-stats{grid-template-columns:1fr 1fr 1fr}.ed-stat{padding:12px 10px}.ed-stat span{font-size:9px}.ed-title{font-size:clamp(50px,15vw,72px)}}
-@media(prefers-reduced-motion:reduce){.ed-track,.ed-big::before,.ed-big::after,.ed-live::before{animation:none}}
 </style>
 <link rel="stylesheet" href="assets/site-header.css">
 </head>
@@ -578,62 +477,6 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
     <button type="button" onclick="setLang('en')" id="btnEN">EN</button>
   </div>
 </header>
-
-<!-- ÉDITION SPÉCIALE · CHINE -->
-<section class="edition" id="chine" aria-label="Édition spéciale Chine">
-  <div class="ed-wrap">
-    <div class="ed-copy">
-      <div class="ed-top">
-        <img class="ed-flag" src="assets/chine/china-map-flag.png" width="150" height="120" alt="Carte de la Chine aux couleurs de son drapeau">
-        <div class="ed-kicker"><span data-fr="Édition spéciale · Hors-série" data-en="Special edition · One-off">Édition spéciale · Hors-série</span><small data-fr="Lisbonne → Chine · 23.10 – 08.11" data-en="Lisbon → China · 23.10 – 08.11">Lisbonne → Chine · 23.10 – 08.11</small></div>
-      </div>
-      <h2 class="ed-title"><span class="t"><span data-fr="La Chine," data-en="China,">La Chine,</span><em data-fr="vue d'ici." data-en="seen from here.">vue d'ici.</em></span><span class="ed-seal" aria-hidden="true">中国</span></h2>
-      <p class="ed-deck" data-fr="Je pars en Chine le 23 octobre. Avant de partir, je me suis posé quatre questions : un film de six minutes et demie sur ce qu'on ne voit pas d'ici." data-en="I fly to China on 23 October. Before going, I asked myself four questions: a seven-minute film about what we don't see from here.">Je pars en Chine le 23 octobre. Avant de partir, je me suis posé quatre questions : un film de six minutes et demie sur ce qu'on ne voit pas d'ici.</p>
-      <div class="ed-stats">
-        <div class="ed-stat"><b>1,4 Md</b><span data-fr="utilisateurs de WeChat" data-en="WeChat users">utilisateurs de WeChat</span></div>
-        <div class="ed-stat"><b>57 %</b><span data-fr="des meilleurs chercheurs en IA formés en Chine" data-en="of top AI researchers trained in China">des meilleurs chercheurs en IA formés en Chine</span></div>
-        <div class="ed-stat"><b data-fr="89 %" data-en="89%">89 %</b><span data-fr="des achats en magasin payés par application" data-en="of in-store spending paid via apps">des achats en magasin payés par application</span></div>
-      </div>
-      <div class="ed-cta">
-        <button type="button" class="ed-play" onclick="openTheater()"><span class="ic"></span><span data-fr="Regarder le film" data-en="Watch the film">Regarder le film</span><small data-fr="6 min 30" data-en="7 min">6 min 30</small></button>
-        <span class="ed-voice th-voice" role="group" aria-label="Voix du film"><span data-fr="Voix" data-en="Voice">Voix</span><button type="button" data-voice="fr" onclick="window._voiceManual=1;setVoice('fr',true)">FR</button><button type="button" data-voice="en" onclick="window._voiceManual=1;setVoice('en',true)">EN</button></span>
-        <span class="ed-hint"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span data-fr="s'ouvre en grand écran, avec le son" data-en="opens full screen, with sound">s'ouvre en grand écran, avec le son</span></span>
-      </div>
-      <a class="ed-page" id="ed-page" href="articles/13-chine-vue-dici-fr.html" data-fr="Les sources, les chapitres et les limites des données →" data-en="Sources, chapters and the limits of the data →">Les sources, les chapitres et les limites des données →</a>
-    </div>
-    <div class="ed-stage">
-      <button type="button" class="ed-card" onclick="openTheater()" aria-label="Regarder le film La Chine, vue d'ici">
-        <span class="ed-screen">
-          <video id="edLoop" muted loop playsinline autoplay preload="auto" poster="assets/video/chine-poster-v2.jpg" aria-hidden="true"><source src="assets/video/chine-loop-v2.mp4" type="video/mp4"></video>
-          <span class="ed-live" data-fr="Aperçu" data-en="Preview">Aperçu</span>
-          <span class="ed-big" aria-hidden="true"><i></i></span>
-          <span class="ed-over"><span class="lab"><span class="sm" data-fr="Le film · 6 min 30" data-en="The film · 7 min">Le film · 6 min 30</span><b data-fr="Cliquer pour agrandir" data-en="Click to watch big">Cliquer pour agrandir</b></span><span class="ed-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span data-fr="6:33" data-en="7:10">6:33</span></span></span>
-        </span>
-        <span class="ed-pcl"><span>Miradouro · HS</span><span>中国 · China</span></span>
-      </button>
-      <div class="ed-stamp" aria-hidden="true"><span><small>Départ</small>23.10<br>→ 08.11</span></div>
-      <div class="ed-pflag" aria-hidden="true"><img src="assets/chine/china-wall-sticker.png" width="170" height="141" alt=""></div>
-    </div>
-  </div>
-  <a class="ed-down" href="#articles"><span data-fr="Le reste du blog" data-en="The rest of the blog">Le reste du blog</span> ↓</a>
-  <div class="ed-ticker" aria-hidden="true"><div class="ed-track" id="edTrack"><span>Shanghai</span><span>Guizhou</span><span>Zhangjiajie</span><span>Beijing</span><span><b>1820</b> · ⅓ world GDP</span><span><b>57%</b> AI researchers</span><span>Qwen · DeepSeek · Kimi</span><span><b>72%</b> TSMC</span><span><b>×3</b> compute</span><span>WeChat <b>1.4bn</b></span><span>e-CNY <b>¥14tn</b></span><span>HarmonyOS</span><span><b>23M+</b> robotaxi rides</span><span>Kombava à Tracks</span></div></div>
-</section>
-
-<!-- THÉÂTRE VIDÉO -->
-<div class="theater" id="theater" role="dialog" aria-modal="true" aria-label="La Chine, vue d'ici · film">
-  <button type="button" class="th-close" onclick="closeTheater()" aria-label="Fermer">×</button>
-  <div class="th-video"><video id="thVideo" controls playsinline preload="none" poster="assets/video/chine-poster-v2.jpg"></video></div>
-  <aside class="th-side">
-    <div class="th-k" data-fr="Hors-série · Chine" data-en="One-off · China">Hors-série · Chine</div>
-    <div class="th-t" data-fr="La Chine, <em>vue d'ici</em>" data-en="China, <em>seen from here</em>">La Chine, <em>vue d'ici</em></div>
-    <ul class="th-ch" id="thCh"></ul>
-    <div class="th-actions">
-      <button type="button" class="th-btn" onclick="thFull()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span data-fr="Plein écran" data-en="Full screen">Plein écran</span></button>
-      <div class="th-voice" role="group" aria-label="Voice"><span data-fr="Voix" data-en="Voice">Voix</span><button type="button" id="vFR" data-voice="fr" onclick="window._voiceManual=1;setVoice('fr')">FR</button><button type="button" id="vEN" data-voice="en" onclick="window._voiceManual=1;setVoice('en')">EN</button></div>
-      <a class="th-btn" id="th-page" href="articles/13-chine-vue-dici-fr.html" data-fr="Sources et chapitres →" data-en="Sources & chapters →">Sources et chapitres →</a>
-    </div>
-  </aside>
-</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -701,7 +544,7 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
   <div class="articles-header">
     <span class="articles-title" data-fr="Analyses" data-en="Analysis">Analyses</span>
     <span class="articles-theme-active" id="theme-label" data-fr="- IA & Société" data-en="- AI & Society">- IA & Société</span>
-    <span class="articles-count" id="articles-count" data-fr="13 articles · + HS" data-en="13 articles · + special">13 articles · + HS</span>
+    <span class="articles-count" id="articles-count" data-fr="12 articles · + HS" data-en="12 articles · + special">12 articles · + HS</span>
   </div>
 
   <!-- Filtres thématiques -->
@@ -762,24 +605,6 @@ body.th-open .cursor,body.th-open .cursor-ring{display:none}
 
   <!-- NIVEAU 2 : grille 3 colonnes -->
   <div class="analyses-grid" id="cardsGrid">
-
-    <!-- N°13 : La Chine, vue d'ici (film) -->
-    <a href="articles/13-chine-vue-dici-fr.html" id="card-13" class="art-card art-card-cn sr" data-theme="ai">
-      <div class="art-card-top">
-        <span class="art-tag tag-g" data-fr="Hors-série · Film" data-en="One-off · Film">Hors-série · Film</span>
-        <span class="art-num">13</span>
-      </div>
-      <h3 class="art-title" data-fr="La Chine, <em>vue d'ici</em>" data-en="China, <em>seen from here</em>">La Chine, <em>vue d'ici</em></h3>
-      <p class="art-intro" data-fr="Un film de six minutes et demie avant mon voyage : histoire, talents, mur numérique, ESN. Ce que disent les chiffres, et où ils s'arrêtent." data-en="A seven-minute film before my trip: history, talent, the digital wall, IT services. What the numbers say, and where they stop.">Un film de six minutes et demie avant mon voyage : histoire, talents, mur numérique, ESN. Ce que disent les chiffres, et où ils s'arrêtent.</p>
-      <div class="art-stat-inline">
-        <div class="art-stat-n">1820</div>
-        <div class="art-stat-l" data-fr="La Chine produit près d'un tiers<br>de la richesse mondiale" data-en="China produces nearly a third<br>of the world's wealth">La Chine produit près d'un tiers<br>de la richesse mondiale</div>
-      </div>
-      <div class="art-foot">
-        <span class="art-time" data-fr="Octobre 2026 · film 6 min 30" data-en="October 2026 · 7-min film">Octobre 2026 · film 6 min 30</span>
-        <span class="art-arrow" data-fr="Voir" data-en="Watch">Voir →</span>
-      </div>
-    </a>
 
     <!-- N°11 : Après l'argent -->
     <a href="articles/apres-argent-elon-musk-fr-v5.html" id="card-11" class="art-card sr" data-theme="ai">
@@ -1185,9 +1010,6 @@ document.querySelectorAll('.sr').forEach(el => revealObs.observe(el));
   ARTICLE LINKS
 ========================================*/
 const ARTICLE_LINKS = {
-  'card-13':    { fr: 'articles/13-chine-vue-dici-fr.html', en: 'articles/13-china-seen-from-here-en.html' },
-  'ed-page':    { fr: 'articles/13-chine-vue-dici-fr.html', en: 'articles/13-china-seen-from-here-en.html' },
-  'th-page':    { fr: 'articles/13-chine-vue-dici-fr.html', en: 'articles/13-china-seen-from-here-en.html' },
   'card-12':    { fr: 'articles/12-juniors-ia-fr.html', en: 'articles/12-juniors-ai-en.html' },
   'card-11':    { fr: 'articles/apres-argent-elon-musk-fr-v5.html', en: 'articles/after-money-elon-musk-en-v5.html' },
   'card-10':    { fr: 'articles/portugal-interface-atlantique-fr.html', en: 'articles/portugal-atlantic-interface-en.html' },
@@ -1363,34 +1185,6 @@ function filterArticles(filter) {
 /*========================================
   LANGUE
 ========================================*/
-
-/*========== ÉDITION SPÉCIALE · CHINE ==========*/
-(function(){
-  var tr=document.getElementById('edTrack');if(tr)tr.innerHTML+=tr.innerHTML;
-  var CH=[[0, 0, "Prologue", "Prologue"], [24, 25, "Leur histoire", "Their history"], [77, 80, "Talents et technologies", "Talent & tech"], [189, 200, "Le mur", "The wall"], [249, 266, "Mon métier", "My trade"], [301, 327, "Les limites", "The limits"], [329, 361, "Et nous ?", "And us?"], [344, 377, "Le voyage", "The trip"]];
-  var SRC={fr:'assets/video/chine-film-fr-v2.mp4',en:'assets/video/chine-film-en-v2.mp4'},voice=null;
-  function fmt(t){return Math.floor(t/60)+':'+('0'+Math.floor(t%60)).slice(-2)}
-  function ci(){return voice==='en'?1:0}
-  window.buildChapters=function(){var ul=document.getElementById('thCh');if(!ul)return;var en=(window.currentLang||document.documentElement.lang)==='en',k=ci();ul.innerHTML=CH.map(function(c){return '<li><button type="button" data-t="'+c[k]+'"><time>'+fmt(c[k])+'</time>'+(en?c[3]:c[2])+'</button></li>'}).join('');
-    ul.querySelectorAll('button').forEach(function(b){b.onclick=function(){var v=document.getElementById('thVideo');v.currentTime=+b.dataset.t;v.play()}})};
-  var v=document.getElementById('thVideo');
-  if(v)v.addEventListener('timeupdate',function(){var t=v.currentTime,k=ci(),bs=document.querySelectorAll('#thCh button'),cur=0;CH.forEach(function(c,i){if(t>=c[k])cur=i});bs.forEach(function(b,i){b.classList.toggle('cur',i===cur)})});
-  window.setVoice=function(l,auto){if(l===voice)return;var t=v.currentTime||0,playing=v.getAttribute('src')&&!v.paused,from=ci(),nt=0;
-    if(voice&&t>0){var i=0;CH.forEach(function(c,j){if(t>=c[from])i=j});nt=CH[i][from===0?1:0]+(t-CH[i][from])}
-    voice=l;document.querySelectorAll('[data-voice]').forEach(function(b){b.classList.toggle('on',b.dataset.voice===l);b.setAttribute('aria-pressed',b.dataset.voice===l)});
-    buildChapters();if(auto&&!v.getAttribute('src'))return;
-    v.src=SRC[l];if(nt>0)v.addEventListener('loadedmetadata',function f(){v.currentTime=nt;v.removeEventListener('loadedmetadata',f)});
-    if(playing||!auto){var p=v.play();if(p&&p.catch)p.catch(function(){})}
-    if(window.gtag)gtag('event','chine_film_voice',{voice:l})};
-  window.openTheater=function(){var th=document.getElementById('theater');if(!voice)setVoice((window.currentLang||'fr')==='en'?'en':'fr',true);if(!v.getAttribute('src'))v.src=SRC[voice];buildChapters();th.classList.add('on');document.body.classList.add('th-open');var l=document.getElementById('edLoop');if(l)l.pause();
-    var p=v.play();if(p&&p.catch)p.catch(function(){});
-    if(window.innerWidth<700){try{if(v.requestFullscreen)v.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()}catch(e){}}
-    if(window.gtag)gtag('event','play_chine_film',{voice:voice});};
-  window.closeTheater=function(){var th=document.getElementById('theater');v.pause();th.classList.remove('on');document.body.classList.remove('th-open');var l=document.getElementById('edLoop');if(l)l.play().catch(function(){})};
-  window.thFull=function(){var e=document.querySelector('.th-video');if(e.requestFullscreen)e.requestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()};
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('theater').classList.contains('on'))closeTheater()});
-  document.getElementById('theater').addEventListener('click',function(e){if(e.target===this)closeTheater()});
-})();
 function setLang(l) {
   currentLang = l;
   document.getElementById('btnFR').classList.toggle('active', l==='fr');
@@ -1402,8 +1196,6 @@ function setLang(l) {
   document.documentElement.lang = l;
   localStorage.setItem('mira_lang', l);
   applyArticleLinks(l);
-  if(window.buildChapters)buildChapters();
-  if(window.setVoice&&!window._voiceManual)setVoice(l==='en'?'en':'fr',true);
   // Mettre à jour le lien hero selon thème actif
   var d2 = THEME_DATA[currentTheme];
   if(d2) document.getElementById('link-hero').href = (l === 'en') ? d2.link_en : d2.link_fr;
@@ -1422,7 +1214,6 @@ const savedLang = localStorage.getItem('mira_lang') || 'fr';
 currentLang = savedLang;
 if(savedLang === 'en') setLang('en');
 else { applyArticleLinks('fr'); }
-if(window.setVoice&&!window._voiceManual)setVoice(savedLang==='en'?'en':'fr',true);
 
 // Filtre par défaut : tout visible
 filterArticles('all');
