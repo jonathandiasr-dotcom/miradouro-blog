@@ -32,7 +32,7 @@ for (const relative of publicFiles) {
   if (canonicalTags.length !== 1) errors.push(`${relative}: expected 1 canonical, found ${canonicalTags.length}`);
   if (!canonical.startsWith(`${baseUrl}/`)) errors.push(`${relative}: canonical is not on ${baseUrl}`);
   if (descriptions.length !== 1 || !description.trim()) errors.push(`${relative}: missing or duplicate description`);
-  if (ogImages.length !== 1 || !ogImages[0].includes(`${baseUrl}/assets/og-default.png`)) errors.push(`${relative}: missing or incorrect og:image`);
+  if (ogImages.length !== 1 || !(ogImages[0].includes(`${baseUrl}/assets/og-default.png`) || ogImages[0].includes(`${baseUrl}/assets/og/`))) errors.push(`${relative}: missing or incorrect og:image`);
   if (favicons.length !== 1 || !favicons[0].includes(`${baseUrl}/assets/favicon.svg`)) errors.push(`${relative}: missing or incorrect favicon`);
   if (description.length < 80 || description.length > 180) warnings.push(`${relative}: description length ${description.length}`);
   if (relative !== "index.html" && hreflangCount !== 3) errors.push(`${relative}: expected 3 hreflang links, found ${hreflangCount}`);

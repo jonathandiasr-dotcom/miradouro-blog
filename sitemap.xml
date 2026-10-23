@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://miradouro.blog/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-22</lastmod>
+  </url>
+  <url>
+    <loc>https://miradouro.blog/articles/13-chine-vue-dici-fr.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/13-chine-vue-dici-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/13-china-seen-from-here-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/13-chine-vue-dici-fr.html"/>
+    <video:video>
+      <video:thumbnail_loc>https://miradouro.blog/assets/video/chine-poster-v2.jpg</video:thumbnail_loc>
+      <video:title>La Chine, vue d&apos;ici</video:title>
+      <video:description>Un film de 6 minutes en pixel art avant mon voyage en Chine : IA ouverte, puces, super-applications, internet à part, ESN. Ce que disent les chiffres, et où ils s&apos;arrêtent.</video:description>
+      <video:content_loc>https://miradouro.blog/assets/video/chine-film-fr-v2.mp4</video:content_loc>
+      <video:duration>378</video:duration>
+      <video:publication_date>2026-10-22T08:00:00+01:00</video:publication_date>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://miradouro.blog/articles/13-china-seen-from-here-en.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://miradouro.blog/articles/13-chine-vue-dici-fr.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://miradouro.blog/articles/13-china-seen-from-here-en.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://miradouro.blog/articles/13-chine-vue-dici-fr.html"/>
+    <video:video>
+      <video:thumbnail_loc>https://miradouro.blog/assets/video/chine-poster-v2.jpg</video:thumbnail_loc>
+      <video:title>China, seen from here</video:title>
+      <video:description>A 6-minute pixel-art film before my trip to China: open AI, chips, super-apps, a separate internet, IT services. What the numbers say, and where they stop.</video:description>
+      <video:content_loc>https://miradouro.blog/assets/video/chine-film-en-v2.mp4</video:content_loc>
+      <video:duration>391</video:duration>
+      <video:publication_date>2026-10-22T08:00:00+01:00</video:publication_date>
+    </video:video>
   </url>
   <url>
     <loc>https://miradouro.blog/miradouro-map.html</loc>
